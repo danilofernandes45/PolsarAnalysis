@@ -62,35 +62,62 @@
 
 %Introducao
 \section{Introdução}
-Radares de abertura sintética (Synthetic Aperture Radar - SAR) tem a capacidade de capturar imagens da superfície terrestre dia e noite, e quase que independente das condições climáticas~\cite{Shen17}. Tal característica se dá devido o imageamento desse tipo de radar ocorrer por meio do envio de ondas eletromagnéticas no espectro de microondas e recepção das mesmas quando refletidas pelo alvo. Isso proporciona uma grande vantagem no sensoriamento remoto em relação a radares óticos, o que justifica o seu uso amplo em diversas áreas. 
+Radares de abertura sintética (\textit{Synthetic Aperture Radar} -- SAR) tem a capacidade de capturar imagens da superfície terrestre dia e noite, e quase que independente das condições climáticas~\cite{Shen17}. 
+Tal característica se dá devido o imageamento desse tipo de radar ocorrer por meio do envio de ondas eletromagnéticas no espectro de microondas e recepção das mesmas quando refletidas pelo alvo. 
+Isso proporciona uma grande vantagem no sensoriamento remoto em relação a radares óticos, o que justifica o seu uso amplo em diversas áreas. 
 
-Além do mais, é possível utilizar a polarização das ondas enviadas e recebidas para caracterizar os objetos monitorados. Tal aperfeiçoamento da tecnologia SAR é chamado SAR Polarimétrico (Polarimetric SAR - PolSAR). O dado PolSAR descreve as mudanças do estado de polarização da microonda recebida pelas estruturas e as constantes dielétricas dos objetos~\cite{Ouchi13}, de modo que estas propriedades podem, em princípio, serem extraídas do dado polarimétrico. 
+Além do mais, é possível utilizar a polarização das ondas enviadas e recebidas para caracterizar os objetos monitorados. Tal aperfeiçoamento da tecnologia SAR é chamado SAR Polarimétrico (\textit{Polarimetric SAR} -- PolSAR). 
+O dado PolSAR descreve as mudanças do estado de polarização da microonda recebida pelas estruturas e as constantes dielétricas dos objetos~\cite{Ouchi13}, de modo que estas propriedades podem, em princípio, serem extraídas do dado polarimétrico. 
 
-Sistemas SAR geram as imagens da área alvo movendo-se usualmente ao longo de uma trajetoria linear, e transmitindo lateralmente pulsos em direção ao chão, na polarização horizontal (H) ou vertical (V)~\cite{Richards09}. A imagem pode ser obtida reunindo todos os dados de intensidade e fase do sinal eletromagnético após ter sido refletido pelo alvo em uma dada polarização~\cite{Pottier09}, onde cada polarização em uma dada cena gera uma imagem complexa.
+Sistemas SAR geram as imagens da área alvo movendo-se usualmente ao longo de uma trajetoria linear, e transmitindo lateralmente pulsos em direção ao chão, na polarização horizontal (H) ou vertical (V)~\cite{Richards09}. 
+A imagem pode ser obtida reunindo todos os dados de intensidade e fase do sinal eletromagnético após ter sido refletido pelo alvo em uma dada polarização~\cite{Pottier09}, onde cada polarização em uma dada cena gera uma imagem complexa.
 
-É comum denotar as imagens complexas das polarizações HH, VV e HV como $S_{HH}$, $S_{HV}$ e $S_{VV}$~\cite{Frery15}, onde HV denota um pulso enviado com polarização horizontal e recibido com polarização vertical. Multiplicando o vetor [$S_{HH}$  $S_{HV}$ $S_{VV}$] por seu transposto conjugado [$S_{HH}^*$  $S_{HV}^*$ $S_{VV}^*$]$^t$, obtem-se uma matrix de covariância.
-
+É comum denotar as imagens complexas das polarizações HH, VV e HV como $S_{\text{HH}}$, $S_{\text{HV}}$ e $S_{\text{VV}}$~\cite{Frery15}, 
+% % % ACF Arrume toda a notação confirme a linha acima
+onde HV denota um pulso enviado com polarização horizontal e recibido com polarização vertical. Multiplicando o vetor [$S_{HH}$  $S_{HV}$ $S_{VV}$] por seu transposto conjugado [$S_{HH}^*$  $S_{HV}^*$ $S_{VV}^*$]$^t$, obtem-se uma matrix de covariância:
 \[
 z = 
 \begin{bmatrix}
 	S_{HH}^*S_{HH} & S_{HH}^*S_{HV} & S_{HH}^*S_{VV}\\
     S_{HV}^*S_{HH} & S_{HV}^*S_{HV} & S_{HV}^*S_{VV}\\
     S_{VV}^*S_{HH} & S_{VV}^*S_{HV} & S_{VV}^*S_{VV}\\
-\end{bmatrix}
+\end{bmatrix},
 \]
+em que a diagonal principal contem números reais não negativos que representam a intensidade de um sinal medido em uma dada polarização. 
+% % % ACF Defina os operadores t e *
+%Tomando suas raízes quadradas, obtem-se os valores de amplitude. 
+% % % ACF Raramente usaremos amplitude, melhor omitir
+Os demais elementos são números complexos e contém informações sobre a diferença de amplitude e fase entre duas polarizações.
 
-Onde a diagonal principal contem números reais e representam a intensidade de um sinal medido em uma dada polarização. Tomando suas raízes quadradas, obtem-se os valores de amplitude. Os demais elementos são números complexos e contém informações sobre a diferença de amplitude e fase entre duas polarizações.
+Na maioria dos sistemas SAR ou PolSAR, o tamanho da resolução de uma célula é muito maior que o comprimento de onda. 
+A medida  do sinal é então uma adição coerente dos ecos de todos os alvos individuais dentro de uma dada célula. 
+Dependendo da fase relativa de cada onda retroespelhada, a adição coerente pode ser construtiva ou destrutiva, e isso produz um efeito salpicado sobre as imagens SAR~\cite{Goodman76}. 
+A esse efeito dá-se o nome de \textit{speckle}.
+% % % Faltou uma transição com o próximo parâgrafo:
 
-Na maioria dos sistemas SAR ou PolSAR, o tamanho da resolução de uma célula é muito maior que o comprimento de onda. A medida  do sinal é então uma adição coerente dos ecos de todos os alvos individuais dentro de uma dada célula. Dependendo da fase relativa de cada onda retroespelhada, a adição coerente pode ser construtiva ou destrutiva, e isso produz um efeito salpicado sobre as imagens SAR~\cite{Goodman76}. A esse efeito dá-se o nome de \textit{speckle}.
+O speckle, embora determinístico, é muito difícil de ser tratado dessa forma.
+Por se tratar de um fenômeno que depende tipicamente de uma grande quantidade de retroespalhadores por célula de resolução, é mais conveniente tratá-lo como se fosse um processo aleatório.
 
-Portanto, as propriedades do objeto a ser monitorado devem ser extraídas por meio de análises estatísticas dos dados. Consequentemente, um modelo estatístico acurado para descrever os dados torna-se de grande relevância para a extração de informações de objetos da superfície terrestre~\cite{Lee99}.
+Portanto, as propriedades do objeto a ser monitorado devem ser extraídas por meio de análises estatísticas dos dados. 
+Consequentemente, um modelo estatístico acurado para descrever os dados torna-se de grande relevância para a extração de informações de objetos da superfície terrestre~\cite{Lee99}.
 
 \newpage
 
 \section{Visualização de imagens PolSAR}
-As imagens PolSAR podem ser visualizadas por meio da manipulação dos dados que representam a intensidade do sinal de cada uma das polarizações, ou seja, $S_{HH}^*S_{HH}$, $S_{HV}^*S_{HV}$ e $S_{VV}^*S_{VV}$, os quais correspondem respectivamente as bandas RGB. O seguinte algoritmo proporciona tal visualização; onde, para fins de otimização, houve compressão da imagem a qual pode ser imaginada como uma segmentação da imagem em matrizes quadradas de ordem cinco e então somente o valor central de cada matriz é selecionado para ser processado e compor a imagem a ser exibida. 
+As imagens PolSAR podem ser visualizadas por meio da manipulação dos dados que representam a intensidade do sinal de cada uma das polarizações, ou seja, $S_{HH}^*S_{HH}$, $S_{HV}^*S_{HV}$ e $S_{VV}^*S_{VV}$, 
+% % % ACF esse é apenas um dos muitos mapeamentos possíveis. Trate isso de forma mais geral, como uma projeção da matriz z em um espaço de cores. Os espaços de cores são tridimensionais, fato que impõe uma redução de dimensionalidade
+os quais correspondem respectivamente as bandas RGB. 
+O seguinte algoritmo proporciona tal visualização; onde, para fins de otimização, houve compressão da imagem a qual pode ser imaginada como uma segmentação da imagem em matrizes quadradas de ordem cinco e então somente o valor central de cada matriz é selecionado para ser processado e compor a imagem a ser exibida. 
 
-Os dados utilizados estão no formato mlc (calibrated multi-looked) e estão disponíveis no site da \href{https://uavsar.jpl.nasa.gov/cgi-bin/product.pl?jobName=trauns_22551_15087_016_150604_L090_CX_01#data}{UAVSAR}, com sua respectiva documentação. Nesta implementação os dados correspondentes a cada uma das bandas foram interpretados como componentes de uma matriz de ordem 5773x3300, que é resolução da imagem PolSAR original. Esses dados são números com ponto flutuante representados por quatro bytes, onde para obter uma imagem a partir deles deve-se estabelecer um função de densidade de probabilidade acumulada para cada uma das bandas RGB e aplicá-la para todos os seus valores. As matrizes resultantes desse processo irão, por fim, compor a imagem PolSAR desejada. 
+Os dados utilizados estão no formato \texttt{mlc} (calibrated multi-looked) e estão disponíveis no site da \href{https://uavsar.jpl.nasa.gov/cgi-bin/product.pl?jobName=trauns_22551_15087_016_150604_L090_CX_01#data}{UAVSAR}, com sua respectiva documentação. 
+Nesta implementação os dados correspondentes a cada uma das bandas foram interpretados como componentes de uma matriz de ordem 5773x3300, 
+% % % ACF Use o pacote siunitx 
+que é resolução da imagem PolSAR original. 
+Esses dados são valores armazenados em ponto flutuante representados por quatro bytes, e para obter uma imagem a partir deles deve-se estabelecer um função de densidade de probabilidade acumulada para cada uma das bandas RGB e aplicá-la para todos os seus valores. 
+% % % ACF Não está boa a parte da equalização do histograma. Melhor omitir referências a processamento de imagens
+As matrizes resultantes desse processo irão, por fim, compor a imagem PolSAR desejada. 
+
+% % % ACF O algoritmo a seguir faz subamostragem, e você não falou disso
 
 \begin{verbatim}
 
