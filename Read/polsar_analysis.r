@@ -43,35 +43,56 @@ equalize <- function(data, nrow, ncol){
   return(data)
 }
 
+generate_image <- function(file_HHHH, file_HVHV, file_VVVV, nrow , ncol, tag){
+  
+  amplitude_matrix <- fill_matrix_from_mlc(file_HHHH, file_HVHV, file_VVVV, nrow , ncol)
+  
+  #Close files
+  close(file_HHHH)
+  close(file_HVHV)
+  close(file_VVVV)
+  #Remove file from RAM memory
+  rm(file_HHHH, file_HVHV, file_VVVV)
+  
+  #Direct projection of Z on colors' space
+  equalized_matrix <- equalize(amplitude_matrix, nrow, ncol)
+  
+  writePNG(equalized_matrix, target = paste("Images/", tag, "_image.png", sep=""))
+  
+  rm(equalized_matrix)
+  
+  #Pauli decomposition
+  pauli_matrix <- pauli_decomposition(amplitude_matrix, nrow, ncol)
+  
+  rm(amplitude_matrix)
+  
+  equalized_matrix <- equalize(pauli_matrix, nrow, ncol)
+  
+  writePNG(equalized_matrix, target = paste("Images/",tag ,"_pauli_image.png", sep=""))
+  
+}
+
 nrow <- 4512
 ncol <- 3300
+
+#Source: UAVSAR
+#Link: https://uavsar.jpl.nasa.gov/cgi-bin/product.pl?jobName=trauns_22551_15087_016_150604_L090_CX_01#data
 
 file_HHHH <- file("MLC_Data/HHHH.mlc", "rb")
 file_HVHV <- file("MLC_Data/HVHV.mlc", "rb")
 file_VVVV <- file("MLC_Data/VVVV.mlc", "rb")
 
-amplitude_matrix <- fill_matrix_from_mlc(file_HHHH, file_HVHV, file_VVVV, nrow , ncol) #Resolução imagem 15900x3300
+generate_image(file_HHHH, file_HVHV, file_VVVV, nrow , ncol, "mlc")
 
-#Close files
-close(file_HHHH)
-close(file_HVHV)
-close(file_VVVV)
-#Remove file from RAM memory
-rm(file_HHHH, file_HVHV, file_VVVV)
 
-#Direct projection of Z on colors' space
-equalized_matrix <- equalize(amplitude_matrix, nrow, ncol)
+#Source: PolSARPro
+#Link: https://earth.esa.int/documents/653194/658149/EMISAR_Foulum-C3
 
-writePNG(equalized_matrix, target="Images/traunstein_mlc.png")
+nrow <- 1100
+ncol <- 1772
 
-rm(equalized_matrix)
+file_HHHH <- file("CO_Data/hhhh.co", "rb")
+file_HVHV <- file("CO_Data/hvhv.co", "rb")
+file_VVVV <- file("CO_Data/vvvv.co", "rb")
 
-#Pauli decomposition
-pauli_matrix <- pauli_decomposition(amplitude_matrix, nrow, ncol)
-
-rm(amplitude_matrix)
-
-equalized_matrix <- equalize(pauli_matrix, nrow, ncol)
-
-writePNG(equalized_matrix, target="Images/pauli_traunstein_mlc.png")
-
+generate_image(file_HHHH, file_HVHV, file_VVVV, nrow , ncol, "co")
