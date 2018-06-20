@@ -43,7 +43,7 @@ equalize <- function(data, nrow, ncol){
   return(data)
 }
 
-nrow <- 15900
+nrow <- 4512
 ncol <- 3300
 
 file_HHHH <- file("MLC_Data/HHHH.mlc", "rb")
@@ -62,13 +62,16 @@ rm(file_HHHH, file_HVHV, file_VVVV)
 #Direct projection of Z on colors' space
 equalized_matrix <- equalize(amplitude_matrix, nrow, ncol)
 
-writePNG(equalized_matrix, target="Images/haywrd_mlc.png")
+writePNG(equalized_matrix, target="Images/traunstein_mlc.png")
 
 rm(equalized_matrix)
 
 #Pauli decomposition
 pauli_matrix <- pauli_decomposition(amplitude_matrix, nrow, ncol)
+
+rm(amplitude_matrix)
+
 equalized_matrix <- equalize(pauli_matrix, nrow, ncol)
 
-writePNG(equalized_matrix, target="Images/pauli_haywrd_mlc.png")
+writePNG(equalized_matrix, target="Images/pauli_traunstein_mlc.png")
 
