@@ -85,7 +85,7 @@ $2S_{\text{HV}}^{\text{*}}S_{\text{HV}}$ \\
 \end{center}
 às bandas \textit{Red}, \textit{Green} e \textit{Blue}, respectivamente. Essa forma de mapear $z$ no espaço das cores, possui a característica relevante de produzir uma imagem cujas regiões encombertas por vegetação apresentam tonalidade verde.
 
-No presente relatório, serão utilizados os mapeamentos apresentados anteriormente para obtenção de imagens a partir de dados PolSAR obtidos em \href{https://uavsar.jpl.nasa.gov}{UAVSAR} nos formatos MLC e GRD. Além disso, tendo em vista a frequência com que realiza-se processamento de quantidades volumosas de dados para a obtenção dessas imagens, serão também descritas bibliotecas disponíveis em R destinadas a Big Data que possivelmente venham a ser utéis.
+No presente relatório, serão utilizados os mapeamentos apresentados anteriormente para obtenção de imagens a partir de dados PolSAR obtidos em \href{https://uavsar.jpl.nasa.gov}{UAVSAR} nos formatos MLC e GRD. Além disso, tendo em vista a frequência com que realiza-se processamento de quantidades volumosas de dados para a obtenção dessas imagens, será também descrita biblioteca raster e algumas disponíveis em R destinadas a Big Data que possivelmente venham a ser utéis.
 
 \section{Descrição dos formatos MLC e GRD}
 
@@ -279,6 +279,31 @@ A biblioteca ff provê estruturas para que conjuntos de dados sejam armazenadas 
 \textbf{Conclusões sobre a biblioteca ff}\\
 
 Apresenta funcionalidades para manipulação de grandes volumes de dados sem exaurir a memória principal. Contudo, trabalha a baixo nível e não possui uma grande variedade de funções para análise dos dados.
+
+
+\section{Biblioteca raster}
+
+A biblioteca raster provê funcionalidades destinadas a manipulação de dados geográficos. Esses dados são trabalhados dentro de objetos Raster, onde o espaço é dividido em células de igual tamanho, cujas unidades estarão no sistema de coordenadas de referência. 
+
+Além do mais, essa biblioteca suporta o uso de \textit{datasets} volumosos que não podem ser carregados inteiramente na memória principal. Isso é possível, pois suas funções podem carregar somente a parte dos dados que devem processar. Seguem algumas funcionalidades:
+
+\begin{itemize}
+
+\item \textbf{raster}: Cria um RasterLayer. Esse objeto, junto com o RasterStack e o RasterBrick, constituem o objeto Raster.
+\item \textbf{stack}: Cria um RasterStack, o qual agrupa múltiplos objetos do tipo RasterLayer.
+\item \textbf{Brick}: Cria um RasterBrick, o qual é similar ao RasterStack no fato de possuir múltiplas camadas, contudo, é processado mais rapidamente.
+\item \textbf{crop}: Seleciona um subconjunto geográfico de um objeto Raster
+\item \textbf{t}: Transpõe um objeto Raster.
+\item \textbf{distanceFromPoints}: Calcula a distância de um conjunto de pontos a todas as células de um objeto Raster.
+\item \textbf{summary}: Retorna um sumário de um objeto Raster.
+\item \textbf{trim}: Encolhe um objeto Raster removendo as linhas e as colunas mais externas que possuam os mesmos valores.
+
+\end{itemize}
+
+\textbf{Conclusões sobre a biblioteca raster}\\
+
+Apresenta uma ampla variedade de funcionalidades de caráter estatístico e geográfico para a manipulação de uma grande quantidade de dados.
+
 
 %Referências bibliograficas
 \bibliographystyle{unsrt}
