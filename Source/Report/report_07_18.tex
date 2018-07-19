@@ -97,7 +97,7 @@ onde $z_\text{i}$ é uma matriz de covariância e $N$ é o número de observaç�
 
 Partindo disto, temos que os arquivos MLC (\textit{Calibrated Multi-looked Cross Products}) referentes a uma certa imagem PolSAR, em conjunto, representam essas matrizes onde a média, usualmente, é de 3 pixels em \textit{range} e 12 em \textit{azimuth}. 
 
-Tais matrizes são repartidas entre esses arquivos de modo que cada um conterá os valores correspondentes a uma das posições. Desse modo, faz-se necessário apenas seis arquivos, visto que $C$ é simétrica. Três destes são de valores de ponto flutuante real e três de valores de ponto flutuante complexo, onde cada valor é representado por 4 bytes naqueles e 8 bytes nestes.
+Tais matrizes são repartidas entre esses arquivos de modo que cada um conterá os valores correspondentes a uma das posições. Desse modo, faz-se necessário apenas seis arquivos, visto que $C$ é hermetiana. Três destes são de valores de ponto flutuante real e três de valores de ponto flutuante complexo, onde cada valor é representado por 4 bytes naqueles e 8 bytes nestes.
 
 Além disso, os arquivos MLC são arquivos binários puros sem cabeçalho, a projeção de seus dados é a de alcance inclinado natural e o espaçamento, em metros, entre os pixels nas direções \textit{range} e \textit{azimuth} é fornecido em um arquivo de anotação junto aos mesmos.
 
