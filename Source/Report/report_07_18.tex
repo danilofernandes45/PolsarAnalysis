@@ -62,10 +62,10 @@
 
 \section{Introdução}
 
-Imagens PolSAR (\textit{Polarimetric Synthetic Aperture Radar}) são obtidas por meio da projeção da matriz de covariância em um espaço de cores. Contudo, como este é tridimensional, faz-se necessário uma redução de dimensionalidade, visto que, a matriz de covariância pertence a um espaço complexo de dimensão nove.
+A visualização das imagens PolSAR (\textit{Polarimetric Synthetic Aperture Radar}) é feita projetando o dado original, uma matriz de covariância complexa, em um espaço de cores. 
+Contudo, como este é tridimensional, faz-se necessário uma redução de dimensionalidade visto que a matriz de covariância pertence a um espaço complexo de dimensão nove.
 
-Considere a seguinte matriz de covariância:
-
+Considere a seguinte matriz de covariância complexa:
 \[
 z = 
 \begin{bmatrix}
@@ -77,15 +77,15 @@ z =
 onde $[\cdot]^{\text{*}}$ denota o complexo conjugado. Dentre os muitos mapeamentos possíveis, um bastante comum consiste em associar diretamente os elementos $S_{\text{HH}}^{\text{*}}S_{\text{HH}}$, $S_{\text{HV}}^{\text{*}}S_{\text{HV}}$ e $S_{\text{VV}}^{\text{*}}S_{\text{VV}}$ de $z$, os quais são reais e representam a intensidade do sinal de cada uma das polarizações\cite{Frery15}, às bandas RGB, respectivamente.
 
 Outro mapeamento possível é por meio da decomposição de Pauli, o qual associa os seguintes valores:
+%%% ACF Use um ambiente de "display" como, por exemplo $$ ou \begin{equation}
 \begin{center}
 $S_{\text{HH}}^{\text{*}}S_{\text{HH}} + S_{\text{VV}}^{\text{*}}S_{\text{VV}}$, \\
 $|$ $S_{\text{VV}}^{\text{*}}S_{\text{VV}} - S_{\text{HH}}^{\text{*}}S_{\text{HH}}$ $|$, \\
 $2S_{\text{HV}}^{\text{*}}S_{\text{HV}}$ \\
-
 \end{center}
-às bandas \textit{Red}, \textit{Green} e \textit{Blue}, respectivamente. Essa forma de mapear $z$ no espaço das cores, possui a característica relevante de produzir uma imagem cujas regiões encombertas por vegetação apresentam tonalidade verde.
+às bandas \textit{Red}, \textit{Green} e \textit{Blue}, respectivamente. Essa forma de mapear $z$ no espaço das cores, possui a característica relevante de produzir uma imagem cujas regiões cobertas por vegetação apresentam tonalidade verde.
 
-No presente relatório, serão utilizados os mapeamentos apresentados anteriormente para obtenção de imagens a partir de dados PolSAR obtidos em \href{https://uavsar.jpl.nasa.gov}{UAVSAR} nos formatos MLC e GRD. Além disso, tendo em vista a frequência com que realiza-se processamento de quantidades volumosas de dados para a obtenção dessas imagens, será também descrita biblioteca raster e algumas disponíveis em R destinadas a Big Data que possivelmente venham a ser utéis.
+No presente relatório, serão utilizados os mapeamentos apresentados anteriormente para obtenção de imagens a partir de dados PolSAR obtidos em \href{https://uavsar.jpl.nasa.gov}{UAVSAR} nos formatos MLC e GRD. Além disso, tendo em vista a frequência com que realiza-se processamento de quantidades volumosas de dados para a obtenção dessas imagens, será também descrita a biblioteca \verb|raster| e algumas disponíveis em \texttt R destinadas a Big Data que possivelmente venham a ser utéis.
 
 \section{Descrição dos formatos MLC e GRD}
 
