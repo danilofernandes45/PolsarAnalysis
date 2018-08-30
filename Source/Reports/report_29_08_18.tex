@@ -71,27 +71,22 @@ O coeficiente referente a uma dada célula consiste no resultado do cálculo do 
 \end{figure}
 
 Deve ser observado que, nessa implementação, o coeficiente de variação é calculado para amostras de uma dada banda de intensidade e, por isso, é dado por:
-
 \begin{displaymath}
 cv = \frac{ s }{ \overline{x} }
 \end{displaymath}
-
-onde $\overline{x}$ e $s$ são a média e o desvio padrão da amostra, respectivamente.
+em que $\overline{x}$ e $s$ são a média e o desvio padrão da amostra, respectivamente.
 
 Uma característica relevante dos dados obtidos a partir da aplicação desse filtro a dados PolSAR é que esses obedecem a distribuição Gama, podendo variar apenas em relação ao valor dos parâmetros. Uma variável aletória obedece a essa distribuição quando sua função de densidade de probabilidade é:
-
 \begin{displaymath}
 f(x) =
 \begin{cases}
-\frac{ \beta^{\alpha} x^{\alpha - 1} }{ \Gamma(\alpha)} exp(-\beta x), & \mbox{se x }>\mbox{ 0}\\
+\frac{ \beta^{\alpha} x^{\alpha - 1} }{ \Gamma(\alpha)} \exp(-\beta x), & \mbox{se x }>\mbox{ 0}\\
 0, & \mbox{caso contrário.}
 \end{cases}
 \end{displaymath}
-
-em que $\alpha$ e $\beta$ são parâmetros positivos e $\Gamma(\cdot)$ representa a função gama,
-
+em que $\alpha$ e $\beta$ são parâmetros positivos e $\Gamma(\cdot)$ representa a função gama de Euler"
 \begin{displaymath}
-\Gamma(\alpha) = \int_{0}^{\infty} t^{\alpha - 1} exp(-t) dt
+\Gamma(\alpha) = \int_{0}^{\infty} t^{\alpha - 1} \exp(-t) dt.
 \end{displaymath}
 
 \section{Visualização de imagens PolSAR}
