@@ -75,6 +75,7 @@ Uma consequência disto é $Y_I$ obedecer à distribuição Gama com todos seus 
     f_{Y_I}(y; \alpha, \lambda) = \frac{\lambda^\alpha}{\Gamma(\alpha)} y^{\alpha-1} \exp(-\lambda y),
 \end{displaymath}
 onde $\alpha$, $\lambda$, y $>$ 0 e $\Gamma(\alpha) = \int_{0}^{\infty} t^{\alpha-1} e^{-t} dt$ \cite{frery97}.
+%%% ACF Está correto, mas complicado demais. Sugiro usar a parametrização pela média e o número de looks, que é bem aceita pela comunidade SAR.
 
 Em posse de $Y_I$, obtém-se o \textit{speckle} de amplitude \textit{multilook} $Y_A$ tomando $Y_A = \sqrt{Y_I}$. Em decorrência disto, $Y_A$ obedece a distribuição Raiz Quadrada de Gama, o que é denotado por $Y_A \sim \Gamma^{1/2}(\alpha = n, \lambda = n)$, e cuja função de densidade de probabilidade é:
 \begin{displaymath}
@@ -85,7 +86,7 @@ No que diz respeito à variável aleatória de retroespalhamento em relação à
 \begin{displaymath}
     f_{X_A}(x; \alpha, \gamma, \lambda) = \frac{(\lambda/\gamma)^{\alpha/2}}{K_{\alpha}(2\sqrt{\lambda\gamma})} x^{2\alpha - 1} \exp\left( -\frac{\gamma}{x^2} - \lambda x^2 \right),
 \end{displaymath}
-onde x $>$ 0, o espaço paramétrico é dado por:
+em que $x >$ 0, e o espaço paramétrico é dado por:
 \[
 \begin{cases}
     \gamma > 0, \lambda \geq 0,\text{ se }\alpha < 0 \\
@@ -113,6 +114,7 @@ A partir dessa distribuição, se tomarmos $\alpha, \lambda > 0$ e fizermos $\ga
 \begin{displaymath}
     f_{Z_0}(x; \alpha, \lambda) = \frac{2}{\Gamma(\alpha)} \sqrt{\frac{\lambda^{\alpha + 1/2}}{\pi}} |x|^{\alpha - 1/2} K_{\alpha - 1/2}(2|x|\sqrt{\lambda}), \hspace{0.03\linewidth}\alpha, \lambda > 0, x \in {\rm I\!R}.
 \end{displaymath}
+%%% ACF Fica melhor dizer que $x \in \mathbbm R_+$, e tirar o valor absoluto.
 
 Todavia, caso seja assumido $-\alpha, \gamma > 0$ e $\lambda \rightarrow 0$, a distribuição alcançada será $G^0$ complexa -- a qual é denotada por $G_C^0(\alpha, \gamma)$ e possibilita modelar dados de regiões até extremamente heterogêneas. Tal distribuição possui a seguinte função de densidade de probabilidade:
 \begin{displaymath}
@@ -152,6 +154,10 @@ Outra particularidade das distribuições descritas é a convergência de $K_A(\
 
 Seguem os gráficos das funções de densidade probabilidade mencionadas na seção anterior com variados valores em seus parâmetros.
 
+%%% ACF Sempre que possível, grafique objetos comparáveis; por exemplo, escola os parâmetros de tal forma que a média seja a mesma
+
+%%% ACF use [hbt] ao invés de !h, que não funciona mais
+%%% ACF use "expression" para fazer legendas com letras gregas
 \begin{figure}[!h]
     \vspace{0.01\linewidth}
     \subfloat[Variação do parâmetro alfa\label{var_alpha:gamma}]{
@@ -236,6 +242,7 @@ Seguem os gráficos das funções de densidade probabilidade mencionadas na seç
     \caption{Distribuição Raíz Quadrada da Gaussiana Inversa Generalizada}
 \end{figure}
 
+%%% ACF Esclareça que está desenhando apenas o ramo real ou imaginário da distribuição
 \begin{figure}[!h]
     \vspace{0.15\linewidth}
     \subfloat[Variação do parâmetro alfa\label{var_alpha:complex_g}]{
