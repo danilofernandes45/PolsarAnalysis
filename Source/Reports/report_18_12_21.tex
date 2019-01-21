@@ -859,7 +859,132 @@ As figuras \ref{fig:rv_r6}, \ref{fig:rv_r7} e \ref{fig:rv_r8} apresentam os hist
     \includegraphics[width = 0.95\linewidth]{../../Images/Report_18_12_17/rv_region8.png}
     \caption{Região 8, Guatemala}
     \label{fig:rv_r8}
+
+    \vspace{0.1\linewidth}
 \end{figure}
+
+\section{Classificação por distância mínima}
+
+A classificação por distância mínima consiste em computar a distância de cada pixel da imagem a cada um dos retroespalhaodres prototípicos e atribuí-lo àquele que está à menor distância -- o que equivale à atribuição daquela com maior similaridade. Essa classificação foi utilizada nas regiões 1 à 5 da imagem referente à Guatemala e foram construídos histogramas das observações classificadas.
+
+A figura \ref{fig:class_map_r1} contém um mapa com a classificação dos pixel da região 1. É notório a predominância do retroespalhador \textit{random volume}, o qual obteve 39669 observações (98\% dos pixels). Outro retroespalhador destacável é o \textit{right helix} que obteve 479 observações (1.1\% dos pixels). Os demais obteveram menos de 113 observações. 
+
+As figuras \ref{fig:class_hist_r1_rv} e \ref{fig:class_hist_r1_rh} contêm respectivamente os histogramas das similaridades dos pixels classificados como \textit{random volume} e \textit{right helix} em relação aos mesmos.
+
+\begin{figure}[!h]
+    \centering    
+    \includegraphics[width = \linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Class_Map/Guate/region1_predomain.png}
+    \caption{Região 1, Guatemala}
+    \label{fig:class_map_r1}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering   
+    \includegraphics[width = 0.95\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region1_rv_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{random volume} dos pixels classificados como \textit{random volume} da Região 1, Guatemala}
+    \label{fig:class_hist_r1_rv}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering    
+    \vspace{0.1\linewidth}
+    \includegraphics[width = 0.95\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region1_rh_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{right helix} dos pixels classificados como \textit{right helix} da Região 1, Guatemala}
+    \label{fig:class_hist_r1_rh}
+\end{figure}
+
+\newpage
+
+A figura \ref{fig:class_map_r2} contém um mapa com a classificação dos pixel da região 2, na qual é notório a predominância do retroespalhador \textit{random volume}, o qual obteve 39809 observações (98.5\% dos pixels). Contudo os demais obteveram menos de 293 observações. 
+
+A figura \ref{fig:class_hist_r2_rv} contém o histograma das similaridades dos pixels classificados como \textit{random volume} em relação ao mesmo.
+
+\begin{figure}[!h]
+    \centering    
+    \includegraphics[width = \linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Class_Map/Guate/region2_predomain.png}
+    \caption{Região 2, Guatemala}
+    \label{fig:class_map_r2}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering   
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region2_rv_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{random volume} dos pixels classificados como \textit{random volume} da Região 2, Guatemala}
+    \label{fig:class_hist_r2_rv}
+\end{figure}
+
+A figura \ref{fig:class_map_r3} contém um mapa com a classificação dos pixel da região 3, na qual é notório a predominância do retroespalhador \textit{random volume}, o qual obteve 39659 observações (98\% dos pixels). Contudo os demais obteveram menos de 363 observações. 
+
+A figura \ref{fig:class_hist_r3_rv} contém o histograma das similaridades dos pixels classificados como \textit{random volume} em relação ao mesmo.
+
+\begin{figure}[!h]
+    \centering    
+    \includegraphics[width = \linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Class_Map/Guate/region3_predomain.png}
+    \caption{Região 3 Guatemala}
+    \label{fig:class_map_r3}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering   
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region3_rv_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{random volume} dos pixels classificados como \textit{random volume} da Região 3, Guatemala}
+    \label{fig:class_hist_r3_rv}
+\end{figure}
+
+A figura \ref{fig:class_map_r4} contém um mapa com a classificação dos pixel da região 4, no qual é observável a predominância do retroespalhador \textit{random volume}, o qual obteve 39476 observações (97.7\% dos pixels). Além deste, outro retroespalhador destacável é o \textit{trihedral} que obteve 716 observações (1.7\% dos pixels). Os demais obteveram menos de 86 observações. 
+
+As figuras \ref{fig:class_hist_r4_rv} e \ref{fig:class_hist_r4_tri} contêm respectivamente os histogramas das similaridades dos pixels classificados como \textit{random volume} e \textit{trihedral} em relação aos mesmos.
+
+\begin{figure}[!h]
+    \centering    
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Class_Map/Guate/region4_predomain.png}
+    \caption{Região 4, Guatemala}
+    \label{fig:class_map_r4}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering   
+    \vspace{0.1\linewidth}
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region4_rv_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{random volume} dos pixels classificados como \textit{random volume} da Região 4, Guatemala}
+    \label{fig:class_hist_r4_rv}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering    
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region4_tri_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{trihedral} dos pixels classificados como \textit{trihedral} da Região 4, Guatemala}
+    \label{fig:class_hist_r4_tri}
+\end{figure}
+
+A figura \ref{fig:class_map_r5} contém um mapa com a classificação dos pixel da região 5, no qual é nítida a predominância do retroespalhador \textit{random volume}, o qual obteve 38865 observações (96.1\% dos pixels). Além deste, outro retroespalhador destacável é o \textit{trihedral} que obteve 1395 observações (3.4\% dos pixels). Contudo, os demais obteveram menos de 118 observações. 
+
+As figuras \ref{fig:class_hist_r5_rv} e \ref{fig:class_hist_r5_tri} contêm respectivamente os histogramas das similaridades dos pixels classificados como \textit{random volume} e \textit{trihedral} em relação aos mesmos.
+
+\begin{figure}[!h]
+    \centering    
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Class_Map/Guate/region5_predomain.png}
+    \caption{Região 5, Guatemala}
+    \label{fig:class_map_r5}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering   
+    \vspace{0.1\linewidth}
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region5_rv_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{random volume} dos pixels classificados como \textit{random volume} da Região 5, Guatemala}
+    \label{fig:class_hist_r5_rv}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering    
+    \vspace{0.1\linewidth}
+    \includegraphics[width = 0.9\linewidth]{../../Images/Report_18_12_20/Classifier_Geo_Dist/Histograms/Guate/region5_tri_sm_filter.png}
+    \caption{Histograma das similaridades em relação a \textit{trihedral} dos pixels classificados como \textit{trihedral} da Região 5, Guatemala}
+    \label{fig:class_hist_r5_tri}
+\end{figure}
+
+Ao comparar estes resultados com os histogramas feitos sem o uso do classificador, pode-se observar a inalteração do comportamento das similaridades em relação a \textit{random volume}, o que é esperado visto que reduziu-se no máximo 3.9\% de suas observações. Entretanto, ao comparar as figuras \ref{fig:tri_r4} e \ref{fig:class_hist_r4_tri} e as figuras \ref{fig:tri_r5} e \ref{fig:class_hist_r5_tri} nota-se que houve considerável aumento na média e redução no desvio padrão. No que diz respeito as figuras \ref{fig:rh_r1} e \ref{fig:class_hist_r1_rh}, observa-se uma completa mudança no comportamento das similaridades.
 
 \newpage
 
