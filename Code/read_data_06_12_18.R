@@ -45,8 +45,8 @@ read_file <- function(file, nrow, ncol){
     nrow = nrow, ncol = ncol, byrow = TRUE) )
 }
 
-nrow <- 7038
-ncol <- 3300
+nrow <- 1100
+ncol <- 1772
 
 
 # hhhv_file <- file("hhhv.mlc", "rb")
