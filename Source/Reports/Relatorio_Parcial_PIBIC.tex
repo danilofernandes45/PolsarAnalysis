@@ -1,0 +1,309 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage[journal=jacs]{chemstyle}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage[stable]{footmisc}
+\usepackage[section]{placeins}
+\usepackage{listings}
+\usepackage[style=authoryear,backend=bibtex]{biblatex}
+\addbibresource{ref1.bib}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{url}     
+\usepackage{amsmath} 
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usetikzlibrary{shapes.arrows}
+\usepackage{siunitx}
+\sisetup{mode=text, output-decimal-marker = {,}, per-mode = symbol, qualifier-mode = phrase, qualifier-phrase = { de }, list-units = brackets, range-units = brackets, range-phrase = --}
+\DeclareSIUnit[number-unit-product = \;] \atmosphere{atm}
+\DeclareSIUnit[number-unit-product = \;] \pound{lb}
+\DeclareSIUnit[number-unit-product = \;] \inch{"}
+\DeclareSIUnit[number-unit-product = \;] \foot{ft}
+\DeclareSIUnit[number-unit-product = \;] \yard{yd}
+\DeclareSIUnit[number-unit-product = \;] \mile{mi}
+\DeclareSIUnit[number-unit-product = \;] \pint{pt}
+\DeclareSIUnit[number-unit-product = \;] \quart{qt}
+\DeclareSIUnit[number-unit-product = \;] \flounce{fl-oz}
+\DeclareSIUnit[number-unit-product = \;] \ounce{oz}
+\DeclareSIUnit[number-unit-product = \;] \degreeFahrenheit{\SIUnitSymbolDegree F}
+\DeclareSIUnit[number-unit-product = \;] \degreeRankine{\SIUnitSymbolDegree R}
+\DeclareSIUnit[number-unit-product = \;] \usgallon{galón}
+\DeclareSIUnit[number-unit-product = \;] \uma{uma}
+\DeclareSIUnit[number-unit-product = \;] \ppm{ppm}
+\DeclareSIUnit[number-unit-product = \;] \eqg{eq-g}
+\DeclareSIUnit[number-unit-product = \;] \normal{\eqg\per\liter\of{solución}}
+\DeclareSIUnit[number-unit-product = \;] \molal{\mole\per\kilo\gram\of{solvente}}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage[left=4cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\titleformat*{\section}{\bfseries\large}
+\titleformat*{\subsection}{\bfseries\normalsize}
+
+%Creación del ambiente anexos
+\usepackage{float}
+\floatstyle{plaintop}
+\newfloat{anexo}{thp}{anx}
+\floatname{anexo}{Anexo}
+\restylefloat{anexo}
+\restylefloat{figure}
+
+\usepackage[margin=10pt,labelfont=bf]{caption}
+
+\usepackage{todonotes}
+
+\usepackage[colorlinks=true, 
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = black,
+            anchorcolor = blue]{hyperref}
+\usepackage{color}
+\usepackage{multicol}
+
+%======================================================================
+
+\begin{document}
+\onehalfspacing 
+\thispagestyle{empty}
+\begin{center}
+\vspace{0.2cm}
+
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{header.png}
+\end{figure}
+\vspace{-1cm}
+\hrulefill
+
+UNIVERSIDADE FEDERAL DE ALAGOAS\\
+PRÓ-REITORIA DE PESQUISA E PÓS-GRADUAÇÃO\\
+COORDENADORIA DE PESQUISA
+
+\hrulefill
+
+\vspace{0.5cm}
+
+PROGRAMA INSTITUCIONAL DE BOLSAS DE INICIAÇÃO CIENTÍFICA\\PIBIC/UFAL/FAPEAL/CNPq
+
+\vspace{1.0cm}
+
+\textbf{RELATÓRIO PIBIC (2018 -- 2019)}\\
+
+\end{center}
+
+\vspace{1.2cm}
+
+\textbf{TÍTULO DO PROJETO DE PESQUISA:}
+
+\underline{Aplicações Inovadoras da Teoria da Informação no Processamento e Análise de}
+
+\underline{Imagens e Sinais}
+
+\textbf{TÍTULO DO PLANO DE TRABALHO:}
+
+\underline{Visualização e Processamento de Grandes Imagens SAR}
+
+\vspace{1cm}
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline                              
+\textbf{Nome Orientador/Unidade/Campus/Email} &  Alejandro César Frery Orgambide/Universidade Federal de Alagoas/Campus A.C. Simões/acfrery@gmail.com\\
+\hline     
+\textbf{Nome Bolsista ou Colaborador} & Danilo Fernandes Costa\\
+\hline     
+\textbf{Email/Fones} & dfc@laccan.ufal.br/(82) 99906-0147\\
+\hline     
+\end{tabularx}
+\end{center}
+\end{table}
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline                              
+& Bolsista CNPq &  &Bolsista FAPEAL\\
+\hline             
+& Bolsista UFAL & X &Colaborador\\
+\hline             
+& Bolsista PIBIC-Af&  &\\
+\hline     
+\end{tabularx}
+\end{center}
+\end{table}
+
+\hrulefill   
+
+%=================================================================
+
+\newpage
+\section*{\centering \textbf{RESUMO DO PROJETO}}
+\hrulefill \\
+
+\vspace{0.2cm}
+
+Houve um significativo avanço nos últimos anos na obtenção de novos métodos para a extração de informação a partir de sinais e imagens empregando técnicas oriundas da Teoria da Informação. Essas técnicas empregam duas abordagens. A primeira consiste em calcular diversas formas de entropia através de modelos analı́ticos; essas entropias são atributos descritores, e podem ser usados para calcular o contraste entre dos sinais, isto é, quão diferentes eles são. A segunda abordagem emprega dois sinais e seus modelos analı́ticos, e calcula diversas medidas de dissimilaridade entre eles. Tanto os contrastes oriundos de diferenças de entropias quanto as medidas de dissimilaridade podem ser transformados em testes estatı́sticos com propriedades assintóticas conhecidas tornando-se, assim, em poderosas ferramentas para a realização de comparações e para a tomada de decisões. Este projeto irá concentrar-se na aplicação dessas ferramentas em problemas relevantes de processamento e análise de sinais e imagens. Os principais
+problemas a serem abordados são na área de processamento e análise de imagens, em particular de imagens de radar de abertura sintética polarimétrico (SAR \textit{Synthetic Aperture Radar} e PolSAR -- \textit{Polarimetric Synthetic Aperture Radar}) e de séries temporais. Faremos a proposta de novos filtros, classificadores, segmentadores e detetores de mudança para as primeiras, e de novos descritores e quantificadores de mudança para as segundas. Este projeto irá ainda fazer avanços teóricos. Os resultados conhecidos para os testes estatı́sticos são válidos apenas no sentido assintótico e quando são empregados estimadores de máxima verossimilhança. Estudaremos extensões para os casos de amostras finitas e outros tipos de estimadores (baseados no princı́pio da analogia, robustos, e não-paramétricos, dentre outros).
+
+\textbf{Palavras-chave: Teoria da Informação; Imagens SAR; Séries Temporais} 
+
+
+%=========================================================
+%Modificar
+\newpage
+\section*{\centering \textbf{OBJETIVOS DO PROJETO DE PESQUISA}}
+\hrulefill \\
+
+\vspace{0.5cm}
+
+O objetivo geral deste projeto é avançar a fronteira do conhecimento em duas frentes: análise de dados SAR e de séries temporais. A primeira frente segue uma abordagem paramétrica, enquanto a segunda obedece diretrizes não paramétricas. Ambas têm como suporte conceitual o uso de Teoria da Informação e de Geometria da Informação para alcançar os objetivos especı́ficos.
+
+O objetivo especı́fico central da primeira frente de trabalho é o desenvolvimento de métodos de estimação do parâmetro que indexa a distribuição $G_0$ para modelar dados SAR. Em particular, almejamos alcançar as seguintes metas:
+
+\begin{itemize}
+    \item  Estudar e implementar técnicas de estimação por momentos fracionários, log-momentos, máxima verossimilhança, máxima verossimilhança iterada, métodos kernel e robustos, além de técnicas para
+melhorar as estimativas (bootstrap e correções analı́ticas).
+    \item Integrar essas técnicas em um método unificado que seja capaz de aplicar as mais adequadas para cada caso com a mı́nima intervenção possı́vel por parte do usuário utilizando a plataforma R.
+\end{itemize}
+Já que no que diz respeito à segunda frente de trabalho, almejamos desenvolver uma plataforma uni ficada de análise de séries temporais com métodos de simbolização. Daremos ênfase ao problema da imputação de padrões ausentes, tendo as seguintes metas em vista:
+\begin{itemize}
+    \item Estudar e implementar técnicas para imputação de padrões ausentes ocasionados por dados repetidos.
+    \item Analisar a capacidade de reconstrução de informações dessas técnicas quando a série temporal é armazenada com menos precisão do que a ideal.
+    \item Analisar a distribuição temporal dos padrões originais e imputados.
+    \itemDesenvolver uma ferramenta para análise de séries temporais baseada em padrões ordinais utilizando a linguagem R.
+
+\end{itemize}
+
+%=========================================================
+\newpage
+\section*{\centering \textbf{OBJETIVO ESPECÍFICO DO TRABALHO DO ALUNO}}
+\hrulefill \\
+
+\vspace{0.5cm}
+
+Os objetivos específicos para esta frente de trabalho consistem em desenvolver técnicas de visualização e processamento de grandes imagens SAR, constriuir uma biblioteca de imagens SAR gratuita e montar uma biblioteca de amostras de imagens SAR.
+
+
+%=========================================================
+
+\newpage
+\section*{\centering \textbf{ETAPAS DO PLANO DE TRABALHO}}
+\hrulefill \\
+
+\vspace{0.5cm}
+
+O presente plano de trabalho tem por título Visualização e Processamento de Grandes Imagens SAR. As etapas necessárias para executar as metas com êxito e alcançar os objetivos propostos neste plano de trabalho são compostas por diversas atividades que vão desde a busca de materiais (artigos, livros, revistas, entre outros) relacionados à temática do projeto até a aplicação dos conhecimentos adquiridos na implementação de scripts utilizando a plataforma R. 
+
+Para o início da pesquisa referente a minha frente de trabalho que tem por finalidade a implementação de uma biblioteca em R de funções para visualização e processamento de grandes imagens SAR foram buscadas uma série de boas referências para que fosse construída uma boa base de conhecimento para fornecer suporte às realizações dos objetivos finais do projeto.
+
+Para tal buscou-se inicialmente compreender a natureza dos dados PolSAR por meio de artigos publicados em revistas científicas. Com o conhecimento adquirido, avançou-se para a etapa de leitura e processamento desses dados em um ambiente de desenvolvimento R afim de gerar uma visualização dos mesmos. Nesta etapa descobriu-se uma variadade de formas de produzir imagens para os dados PolSAR, cada qual fornecendo em sua visualização informações diversas sobre a superfície terrestre imageada e descrita por estes.
+
+A etapa seguinte abordou o problema do processamento de imagens cujo volume de dados excediam a capacidade física do computador utilizado. Para tal, investigou-se bibliotecas existentes em R que auxiliassem o processamento de dados volumosos. Logo após selecionou-se aquela que melhor se ajustava ao processamento de dados PolSAR e adaptou-se as rotinas desenvolvidas para o uso da biblioteca.
+%=========================================================
+
+\newpage
+\section*{\centering \textbf{APRESENTAÇÃO E DISCUSSÃO DOS PRINCIPAIS RESULTADOS}}
+\hrulefill \\
+
+\vspace{0.5cm}
+
+Como já explicado na seção anterior deste relatório, torna-se notável que foram obtidos avanços tanto do ponto de vista teórico quanto do ponto de vista prático.
+
+Avanços teóricos ocorreram durante a pesquisa em virtude da busca de literatura referente às temáticas envolvidas no projeto, onde foram buscados diversos artigos de qualidade escritos por autores referência na temática em questão. Foram traçados alguns objetivos do ponto de vista prático nesse primeiro semestre da pesquisa os quais envolveram implementações na plataforma R e esses objetivos foram alcançados com êxito até o presente momento.
+
+Foram implementadas funções para a leitura, processamento e visualização de dados PolSAR utilizando recursos disponibilizados pela biblioteca raster. A justificativa para a utilização desta é que a mesma visa prover um ambiente para a análise de dados geográficos -- modalidade que inclui dados SAR -- e fornece mecanismos para o processamento de volume de dados que excedem a capacidade da memória principal do computador. 
+
+Dentre essas, foram implementadas funções que permitem a visualização dos dados por meio de projeção direta no espaço das cores e através da decomposição de Pauli. Ambas permitem a observação da estratura física da região imageada, mas a segunda atribui tonalidades de verde às regiões emcobertas por vegetação. Uma outra funcionalidade desenvolvida foi um filtro baseado no coeficiente de variação, cujo produto atribui comportamentos estatísticos aos dados de regiões homogêneas.
+
+%=========================================================
+
+\newpage
+\section*{\centering \textbf{CRONOGRAMA DE ATIVIDADES}}
+\hrulefill \\
+
+\vspace{0.5cm}
+
+As atividades elaboradas para o respectivo plano de trabalho estão listadas logo abaixo:
+
+\begin{small}
+\begin{enumerate} 
+  \item  Conhecer técnicas de visualização e de processamento de grandes imagens SAR.
+  \item  Aprender o uso da plataforma R.
+  \item  Conhecer técnicas de projeto e implementação de software cientı́fico usando R.
+  \item Desenvolver protótipos de algoritmos de visualização e de processamento de imagens SAR.
+  \item Aplicar as técnicas desenvolvidas a conjuntos de dados de propriedades conhecidas.
+  \item  Integrar as técnicas desenvolvidas em uma plataforma de produção.
+\end{enumerate}
+\end{small}
+
+\begin{table}[!hbt]
+    \centering
+    \tiny
+    \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c |}
+        \hline
+         \textbf{ATIVIDADES} & \textbf{AGO} & \textbf{SET} & \textbf{OUT} & \textbf{NOV} & \textbf{DEZ} & \textbf{JAN} & \textbf{FEV} & \textbf{MAR} & \textbf{ABR} & \textbf{MAI} & \textbf{JUN} & \textbf{JUL}\\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 1}}\hbox{\strut \textbf{(Prevista)}}} & X & X & X & X & X & X & X & X & X & X & X & X \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 1}}\hbox{\strut \textbf{(Realizada)}}} & OK & OK & OK & OK & OK & OK & & & & & & \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 2}}\hbox{\strut \textbf{(Prevista)}}} & X & X & X & X & X & X & X & X & X & X & X & X \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 2}}\hbox{\strut \textbf{(Realizada)}}} & OK & OK & OK & OK & OK & OK & & & & & & \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 3}}\hbox{\strut \textbf{(Prevista)}}} & & X & X & X &  &  &  &  &  &  &  &  \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 3}}\hbox{\strut \textbf{(Realizada)}}} &  & OK & OK & OK &  &  & & & & & & \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 4}}\hbox{\strut \textbf{(Prevista)}}} &  &  & X & X & X & X & X & X &  &  &  &  \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 4}}\hbox{\strut \textbf{(Realizada)}}} &  &  & OK & OK & OK & OK & & & & & & \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 5}}\hbox{\strut \textbf{(Prevista)}}} &  &  &  &  &  &  &  & X & X & X & X &  \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 5}}\hbox{\strut \textbf{(Realizada)}}} &  &  &  &  &  &  & & & & & & \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 6}}\hbox{\strut \textbf{(Prevista)}}} &  &  &  &  &  &  &  &  &  &  & X & X \\
+         \hline
+         \vtop{\hbox{\strut \textbf{Atividade 6}}\hbox{\strut \textbf{(Realizada)}}} &  &  &  &  &  &  & & & & & & \\
+         \hline
+          
+    \end{tabular}
+\end{table}
+
+\newpage
+
+%=========================================================
+
+\newpage
+\newpage
+\section*{\centering \textbf{FATORES POSITIVOS E NEGATIVOS NA CONDUÇÃO DO PROJETO E PLANO DE TRABALHO}}
+\hrulefill \\
+
+\vspace{0.5cm}
+
+Podemos citar como fatores positivos a existência de um conjunto vasto de artigos referentes ao tema do projeto da pesquisa e a disponibilidade de máquinas de considerável poder computacional no Laboratório de Computação Científica e Análise Numérica, o qual o pesquisador tem acesso . Além desses, um outro fator positivo é a frequente ocorrência de reuniões com o orientador onde podem ser mostrados os resultados obtidos, elucidadas algumas dúvidas e elaborados os novos objetivos. 
+
+Como fatores negativos podemos citar o fato de as disciplinas da graduação requisitarem um tempo grande o que acaba por sobrecarregar o pesquisador, além disso houve necessidade de uma quantidade de tempo relativamente alta para estudo dos assuntos que permeiam a área do projeto.  
+
+
+%==============================================================================================================
+
+\end{document}
