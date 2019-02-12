@@ -1,0 +1,15 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[Ratha, Bhattacharya e Frery 2018]{ClassificationPolSARGeodesic}
+\abntrefinfo{Ratha, Bhattacharya e Frery}{RATHA; BHATTACHARYA; FRERY}{2018}
+{RATHA, D.; BHATTACHARYA, A.; FRERY, A.~C. Unsupervised classification of
+  {PolSAR} data using a scattering similarity measure derived from a geodesic
+  distance.
+\emph{IEEE Geoscience and Remote Sensing Letters}, p. 151--155, jan. 2018.}
+
+\end{thebibliography}
