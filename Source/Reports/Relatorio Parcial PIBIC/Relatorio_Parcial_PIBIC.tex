@@ -1,87 +1,38 @@
 %!TEX program = xelatex
 
-\documentclass[12pt,letterpaper]{article}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
-\usepackage{setspace}
-\usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla]{babel}
-\usepackage[version=3]{mhchem}
-\usepackage[journal=jacs]{chemstyle}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+\documentclass[12pt]{article}
+\usepackage[portuguese]{babel}
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+\usepackage{times}
+\usepackage{amsmath,amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{cite} 
+\usepackage{float}
+\usepackage{calrsfs}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{verbatim}
+\usepackage{bigints}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
 \usepackage{makeidx}
 \usepackage{xcolor}
 \usepackage[stable]{footmisc}
 \usepackage[section]{placeins}
-\usepackage{listings}
-\usepackage[style=authoryear,backend=bibtex]{biblatex}
-\addbibresource{ref1.bib}
-\usepackage{tikz}
-\usepackage{verbatim}
-\usepackage{graphicx}
-\usepackage{url}     
-\usepackage{amsmath} 
 \usepackage{tabularx}
-\usepackage{ragged2e}
-\usetikzlibrary{shapes.arrows}
-\usepackage{siunitx}
-\sisetup{mode=text, output-decimal-marker = {,}, per-mode = symbol, qualifier-mode = phrase, qualifier-phrase = { de }, list-units = brackets, range-units = brackets, range-phrase = --}
-\DeclareSIUnit[number-unit-product = \;] \atmosphere{atm}
-\DeclareSIUnit[number-unit-product = \;] \pound{lb}
-\DeclareSIUnit[number-unit-product = \;] \inch{"}
-\DeclareSIUnit[number-unit-product = \;] \foot{ft}
-\DeclareSIUnit[number-unit-product = \;] \yard{yd}
-\DeclareSIUnit[number-unit-product = \;] \mile{mi}
-\DeclareSIUnit[number-unit-product = \;] \pint{pt}
-\DeclareSIUnit[number-unit-product = \;] \quart{qt}
-\DeclareSIUnit[number-unit-product = \;] \flounce{fl-oz}
-\DeclareSIUnit[number-unit-product = \;] \ounce{oz}
-\DeclareSIUnit[number-unit-product = \;] \degreeFahrenheit{\SIUnitSymbolDegree F}
-\DeclareSIUnit[number-unit-product = \;] \degreeRankine{\SIUnitSymbolDegree R}
-\DeclareSIUnit[number-unit-product = \;] \usgallon{galón}
-\DeclareSIUnit[number-unit-product = \;] \uma{uma}
-\DeclareSIUnit[number-unit-product = \;] \ppm{ppm}
-\DeclareSIUnit[number-unit-product = \;] \eqg{eq-g}
-\DeclareSIUnit[number-unit-product = \;] \normal{\eqg\per\liter\of{solución}}
-\DeclareSIUnit[number-unit-product = \;] \molal{\mole\per\kilo\gram\of{solvente}}
-\usepackage{cancel}
-\usepackage{graphicx}
-\usepackage{lmodern}
-\usepackage{fancyhdr}
-\usepackage[left=4cm,right=2cm,top=3cm,bottom=3cm]{geometry}
-
-
 \usepackage{titlesec}
 \usepackage{enumitem}
 \titleformat*{\section}{\bfseries\large}
 \titleformat*{\subsection}{\bfseries\normalsize}
 
-%Creación del ambiente anexos
-\usepackage{float}
-\floatstyle{plaintop}
-\newfloat{anexo}{thp}{anx}
-\floatname{anexo}{Anexo}
-\restylefloat{anexo}
-\restylefloat{figure}
 
 \usepackage[margin=10pt,labelfont=bf]{caption}
-
-\usepackage{todonotes}
-
-\usepackage[colorlinks=true, 
-            linkcolor = blue,
-            urlcolor  = blue,
-            citecolor = black,
-            anchorcolor = blue]{hyperref}
-\usepackage{color}
-\usepackage{multicol}
 
 %======================================================================
 
 \begin{document}
-\onehalfspacing 
 \thispagestyle{empty}
 \begin{center}
 \vspace{0.2cm}
@@ -161,7 +112,7 @@ PROGRAMA INSTITUCIONAL DE BOLSAS DE INICIAÇÃO CIENTÍFICA\\PIBIC/UFAL/FAPEAL/C
 
 \vspace{0.2cm}
 
-Houve um significativo avanço nos últimos anos na obtenção de novos métodos para a extração de informação a partir de sinais e imagens empregando técnicas oriundas da Teoria da Informação. Essas técnicas empregam duas abordagens. A primeira consiste em calcular diversas formas de entropia através de modelos analı́ticos; essas entropias são atributos descritores, e podem ser usados para calcular o contraste entre dos sinais, isto é, quão diferentes eles são. A segunda abordagem emprega dois sinais e seus modelos analı́ticos, e calcula diversas medidas de dissimilaridade entre eles. Tanto os contrastes oriundos de diferenças de entropias quanto as medidas de dissimilaridade podem ser transformados em testes estatı́sticos com propriedades assintóticas conhecidas tornando-se, assim, em poderosas ferramentas para a realização de comparações e para a tomada de decisões. Este projeto irá concentrar-se na aplicação dessas ferramentas em problemas relevantes de processamento e análise de sinais e imagens. Os principais
+Houve um significativo avanço nos últimos anos na obtenção de novos métodos para a extração de informação a partir de sinais e imagens empregando técnicas oriundas da Teoria da Informação. Essas técnicas empregam duas abordagens. A primeira consiste em calcular diversas formas de entropia através de modelos analı́ticos; essas entropias são atributos descritores, e podem ser usados para calcular o contraste entre dois sinais, isto é, quão diferentes eles são. A segunda abordagem emprega dois sinais e seus modelos analı́ticos, e calcula diversas medidas de dissimilaridade entre eles. Tanto os contrastes oriundos de diferenças de entropias quanto as medidas de dissimilaridade podem ser transformados em testes estatı́sticos com propriedades assintóticas conhecidas tornando-se, assim, em poderosas ferramentas para a realização de comparações e para a tomada de decisões. Este projeto irá concentrar-se na aplicação dessas ferramentas em problemas relevantes de processamento e análise de sinais e imagens. Os principais
 problemas a serem abordados são na área de processamento e análise de imagens, em particular de imagens de radar de abertura sintética polarimétrico (SAR \textit{Synthetic Aperture Radar} e PolSAR -- \textit{Polarimetric Synthetic Aperture Radar}) e de séries temporais. Faremos a proposta de novos filtros, classificadores, segmentadores e detetores de mudança para as primeiras, e de novos descritores e quantificadores de mudança para as segundas. Este projeto irá ainda fazer avanços teóricos. Os resultados conhecidos para os testes estatı́sticos são válidos apenas no sentido assintótico e quando são empregados estimadores de máxima verossimilhança. Estudaremos extensões para os casos de amostras finitas e outros tipos de estimadores (baseados no princı́pio da analogia, robustos, e não-paramétricos, dentre outros).
 
 \textbf{Palavras-chave: Teoria da Informação; Imagens SAR; Séries Temporais} 
@@ -189,7 +140,7 @@ Já que no que diz respeito à segunda frente de trabalho, almejamos desenvolver
     \item Estudar e implementar técnicas para imputação de padrões ausentes ocasionados por dados repetidos.
     \item Analisar a capacidade de reconstrução de informações dessas técnicas quando a série temporal é armazenada com menos precisão do que a ideal.
     \item Analisar a distribuição temporal dos padrões originais e imputados.
-    \itemDesenvolver uma ferramenta para análise de séries temporais baseada em padrões ordinais utilizando a linguagem R.
+    \item Desenvolver uma ferramenta para análise de séries temporais baseada em padrões ordinais utilizando a linguagem R.
 
 \end{itemize}
 
@@ -200,7 +151,7 @@ Já que no que diz respeito à segunda frente de trabalho, almejamos desenvolver
 
 \vspace{0.5cm}
 
-Os objetivos específicos para esta frente de trabalho consistem em desenvolver técnicas de visualização e processamento de grandes imagens SAR, constriuir uma biblioteca de imagens SAR gratuita e montar uma biblioteca de amostras de imagens SAR.
+Os objetivos específicos para esta frente de trabalho consistem em desenvolver técnicas de visualização e processamento de grandes imagens SAR. Além disso, utilizando o conjunto de técnicas que será desenvolvido, objetiva-se a construção de uma biblioteca de análise de imagens SAR gratuita para a linguagem R, de modo a incluir amostras de imagens SAR.
 
 
 %=========================================================
@@ -211,7 +162,7 @@ Os objetivos específicos para esta frente de trabalho consistem em desenvolver 
 
 \vspace{0.5cm}
 
-O presente plano de trabalho tem por título Visualização e Processamento de Grandes Imagens SAR. As etapas necessárias para executar as metas com êxito e alcançar os objetivos propostos neste plano de trabalho são compostas por diversas atividades que vão desde a busca de materiais (artigos, livros, revistas, entre outros) relacionados à temática do projeto até a aplicação dos conhecimentos adquiridos na implementação de scripts utilizando a plataforma R. 
+O presente plano de trabalho tem por título Visualização e Processamento de Grandes Imagens SAR. As etapas necessárias para executar as metas com êxito e alcançar os objetivos propostos neste plano de trabalho são compostas por diversas atividades que vão desde a busca de materiais (artigos, livros, revistas, entre outros) relacionados à temática do projeto até a aplicação dos conhecimentos adquiridos na implementação de \textit{scripts} utilizando a plataforma R. 
 
 Para o início da pesquisa referente a minha frente de trabalho que tem por finalidade a implementação de uma biblioteca em R de funções para visualização e processamento de grandes imagens SAR foram buscadas uma série de boas referências para que fosse construída uma boa base de conhecimento para fornecer suporte às realizações dos objetivos finais do projeto.
 
