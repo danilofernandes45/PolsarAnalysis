@@ -1,6 +1,31 @@
 source("SARTimeSerie.R")
 source("Band&Pompe.R")
 
+#The SAR data is available on https://drive.google.com/file/d/1jtbOcYwQfysfcUp4UhoA7lSl4_tPIqfa/view?usp=sharing and
+# correspond to HHHH band of an image taken from the Cape Canaveral (acquired Sep 22, 2016)
+
+#Ocean regions in Cape Canaveral
+  #{Behavior 1}
+dim <- c(100, 200, 1700, 200)
+dim <- c(300, 200, 1700, 200)
+dim <- c(100, 200, 1900, 200)
+dim <- c(300, 200, 1900, 200)
+  #{Behavior 2}
+dim <- c(100, 200, 100, 200)
+dim <- c(400, 200, 100, 200)
+dim <- c(700, 200, 100, 200)
+dim <- c(1100, 200, 100, 200)
+
+
+#The SAR data is available on https://drive.google.com/file/d/1pO6p_UI9Cgdci9y6jVynAv8SrrAvv7K8/view?usp=sharing and
+# correspond to HHHH band of an image taken from the Munich, Germany (acquired Jun 5, 2015) 
+
+#Urban regions in Munich
+dim <- c(3000, 200, 400, 200)
+dim <- c(3000, 200, 600, 200)
+dim <- c(3200, 200, 400, 200)
+dim <- c(3200, 200, 600, 200)
+
 ns <- 8
 dim <- matrix(nrow = ns, ncol = 4)
 
