@@ -1,8 +1,10 @@
 \documentclass[conference]{IEEEtran}
-\IEEEoverridecommandlockouts
-% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
+\DeclareMathOperator{\Tr}{Tr}
+
+\usepackage{bm}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -11,28 +13,30 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Statistical Properties of Geodesic Distances between Samples and Elementary Backscatterers in PolSAR Imagary\\
-}
+\title{Statistical Properties of Geodesic Distances between Samples and Elementary Backscatterers in PolSAR Imagery}
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Alejandro C\'ezar Frery}
-\IEEEauthorblockA{\textit{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica} \\
-\textit{Universidade Federal de Alagoas}\\
-Macei\'o, Brazil \\
-acfrery@laccan.ufal.br}
-\and
-\IEEEauthorblockN{2\textsuperscript{nd} Danilo Fernandes}
-\IEEEauthorblockA{\textit{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica} \\
-\textit{Universidade Federal de Alagoas}\\
-Macei\'o, Brazil \\
-dfc@laccan.ufal.br}
-}
+\author{\IEEEauthorblockN{Danilo Fernandes, 
+Alejandro C.\ Frery,~\IEEEmembership{Senior Member,~IEEE}}
+\IEEEauthorblockA{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica\\
+Universidade Federal de Alagoas\\
+Macei\'o, Brazil\\
+Email: dfc@laccan.ufal.br, acfrery@laccan.ufal.br
+%acfrery@laccan.ufal.br
+%\and  
+%\IEEEauthorblockN{2\textsuperscript{nd} Danilo Fernandes}
+%\IEEEauthorblockA{\textit{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica} \\
+%\textit{Universidade Federal de Alagoas}\\
+%Macei\'o, Brazil \\
+%dfc@laccan.ufal.br}
+}}
 
 \maketitle
 
 \begin{abstract}
-The PolSAR data is commomly represented by a scattering or covariance matrix, where both are complex. A interesting approach is represent this data in a Kennaugh matrix, which is real and preserves the backscatter information.
-This approach allows measure distance between backscatter information in data and, consequently, measure the similarity between PolSAR data and known backscatters.
-In this report, it analysed the similarity's behavior between PolSAR data and known backscatters using Geodesic Distance to measure distance between them.
+PolSAR data are usually represented by complex scattering or covariance matrices.
+Another representation is by Kennaugh matrices, which are real and preserve the backscatter information.
+This approach allows measuring distances and, consequently, the dissimilarity between PolSAR data and known backscatters.
+In this report, we analyze the statistical properties of this dissimilarity measure between PolSAR data samples and elementary backscatters using a Geodesic Distance.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -41,22 +45,30 @@ PolSAR, Kennaugh matrix, Geodesic Distance.
 \end{IEEEkeywords}
 
 \section{Introduction}
-\IEEEPARstart{I}{n} Polarimetric SAR, a radar target is characterized by a scattering matrix \textbf{S} that describes the dependence of its scattering properties on the polarization. It is defined as
-\[\textbf{S} = 
+\IEEEPARstart{I}{n} Polarimetric SAR, a radar target is characterized by a scattering matrix $\bm S$ that describes the dependence of its scattering properties on the polarization. 
+It is defined as
+\[\bm{S} = 
 \begin{bmatrix}
-S_{HH} & S_{HV}\\
-S_{VH} & S_{VV}\\
+S_{\text{HH}} & S_{\text{HV}}\\
+S_{\text{VH}} & S_{\text{VV}}\\
 \end{bmatrix}
-.\]
+,\]
+where $\text{H}$ and $\text{V}$ denote, respectively, horizontal and vertical polarization.
 
-The same information can be represented by a Pauli vector which is defined by $\textbf{k} = (1/\sqrt{2})[S_{HH} + S_{VV}, S_{HH} - S_{VV}, 2S_{HV}]^T$, where the superscript $T$ denotes transposition. Other important matrix in PolSAR theory is the coherency matrix \textbf{T} obtained by:
-\begin{displaymath}
-\textbf{T} = \frac{1}{L} \sum_{i=1}^{L}\textbf{k}_i \textbf{k}_i^{*T}
-\end{displaymath}
-where superscript * denotes the complex conjugate and $L$ is the number of looks.
+This information can be projected and then visualized using the Pauli vector representation:
+$\bm{k} = 2^{-1/2} 
+\begin{bmatrix}
+S_{\text{HH}} + S_{\text{VV}} &S_{\text{HH}} - S_{\text{VV}} &2S_{\text{HV}}
+\end{bmatrix}^T
+$, 
+where $T$ denotes transposition. 
+Another important matrix in PolSAR theory is the coherency $\bm{T}$ obtained by:
+$$
+\bm{T} = \frac{1}{L} \sum_{\ell=1}^{L}\textbf{k}_\ell \textbf{k}_\ell^{*T},
+$$
+where $*$ denotes the complex conjugate, and $L$ is the number of looks.
 
-The Kennaugh matrix \textbf{K} to a radar target can be obtained from your coherency matrix \textbf{T} by
-
+The Kennaugh matrix $\bm{K}$ can be obtained from the coherency matrix $\bm{T}$:
 \[
 \begin{bmatrix}
 \frac{ T_{11} + T_{22} + T_{33} }{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
@@ -66,13 +78,20 @@ The Kennaugh matrix \textbf{K} to a radar target can be obtained from your coher
 \end{bmatrix}
 .\]
 
-Given the Kennaugh matrices \textbf{$K_1$} and \textbf{$K_2$}, it's possible measure the distance between them using the Geodesic Distance\cite{b1}. This range between [0,1] and is given by:
+The Geodesic Distance between two Kennaugh matrices $\bm K_1$ and $\bm K_2$ is~\cite{ClassificationPolSARGeodesic}: 
 \begin{displaymath}
-GD(K_1, K_2) = \frac{2}{\pi} \cos^{-1} \left(\frac{Tr(K_1^T K_2)}{\sqrt{Tr(K_1^T K_1)} \sqrt{Tr(K_2^T K_2})} \right).
-\end{displaymath}.
+\text{GD}(\bm K_1, \bm K_2) = \frac{2}{\pi} \cos^{-1} \left(\frac{\Tr(\bm K_1^T \bm K_2)}{\sqrt{\Tr(\bm K_1^T \bm K_1)} \sqrt{\Tr(\bm K_2^T \bm K_2})} \right),
+\end{displaymath}
+where $\Tr$ denotes the trace.
+It ranges between $[0,1]$.
+%This leads to defining a measure of similarity between PolSAR data: $f(\bm K_1, \bm K_2) = 1 - \text{GD}(\bm K_1, \bm K_2)$. 
+This measure of dissimilarity has been used to 
+classify images~\cite{ClassificationPolSARGeodesic},
+in the proposal of a new generalized volume scattering model~\cite{AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019},
+and for the analysis of built-up areas~\cite{NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019}.
 
-With this, it's possible measure similarity, which is $f(K_1, K_2) = 1 - GD(K_1, K_2)$, between PolSAR data and known elementary backscatters\cite{b1}. For example \textit{trihedral}, \textit{dihedral}, \textit{random volume}, \textit{narrow dihedral}, \textit{cylinder}, \textit{dipole}, \textit{left helix}, \textit{right helix}, \textit{+1/4-wave} e \textit{-1/4-wave}, whose Kennaugh matrices are, respectively:
-
+In this work, we are interested in the dissimilarity between samples and elementary backscatterers:
+trihedral, dihedral, random volume, narrow dihedral, cylinder, dipole, left helix, right helix, $+1/4$-wave and $-1/4$-wave, whose Kennaugh matrices are, respectively:
 \[K_a =
 \begin{bmatrix}
 1 & 0 & 0 & 0\\
@@ -150,7 +169,8 @@ K_{-1/4}=
 \end{bmatrix}
 .\]
 
-In this report is presented histograms of similarities between aforementioned elementary backscatters and PolSAR data of vegetation and ground regions. The used data is from UAVSAR and corresponding to Sierra  del  Lacandon  National  Park,  Guatemala. 
+In this report is presented histograms of similarities between aforementioned elementary backscatters and PolSAR data of vegetation and ground regions. 
+The used data is from UAVSAR and corresponding to Sierra  del  Lacandon  National  Park,  Guatemala. 
 
 \section{Histograms of similarities}
 
@@ -160,28 +180,28 @@ For the construction of the histograms, it was selected the PolSAR data with dim
     \vspace{.1\linewidth}
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvn_vegetation.pdf}
-    \caption{Similarity between PolSAR data from forest region and -1/4-wave elementary backscatterer}
+    \caption{Similarity between PolSAR data from forest region and $-1/4$-wave elementary backscatterer}
     \label{fig:fr_wvn}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvn_ground.pdf}
-    \caption{Similarity between PolSAR data from ground region and -1/4-wave elementary backscatterer}
+    \caption{Similarity between PolSAR data from ground region and $-1/4$-wave elementary backscatterer}
     \label{fig:gr_wvn}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvp_vegetation.pdf}
-    \caption{Similarity between PolSAR data from forest region and +1/4-wave elementary backscatterer}
+    \caption{Similarity between PolSAR data from forest region and $+1/4$-wave elementary backscatterer}
     \label{fig:fr_wvp}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvp_ground.pdf}
-    \caption{Similarity between PolSAR data from ground region and +1/4-wave elementary backscatterer}
+    \caption{Similarity between PolSAR data from ground region and $+1/4$-wave elementary backscatterer}
     \label{fig:gr_wvp}
 \end{figure}
 
@@ -310,7 +330,7 @@ For the Kolmogorov-Smirnov goodness-of-fit test, it was selected 400 samples fro
     
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
-             & -1/4 -wave & +1/4 -wave & Cylinder & Dihedral & Dipole\\
+             & $-1/4$-wave & $+1/4$-wave & Cylinder & Dihedral & Dipole\\
             \hline
             \textbf{Forest} & 0.979 & 0.808 & 0.763 & 0.733 & 0.975\\
             \hline
@@ -334,11 +354,8 @@ For the Kolmogorov-Smirnov goodness-of-fit test, it was selected 400 samples fro
     \end{small} 
 \end{table}
 
-\begin{thebibliography}{00}
-\bibitem{b1} D. Ratha, A. Bhattacharya, and A. C. Frery, ``Unsupervised classification of PolSAR data using
-a scattering similarity measure derived
-from a geodesic distance,'' IEEE Geosci. Remote Sens. Lett., vol. 15, pp. 151--155, January 2018.
-\end{thebibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{../../../Bibliography/references}
 
 \end{document}
 
