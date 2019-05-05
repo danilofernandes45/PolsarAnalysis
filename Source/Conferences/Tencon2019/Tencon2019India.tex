@@ -174,11 +174,26 @@ The used data is from UAVSAR and corresponding to Sierra  del  Lacandon  Nationa
 
 \section{Histograms of similarities}
 
-For the construction of the histograms, it was selected the PolSAR data with dimension of 50x50 pixels referent to a forest region and a bare soil region belong to Sierra  del  Lacandon  National  Park. This histograms are showed in the figures \ref{fig:wvn} to \ref{fig:tr}. Observe that the histograms referent to the same elementary backscatterer are different to forest and bare soil regions. In this way, the statistical behavior of the Geodesic Distance between PolSAR data and elementary backscatterers allows to characterize forest and bare soil regions.
+For the construction of the histograms, it was selected the PolSAR data with a dimension of 50x50 pixels referent to a forest region and a bare soil region belong to Sierra  del Lacandon National Park. The visualizations of the PolSAR data of these regions through Pauli decomposition are limited by the white squares in the figures \ref{fig:forest} and \ref{fig:bare_soil}. This histograms are showed in the figures \ref{fig:wvn} to \ref{fig:tr}. Observe that the histograms referent to the same elementary backscatterer are different to forest and bare soil regions. In this way, the statistical behavior of the Geodesic Distance between PolSAR data and elementary backscatterers allows to characterize forest and bare soil regions.
+
+\begin{figure}[!ht]
+    \vspace{.1\linewidth}
+    \centering
+    \includegraphics[width = .7\linewidth, height = .7\linewidth]{../../../Images/paper_19_05/forest.png}
+    \caption{Visualization of PolSAR data from the forest region through Pauli decomposition.}
+    \label{fig:forest}
+\end{figure}
+
+\begin{figure}[!ht]
+    \vspace{.1\linewidth}
+    \centering
+    \includegraphics[width = .7\linewidth, height = .7\linewidth]{../../../Images/paper_19_05/bare_soil.png}
+    \caption{Visualization of PolSAR data from the bare soil region through Pauli decomposition.}
+    \label{fig:bare_soil}
+\end{figure}
 
 %Code generator of these histograms is in Code folder in this repository
 \begin{figure}[!ht]
-    \vspace{.151\linewidth}
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvn.pdf}
     \caption{Similarity between $-1/4$-wave elementary backscatterer and PolSAR data from the forest region and bare soil region }
@@ -186,7 +201,6 @@ For the construction of the histograms, it was selected the PolSAR data with dim
 \end{figure}
 
 \begin{figure}[!ht]
-    \vspace{.15\linewidth}
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvp.pdf}
     \caption{Similarity between $+1/4$-wave elementary backscatterer and PolSAR data from the forest region and bare soil region}
@@ -196,56 +210,56 @@ For the construction of the histograms, it was selected the PolSAR data with dim
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/cy.pdf}
-    \caption{Similarity between cylinder elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between cylinder elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:cy}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/di.pdf}
-    \caption{Similarity between dihedral elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between dihedral elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:di}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/dip.pdf}
-    \caption{Similarity between dipole elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between dipole elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:dip}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/nd.pdf}
-    \caption{Similarity between narrow dihedral elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between narrow dihedral elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:nd}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/lh.pdf}
-    \caption{Similarity between left helix elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between left helix elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:lh}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/rh.pdf}
-    \caption{Similarity between right helix elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between right helix elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:rh}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/rv.pdf}
-    \caption{Similarity between random volume elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between random volume elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:rv}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/tr.pdf}
-    \caption{Similarity between trihedral elementary backscatterer and PolSAR data from the forest region (in green) and bare soil region (in red)}
+    \caption{Similarity between trihedral elementary backscatterer and PolSAR data from the forest region and bare soil region}
     \label{fig:tr}
 \end{figure}
 
@@ -264,7 +278,7 @@ In addition, the mean is given by
 \begin{equation}
   \mu = \frac{\alpha}{\alpha + \beta}.
 \end{equation}
-\newpage
+
 \begin{table}[!ht]
 \centering
     \caption{Estimation of the hope and parameters of the beta distribution for similarities between the elementary backscatterers and the PolSAR data of the regions analyzed.}
@@ -280,9 +294,11 @@ In addition, the mean is given by
             \hline
             \textbf{Bare soil} & 0.055 & 0.4 & 1.127 & 4.872 & 0.119\\
             \hline
-        \end{tabular} 
-    \end{small} 
-    \vspace{.03\linewidth}
+        \end{tabular}
+    \end{small}
+    
+    \vspace{.02\linewidth}
+
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -295,8 +311,10 @@ In addition, the mean is given by
             \textbf{Bare soil} & 0.09 & 0.45 & 1.2 & 4.8 & 0.162\\
             \hline
         \end{tabular} 
-    \end{small} 
-    \vspace{.03\linewidth}
+    \end{small}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -310,7 +328,11 @@ In addition, the mean is given by
             \hline
         \end{tabular} 
     \end{small} 
-    \vspace{.03\linewidth}
+\end{table}
+
+\newpage
+
+\begin{table}[!ht]
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -323,8 +345,10 @@ In addition, the mean is given by
             \textbf{Bare soil} & 0.009 & 0.07 & 1.327 & 4.672 & 0.022\\
             \hline
         \end{tabular} 
-    \end{small} 
-    \vspace{.03\linewidth}
+    \end{small}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -338,7 +362,9 @@ In addition, the mean is given by
             \hline
         \end{tabular} 
     \end{small} 
-    \vspace{.03\linewidth}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -351,8 +377,10 @@ In addition, the mean is given by
             \textbf{Bare soil} & 0.016 & 0.15 & 1.119 & 4.88 & 0.041\\
             \hline
         \end{tabular} 
-    \end{small} 
-    \vspace{.03\linewidth}
+    \end{small}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -366,7 +394,9 @@ In addition, the mean is given by
             \hline
         \end{tabular} 
     \end{small} 
-    \vspace{.03\linewidth}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -380,7 +410,9 @@ In addition, the mean is given by
             \hline
         \end{tabular} 
     \end{small} 
-    \vspace{.03\linewidth}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -394,7 +426,9 @@ In addition, the mean is given by
             \hline
         \end{tabular} 
     \end{small} 
-    \vspace{.03\linewidth}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
             \hline
@@ -432,7 +466,9 @@ For the Kolmogorov-Smirnov goodness-of-fit test, it was selected 400 samples fro
             \hline
         \end{tabular} 
     \end{small} 
-    \vspace{.05\linewidth}
+    
+    \vspace{.02\linewidth}
+    
     \begin{small}
     
         \begin{tabular}{|*{6}{p{.12\linewidth}|}}
