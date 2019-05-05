@@ -4,9 +4,13 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \DeclareMathOperator{\Tr}{Tr}
 
+\usepackage{subfigure}
+\usepackage{booktabs}
+
 \usepackage{bm}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\graphicspath{{../../../Figures/paper_19_05/}{../../../Images/paper_19_05/}}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -84,15 +88,17 @@ The Geodesic Distance between two Kennaugh matrices $\bm K_1$ and $\bm K_2$ is~\
 \end{displaymath}
 where $\Tr$ denotes the trace.
 It ranges between $[0,1]$.
-%This leads to defining a measure of similarity between PolSAR data: $f(\bm K_1, \bm K_2) = 1 - \text{GD}(\bm K_1, \bm K_2)$. 
+This leads to defining a measure of similarity between PolSAR data: $f(\bm K_1, \bm K_2) = 1 - \text{GD}(\bm K_1, \bm K_2)$. 
 This measure of dissimilarity has been used to 
 classify images~\cite{ClassificationPolSARGeodesic},
 in the proposal of a new generalized volume scattering model~\cite{AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019},
 and for the analysis of built-up areas~\cite{NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019}.
+A measure of similarity, often more convenient for classification purposes~\cite{FreryCorreiaFreitas:ClassifMultifrequency:IEEE:2007}, is $1-\text{GD}$.
 
-In this work, we are interested in the dissimilarity between samples and elementary backscatterers:
+In this work, we are interested in the similarity between samples and elementary backscatterers:
 trihedral, dihedral, random volume, narrow dihedral, cylinder, dipole, left helix, right helix, $+1/4$-wave and $-1/4$-wave, whose Kennaugh matrices are, respectively:
-\[K_a =
+\begin{align*}
+K_a &=
 \begin{bmatrix}
 1 & 0 & 0 & 0\\
 0 & 1 & 0 & 0\\
@@ -105,9 +111,8 @@ K_b =
 0 & 1 & 0 & 0\\
 0 & 0 & -1 & 0\\
 0 & 0 & 0 & 1\\
-\end{bmatrix},
-\]
-\[K_{rv} =
+\end{bmatrix},\\
+K_{rv} &=
 \begin{bmatrix}
 1 & 0 & 0 & 0\\
 0 & 1/2 & 0 & 0\\
@@ -120,9 +125,8 @@ K_{nd} =
 3/8 & 5/8 & 0 & 0\\
 0 & 0 & -1/2 & 0\\
 0 & 0 & 0 & 1/2
-\end{bmatrix},
-\]
-\[K_{c} =
+\end{bmatrix},\\
+K_{c} &=
 \begin{bmatrix}
 5/8 & 3/8 & 0 & 0\\
 3/8 & 5/8 & 0 & 0\\
@@ -135,9 +139,8 @@ K_d=
 -1 & 1 & 0 & 0\\
 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0\\
-\end{bmatrix},
-\]
-\[K_{lh}=
+\end{bmatrix},\\
+K_{lh} &=
 \begin{bmatrix}
 1 & 0 & 0 & -1\\
 0 & 0 & 0 & 0\\
@@ -151,9 +154,8 @@ K_{rh}=
 0 & 0 & 0 & 0\\
 1 & 0 & 0 & 1\\
 \end{bmatrix}
-,\]
-
-\[K_{+1/4}=
+,\\
+K_{+1/4} &=
 \begin{bmatrix}
 1 & 0 & 0 & 0\\
 0 & 1 & 0 & 0\\
@@ -167,322 +169,180 @@ K_{-1/4}=
 0 & 0 & 0 & -1\\
 0 & 0 & -1 & 0\\
 \end{bmatrix}
-.\]
+.
+\end{align*}
 
-In this report is presented histograms of similarities between aforementioned elementary backscatters and PolSAR data of forest and bare soil regions. 
-The used data is from UAVSAR and corresponding to Sierra  del  Lacandon  National  Park,  Guatemala. 
+The forthcoming section presents an empirical analysis of the similarities between the aforementioned elementary backscatters and PolSAR data from samples of vegetation and bare soil. 
+The data is from UAVSAR image over Sierra del Lacandon National Park, Guatemala.
+%%% ACF Se possível, forneça mais informações: data, banda, resolução espacial, número de looks etc.
 
-\section{Histograms of similarities}
+\section{Analysis of Distances}
 
-For the construction of the histograms, it was selected the PolSAR data with a dimension of 50x50 pixels referent to a forest region and a bare soil region belong to Sierra  del Lacandon National Park. The visualizations of the PolSAR data of these regions through Pauli decomposition are limited by the white squares in the figures \ref{fig:forest} and \ref{fig:bare_soil}. This histograms are showed in the figures \ref{fig:wvn} to \ref{fig:tr}. Observe that the histograms referent to the same elementary backscatterer are different to forest and bare soil regions. In this way, the statistical behavior of the Geodesic Distance between PolSAR data and elementary backscatterers allows to characterize forest and bare soil regions.
+We selected samples of size $50\times 50$ pixels over forest and bare soil regions, and computed the similarities of the observation to each elementary backscatterer.
+We also fitted a Beta distribution, with density given by
+$$
+\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1},
+$$
+with $x \in [ 0,1]$, $\alpha,\beta>0$.
+The mean is given by
+\begin{equation}
+  \mu = \frac{\alpha}{\alpha + \beta}.
+  \label{eq:MeanBeta}
+\end{equation}
+We estimated $\alpha$ and $\beta>0$ by maximum likelihood and, thus, obtained models for these similarities.
 
-\begin{figure}[!ht]
+We selected visually homogeneous regions of size $50\times50$ pixels from forested and bare soil areas.
+They are shown, in Pauli decomposition, in Figs.~\ref{fig:forest} and \ref{fig:bare_soil}, respectively.
+
+
+
+The histograms of the similarity of these data to each elementary backscatterer are shown in Figs.~\ref{fig:wvn} to \ref{fig:tr}.
+
+
+\begin{figure}[hbt]
     \vspace{.1\linewidth}
     \centering
-    \includegraphics[width = .7\linewidth, height = .7\linewidth]{../../../Images/paper_19_05/forest.png}
+    \includegraphics[width = .7\linewidth]{forest}
     \caption{Visualization of PolSAR data from the forest region through Pauli decomposition.}
     \label{fig:forest}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[hbt]
     \vspace{.1\linewidth}
     \centering
-    \includegraphics[width = .7\linewidth, height = .7\linewidth]{../../../Images/paper_19_05/bare_soil.png}
+    \includegraphics[width = .7\linewidth]{bare_soil.png}
     \caption{Visualization of PolSAR data from the bare soil region through Pauli decomposition.}
     \label{fig:bare_soil}
 \end{figure}
 
 %Code generator of these histograms is in Code folder in this repository
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvn.pdf}
-    \caption{Similarity between $-1/4$-wave elementary backscatterer and PolSAR data from the forest region and bare soil region }
-    \label{fig:wvn}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/wvp.pdf}
-    \caption{Similarity between $+1/4$-wave elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:wvp}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/cy.pdf}
-    \caption{Similarity between cylinder elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:cy}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/di.pdf}
-    \caption{Similarity between dihedral elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:di}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/dip.pdf}
-    \caption{Similarity between dipole elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:dip}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/nd.pdf}
-    \caption{Similarity between narrow dihedral elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:nd}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/lh.pdf}
-    \caption{Similarity between left helix elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:lh}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/rh.pdf}
-    \caption{Similarity between right helix elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:rh}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/rv.pdf}
-    \caption{Similarity between random volume elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:rv}
-\end{figure}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width = .9\linewidth, height = .7\linewidth]{../../../Figures/paper_19_05/tr.pdf}
-    \caption{Similarity between trihedral elementary backscatterer and PolSAR data from the forest region and bare soil region}
-    \label{fig:tr}
-\end{figure}
-
-The table \ref{tab:estimated_params} contains the estimated parameters of the beta distribution to the analysied similarities. Through those, the probability density functions of the figures \ref{fig:wvn} to \ref{fig:tr} were adjusted to the histograms of the similarities. In addition, this table contains the estimate of the hope that results from the estimation of these parameters.
-
-The probability density function of the beta distribution is given by
-
-\begin{equation}
-  f(x; a, c, \alpha, \beta) = \frac{(x - a)^{\alpha-1} (c - x)^{\beta - 1}}{B(\alpha, \beta) (c - a)^{\alpha + \beta - 1}}
-\end{equation}
-
-where B($\alpha$, $\beta$) is the beta function and a $<$ c.
-
-In addition, the mean is given by
-
-\begin{equation}
-  \mu = \frac{\alpha}{\alpha + \beta}.
-\end{equation}
-
-\begin{table}[!ht]
+\begin{figure*}[hbt]
 \centering
-    \caption{Estimation of the hope and parameters of the beta distribution for similarities between the elementary backscatterers and the PolSAR data of the regions analyzed.}
-    \label{tab:estimated_params}     
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{$-1/4$-wave}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 7.83 & 22.758 & 0.255\\
-            \hline
-            \textbf{Bare soil} & 0.055 & 0.4 & 1.127 & 4.872 & 0.119\\
-            \hline
-        \end{tabular}
-    \end{small}
-    
-    \vspace{.02\linewidth}
+\subfigure[Similarity w.r.t. $-1/4$-wave elementary backscatterer\label{fig:wvn}]{\includegraphics[width = .19\linewidth]{wvn}}
+%
+\subfigure[Similarity w.r.t. $+1/4$-wave elementary backscatterer\label{fig:wvp}]{\includegraphics[width = .19\linewidth]{wvp}}
+%
+\subfigure[Similarity w.r.t. $+1/4$-wave elementary backscatterer\label{fig:cy}]{\includegraphics[width = .19\linewidth]{cy}}
+%
+\subfigure[Similarity w.r.t. dihedral elementary backscatterer\label{fig:di}]{\includegraphics[width = .19\linewidth]{di}}
+%
+\subfigure[Similarity w.r.t. dipole elementary backscatterer\label{fig:dip}]{\includegraphics[width = .19\linewidth]{dip}}
+%
+\subfigure[Similarity w.r.t. narrow dihedral backscatterer\label{fig:nd}]{\includegraphics[width = .19\linewidth]{nd}}
+%
+\subfigure[Similarity w.r.t. left helix backscatterer\label{fig:lh}]{\includegraphics[width = .19\linewidth]{lh}}
+%
+\subfigure[Similarity w.r.t. right helix backscatterer\label{fig:rh}]{\includegraphics[width = .19\linewidth]{rh}}
+%
+\subfigure[Similarity w.r.t. random volume backscatterer\label{fig:rv}]{\includegraphics[width = .19\linewidth]{rv}}
+%
+\subfigure[Similarity w.r.t. trihedral backscatterer\label{fig:tr}]{\includegraphics[width = .19\linewidth]{tr}}
+\caption{Histograms of similarities between forest and bare soil samples with respect to ten elementary backscatterers; Forest in green, Bare Soil in red, overlap in brown.}\label{Fig:Histograms}
+\end{figure*}
 
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{$+1/4$-wave}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 8.681 & 23.277 & 0.271\\
-            \hline
-            \textbf{Bare soil} & 0.09 & 0.45 & 1.2 & 4.8 & 0.162\\
-            \hline
-        \end{tabular} 
-    \end{small}
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Cylinder}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 7.5 & 12.165 & 0.381\\
-            \hline
-            \textbf{Bare soil} & 0.14 & 0.6 & 1.243 & 4.756 & 0.235\\
-            \hline
-        \end{tabular} 
-    \end{small} 
+The differences are clear, denoting the expressiveness of this measure of similarity.
+
+Table~\ref{tab:estimated_params} shows the estimated parameters of the Beta distribution when used as model for all similarities.
+The table also presents the minima and maxima of each sample, and the estimate of the mean value computed with~\eqref{eq:MeanBeta}.
+
+The elementary backscatterers which are closest to the samples are highlighted in red.
+It is noteworthy that both Forest and Bare Soil are closest to the Random Volume model.
+
+Through those, the probability density functions of the figures \ref{fig:wvn} to \ref{fig:tr} were adjusted to the histograms of the similarities. In addition, this table contains the estimate of the hope that results from the estimation of these parameters.
+
+\begin{table}[hbt]
+\centering
+\caption{Estimates of the Beta distribution, minima, maxima, and estimated mean}\label{tab:estimated_params}     
+\begin{tabular}{lrrrrr}
+\toprule
+& $\min$ & $\max$ & $\widehat\alpha$ & $\widehat\beta$ & $\widehat\mu$\\ \midrule
+& \multicolumn{5}{c}{$-1/4$-wave}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 7.83 & 22.758 & 0.255\\
+\textbf{Bare soil} & 0.055 & 0.4 & 1.127 & 4.872 & 0.119\\
+\midrule
+%
+& \multicolumn{5}{c}{$+1/4$-wave}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 8.681 & 23.277 & 0.271\\
+\textbf{Bare soil} & 0.09 & 0.45 & 1.2 & 4.8 & 0.162\\
+\midrule
+%
+& \multicolumn{5}{c}{Cylinder}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 7.5 & 12.165 & 0.381\\
+\textbf{Bare soil} & 0.14 & 0.6 & 1.243 & 4.756 & 0.235\\
+\midrule
+%
+& \multicolumn{5}{c}{Dihedral}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 5.38 & 36.87 & 0.127\\
+\textbf{Bare soil} & 0.009 & 0.07 & 1.327 & 4.672 & 0.022\\
+\midrule
+%
+& \multicolumn{5}{c}{Dipole}\\
+\textbf{Forest} & 0 & 1 & 8.358 & 22.658 & 0.269\\
+\textbf{Bare soil} & 0.075 & 0.35 & 1.625 & 4.374 & 0.149\\
+\midrule
+%
+& \multicolumn{5}{c}{Narrow dihedral}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 5.89 & 33.198 & 0.15\\
+\textbf{Bare soil} & 0.016 & 0.15 & 1.119 & 4.88 & 0.041\\
+\midrule
+%
+& \multicolumn{5}{c}{Left helix}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 27.408 & 96.013 & 0.222\\
+\textbf{Bare soil} & 0 & 1 & 8.38 & 24.286 & 0.256\\
+\midrule
+& \multicolumn{5}{c}{Right helix}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 28.522 & 71.238 & 0.285\\
+\textbf{Bare soil} & 0 & 1 & 8.316 & 20.574 & 0.287\\
+\midrule
+%
+& \multicolumn{5}{c}{Random volume}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 20.074 & 11.91 & \textcolor{red}{0.627}\\
+\textbf{Bare soil} & 0.36 & 0.8 & 1.218 & 4.781 & \textcolor{red}{0.449}\\
+\midrule
+%
+& \multicolumn{5}{c}{Trihedral}\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0 & 1 & 7.197 & 9.996 & 0.418\\
+\textbf{Bare soil} & 0.15 & 0.65 & 1.408 & 4.592 & 0.267\\
+\bottomrule
+\end{tabular}
 \end{table}
 
-\newpage
+Table~\ref{tab:pvalues_table} presents the $p$-values of the Kolmogorov-Smirnov goodness-of-fit test of the similarities when expressed by Beta models.
+These tests were performed over $400$ randomly selected observations (without replacement), and they show a good adequacy: the smallest $p$-value is $0.07$.
 
-\begin{table}[!ht]
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Dihedral}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 5.38 & 36.87 & 0.127\\
-            \hline
-            \textbf{Bare soil} & 0.009 & 0.07 & 1.327 & 4.672 & 0.022\\
-            \hline
-        \end{tabular} 
-    \end{small}
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Dipole}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 8.358 & 22.658 & 0.269\\
-            \hline
-            \textbf{Bare soil} & 0.075 & 0.35 & 1.625 & 4.374 & 0.149\\
-            \hline
-        \end{tabular} 
-    \end{small} 
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Narrow dihedral}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 5.89 & 33.198 & 0.15\\
-            \hline
-            \textbf{Bare soil} & 0.016 & 0.15 & 1.119 & 4.88 & 0.041\\
-            \hline
-        \end{tabular} 
-    \end{small}
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Left helix}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 27.408 & 96.013 & 0.222\\
-            \hline
-            \textbf{Bare soil} & 0 & 1 & 8.38 & 24.286 & 0.256\\
-            \hline
-        \end{tabular} 
-    \end{small} 
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Right helix}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 28.522 & 71.238 & 0.285\\
-            \hline
-            \textbf{Bare soil} & 0 & 1 & 8.316 & 20.574 & 0.287\\
-            \hline
-        \end{tabular} 
-    \end{small} 
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Random volume}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 20.074 & 11.91 & 0.627\\
-            \hline
-            \textbf{Bare soil} & 0.36 & 0.8 & 1.218 & 4.781 & 0.449\\
-            \hline
-        \end{tabular} 
-    \end{small} 
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & \multicolumn{5}{c|}{Trihedral}\\
-            \hline
-             & $a$ & $c$ & $\alpha$ & $\beta$ & $\mu$\\
-            \hline
-            \textbf{Forest} & 0 & 1 & 7.197 & 9.996 & 0.418\\
-            \hline
-            \textbf{Bare soil} & 0.15 & 0.65 & 1.408 & 4.592 & 0.267\\
-            \hline
-        \end{tabular} 
-    \end{small} 
-\end{table}
-
-\section{Goodness-of-fit test}
-
-For the Kolmogorov-Smirnov goodness-of-fit test, it was selected 400 samples from the forest region and 120 samples from the bare soil region through simple random sampling method and realize the test for all elementary backscatterers with respect the respective distributions in the figures \ref{fig:wvn} to \ref{fig:tr}. The table \ref{tab:pvalues_table} contains the p-values obtained by the tests, which the least p-value is 0.07. 
-
-\begin{table}[!ht]
+\begin{table}[hbt]
 \centering
-
-    \caption{P-values obtained by Kolmogorov-Smirnov goodness-of-fit test for all elementary backscatterers}
-    \label{tab:pvalues_table}     
-
-    \begin{small}
-    
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & $-1/4$-wave & $+1/4$-wave & Cylinder & Dihedral & Dipole\\
-            \hline
-            \textbf{Forest} & 0.979 & 0.808 & 0.763 & 0.733 & 0.975\\
-            \hline
-            \textbf{Bare soil} & 0.361 & 0.893 & 0.264 & 0.443 & 0.475\\
-            \hline
-        \end{tabular} 
-    \end{small} 
-    
-    \vspace{.02\linewidth}
-    
-    \begin{small}
-    
-        \begin{tabular}{|*{6}{p{.12\linewidth}|}}
-            \hline
-             & Left & Narrow & Random & Right & Trihedral\\
+\caption{$p$-values of the Kolmogorov-Smirnov goodness-of-fit test of the similarity w.r.t. elementary backscatterers}\label{tab:pvalues_table}
+\begin{tabular}{lrrrrr}
+\toprule
+& $-1/4$-wave & $+1/4$-wave & Cylinder & Dihedral & Dipole\\
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0.979 & 0.808 & 0.763 & 0.733 & 0.975\\
+\textbf{Bare soil} & 0.361 & 0.893 & 0.264 & 0.443 & 0.475\\
+\midrule
+& Left & Narrow & Random & Right & Trihedral\\
              & helix & dihedral & volume & helix & \\
-            \hline
-            \textbf{Forest} & 0.959 & 0.787 & 0.589 & 0.344 & 0.582\\
-            \hline
-            \textbf{Bare soil} & 0.099 & 0.206 & 0.480 & 0.072 & 0.127\\
-            \hline
-        \end{tabular} 
-    \end{small} 
+\cmidrule(lr){2-6}
+\textbf{Forest} & 0.959 & 0.787 & 0.589 & 0.344 & 0.582\\
+\textbf{Bare soil} & 0.099 & 0.206 & 0.480 & 0.072 & 0.127\\
+\bottomrule
+\end{tabular} 
 \end{table}
+
+\section{Conclusions}
+
+This is a first step towards a statistical analysis of measures of similarities between PolSAR observations and elementary backscatterers in the space of Kennaugh representations.
+
+The Beta distribution is an acceptable model for describing the similarities.
 
 \bibliographystyle{IEEEtran}
 \bibliography{../../../Bibliography/references}
