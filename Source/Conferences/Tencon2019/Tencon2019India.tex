@@ -172,6 +172,42 @@ K_{-1/4}=
 .
 \end{align*}
 
+The geodesic distance between these elementary backscatterers is given in the table \ref{tab:dist_matrix}.
+
+\begin{table}[hbt]
+\centering
+\caption{The geodesic distance between these elementary backscatterers}\label{tab:dist_matrix}
+\begin{tabular}{lrrrrr}
+\toprule
+& $K_{a}$ & $K_{b}$ & $K_{rv}$ & $K_{nd}$ & $K_{c}$\\
+\cmidrule(lr){2-6}
+$K_{a}$ & 0.000 & 1.000 & 0.391 & 0.936 & 0.287\\
+$K_{b}$ & 1.000 & 0.000 & 0.732 & 0.287 & 0.936\\
+$K_{rv}$ & 0.391 & 0.732 & 0.000 & 0.703 & 0.434\\
+$K_{nd}$ & 0.936 & 0.287 & 0.703 & 0.000 & 0.765\\
+$K_{c}$ & 0.287 & 0.936 & 0.434 & 0.765 & 0.000\\
+$K_{d}$ & 0.666 & 0.666 & 0.580 & 0.871 & 0.871\\
+$K_{lh}$ & 1.000 & 0.666 & 0.732 & 0.702 & 0.968\\
+$K_{rh}$ & 1.000 & 0.666 & 0.732 & 0.702 & 0.968\\
+$K_{+1/4}$ & 0.666 & 0.666 & 0.580 & 0.666 & 0.666\\
+$K_{-1/4}$ & 0.666 & 0.666 & 0.580 & 0.666 & 0.666\\
+\midrule
+& $K_{d}$ & $K_{lh}$ & $K_{rh}$ & $K_{+1/4}$ & $K_{-1/4}$\\
+\cmidrule(lr){2-6}
+$K_{a}$ & 0.666 & 1.000 & 1.000 & 0.666 & 0.666\\
+$K_{b}$ & 0.666 & 0.666 & 0.666 & 0.666 & 0.666\\
+$K_{rv}$ & 0.580 & 0.732 & 0.732 & 0.580 & 0.580\\
+$K_{nd}$ & 0.871 & 0.702 & 0.702 & 0.666 & 0.666\\
+$K_{c}$ & 0.871 & 0.968 & 0.968 & 0.666 & 0.666\\
+$K_{d}$ & 0.000 & 0.839 & 0.839 & 0.666 & 0.666\\
+$K_{lh}$ & 0.839 & 0.000 & 1.000 & 0.839 & 0.839\\
+$K_{rh}$ & 0.839 & 1.000 & 0.000 & 0.839 & 0.839\\
+$K_{+1/4}$ & 0.666 & 0.839 & 0.839 & 0.000 & 1.000\\
+$K_{-1/4}$ & 0.666 & 0.839 & 0.839 & 1.000 & 0.000\\
+\bottomrule
+\end{tabular} 
+\end{table}
+
 The forthcoming section presents an empirical analysis of the similarities between the aforementioned elementary backscatters and PolSAR data from samples of vegetation and bare soil. 
 The data is from UAVSAR image over Sierra del Lacandon National Park, Guatemala.
 %%% ACF Se possível, forneça mais informações: data, banda, resolução espacial, número de looks etc.
