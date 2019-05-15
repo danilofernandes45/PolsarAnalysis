@@ -380,6 +380,22 @@ This is a first step towards a statistical analysis of measures of similarities 
 
 The Beta distribution is an acceptable model for describing the similarities.
 
+\section{Appendix}
+
+The probability density function of beta distribution is given by:
+$$
+\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)(max - min)^{\alpha + \beta - 1}}(x - min)^{\alpha-1}(max-x)^{\beta-1},
+$$
+with $x \in [min, max]$, $\alpha,\beta>0$.
+
+The similarity between PolSAR data from bare soil and $-1/4$-wave, for instance, obey this distribution with $min = 0.055$, $max = 0.400$, $\alpha = 1.127$, $\beta = 4.872$.
+
+The case where $min = 0$ and $max = 1$ is called the standard beta distribution. The equation for the standard beta distribution is
+$$
+\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1},
+$$
+with $x \in [0, 1]$, $\alpha,\beta>0$.
+
 \bibliographystyle{IEEEtran}
 \bibliography{../../../Bibliography/references}
 
