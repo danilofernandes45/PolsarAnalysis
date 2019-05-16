@@ -8,13 +8,15 @@
 \usepackage{booktabs}
 
 \usepackage{bm}
-\usepackage{algorithmic}
 \usepackage{graphicx}
 \graphicspath{{../../../Figures/paper_19_05/}{../../../Images/paper_19_05/}}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\usepackage{balance}
+
 \begin{document}
 
 \title{Statistical Properties of Geodesic Distances between Samples and Elementary Backscatterers in PolSAR Imagery}
@@ -172,11 +174,13 @@ K_{-1/4}=
 .
 \end{align*}
 
-The geodesic distance between these elementary backscatterers is given in the table \ref{tab:dist_matrix}.
+Table~\ref{tab:dist_matrix} presents the geodesic distances between these elementary backscatterers.
+Fig.~\ref{fig:Network} shows a graphical representation of the relationships between them.
+The size of the edges in this complete graph is proportional to the distance between each pair, as presented in Table~\ref{tab:dist_matrix}.
 
 \begin{table}[hbt]
 \centering
-\caption{The geodesic distance between these elementary backscatterers}\label{tab:dist_matrix}
+\caption{The geodesic distance between elementary backscatterers}\label{tab:dist_matrix}
 \begin{tabular}{lrrrrr}
 \toprule
 & $K_{a}$ & $K_{b}$ & $K_{rv}$ & $K_{nd}$ & $K_{c}$\\
@@ -208,6 +212,12 @@ $K_{-1/4}$ & 0.666 & 0.839 & 0.839 & 1.000 & 0.000\\
 \end{tabular} 
 \end{table}
 
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=.7\linewidth]{network}
+\caption{Representation of the relationships among elementary backscatterers.}\label{fig:Network}
+\end{figure}
+
 The forthcoming section presents an empirical analysis of the similarities between the aforementioned elementary backscatters and PolSAR data from samples of vegetation and bare soil. 
 The data is from UAVSAR image over Sierra del Lacandon National Park, Guatemala.
 %%% ACF Se possível, forneça mais informações: data, banda, resolução espacial, número de looks etc.
@@ -220,6 +230,9 @@ $$
 \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1},
 $$
 with $x \in [ 0,1]$, $\alpha,\beta>0$.
+Some of the similarities did not span the $[0,1]$ interval;
+these cases were linearly mapped into this interval, and then fitted by the Beta law.
+
 The mean is given by
 \begin{equation}
   \mu = \frac{\alpha}{\alpha + \beta}.
@@ -286,6 +299,7 @@ It is noteworthy that both Forest and Bare Soil are closest to the Random Volume
 
 Through those, the probability density functions of the figures \ref{fig:wvn} to \ref{fig:tr} were adjusted to the histograms of the similarities. In addition, this table contains the estimate of the hope that results from the estimation of these parameters.
 
+\balance
 \begin{table}[hbt]
 \centering
 \caption{Estimates of the Beta distribution, minima, maxima, and estimated mean}\label{tab:estimated_params}     
@@ -380,21 +394,21 @@ This is a first step towards a statistical analysis of measures of similarities 
 
 The Beta distribution is an acceptable model for describing the similarities.
 
-\section{Appendix}
-
-The probability density function of beta distribution is given by:
-$$
-\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)(max - min)^{\alpha + \beta - 1}}(x - min)^{\alpha-1}(max-x)^{\beta-1},
-$$
-with $x \in [min, max]$, $\alpha,\beta>0$.
-
-The similarity between PolSAR data from bare soil and $-1/4$-wave, for instance, obey this distribution with $min = 0.055$, $max = 0.400$, $\alpha = 1.127$, $\beta = 4.872$.
-
-The case where $min = 0$ and $max = 1$ is called the standard beta distribution. The equation for the standard beta distribution is
-$$
-\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1},
-$$
-with $x \in [0, 1]$, $\alpha,\beta>0$.
+%\section{Appendix}
+%
+%The probability density function of beta distribution is given by:
+%$$
+%\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)(max - min)^{\alpha + \beta - 1}}(x - min)^{\alpha-1}(max-x)^{\beta-1},
+%$$
+%with $x \in [min, max]$, $\alpha,\beta>0$.
+%
+%The similarity between PolSAR data from bare soil and $-1/4$-wave, for instance, obey this distribution with $min = 0.055$, $max = 0.400$, $\alpha = 1.127$, $\beta = 4.872$.
+%
+%The case where $min = 0$ and $max = 1$ is called the standard beta distribution. The equation for the standard beta distribution is
+%$$
+%\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1},
+%$$
+%with $x \in [0, 1]$, $\alpha,\beta>0$.
 
 \bibliographystyle{IEEEtran}
 \bibliography{../../../Bibliography/references}
