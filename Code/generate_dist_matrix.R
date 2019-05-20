@@ -75,8 +75,13 @@ require(GGally)
 # ggnet2(distances, size=20, label=TRUE, label.size = 5, label.color="black")
 # ggsave(file="../Figures/paper_19_05/network.pdf")
 
-distances <- network(dist_matrix, directed = FALSE)
-network.vertex.names(distances) <- c("TR", "DI", "RV", "ND", "CY", "DIP", "LH", "RH", "WVP", "WVN")
+distances <- network(dist_matrix,
+                     matrix.type = "adjacency",
+                     ignore.eval = FALSE,
+                     names.eval = "weights")
+
+network.vertex.names(distances) <- c("K[a]", "K[b]", "K[rv]", "K[nd]", "K[c]", "K[d]", "K[lh]", "K[rh]", "K[+1/4]", "K[-1/4]")
 list.edge.attributes(distances)
-ggnet2(distances, size=10, label=TRUE, label.size = 2, color = "steelblue", label.color="white", fontface = "bold")
+ggnet2(distances, size=10.5, label=TRUE, label.size = 3, color = "steelblue",
+       label.color="white", fontface = "bold", parse = TRUE, edge.size = "weights")
 ggsave(file="../Figures/paper_19_05/network.pdf")
