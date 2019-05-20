@@ -69,8 +69,14 @@ dist_matrix
 require(network)
 require(GGally)
 
+# distances <- network(dist_matrix, directed = FALSE)
+# network.vertex.names(distances) <- c("TR", "DI", "RV", "ND", "CY", "DIP", "LH", "RH", "WVP", "WVN")
+# list.edge.attributes(distances)
+# ggnet2(distances, size=20, label=TRUE, label.size = 5, label.color="black")
+# ggsave(file="../Figures/paper_19_05/network.pdf")
+
 distances <- network(dist_matrix, directed = FALSE)
 network.vertex.names(distances) <- c("TR", "DI", "RV", "ND", "CY", "DIP", "LH", "RH", "WVP", "WVN")
 list.edge.attributes(distances)
-ggnet2(distances, size=20, label=TRUE, label.size = 5, label.color="black")
+ggnet2(distances, size=10, label=TRUE, label.size = 2, color = "steelblue", label.color="white", fontface = "bold")
 ggsave(file="../Figures/paper_19_05/network.pdf")
