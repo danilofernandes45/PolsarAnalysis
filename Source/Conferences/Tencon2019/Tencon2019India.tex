@@ -53,16 +53,16 @@ PolSAR, Kennaugh matrix, Geodesic Distance.
 \section{Introduction}
 \IEEEPARstart{I}{n} Polarimetric SAR, a radar target is characterized by a scattering matrix $\bm S$ that describes the dependence of its scattering properties on the polarization. 
 It is defined as
-\[\bm{S} = 
+\[\mathbf{S} = 
 \begin{bmatrix}
 S_{\text{HH}} & S_{\text{HV}}\\
 S_{\text{VH}} & S_{\text{VV}}\\
 \end{bmatrix}
 ,\]
-where $\text{H}$ and $\text{V}$ denote, respectively, horizontal and vertical polarization.
 
+where $\text{H}$ and $\text{V}$ denote, respectively, horizontal and vertical polarization.
 This information can be projected and then visualized using the Pauli vector representation:
-$\bm{k} = 2^{-1/2} 
+$k_p = 2^{-1/2} 
 \begin{bmatrix}
 S_{\text{HH}} + S_{\text{VV}} &S_{\text{HH}} - S_{\text{VV}} &2S_{\text{HV}}
 \end{bmatrix}^T
@@ -70,11 +70,11 @@ $,
 where $T$ denotes transposition. 
 Another important matrix in PolSAR theory is the coherency $\bm{T}$ obtained by:
 $$
-\bm{T} = \frac{1}{L} \sum_{\ell=1}^{L}\textbf{k}_\ell \textbf{k}_\ell^{*T},
+\mathbf{T} = \frac{1}{L}\sum_{i=1}^{L}k_{p_i}k_{p_i}^{T*},
 $$
 where $*$ denotes the complex conjugate, and $L$ is the number of looks.
 
-The Kennaugh matrix $\bm{K}$ can be obtained from the coherency matrix $\bm{T}$:
+The Kennaugh matrix $\mathbf{K}$ can be obtained from the coherency matrix $\mathbf{T}$:
 \[
 \begin{bmatrix}
 \frac{ T_{11} + T_{22} + T_{33} }{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
@@ -86,11 +86,11 @@ The Kennaugh matrix $\bm{K}$ can be obtained from the coherency matrix $\bm{T}$:
 
 The Geodesic Distance between two Kennaugh matrices $\bm K_1$ and $\bm K_2$ is~\cite{ClassificationPolSARGeodesic}: 
 \begin{displaymath}
-\text{GD}(\bm K_1, \bm K_2) = \frac{2}{\pi} \cos^{-1} \left(\frac{\Tr(\bm K_1^T \bm K_2)}{\sqrt{\Tr(\bm K_1^T \bm K_1)} \sqrt{\Tr(\bm K_2^T \bm K_2})} \right),
+\text{GD}(\mathbf{K_1}, \mathbf{K_2}) = \frac{2}{\pi} \cos^{-1} \left(\frac{\Tr(\mathbf{K_1}^T \mathbf{K_2})}{\sqrt{\Tr(\mathbf{K_1}^T \mathbf{K_1})} \sqrt{\Tr(\mathbf{K_2}^T \mathbf{K_2}})} \right),
 \end{displaymath}
 where $\Tr$ denotes the trace.
 It ranges between $[0,1]$.
-This leads to defining a measure of similarity between PolSAR data: $f(\bm K_1, \bm K_2) = 1 - \text{GD}(\bm K_1, \bm K_2)$. 
+This leads to defining a measure of similarity between PolSAR data: $f(\mathbf{K_1}, \mathbf{K_2}) = 1 - \text{GD}(\mathbf{K_1}, \mathbf{K_2})$. 
 This measure of dissimilarity has been used to 
 classify images~\cite{ClassificationPolSARGeodesic},
 in the proposal of a new generalized volume scattering model~\cite{AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019},
@@ -100,14 +100,14 @@ A measure of similarity, often more convenient for classification purposes~\cite
 In this work, we are interested in the similarity between samples and elementary backscatterers:
 trihedral, dihedral, random volume, narrow dihedral, cylinder, dipole, left helix, right helix, $+1/4$-wave and $-1/4$-wave, whose Kennaugh matrices are, respectively:
 \begin{align*}
-K_a &=
+K_t &=
 \begin{bmatrix}
 1 & 0 & 0 & 0\\
 0 & 1 & 0 & 0\\
 0 & 0 & 1 & 0\\
 0 & 0 & 0 & -1\\
 \end{bmatrix},
-K_b =
+K_d =
 \begin{bmatrix}
 1 & 0 & 0 & 0\\
 0 & 1 & 0 & 0\\
@@ -135,7 +135,7 @@ K_{c} &=
 0 & 0 & 1/2 & 0\\
 0 & 0 & 0 & -1/2\\
 \end{bmatrix},
-K_d=
+K_dp=
 \begin{bmatrix}
 1 & -1 & 0 & 0\\
 -1 & 1 & 0 & 0\\
@@ -183,27 +183,27 @@ The width of the edges in this complete graph is proportional to the distance be
 \caption{The geodesic distance between elementary backscatterers}\label{tab:dist_matrix}
 \begin{tabular}{lrrrrr}
 \toprule
-& $K_{a}$ & $K_{b}$ & $K_{rv}$ & $K_{nd}$ & $K_{c}$\\
+& $K_{t}$ & $K_{d}$ & $K_{rv}$ & $K_{nd}$ & $K_{c}$\\
 \cmidrule(lr){2-6}
-$K_{a}$ & 0.000 & 1.000 & 0.391 & 0.936 & 0.287\\
-$K_{b}$ & 1.000 & 0.000 & 0.732 & 0.287 & 0.936\\
+$K_{t}$ & 0.000 & 1.000 & 0.391 & 0.936 & 0.287\\
+$K_{d}$ & 1.000 & 0.000 & 0.732 & 0.287 & 0.936\\
 $K_{rv}$ & 0.391 & 0.732 & 0.000 & 0.703 & 0.434\\
 $K_{nd}$ & 0.936 & 0.287 & 0.703 & 0.000 & 0.765\\
 $K_{c}$ & 0.287 & 0.936 & 0.434 & 0.765 & 0.000\\
-$K_{d}$ & 0.666 & 0.666 & 0.580 & 0.871 & 0.871\\
+$K_{dp}$ & 0.666 & 0.666 & 0.580 & 0.871 & 0.871\\
 $K_{lh}$ & 1.000 & 0.666 & 0.732 & 0.702 & 0.968\\
 $K_{rh}$ & 1.000 & 0.666 & 0.732 & 0.702 & 0.968\\
 $K_{+1/4}$ & 0.666 & 0.666 & 0.580 & 0.666 & 0.666\\
 $K_{-1/4}$ & 0.666 & 0.666 & 0.580 & 0.666 & 0.666\\
 \midrule
-& $K_{d}$ & $K_{lh}$ & $K_{rh}$ & $K_{+1/4}$ & $K_{-1/4}$\\
+& $K_{dp}$ & $K_{lh}$ & $K_{rh}$ & $K_{+1/4}$ & $K_{-1/4}$\\
 \cmidrule(lr){2-6}
-$K_{a}$ & 0.666 & 1.000 & 1.000 & 0.666 & 0.666\\
-$K_{b}$ & 0.666 & 0.666 & 0.666 & 0.666 & 0.666\\
+$K_{t}$ & 0.666 & 1.000 & 1.000 & 0.666 & 0.666\\
+$K_{d}$ & 0.666 & 0.666 & 0.666 & 0.666 & 0.666\\
 $K_{rv}$ & 0.580 & 0.732 & 0.732 & 0.580 & 0.580\\
 $K_{nd}$ & 0.871 & 0.702 & 0.702 & 0.666 & 0.666\\
 $K_{c}$ & 0.871 & 0.968 & 0.968 & 0.666 & 0.666\\
-$K_{d}$ & 0.000 & 0.839 & 0.839 & 0.666 & 0.666\\
+$K_{dp}$ & 0.000 & 0.839 & 0.839 & 0.666 & 0.666\\
 $K_{lh}$ & 0.839 & 0.000 & 1.000 & 0.839 & 0.839\\
 $K_{rh}$ & 0.839 & 1.000 & 0.000 & 0.839 & 0.839\\
 $K_{+1/4}$ & 0.666 & 0.839 & 0.839 & 0.000 & 1.000\\
@@ -218,9 +218,10 @@ $K_{-1/4}$ & 0.666 & 0.839 & 0.839 & 1.000 & 0.000\\
 \caption{Representation of the relationships among elementary backscatterers.}\label{fig:Network}
 \end{figure}
 
-The forthcoming section presents an empirical analysis of the similarities between the aforementioned elementary backscatters and PolSAR data from samples of vegetation and bare soil. 
-The data is from UAVSAR image over Sierra del Lacandon National Park, Guatemala.
+The forthcoming section presents an empirical analysis of the similarities between the aforementioned scatterers and PolSAR multilook data from samples of vegetation and bare soil.
+The data is from UAVSAR image over Sierra del Lacandon National Park, Guatemala. This image was generated using the L-band on April 10, 2015, whose spatial resolution is, in meters, 64202.4 x 16488.6. In addition, these data have the Number of Range and Azimuth Looks equal to 3 and 12, respectively.
 %%% ACF Se possível, forneça mais informações: data, banda, resolução espacial, número de looks etc.
+
 
 \section{Analysis of Distances}
 
@@ -271,7 +272,7 @@ The histograms of the similarity of these data to each elementary backscatterer 
 %
 \subfigure[Similarity w.r.t. $+1/4$-wave elementary backscatterer\label{fig:wvp}]{\includegraphics[width = .19\linewidth]{wvp}}
 %
-\subfigure[Similarity w.r.t. $+1/4$-wave elementary backscatterer\label{fig:cy}]{\includegraphics[width = .19\linewidth]{cy}}
+\subfigure[Similarity w.r.t. cylinder elementary backscatterer\label{fig:cy}]{\includegraphics[width = .19\linewidth]{cy}}
 %
 \subfigure[Similarity w.r.t. dihedral elementary backscatterer\label{fig:di}]{\includegraphics[width = .19\linewidth]{di}}
 %

@@ -80,7 +80,7 @@ distances <- network(dist_matrix,
                      ignore.eval = FALSE,
                      names.eval = "weights")
 
-network.vertex.names(distances) <- c("K[a]", "K[b]", "K[rv]", "K[nd]", "K[c]", "K[d]", "K[lh]", "K[rh]", "K[+1/4]", "K[-1/4]")
+network.vertex.names(distances) <- c("K[t]", "K[d]", "K[rv]", "K[nd]", "K[c]", "K[dp]", "K[lh]", "K[rh]", "K[+1/4]", "K[-1/4]")
 list.edge.attributes(distances)
 ggnet2(distances, size=10.5, label=TRUE, label.size = 3, color = "steelblue",
        label.color="white", fontface = "bold", parse = TRUE, edge.size = "weights")
