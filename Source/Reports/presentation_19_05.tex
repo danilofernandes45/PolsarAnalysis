@@ -39,6 +39,7 @@
 \usepackage{cite}
 \usepackage{graphicx}
 \graphicspath{{../../Figures/presentation_19_05/}{../../Images/presentation_19_05/}}
+
 \author{Danilo Fernandes}
 \title{Processamento e análise de grandes imagens PolSAR}
 \date{Maio, 2019}
@@ -257,6 +258,17 @@ onde $\text{GD}(K_1, K_2) \in [0,1]$.
     
 \end{frame}
 
+\begin{frame}{Regiões analisadas}
+      \begin{figure}%
+        \centering
+        \subfloat[Região composta por vegetação]{{\includegraphics[width = .4\linewidth]{forest.png} }}%
+        \qquad
+        \subfloat[Região composta por solo exposto]{{\includegraphics[width=.4\linewidth]{bare_soil.png} }}%
+        \caption{Regiões extraídas da imagem PolSAR referente a Sierra del Lacadon, Guatemala}%
+        \label{fig:regions}%
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Histogramas das similaridades em relação aos retroespalhadores elementares}
 
 \begin{figure}
@@ -453,8 +465,8 @@ com $x \in [\min, \max]$, $\alpha,\beta>0$.
 %
 & \multicolumn{5}{c}{Random volume}\\
 \cmidrule(lr){2-6}
-\textbf{Forest} & 0.000 & 1.000 & 20.074 & 11.910 & \textcolor{red}{0.627}\\
-\textbf{Bare soil} & 0.360 & 0.800 & 1.218 & 4.781 & \textcolor{red}{0.449}\\
+\textbf{Forest} & 0.000 & 1.000 & 20.074 & 11.910 & 0.627\\
+\textbf{Bare soil} & 0.360 & 0.800 & 1.218 & 4.781 & 0.449\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -500,7 +512,7 @@ com $x \in [\min, \max]$, $\alpha,\beta>0$.
 \end{frame}
 
 \begin{frame}{Referências}
-    \bibliographystyle{amsalpha}
+    \bibliographystyle{ieeetr}
     \bibliography{../../Bibliography/references}
 \end{frame}
 
