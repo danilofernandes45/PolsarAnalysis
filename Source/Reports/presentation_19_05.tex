@@ -40,6 +40,8 @@
 \usepackage{graphicx}
 \graphicspath{{../../Figures/presentation_19_05/}{../../Images/presentation_19_05/}}
 
+\newcommand{\Tr}{\operatorname{Tr}}
+
 \author{Danilo Fernandes}
 \title{Processamento e análise de grandes imagens PolSAR}
 \date{Maio, 2019}
@@ -251,10 +253,9 @@ K =
     Dada as matrizes de Kennaugh $K_1$ e $K_2$, é possível medir a distância entre as mesmas -- usando a Distância Geodésica -- da seguinte forma~\cite{ClassificationPolSARGeodesic}:
     
 \begin{equation}
-\text{GD}(K_1, K_2) = \frac{2}{\pi} \cos^{-1} \left(\frac{Tr(K_1^T K_2)}{\sqrt{Tr(K_1^T K_1)} \sqrt{Tr(K_2^T K_2})} \right).
+\text{GD}(K_1, K_2) = \frac{2}{\pi} \cos^{-1} \left(\frac{\Tr(K_1^T K_2)}{\sqrt{\Tr(K_1^T K_1)} \sqrt{\Tr(K_2^T K_2})} \right).
 \end{equation}
-
-onde $\text{GD}(K_1, K_2) \in [0,1]$.
+em que $\Tr$ denota o traço de uma matriz, e $\text{GD}(K_1, K_2) \in [0,1]$.
     
 \end{frame}
 
