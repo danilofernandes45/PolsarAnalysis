@@ -135,7 +135,11 @@ A funcionalidade mais basilar implementada foi a visualização dos dados PolSAR
 
 Uma outra funcionalidade desenvolvida foi um filtro baseado no coeficiente de variação cujo produto é uma outra imagem na qual os dados referentes a regiões homogêneas apresentam um comportamento estatístico modelável por uma distribuição de probabilidade conhecida.
 
+Além destas, foram implementadas funções para análises de dados PolSAR baseados em uma distância da Teoria da Informação. Essa tem sua relevância em medir a dissimilaridade entre dados reais e dados com propriedades conhecidas e estabelecidos teoricamente. 
 
+As funcionalidades desenvolvidas baseadas na métrica da Teoria da Informação foram cálculo das distãncias de cada \textit{pixel} de uma dada região da imagem PolSAR a um dado elementar com propriedades conhecidas passado como parâmetro; geração de gráfico que exibe, para cada \textit{pixel} de uma dada região da imagem, qual o dado elementar mais próximo dentre um conjunto pré-definido; produção de gráfico com histograma e mapa de calor das distâncias de uma região informada da imagem. 
+
+Por fim, elaborou-se uma biblioteca com um conjunto de amostras de imagens PolSAR com propriedades definidas e catalogadas de acordo com análise de correpondência com imagens de radares óticos da região e com relativamente curto intervalo de tempo entre os imageamentos. Essas regiões consistem em regiões urbanas, plantações, florestas e solo exposto.
 
 %=========================================================
   

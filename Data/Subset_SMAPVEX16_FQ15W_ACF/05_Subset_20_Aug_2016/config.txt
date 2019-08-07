@@ -1,0 +1,11 @@
+Nrow
+1231
+---------
+Ncol
+891
+---------
+PolarCase
+monostatic
+---------
+PolarType
+full

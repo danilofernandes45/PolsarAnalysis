@@ -38,6 +38,20 @@ read_complex_file <- function(file, nrow, ncol){
   
 }
 
+read_complex_files(fileRe, fileIm, nrow, ncol){
+  
+  return(
+    matrix(
+      complex(
+        readBin(fileRe, double(), n = nrow * ncol, size = 4, endian = "little"),
+        readBin(fileIm, double(), n = nrow * ncol, size = 4, endian = "little")
+      ), 
+      nrow = nrow, ncol = ncol, byrow = TRUE
+    )
+  )
+  
+}
+
 read_file <- function(file, nrow, ncol){
   
   return(matrix(
@@ -45,8 +59,8 @@ read_file <- function(file, nrow, ncol){
     nrow = nrow, ncol = ncol, byrow = TRUE) )
 }
 
-nrow <- 1100
-ncol <- 1772
+nrow <- 615
+ncol <- 445
 
 
 # hhhv_file <- file("hhhv.mlc", "rb")
@@ -91,3 +105,26 @@ hvhv <- read_file(hvhv_file, nrow = nrow, ncol = ncol)
 
 vvvv_file <- file("vvvv.mlc", "rb")
 vvvv <- read_file(vvvv_file, nrow = nrow, ncol = ncol)
+
+#Analysis
+
+hhhh_file <- file("T11.bin", "rb")
+hhhh <- read_file(hhhh_file, nrow = nrow, ncol = ncol)
+
+hvhv_file <- file("T22.bin", "rb")
+hvhv <- read_file(hvhv_file, nrow = nrow, ncol = ncol)
+
+vvvv_file <- file("T33.bin", "rb")
+vvvv <- read_file(vvvv_file, nrow = nrow, ncol = ncol)
+
+matrix <- array(0, dim = c(nrow, ncol, 3))
+
+matrix[,,1] <- ecdf(hhhh)(hhhh)
+matrix[,,2] <- ecdf(hvhv)(hvhv)
+matrix[,,3] <- ecdf(vvvv)(vvvv)
+
+library("png")
+writePNG(matrix, target = "test.png")
+
+#Regions selected
+writePNG(matrix[100:155, 1:80,], target = "region1_soybeans.png")

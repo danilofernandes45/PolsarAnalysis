@@ -1,0 +1,14 @@
+ENVI
+description = {
+PolSARpro File Imported to ENVI}
+samples = 891
+lines   = 1231
+bands   = 1
+header offset = 0
+file type = ENVI Standard
+data type = 6
+interleave = bsq
+sensor type = Unknown
+byte order = 0
+band names = {
+s22.bin }
