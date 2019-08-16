@@ -1,4 +1,5 @@
 \documentclass[12pt,letterpaper]{article}
+
 \usepackage{iwona}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
@@ -7,17 +8,24 @@
 \usepackage[journal=jacs]{chemstyle}
 \usepackage[affil-it]{authblk} 
 \usepackage{tikz}
-\usepackage{hyperref}
-\usepackage{cite}  
 \usepackage{tabularx}
 \usepackage{indentfirst}
+
+\usepackage{bm,bbm}
+
+\usepackage[alf]{abntex2cite}
+\bibliographystyle{abntex2-alf}
 
 \usepackage[left=3cm,right=2cm,top=1.7cm,bottom=1.7cm]{geometry}
 
 
+\addto\captionsportuguese{
+  \renewcommand{\refname}
+    {\MakeUppercase{Referências}}}
+
 %======================================================================
   
-  \begin{document}
+\begin{document}
 \onehalfspacing 
 \thispagestyle{empty}
 
@@ -56,7 +64,7 @@ PROGRAMA INSTITUCIONAL DE BOLSAS DE INICIAÇÃO\\ CIENTÍFICA -- PIBIC CNPq/UFAL
 
 \end{center}
 
-\textbf{\underline{NOME DO ORIENTADOR:}} Alejandro César Frery 
+\textbf{\underline{NOME DO ORIENTADOR:}} Alejandro César Frery Orgambide
 
 \vspace{0.4cm}
 
@@ -101,9 +109,9 @@ Houve um significativo avanço nos últimos anos na obtenção de novos métodos
   \newpage
 \section*{\centering \textbf{INTRODUÇÃO E OBJETIVOS}} %(Máximo 1 página)
 
-A primeira abordagem citada acima parte do pressuposto que há dados disponíveis em uma amostra $z = (z1, . . . , zn)$ e um modelo para eles $D(\theta)$, com $\theta \in \Theta \subset R ^ p$ o espaço paramétrico. O modelo $D(\theta)$ induz uma única forma de entropia $H$, e para calcularmos uma estimativa da entropia $H(\theta)$ a partir da amostra $z$ é necessário estimar o parâmetro $\theta$. O modelo que nos interessa para dados SAR e a distribuição $G^0$, proposta por Frery, Muller, Yanasse \& Sant’Anna (1997). Conhecemos várias técnicas para estimar $\theta$ a partir de $z$: momentos fracionários (Mejail, Jacobo-Berlles, Frery \& Bustos, 2003), máxima verossimilhança e máxima verossimilhança iterada (Frery, Cribari-Neto \& Souza, 2004), estimadores robustos (Bustos, Lucini \& Frery, 2002; Allende, Frery, Galbiati \& Pizarro, 2006), estimadores de kernel (Gambini, Cassetti, Lucini \& Frery, 2015), log-momentos e estatísticas de ordem superior (Deng \& López-Martínez, 2016). Além dessas tecnicas de estimação, há métodos para melhorar as estimativas, notadamente baseados em reamostragem (Cribari-Neto, Frery \& Silva, 2002) e em correções analíticas (Silva, Cribari-Neto \& Frery, 2008). Cada uma dessas técnicas está associada a diferentes algoritmos, e resulta mais adequada para uma diversidade de situações (pequenas amostras, suspeita de contaminação, etc.). O desafio deste projeto é construir uma unica rotina que seja capaz de identificar qual é a melhor estratégia de estimação para a amostra de entrada, e que retorne uma estimativa de $\theta$ com a menor intervenção possível por parte do usuário.
+A primeira abordagem citada acima parte do pressuposto que há dados disponíveis em uma amostra $z = (z_1,\dots, z_n)$ e um modelo para eles $D(\theta)$, com $\theta \in \Theta \subset \mathbbm R ^ p$ o espaço paramétrico. O modelo $D(\theta)$ induz uma única forma de entropia $H$, e para calcularmos uma estimativa da entropia $H(\theta)$ a partir da amostra $z$ é necessário estimar o parâmetro $\theta$. O modelo que nos interessa para dados SAR e a distribuição $G^0$, proposta por \citeauthoronline{FreryMullerYanasse1997} (\citeyear{FreryMullerYanasse1997}). Conhecemos várias técnicas para estimar $\theta$ a partir de $z$: momentos fracionários \cite{MejailBerllesFreryBustos2003}, máxima verossimilhança e máxima verossimilhança iterada \cite{FreryNetoSouza2004}, estimadores robustos (\citeauthoronline{BustusLuciniFrery2002}, \citeyear{BustusLuciniFrery2002}; \citeauthoronline{AllendeFreryGalbiatiPizarro2006}, \citeyear{AllendeFreryGalbiatiPizarro2006}), estimadores de kernel \cite{GambiniCassettiLuciniFrery2014}, log-momentos e estatísticas de ordem superior \cite{DengLopez2016}. Além dessas tecnicas de estimação, há métodos para melhorar as estimativas, notadamente baseados em reamostragem \cite{CribariFrerySilva2002} e em correções analíticas \cite{SilvaNetoFrery2008}. Cada uma dessas técnicas está associada a diferentes algoritmos, e resulta mais adequada para uma diversidade de situações (pequenas amostras, suspeita de contaminação, etc.). O desafio deste projeto é construir uma unica rotina que seja capaz de identificar qual é a melhor estratégia de estimação para a amostra de entrada, e que retorne uma estimativa de $\theta$ com a menor intervenção possível por parte do usuário.
 
-A segunda abordagem consiste no uso da técnica de simbolização de Bandt \& Pompe (2002) para análise de séries temporais. Essa técnica consiste em transformar vetores de tamanho \textit{D} em padroes ordinais de forma nao-paramétrica, em formar um histograma de ocorrência dos \textit{D!} padroes possíveis, e em calcular descritores baseados em Teoria da Informação (Entropias, Distâncias Estocásticas, Complexidade Estatística) a partir desse histograma. Esses descritores passam a caracterizar a série temporal. Trata-se de uma técnica poderosa que tem sido aplicada em uma diversidade de situações (ver Rosso, Ospina \& Frery, 2016, e as referências aí citadas), mas que requer que não haja valores repetidos na série original.
+A segunda abordagem consiste no uso da técnica de simbolização de \citeauthoronline{BandtPompe2002} (\citeyear{BandtPompe2002}) para análise de séries temporais. Essa técnica consiste em transformar vetores de tamanho \textit{D} em padroes ordinais de forma nao-paramétrica, em formar um histograma de ocorrência dos \textit{D!} padroes possíveis, e em calcular descritores baseados em Teoria da Informação (Entropias, Distâncias Estocásticas, Complexidade Estatística) a partir desse histograma. Esses descritores passam a caracterizar a série temporal. Trata-se de uma técnica poderosa que tem sido aplicada em uma diversidade de situações (ver \citeauthoronline{RossoOspinaFrery2016}, \citeyear{RossoOspinaFrery2016}, e as referências aí citadas), mas que requer que não haja valores repetidos na série original.
 
 Este projeto visa desenvolver tecnicas de imputação dos padrões não observados por causa da ocorrência de repetição de dados. Ambas abordagens utilizam de forma intensa conceitos e ferramentas de Teoria da Informação e de Geometria da Informação.
 
@@ -127,34 +135,39 @@ A metodologia de ambas iniciativas consiste em
   
 \newpage
 \section*{\centering \textbf{RESULTADOS E DISCUSSÕES}} %(máximo 4 páginas)
-O período designado ao projeto foi consolidado sobre os constantes avanços teóricos em virtude da busca de literatura referente às temáticas que permeiam o escopo da pesquisa, onde foram buscados diversos artigos de qualidade escritos por autores referência na temática em questão.
+O período designado ao projeto foi consolidado sobre os constantes avanços teóricos em virtude da busca de literatura referente às temáticas que permeiam o escopo da pesquisa. O resultado dessa busca consistiu em um arservo enriquecido de diversos artigos e livros de qualidade atestada e escritos por autores referência na referida área de conhecimento. O conhecimento teórico adquirido com essa literatura foi fundamental para a implementação de funções em linguagem R que viriam a integrar a biblioteca proposta pelo projeto de pesquisa dedicada ao processamento de grandes imagens PolSAR.
 
-O conhecimento teórico adquirido possibilitou a implementação de funções em linguagem R que viriam a integrar a biblioteca proposta pelo projeto de pesquisa dedicada ao processamento de grandes imagens PolSAR. No desenvolvimento dessas, explorou-se ao máximo os recursos disponibilizados pela biblioteca raster. A justificativa para a utilização desta é que a mesma visa prover um ambiente para a análise de dados geográficos -- modalidade que inclui dados SAR -- e fornece mecanismos para o processamento de volume de dados que excedem a capacidade da memória principal do computador. Dentre esses mecanismos, a leitura e escrita de segmentos específicos do arquivo em formato matricial foram essenciais, visto que os arquivos referentes a este tipo imagens PolSAR recorrentemente são grandes o suficiente em relação à memória principal para produzir um gargalo no processamento.
+No desenvolvimento dessas funções, explorou-se ao máximo os recursos disponibilizados pela biblioteca \textit{raster}. A justificativa para a utilização desta é que a mesma visa prover um ambiente para a análise de dados geográficos -- modalidade que inclui dados SAR -- e fornece mecanismos para o processamento de volume de dados que excedem a capacidade da memória principal do computador. Dentre esses mecanismos, a leitura e escrita de segmentos específicos do arquivo em formato matricial foram essenciais, visto que os arquivos referentes a este tipo de imagem recorrentemente são grandes o suficiente em relação à memória principal para produzir um gargalo no processamento.
 
-A funcionalidade mais basilar implementada foi a visualização dos dados PolSAR, a qual consiste na realização de operações matemáticas sobre estes que resultam em conjunto três valores reais para cada \textit{pixel} da imagem os quais representam uma cor. Os métodos para a visualização implementadas foram através da projeção direta no espaço das cores e da decomposição de Pauli. Ambas permitem a observação da estratura física da região imageada, mas a segunda atribui tonalidades de verde às regiões encobertas por vegetação. 
+A funcionalidade mais básica implementada foi a visualização dos dados PolSAR, a qual consiste na projeção da matriz quadrada complexa de ordem dois que representa cada \textit{pixel} da imagem em conjunto três valores reais que identificam uma cor. Os métodos para a visualização implementados -- os quais transformam a primeira representação na segunda -- foram através da projeção direta no espaço das cores e da decomposição de Pauli. Ambas permitem a observação da estratura física da região imageada, mas a segunda adicionalmente atribui tonalidades de verde às regiões encobertas por vegetação. 
 
-Uma outra funcionalidade desenvolvida foi um filtro baseado no coeficiente de variação cujo produto é uma outra imagem na qual os dados referentes a regiões homogêneas apresentam um comportamento estatístico modelável por uma distribuição de probabilidade conhecida.
+Uma outra funcionalidade desenvolvida foi um filtro baseado no coeficiente de variação, o qual mede a variabilidade entre os dados de um setor da imagem e atribui-a a um determinado \textit{pixel} do setor. Aplicado-o em todos os setores da imagem, obtem-se como produto uma outra na qual os dados referentes a regiões homogêneas -- como regiões de solo exposto e pastagem -- apresentam um comportamento estatístico cuja variável aleatória que o modela obedece a uma distribuição de probabilidade Gama.
 
-Além destas, foram implementadas funções para análises de dados PolSAR baseados em uma distância da Teoria da Informação. Essa tem sua relevância em medir a dissimilaridade entre dados reais e dados com propriedades conhecidas e estabelecidos teoricamente. 
+Além destas, foram implementadas funções para análises de dados PolSAR baseados em uma medida de dissimilaridade da Teoria da Informação -- a Distância Geodésica. Esta tem sua relevância em mensurar o quão distantes estão dados reais e dados estabelecidos teoricamente com propriedades conhecidas. Desse modo, é possível extrair informações sobre as características de uma região imageada através das distâncias de seus dados a um grupo de dados de propriedades definidas. 
 
-As funcionalidades desenvolvidas baseadas na métrica da Teoria da Informação foram cálculo das distãncias de cada \textit{pixel} de uma dada região da imagem PolSAR a um dado elementar com propriedades conhecidas passado como parâmetro; geração de gráfico que exibe, para cada \textit{pixel} de uma dada região da imagem, qual o dado elementar mais próximo dentre um conjunto pré-definido; produção de gráfico com histograma e mapa de calor das distâncias de uma região informada da imagem. 
+As funcionalidades desenvolvidas baseadas na métrica da Teoria da Informação foram cálculo das distâncias de cada \textit{pixel} de uma dada região da imagem a um dado elementar com propriedades conhecidas passado como parâmetro; geração de gráfico que exibe, para cada \textit{pixel} de um dado setor da imagem, qual o dado elementar mais próximo dentre um conjunto pré-definido; produção de gráfico com histograma e mapa de calor das distâncias de uma região informada. 
 
-Por fim, elaborou-se uma biblioteca com um conjunto de amostras de imagens PolSAR com propriedades definidas e catalogadas de acordo com análise de correpondência com imagens de radares óticos da região e com relativamente curto intervalo de tempo entre os imageamentos. Essas regiões consistem em regiões urbanas, plantações, florestas e solo exposto.
+Por fim, elaborou-se uma biblioteca com um conjunto de amostras de imagens PolSAR com propriedades definidas e catalogadas de acordo com análise de correpondência com imagens de radares óticos da região e com intervalo de tempo relativamente curto entre os imageamentos. As imagens das quais foram extraídas as amostras foram obtidas no site do UAVSAR -- \textit{Uninhabited Aerial Vehicle Synthetic Aperture Radar} -- e as imagens dos radares óticos utilizadas pertenciam ao \textit{Google Earth}. Essas amostras catalogadas pertecem a regiões de variado grau de homogeneadade tais como regiões urbanas, plantações, florestas e solo exposto.
 
 %=========================================================
   
   \newpage
 \section*{\centering \textbf{CONCLUSÕES}} %(máximo 2  páginas)
 
+O conjunto de funcionalidades da biblioteca desenvolvida durante a execução do projeto de pesquisa tem sua relevância na análise das propriedades estatísticas intríssicas aos dados de imagens PolSAR. Como a compreensão dessas propriedades viabiliza a construção de classificadores e segmentadores dessas images oriundas de sensoriamento remoto, um ferramental apropriado, como o proposto por esta bilioteca, é essencial.
 
+O estudo dessas propriedades é favorecido pelo conjunto de amostras disponibilizado, visto que as mesmas estão classificadas por homogeneadade e tipo de superficie imageada. Isto facilita a análise das características estocásticas inerentes a cada um dos grupos, pois não costuma-se obter biblioteca de amostras classificadas com facilidade.
 
 %=========================================================
   
-  \newpage
+\newpage
 %REFERÊNCIAS BIBLIOGRÁFICAS (máximo 2  páginas)
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\begin{center}
+
+\bibliography{../../../Bibliography/references}
+
+\end{center}
 
 %=========================================================
   
