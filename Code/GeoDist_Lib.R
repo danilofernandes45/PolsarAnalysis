@@ -385,7 +385,7 @@ plotHeatmap <- function(scatterer, dim, title = ""){
   
 }
 
-plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = ""){
+plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range = c(0, 1)){
   
   sample <- c(0)
   #Get sample
@@ -404,7 +404,7 @@ plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = ""){
   beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
   
   #Plot
-  x <- seq( from = 0, to = 1, by = 0.001)
+  x <- seq( from = range[1], to = range[2], by = 0.001)
   desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
   
   ggplot() + 
@@ -580,5 +580,26 @@ plotQQPlotPert <- function(scatterer, dim, filter = FALSE, title = "", min, max)
   ggplot(data.frame(sample), aes(sample = sample)) +
     stat_qq(distribution = qpert, dparams = params) +
     stat_qq_line(distribution = qpert, dparams = params)
+  
+}
+
+ksTestBeta <- function(scatterer, dim, filter = FALSE){
+  
+  sample <- c(0)
+  #Get sample
+  if(filter){
+    sample <- getFilteredData(scatterer, dim)
+  }
+  
+  else {
+    sample <- getSimilarity(scatterer, dim)
+  }
+  
+  mean <- mean(sample)
+  var <- sd(sample) ^ 2
+  alpha <- mean * ( mean * (1 - mean) / var - 1 )
+  beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+  
+  return( ks.test(sample, "pbeta", shape1 = alpha, shape2 = beta))
   
 }

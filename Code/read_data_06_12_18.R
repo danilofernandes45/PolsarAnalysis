@@ -108,13 +108,13 @@ vvvv <- read_file(vvvv_file, nrow = nrow, ncol = ncol)
 
 #Analysis
 
-hhhh_file <- file("T11.bin", "rb")
+hhhh_file <- file("HHHH.gri", "rb")
 hhhh <- read_file(hhhh_file, nrow = nrow, ncol = ncol)
 
-hvhv_file <- file("T22.bin", "rb")
+hvhv_file <- file("HVHV.gri", "rb")
 hvhv <- read_file(hvhv_file, nrow = nrow, ncol = ncol)
 
-vvvv_file <- file("T33.bin", "rb")
+vvvv_file <- file("VVVV.gri", "rb")
 vvvv <- read_file(vvvv_file, nrow = nrow, ncol = ncol)
 
 matrix <- array(0, dim = c(nrow, ncol, 3))
@@ -128,3 +128,6 @@ writePNG(matrix, target = "test.png")
 
 #Regions selected
 writePNG(matrix[100:155, 1:80,], target = "region1_soybeans.png")
+
+writePNG(matrix[25:80, 30:80,], target = "region2_canola.png")
+
