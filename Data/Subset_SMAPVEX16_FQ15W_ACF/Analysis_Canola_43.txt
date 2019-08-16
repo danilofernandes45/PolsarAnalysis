@@ -17,12 +17,28 @@ SIZE = 2750
 #p-value = 0.2171
 
 #3TH SAMPLE -> SIZE = 485
-#Beta(5.529, 14.862)
+#Beta(5.802, 17.049)
 #p-value = 0.9304
+
+#4TH SAMPLE -> SIZE = 168
+#Beta(5.567, 14.06)
+#p-value = 0.6227
+
+#5TH SAMPLE -> SIZE = 207
+#Beta(6.951, 16.534)
+#p-value = 0.2624
 
 #========================================================================
 
 #KS-TEST => RANDOM VOLUME (FILTERED)
+
+#1TH SAMPLE -> SIZE = 155
+#Beta(6.954, 12.92)
+#p-value = 0.4064
+
+#2TH SAMPLE -> SIZE = 625
+#Beta(5.886, 11.54)
+#p-value = 0.2018
 
 #3TH SAMPLE -> SIZE = 1195
 #Beta(5.56, 9.648)

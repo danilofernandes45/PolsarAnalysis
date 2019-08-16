@@ -16,9 +16,25 @@ SIZE = 2275
 #Beta(4.385, 13.309)
 #p-value = 0.2702
 
+#3TH SAMPLE -> SIZE = 180 
+#Beta(5.529, 14.862)
+#p-value = 0.6283
+
+#4TH SAMPLE -> SIZE = 85 
+#Beta(5.442, 15.24)
+#p-value = 0.6527
+
+#5TH SAMPLE -> SIZE = 157 
+#Beta(4.813, 13.007)
+#p-value = 0.4366
+
 #=======================================================================
 
 #KS-TEST => RANDOM VOLUME (FILTERED)
+
+#1TH SAMPLE -> SIZE = 205
+#Beta(5.784, 10.578)
+#p-value = 0.5134
 
 #2TH SAMPLE -> SIZE = 746
 #Beta(6.442, 12.226)

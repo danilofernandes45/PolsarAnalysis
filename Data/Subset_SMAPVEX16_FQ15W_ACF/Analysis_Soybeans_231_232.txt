@@ -30,6 +30,14 @@ p-value = 0.1632
 
 #KS-TEST => RANDOM VOLUME (FILTERED)
 
+#1TH SAMPLE -> SIZE = 345
+#Beta(8.343, 17.102)
+#p-value = 0.05161
+
+#2TH SAMPLE -> SIZE = 904
+#Beta(7.853, 15.553)
+#p-value = 0.04771
+
 #3TH SAMPLE -> SIZE = 1513
 #Beta(5.892, 10.829)
 #p-value = 0.0002725
