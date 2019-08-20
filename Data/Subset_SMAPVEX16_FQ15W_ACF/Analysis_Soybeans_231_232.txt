@@ -40,11 +40,11 @@ p-value = 0.1632
 
 #3TH SAMPLE -> SIZE = 1513
 #Beta(5.892, 10.829)
-#p-value = 0.0002725
+#p-value = 0.0194
 
 #4TH SAMPLE -> SIZE = 1482
 #Beta(6.19, 11.269)
-#p-value = 0.001094
+#p-value = 0.009172
 
 #5TH SAMPLE -> SIZE = 1808
 #Beta(5.999, 10.28)

@@ -4,4 +4,4 @@ OBSERVAÇÕES
   
   1. Pôde-se observar que à medida que o grau de vegetação aumentava e a quatidade de solo exposto diminuia, os dados -- inicialmente mais próximos de trihedral -- distanciava-se deste e aproximava-se de random volume. Além disso, ambas as distâncias mostraram-se obedecer a distribuição beta (avaliado por KS teste).
   
-  2. À medida que a vegetação crescia os parâmetros da distribuição beta variava para ambas as distâncias e de modo similar para regiões diferentes.
+  2. À medida que a vegetação crescia os parâmetros da distribuição beta variava para ambas as distâncias e de modo diferente para regiões diferentes (Hip.: Diferentes tipos de vegetação tem diferentes taxas de crescimento).
