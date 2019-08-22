@@ -129,7 +129,8 @@ writePNG(matrix, target = "test.png")
 #Regions selected
 writePNG(matrix[100:155, 1:80,], target = "region1_soybeans_232_231.png")
 
-writePNG(matrix[100:165, 40:80,], target = "region1_soybeans_232.png")
+writePNG(matrix[100:165, 50:80,], target = "region1_soybeans_232.png")
+writePNG(matrix[90:155, 1:30,], target = "region2_soybeans_231.png")
 
 writePNG(matrix[25:80, 30:80,], target = "region2_canola_43.png")
 
