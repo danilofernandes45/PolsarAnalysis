@@ -19,7 +19,7 @@
 
 \begin{document}
 
-\title{Statistical Properties of Geodesic Distances between Samples and Elementary Backscatterers in PolSAR Imagery}
+\title{Statistical Properties of Geodesic Distances between Samples and Elementary Scatterers in PolSAR Imagery}
 
 \author{\IEEEauthorblockN{Danilo Fernandes, 
 Alejandro C.\ Frery,~\IEEEmembership{Senior Member,~IEEE}}
@@ -39,10 +39,12 @@ Email: dfc@laccan.ufal.br, acfrery@laccan.ufal.br
 \maketitle
 
 \begin{abstract}
-PolSAR data are usually represented by complex scattering or covariance matrices.
-Another representation is by Kennaugh matrices, which are real and preserve the backscatter information.
-This approach allows measuring distances and, consequently, the dissimilarity between PolSAR data and known backscatters.
-In this report, we analyze the statistical properties of this dissimilarity measure between PolSAR data samples and elementary backscatters using a Geodesic Distance.
+In this paper, we investigate the statistical properties of the distances between classified polarimetric synthetic aperture radar (PolSAR) data samples and elementary targets using a distance from the Information Theory -- the Geodesic Distance. This dissimilarity measure is calculated between Kennaugh matrices, which is a way of representing each pixel of a PolSAR imagery in a real matrix, and allows the quantification of the difference between the information contained in these matrices. In this way, this approach allows to identify the properties of the targets that compose a image using elementary scatterers, which makes the Geodesic Distance suitable for change detection and unsupervised classification.
+
+%Polarimetric Synthetic Aperture Radar (PolSAR) data are usually represented by complex scattering or covariance matrices. 
+%Another representation is by Kennaugh matrices, which are real and preserve the backscatter information.
+%This approach allows measuring distances and, consequently, the dissimilarity between PolSAR data and known backscatters.
+%In this paper, we analyze the statistical properties of this dissimilarity measure between PolSAR data samples and elementary backscatters using a Geodesic Distance.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -74,7 +76,7 @@ $$
 $$
 where $*$ denotes the complex conjugate, and $L$ is the number of looks.
 
-The Kennaugh matrix $\mathbf{K}$ can be obtained from the coherency matrix $\mathbf{T}$:
+An approach to representing the PolSAR information in a real matrix is by the Kennaugh matrix. A Kennaugh matrix $\mathbf{K}$ can be obtained from the coherency matrix $\mathbf{T}$ in the following manner:
 \[
 \begin{bmatrix}
 \frac{ T_{11} + T_{22} + T_{33} }{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
@@ -84,7 +86,7 @@ The Kennaugh matrix $\mathbf{K}$ can be obtained from the coherency matrix $\mat
 \end{bmatrix}
 .\]
 
-The Geodesic Distance between two Kennaugh matrices $\bm K_1$ and $\bm K_2$ is~\cite{ClassificationPolSARGeodesic}: 
+One way to measure the distance between two Kennaugh matrices $\bm K_1$ and $\bm K_2$ is through the Geodesic Distance, which is given by~\cite{ClassificationPolSARGeodesic}: 
 \begin{displaymath}
 \text{GD}(\mathbf{K_1}, \mathbf{K_2}) = \frac{2}{\pi} \cos^{-1} \left(\frac{\Tr(\mathbf{K_1}^T \mathbf{K_2})}{\sqrt{\Tr(\mathbf{K_1}^T \mathbf{K_1})} \sqrt{\Tr(\mathbf{K_2}^T \mathbf{K_2}})} \right),
 \end{displaymath}
@@ -121,7 +123,7 @@ K_{rv} &=
 0 & 0 & 1/2 & 0\\
 0 & 0 & 0 & 0\\
 \end{bmatrix},
-K_{nd}  =
+K_{nd} =
 \begin{bmatrix}
 5/8 & 3/8 & 0 & 0\\
 3/8 & 5/8 & 0 & 0\\
@@ -135,7 +137,7 @@ K_{c} &=
 0 & 0 & 1/2 & 0\\
 0 & 0 & 0 & -1/2\\
 \end{bmatrix},
-K_{dp}  =
+K_{dp}=
 \begin{bmatrix}
 1 & -1 & 0 & 0\\
 -1 & 1 & 0 & 0\\
@@ -180,7 +182,7 @@ The width of the edges in this complete graph is proportional to the distance be
 
 \begin{table}[hbt]
 \centering
-\caption{Geodesic distances between elementary backscatterers}\label{tab:dist_matrix}
+\caption{The geodesic distance between elementary backscatterers}\label{tab:dist_matrix}
 \begin{tabular}{lrrrrr}
 \toprule
 & $K_{t}$ & $K_{d}$ & $K_{rv}$ & $K_{nd}$ & $K_{c}$\\
@@ -221,7 +223,6 @@ $K_{-1/4}$ & 0.666 & 0.839 & 0.839 & 1.000 & 0.000\\
 The forthcoming section presents an empirical analysis of the similarities between the aforementioned scatterers and PolSAR multilook data from samples of vegetation and bare soil.
 The data is from UAVSAR image over Sierra del Lacandon National Park, Guatemala. This image was generated using the L-band on April 10, 2015, whose spatial resolution is, in meters, 64202.4 x 16488.6. In addition, these data have the Number of Range and Azimuth Looks equal to 3 and 12, respectively.
 %%% ACF Se possível, forneça mais informações: data, banda, resolução espacial, número de looks etc.
-
 
 \section{Analysis of Distances}
 
@@ -272,7 +273,7 @@ The histograms of the similarity of these data to each elementary backscatterer 
 %
 \subfigure[Similarity w.r.t. $+1/4$-wave elementary backscatterer\label{fig:wvp}]{\includegraphics[width = .32\linewidth]{wvp}}
 %
-\subfigure[Similarity w.r.t. cylinder elementary backscatterer\label{fig:cy}]{\includegraphics[width = .32\linewidth]{cy}}
+\subfigure[Similarity w.r.t. cylinder backscatterer\label{fig:cy}]{\includegraphics[width = .32\linewidth]{cy}}
 %
 \subfigure[Similarity w.r.t. dihedral elementary backscatterer\label{fig:di}]{\includegraphics[width = .32\linewidth]{di}}
 %
@@ -332,6 +333,7 @@ Through those, the probability density functions of the figures \ref{fig:wvn} to
 \midrule
 %
 & \multicolumn{5}{c}{Dipole}\\
+\cmidrule(lr){2-6}
 \textbf{Forest} & 0.000 & 1.000 & 8.358 & 22.658 & 0.269\\
 \textbf{Bare soil} & 0.075 & 0.350 & 1.625 & 4.374 & 0.149\\
 \midrule
@@ -391,9 +393,9 @@ These tests were performed over $400$ randomly selected observations (without re
 
 \section{Conclusions}
 
-This is a first step towards a statistical analysis of measures of similarities between PolSAR observations and elementary backscatterers in the space of Kennaugh representations.
+This is a first step towards a statistical analysis of measures of similarities between PolSAR observations and elementary scatterers in the space of Kennaugh representations.
 
-The Beta distribution is an acceptable model for describing the similarities.
+In this initial step, the Beta distribution proved to be an acceptable model for describing this similarities. In addition, it is notorious the remarkable relationship between random volume elementary scatterer and the targets that compose the bare soil and forest regions in PolSAR imagery.
 
 %\section{Appendix}
 %

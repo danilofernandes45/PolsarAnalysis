@@ -1,0 +1,13 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[Frery et al. 1997]{FreryMullerYanasse1997}
+\abntrefinfo{Frery et al.}{FRERY et al.}{1997}
+{FRERY, A.~C. et al. A model for extremely heterogeneous clutter.
+\emph{IEEE Transactions on Geoscience and Remote Sensing}, p. 648--65, 1997.}
+
+\end{thebibliography}
