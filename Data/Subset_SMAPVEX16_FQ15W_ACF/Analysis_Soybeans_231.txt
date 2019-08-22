@@ -1,7 +1,7 @@
 #=======================================================================
 #SOYBEANS 231
 
-dim <- c(90, 65, 1, 30) #Sample 232
+dim <- c(90, 65, 1, 30) #Sample 231
 SIZE = 1950
 
 #=======================================================================
@@ -20,13 +20,13 @@ SIZE = 1950
 #Beta(3.594, 10.814)
 #p-value = 0.4585
 
-#4TH SAMPLE -> SIZE = 
-#Beta()
-#p-value = 
+#4TH SAMPLE -> SIZE = 613
+#Beta(4.291, 12.99)
+#p-value = 0.6279
 
-#5TH SAMPLE -> SIZE = 
-#Beta()
-#p-value = 
+#5TH SAMPLE -> SIZE = 488
+#Beta(4.192, 11.54)
+#p-value = 0.5695
 
 #KS-TEST => RANDOM VOLUME (FILTERED)
 
@@ -42,10 +42,10 @@ SIZE = 1950
 #Beta(6.062, 11.269)
 #p-value = 0.1351
 
-#4TH SAMPLE -> SIZE = 
-#Beta()
-#p-value = 
+#4TH SAMPLE -> SIZE = 663
+#Beta(5.527, 9.914)
+#p-value = 0.008015
 
-#5TH SAMPLE -> SIZE = 
-#Beta()
-#p-value = 
+#5TH SAMPLE -> SIZE = 774
+#Beta(5.849, 10.203)
+#p-value = 0.5925

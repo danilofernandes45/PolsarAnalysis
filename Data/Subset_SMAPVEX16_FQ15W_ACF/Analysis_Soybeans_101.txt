@@ -1,0 +1,51 @@
+#=======================================================================
+#SOYBEANS 101
+
+dim <- c(115, 65, 360, 30) #Sample 101
+SIZE = 1950
+
+#=======================================================================
+
+#KS-TEST => TRIHEDRAL (FILTERED)
+
+#1TH SAMPLE -> SIZE = 1481
+#Beta(2.331, 10.086)
+#p-value = 0.06498
+
+#2TH SAMPLE -> SIZE = 867
+#Beta(3.95, 13.849)
+#p-value = 0.9471
+
+#3TH SAMPLE -> SIZE = 429
+#Beta(3.81, 11.209)
+#p-value = 0.05863
+
+#4TH SAMPLE -> SIZE = 397
+#Beta(4.314, 12.227)
+#p-value = 0.452
+
+#5TH SAMPLE -> SIZE = 319
+#Beta(4.798, 13.957)
+#p-value = 0.4009
+
+#KS-TEST => RANDOM VOLUME (FILTERED)
+
+#1TH SAMPLE -> SIZE = 71
+#Beta(5.987, 10.993)
+#p-value = 0.517
+
+#2TH SAMPLE -> SIZE = 306
+#Beta(7.662, 15.978)
+#p-value = 0.7577
+
+#3TH SAMPLE -> SIZE = 633
+#Beta(5.75, 11.792)
+#p-value = 0.4949
+
+#4TH SAMPLE -> SIZE = 743
+#Beta(5.473, 10.794)
+#p-value = 0.1091
+
+#5TH SAMPLE -> SIZE = 829
+#Beta(5.191, 9.438)
+#p-value = 0.1443
