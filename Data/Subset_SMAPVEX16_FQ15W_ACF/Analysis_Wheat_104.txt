@@ -1,0 +1,51 @@
+#=======================================================================
+#WHEAT 104
+
+dim1 <- c(500, 65, 310, 35) #Sample
+SIZE = 2275
+
+#=======================================================================
+
+#KS-TEST => TRIHEDRAL (FILTERED)
+
+#1TH SAMPLE -> SIZE = 1429
+#Beta(3.085, 10.954)
+#p-value = 0.0964
+
+#2TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#3TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#4TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#5TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#KS-TEST => RANDOM VOLUME (FILTERED)
+
+#1TH SAMPLE -> SIZE = 266
+#Beta(5.199, 9.536)
+#p-value = 0.1386
+
+#2TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#3TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#4TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
+
+#5TH SAMPLE -> SIZE = 
+#Beta(, )
+#p-value = 
