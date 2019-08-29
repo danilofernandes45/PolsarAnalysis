@@ -1,0 +1,52 @@
+#=======================================================================
+#OATS 103
+
+dim2 <- c(490, 65, 255, 35) #Sample
+SIZE = 2275
+
+#=======================================================================
+
+#KS-TEST => TRIHEDRAL (FILTERED)
+
+#1TH SAMPLE -> SIZE = 1572
+#Beta(2.637, 10.188)
+#p-value = 0.5137
+
+#2TH SAMPLE -> SIZE = 1298
+#Beta(3.453, 11.496)
+#p-value = 0.1605
+
+#3TH SAMPLE -> SIZE = 242
+#Beta(4.721, 12.277)
+#p-value = 0.7707
+
+#4TH SAMPLE -> SIZE = 124
+#Beta(6.045, 13.924)
+#p-value = 0.6666
+
+#5TH SAMPLE -> SIZE = 373
+#Beta(4.847, 12.266)
+#p-value = 0.3555
+
+
+#KS-TEST => RANDOM VOLUME (FILTERED)
+
+#1TH SAMPLE -> SIZE = 158
+#Beta(5.937, 11.459)
+#p-value = 0.2512
+
+#2TH SAMPLE -> SIZE = 352
+#Beta(6.742, 13.172)
+#p-value = 0.3331
+
+#3TH SAMPLE -> SIZE = 1099
+#Beta(6.460, 10.961)
+#p-value = 0.6297
+
+#4TH SAMPLE -> SIZE = 1214
+#Beta(6.069, 9.510)
+#p-value = 0.6846
+
+#5TH SAMPLE -> SIZE = 970
+#Beta(5.956, 10.951)
+#p-value = 0.5842

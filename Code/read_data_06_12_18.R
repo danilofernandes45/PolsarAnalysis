@@ -137,9 +137,9 @@ writePNG(matrix[25:80, 30:80,], target = "region2_canola_43.png")
 writePNG(matrix[180:241, 290:335,], target = "region1_canola224.png")
 
 writePNG(matrix[160:225, 245:280,], target = "region3_wheat_255.png")
-writePNG(matrix[425:490, 310:345,], target = "region2_wheat_105.png")
+writePNG(matrix[425:490, 315:350,], target = "region2_wheat_105.png")
 writePNG(matrix[500:565, 310:345,], target = "region1_wheat_104.png")
 
-writePNG(matrix[420:485, 260:295,], target = "region2_oats_102.png")
-writePNG(matrix[490:555, 250:285,], target = "region1_oats_103.png")
+writePNG(matrix[415:480, 260:295,], target = "region2_oats_102.png")
+writePNG(matrix[490:555, 260:295,], target = "region1_oats_103.png")
 
