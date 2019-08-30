@@ -1,0 +1,9 @@
+Medida de erro : Maior distancia entre pontos / (Max valor alcançado / Min valor alcançado)
+
+rv_alpha => 0.625
+rv_beta => 0.5833
+rv_mean => 0.2857
+
+tri_alpha => 0.277
+tri_beta => 0.5
+tri_mean => 0.2045

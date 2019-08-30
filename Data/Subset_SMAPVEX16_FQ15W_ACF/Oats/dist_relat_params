@@ -1,0 +1,7 @@
+rv_alpha => 0.555
+rv_beta => 0.555
+rv_mean => 0.57
+
+tri_alpha => 0.4285
+tri_beta => 0.25
+tri_mean => 0.45
