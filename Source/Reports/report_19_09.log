@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.6)  5 SEP 2019 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.7.25)  6 SEP 2019 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -408,20 +408,40 @@ LaTeX Info: Redefining \] on input line 2736.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen113
+\lightrulewidth=\dimen114
+\cmidrulewidth=\dimen115
+\belowrulesep=\dimen116
+\belowbottomsep=\dimen117
+\aboverulesep=\dimen118
+\abovetopsep=\dimen119
+\cmidrulesep=\dimen120
+\cmidrulekern=\dimen121
+\defaultaddspace=\dimen122
+\@cmidla=\count100
+\@cmidlb=\count101
+\@aboverulesep=\dimen123
+\@belowrulesep=\dimen124
+\@thisruleclass=\count102
+\@lastruleclass=\count103
+\@thisrulewidth=\dimen125
+)
 (/usr/share/texlive/texmf-dist/tex/latex/abntex2/abntex2cite.sty
 Package: abntex2cite 2016/02/26 v-1.9.6 abnTeX2
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count100
-\calc@Bcount=\count101
-\calc@Adimen=\dimen113
-\calc@Bdimen=\dimen114
+\calc@Acount=\count104
+\calc@Bcount=\count105
+\calc@Adimen=\dimen126
+\calc@Bdimen=\dimen127
 \calc@Askip=\skip46
 \calc@Bskip=\skip47
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count102
+\calc@Ccount=\count106
 \calc@Cskip=\skip48
 )
 (/usr/share/texlive/texmf-dist/tex/latex/abntex2/abntex2abrev.sty)
@@ -434,8 +454,8 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 \minimumbiblabelwidth=\skip49
 \ABCIauxlen=\skip50
-\c@ABCIaux=\count103
-\c@ABCImax=\count104
+\c@ABCIaux=\count107
+\c@ABCImax=\count108
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
@@ -482,30 +502,30 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count105
+\Gread@gobject=\count109
 ))
-\Gin@req@height=\dimen115
-\Gin@req@width=\dimen116
+\Gin@req@height=\dimen128
+\Gin@req@width=\dimen129
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
-\c@tracingmulticols=\count106
+\c@tracingmulticols=\count110
 \mult@box=\box28
-\multicol@leftmargin=\dimen117
-\c@unbalance=\count107
-\c@collectmore=\count108
-\doublecol@number=\count109
-\multicoltolerance=\count110
-\multicolpretolerance=\count111
-\full@width=\dimen118
-\page@free=\dimen119
-\premulticols=\dimen120
-\postmulticols=\dimen121
+\multicol@leftmargin=\dimen130
+\c@unbalance=\count111
+\c@collectmore=\count112
+\doublecol@number=\count113
+\multicoltolerance=\count114
+\multicolpretolerance=\count115
+\full@width=\dimen131
+\page@free=\dimen132
+\premulticols=\dimen133
+\postmulticols=\dimen134
 \multicolsep=\skip52
 \multicolbaselineskip=\skip53
 \partial@page=\box29
 \last@line=\box30
-\maxbalancingoverflow=\dimen122
+\maxbalancingoverflow=\dimen135
 \mult@rightbox=\box31
 \mult@grightbox=\box32
 \mult@gfirstbox=\box33
@@ -527,18 +547,18 @@ Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count112
-\c@finalcolumnbadness=\count113
-\last@try=\dimen123
-\multicolovershoot=\dimen124
-\multicolundershoot=\dimen125
+\c@columnbadness=\count116
+\c@finalcolumnbadness=\count117
+\last@try=\dimen136
+\multicolovershoot=\dimen137
+\multicolundershoot=\dimen138
 \mult@nat@firstbox=\box52
 \colbreak@box=\box53
-\mc@col@check@num=\count114
+\mc@col@check@num=\count118
 )
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count115
+\c@lips@count=\count119
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -547,31 +567,31 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-\Gm@cnth=\count116
-\Gm@cntv=\count117
-\c@Gm@tempcnt=\count118
-\Gm@bindingoffset=\dimen126
-\Gm@wd@mp=\dimen127
-\Gm@odd@mp=\dimen128
-\Gm@even@mp=\dimen129
-\Gm@layoutwidth=\dimen130
-\Gm@layoutheight=\dimen131
-\Gm@layouthoffset=\dimen132
-\Gm@layoutvoffset=\dimen133
+\Gm@cnth=\count120
+\Gm@cntv=\count121
+\c@Gm@tempcnt=\count122
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks23
 )
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip54
 \subfigcapskip=\skip55
-\subfigcaptopadj=\dimen134
+\subfigcaptopadj=\dimen147
 \subfigbottomskip=\skip56
-\subfigcapmargin=\dimen135
+\subfigcapmargin=\dimen148
 \subfiglabelskip=\skip57
-\c@subfigure=\count119
-\c@lofdepth=\count120
-\c@subtable=\count121
-\c@lotdepth=\count122
+\c@subfigure=\count123
+\c@lofdepth=\count124
+\c@subtable=\count125
+\c@lotdepth=\count126
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -583,31 +603,31 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (./report_19_09.aux)
 \openout1 = `report_19_09.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen136
+\scratchcounter=\count127
+\scratchdimen=\dimen149
 \scratchbox=\box54
-\nofMPsegments=\count124
-\nofMParguments=\count125
+\nofMPsegments=\count128
+\nofMParguments=\count129
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen137
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen150
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
 \everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -694,7 +714,7 @@ e
 File: ../../Images/Report_19_09//Regions/classes.png Graphic file (type png)
 <use ../../Images/Report_19_09//Regions/classes.png>
 Package pdftex.def Info: ../../Images/Report_19_09//Regions/classes.png used on
- input line 63.
+ input line 66.
 (pdftex.def)             Requested size: 234.73654pt x 289.04018pt.
 
 <../../Images/Report_19_09//Regions/regions_1.png, id=10, 446.66875pt x 617.306
@@ -702,7 +722,7 @@ Package pdftex.def Info: ../../Images/Report_19_09//Regions/classes.png used on
 File: ../../Images/Report_19_09//Regions/regions_1.png Graphic file (type png)
  <use ../../Images/Report_19_09//Regions/regions_1.png>
 Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_1.png used 
-on input line 71.
+on input line 74.
 (pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
 
 <../../Images/Report_19_09//Regions/regions_2.png, id=12, 446.66875pt x 617.306
@@ -710,7 +730,7 @@ on input line 71.
 File: ../../Images/Report_19_09//Regions/regions_2.png Graphic file (type png)
  <use ../../Images/Report_19_09//Regions/regions_2.png>
 Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_2.png used 
-on input line 72.
+on input line 75.
 (pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
 
 <../../Images/Report_19_09//Regions/regions_3.png, id=13, 446.66875pt x 617.306
@@ -718,7 +738,7 @@ on input line 72.
 File: ../../Images/Report_19_09//Regions/regions_3.png Graphic file (type png)
  <use ../../Images/Report_19_09//Regions/regions_3.png>
 Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_3.png used 
-on input line 73.
+on input line 76.
 (pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
 
 <../../Images/Report_19_09//Regions/regions_4.png, id=14, 446.66875pt x 617.306
@@ -726,7 +746,7 @@ on input line 73.
 File: ../../Images/Report_19_09//Regions/regions_4.png Graphic file (type png)
  <use ../../Images/Report_19_09//Regions/regions_4.png>
 Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_4.png used 
-on input line 74.
+on input line 77.
 (pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
 
 <../../Images/Report_19_09//Regions/regions_5.png, id=15, 446.66875pt x 617.306
@@ -734,29 +754,1296 @@ on input line 74.
 File: ../../Images/Report_19_09//Regions/regions_5.png Graphic file (type png)
  <use ../../Images/Report_19_09//Regions/regions_5.png>
 Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_5.png used 
-on input line 75.
+on input line 78.
 (pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
- [1 <../../Images/Report_19_09//Regions/classes.png>] [2 <../../Images/Report_1
-9_09//Regions/regions_1.png> <../../Images/Report_19_09//Regions/regions_2.png>
- <../../Images/Report_19_09//Regions/regions_3.png> <../../Images/Report_19_09/
-/Regions/regions_4.png> <../../Images/Report_19_09//Regions/regions_5.png>] (./
-report_19_09.aux) ) 
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<../../Figures/Report_19_09//Parameters/tri_proportion.pdf, id=16, 867.24pt x 5
+78.16pt>
+File: ../../Figures/Report_19_09//Parameters/tri_proportion.pdf Graphic file (t
+ype pdf)
+ <use ../../Figures/Report_19_09//Parameters/tri_proportion.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Parameters/tri_proportion.
+pdf used on input line 86.
+(pdftex.def)             Requested size: 209.1301pt x 139.41406pt.
+
+<../../Figures/Report_19_09//Parameters/rv_proportion.pdf, id=17, 867.24pt x 57
+8.16pt>
+File: ../../Figures/Report_19_09//Parameters/rv_proportion.pdf Graphic file (ty
+pe pdf)
+ <use ../../Figures/Report_19_09//Parameters/rv_proportion.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Parameters/rv_proportion.p
+df used on input line 87.
+(pdftex.def)             Requested size: 209.1301pt x 139.41406pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1 <../../Images/Report_19_09//Regions/classes.png>]
+
+LaTeX Warning: Text page 2 contains only floats.
+
+[2 <../../Images/Report_19_09//Regions/regions_1.png> <../../Images/Report_19_0
+9//Regions/regions_2.png> <../../Images/Report_19_09//Regions/regions_3.png> <.
+./../Images/Report_19_09//Regions/regions_4.png> <../../Images/Report_19_09//Re
+gions/regions_5.png> <../../Figures/Report_19_09//Parameters/tri_proportion.pdf
+> <../../Figures/Report_19_09//Parameters/rv_proportion.pdf>]
+
+LaTeX Warning: Reference `' on page 3 undefined on input line 98.
+
+
+Overfull \hbox (20.92824pt too wide) in paragraph at lines 103--130
+ [][] 
+ []
+
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/histogram_
+trihedral_1.pdf, id=40, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/histo
+gram_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/histog
+ram_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Soybeans_101/histogram_trihedral_1.pdf used on input line 135.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_101/histogram_
+trihedral_2.pdf, id=41, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_101/histo
+gram_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_101/histog
+ram_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_101/histogram_trihedral_2.pdf used on input line 136.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_101/histogram_
+trihedral_3.pdf, id=42, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_101/histo
+gram_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_101/histog
+ram_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Soybeans_101/histogram_trihedral_3.pdf used on input line 137.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histogram_
+trihedral_4.pdf, id=43, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histo
+gram_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histog
+ram_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Soybeans_101/histogram_trihedral_4.pdf used on input line 138.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histogram_
+trihedral_5.pdf, id=44, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histo
+gram_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histog
+ram_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Soybeans_101/histogram_trihedral_5.pdf used on input line 139.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/histogram_
+random_volume_1.pdf, id=45, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/histo
+gram_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/histog
+ram_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Soybeans_101/histogram_random_volume_1.pdf used on input line 146.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_101/histogram_
+random_volume_2.pdf, id=46, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_101/histo
+gram_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_101/histog
+ram_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_101/histogram_random_volume_2.pdf used on input line 147.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_101/histogram_
+random_volume_3.pdf, id=47, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_101/histo
+gram_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_101/histog
+ram_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Soybeans_101/histogram_random_volume_3.pdf used on input line 148.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histogram_
+random_volume_4.pdf, id=48, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histo
+gram_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histog
+ram_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Soybeans_101/histogram_random_volume_4.pdf used on input line 149.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histogram_
+random_volume_5.pdf, id=49, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histo
+gram_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histog
+ram_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Soybeans_101/histogram_random_volume_5.pdf used on input line 150.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histogram_
+trihedral_1.pdf, id=50, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histo
+gram_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histog
+ram_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Soybeans_231/histogram_trihedral_1.pdf used on input line 158.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_231/histogram_
+trihedral_2.pdf, id=51, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_231/histo
+gram_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_231/histog
+ram_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_231/histogram_trihedral_2.pdf used on input line 159.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histogram_
+trihedral_3.pdf, id=52, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histo
+gram_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histog
+ram_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Soybeans_231/histogram_trihedral_3.pdf used on input line 160.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_231/histogram_
+trihedral_4.pdf, id=53, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_231/histo
+gram_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_231/histog
+ram_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Soybeans_231/histogram_trihedral_4.pdf used on input line 161.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/histogram_
+trihedral_5.pdf, id=54, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/histo
+gram_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/histog
+ram_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Soybeans_231/histogram_trihedral_5.pdf used on input line 162.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histogram_
+random_volume_1.pdf, id=55, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histo
+gram_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histog
+ram_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Soybeans_231/histogram_random_volume_1.pdf used on input line 169.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_231/histogram_
+random_volume_2.pdf, id=56, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_231/histo
+gram_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_231/histog
+ram_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_231/histogram_random_volume_2.pdf used on input line 170.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histogram_
+random_volume_3.pdf, id=57, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histo
+gram_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histog
+ram_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Soybeans_231/histogram_random_volume_3.pdf used on input line 171.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_231/histogram_
+random_volume_4.pdf, id=58, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_231/histo
+gram_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_231/histog
+ram_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Soybeans_231/histogram_random_volume_4.pdf used on input line 172.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/histogram_
+random_volume_5.pdf, id=59, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/histo
+gram_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/histog
+ram_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Soybeans_231/histogram_random_volume_5.pdf used on input line 173.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_232/histogram_
+trihedral_1.pdf, id=60, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_232/histo
+gram_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_232/histog
+ram_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Soybeans_232/histogram_trihedral_1.pdf used on input line 181.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_232/histogram_
+trihedral_2.pdf, id=61, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_232/histo
+gram_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_232/histog
+ram_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_232/histogram_trihedral_2.pdf used on input line 182.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/histogram_
+trihedral_3.pdf, id=62, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/histo
+gram_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/histog
+ram_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Soybeans_232/histogram_trihedral_3.pdf used on input line 183.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histogram_
+trihedral_4.pdf, id=63, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histo
+gram_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histog
+ram_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Soybeans_232/histogram_trihedral_4.pdf used on input line 184.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_232/histogram_
+trihedral_5.pdf, id=64, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_232/histo
+gram_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_232/histog
+ram_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Soybeans_232/histogram_trihedral_5.pdf used on input line 185.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_232/histogram_
+random_volume_1.pdf, id=65, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_232/histo
+gram_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_232/histog
+ram_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Soybeans_232/histogram_random_volume_1.pdf used on input line 192.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_232/histogram_
+random_volume_2.pdf, id=66, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_232/histo
+gram_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Soybeans_232/histog
+ram_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_232/histogram_random_volume_2.pdf used on input line 193.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/histogram_
+random_volume_3.pdf, id=67, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/histo
+gram_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/histog
+ram_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Soybeans_232/histogram_random_volume_3.pdf used on input line 194.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histogram_
+random_volume_4.pdf, id=68, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histo
+gram_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histog
+ram_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Soybeans_232/histogram_random_volume_4.pdf used on input line 195.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_232/histogram_
+random_volume_5.pdf, id=69, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_232/histo
+gram_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_232/histog
+ram_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Soybeans_232/histogram_random_volume_5.pdf used on input line 196.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogram_tri
+hedral_1.pdf, id=70, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogra
+m_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogram
+_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Wheat_104/histogram_trihedral_1.pdf used on input line 204.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/histogram_tri
+hedral_2.pdf, id=71, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/histogra
+m_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/histogram
+_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Wheat_104/histogram_trihedral_2.pdf used on input line 205.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Wheat_104/histogram_tri
+hedral_3.pdf, id=72, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_104/histogra
+m_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_104/histogram
+_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Wheat_104/histogram_trihedral_3.pdf used on input line 206.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Wheat_104/histogram_tri
+hedral_4.pdf, id=73, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_104/histogra
+m_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_104/histogram
+_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Wheat_104/histogram_trihedral_4.pdf used on input line 207.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Wheat_104/histogram_tri
+hedral_5.pdf, id=74, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_104/histogra
+m_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_104/histogram
+_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Wheat_104/histogram_trihedral_5.pdf used on input line 208.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogram_ran
+dom_volume_1.pdf, id=75, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogra
+m_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogram
+_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Wheat_104/histogram_random_volume_1.pdf used on input line 215.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/histogram_ran
+dom_volume_2.pdf, id=76, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/histogra
+m_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/histogram
+_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Wheat_104/histogram_random_volume_2.pdf used on input line 216.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Wheat_104/histogram_ran
+dom_volume_3.pdf, id=77, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_104/histogra
+m_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_104/histogram
+_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Wheat_104/histogram_random_volume_3.pdf used on input line 217.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Wheat_104/histogram_ran
+dom_volume_4.pdf, id=78, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_104/histogra
+m_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_104/histogram
+_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Wheat_104/histogram_random_volume_4.pdf used on input line 218.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Wheat_104/histogram_ran
+dom_volume_5.pdf, id=79, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_104/histogra
+m_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_104/histogram
+_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Wheat_104/histogram_random_volume_5.pdf used on input line 219.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogram_tri
+hedral_1.pdf, id=80, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogra
+m_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogram
+_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Wheat_105/histogram_trihedral_1.pdf used on input line 227.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Wheat_105/histogram_tri
+hedral_2.pdf, id=81, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_105/histogra
+m_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_105/histogram
+_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Wheat_105/histogram_trihedral_2.pdf used on input line 228.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Wheat_105/histogram_tri
+hedral_3.pdf, id=82, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_105/histogra
+m_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_105/histogram
+_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Wheat_105/histogram_trihedral_3.pdf used on input line 229.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Wheat_105/histogram_tri
+hedral_4.pdf, id=83, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_105/histogra
+m_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_105/histogram
+_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Wheat_105/histogram_trihedral_4.pdf used on input line 230.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogram_tri
+hedral_5.pdf, id=84, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogra
+m_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogram
+_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Wheat_105/histogram_trihedral_5.pdf used on input line 231.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogram_ran
+dom_volume_1.pdf, id=85, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogra
+m_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogram
+_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Wheat_105/histogram_random_volume_1.pdf used on input line 238.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Wheat_105/histogram_ran
+dom_volume_2.pdf, id=86, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_105/histogra
+m_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_105/histogram
+_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Wheat_105/histogram_random_volume_2.pdf used on input line 239.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Wheat_105/histogram_ran
+dom_volume_3.pdf, id=87, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_105/histogra
+m_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_105/histogram
+_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Wheat_105/histogram_random_volume_3.pdf used on input line 240.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Wheat_105/histogram_ran
+dom_volume_4.pdf, id=88, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_105/histogra
+m_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_105/histogram
+_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Wheat_105/histogram_random_volume_4.pdf used on input line 241.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogram_ran
+dom_volume_5.pdf, id=89, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogra
+m_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogram
+_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Wheat_105/histogram_random_volume_5.pdf used on input line 242.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Wheat_255/histogram_tri
+hedral_1.pdf, id=90, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_255/histogra
+m_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_255/histogram
+_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Wheat_255/histogram_trihedral_1.pdf used on input line 250.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Wheat_255/histogram_tri
+hedral_2.pdf, id=91, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_255/histogra
+m_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_255/histogram
+_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Wheat_255/histogram_trihedral_2.pdf used on input line 251.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Wheat_255/histogram_tri
+hedral_3.pdf, id=92, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_255/histogra
+m_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_255/histogram
+_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Wheat_255/histogram_trihedral_3.pdf used on input line 252.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Wheat_255/histogram_tri
+hedral_4.pdf, id=93, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_255/histogra
+m_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_255/histogram
+_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Wheat_255/histogram_trihedral_4.pdf used on input line 253.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogram_tri
+hedral_5.pdf, id=94, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogra
+m_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogram
+_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Wheat_255/histogram_trihedral_5.pdf used on input line 254.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Wheat_255/histogram_ran
+dom_volume_1.pdf, id=95, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_255/histogra
+m_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Wheat_255/histogram
+_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Wheat_255/histogram_random_volume_1.pdf used on input line 261.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Wheat_255/histogram_ran
+dom_volume_2.pdf, id=96, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_255/histogra
+m_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Wheat_255/histogram
+_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Wheat_255/histogram_random_volume_2.pdf used on input line 262.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Wheat_255/histogram_ran
+dom_volume_3.pdf, id=97, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_255/histogra
+m_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Wheat_255/histogram
+_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Wheat_255/histogram_random_volume_3.pdf used on input line 263.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Wheat_255/histogram_ran
+dom_volume_4.pdf, id=98, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_255/histogra
+m_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Wheat_255/histogram
+_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Wheat_255/histogram_random_volume_4.pdf used on input line 264.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogram_ran
+dom_volume_5.pdf, id=99, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogra
+m_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogram
+_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Wheat_255/histogram_random_volume_5.pdf used on input line 265.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Canola_43/histogram_tri
+hedral_1.pdf, id=100, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Canola_43/histogra
+m_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Canola_43/histogram
+_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Canola_43/histogram_trihedral_1.pdf used on input line 273.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Canola_43/histogram_tri
+hedral_2.pdf, id=101, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Canola_43/histogra
+m_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Canola_43/histogram
+_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Canola_43/histogram_trihedral_2.pdf used on input line 274.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Canola_43/histogram_tri
+hedral_3.pdf, id=102, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Canola_43/histogra
+m_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Canola_43/histogram
+_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Canola_43/histogram_trihedral_3.pdf used on input line 275.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogram_tri
+hedral_4.pdf, id=103, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogra
+m_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogram
+_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Canola_43/histogram_trihedral_4.pdf used on input line 276.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/histogram_tri
+hedral_5.pdf, id=104, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/histogra
+m_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/histogram
+_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Canola_43/histogram_trihedral_5.pdf used on input line 277.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Canola_43/histogram_ran
+dom_volume_1.pdf, id=105, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Canola_43/histogra
+m_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Canola_43/histogram
+_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Canola_43/histogram_random_volume_1.pdf used on input line 284.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Canola_43/histogram_ran
+dom_volume_2.pdf, id=106, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Canola_43/histogra
+m_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Canola_43/histogram
+_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Canola_43/histogram_random_volume_2.pdf used on input line 285.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Canola_43/histogram_ran
+dom_volume_3.pdf, id=107, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Canola_43/histogra
+m_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Canola_43/histogram
+_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Canola_43/histogram_random_volume_3.pdf used on input line 286.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogram_ran
+dom_volume_4.pdf, id=108, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogra
+m_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogram
+_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Canola_43/histogram_random_volume_4.pdf used on input line 287.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/histogram_ran
+dom_volume_5.pdf, id=109, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/histogra
+m_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/histogram
+_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Canola_43/histogram_random_volume_5.pdf used on input line 288.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Canola_224/histogram_tr
+ihedral_1.pdf, id=110, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Canola_224/histogr
+am_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Canola_224/histogra
+m_trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Canola_224/histogram_trihedral_1.pdf used on input line 296.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Canola_224/histogram_tr
+ihedral_2.pdf, id=111, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Canola_224/histogr
+am_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Canola_224/histogra
+m_trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Canola_224/histogram_trihedral_2.pdf used on input line 297.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogram_tr
+ihedral_3.pdf, id=112, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogr
+am_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogra
+m_trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Canola_224/histogram_trihedral_3.pdf used on input line 298.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/histogram_tr
+ihedral_4.pdf, id=113, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/histogr
+am_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/histogra
+m_trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Canola_224/histogram_trihedral_4.pdf used on input line 299.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Canola_224/histogram_tr
+ihedral_5.pdf, id=114, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Canola_224/histogr
+am_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Canola_224/histogra
+m_trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Canola_224/histogram_trihedral_5.pdf used on input line 300.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Canola_224/histogram_ra
+ndom_volume_1.pdf, id=115, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Canola_224/histogr
+am_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Canola_224/histogra
+m_random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Canola_224/histogram_random_volume_1.pdf used on input line 307.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Canola_224/histogram_ra
+ndom_volume_2.pdf, id=116, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Canola_224/histogr
+am_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Canola_224/histogra
+m_random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Canola_224/histogram_random_volume_2.pdf used on input line 308.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogram_ra
+ndom_volume_3.pdf, id=117, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogr
+am_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogra
+m_random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Canola_224/histogram_random_volume_3.pdf used on input line 309.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/histogram_ra
+ndom_volume_4.pdf, id=118, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/histogr
+am_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/histogra
+m_random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Canola_224/histogram_random_volume_4.pdf used on input line 310.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Canola_224/histogram_ra
+ndom_volume_5.pdf, id=119, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Canola_224/histogr
+am_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Canola_224/histogra
+m_random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Canola_224/histogram_random_volume_5.pdf used on input line 311.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Oats_102/histogram_trih
+edral_1.pdf, id=120, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Oats_102/histogram
+_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Oats_102/histogram_
+trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Oats_102/histogram_trihedral_1.pdf used on input line 319.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram_trih
+edral_2.pdf, id=121, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram
+_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram_
+trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Oats_102/histogram_trihedral_2.pdf used on input line 320.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/histogram_trih
+edral_3.pdf, id=122, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/histogram
+_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/histogram_
+trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Oats_102/histogram_trihedral_3.pdf used on input line 321.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Oats_102/histogram_trih
+edral_4.pdf, id=123, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Oats_102/histogram
+_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Oats_102/histogram_
+trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Oats_102/histogram_trihedral_4.pdf used on input line 322.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Oats_102/histogram_trih
+edral_5.pdf, id=124, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Oats_102/histogram
+_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Oats_102/histogram_
+trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Oats_102/histogram_trihedral_5.pdf used on input line 323.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Oats_102/histogram_rand
+om_volume_1.pdf, id=125, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Oats_102/histogram
+_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Oats_102/histogram_
+random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Oats_102/histogram_random_volume_1.pdf used on input line 330.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram_rand
+om_volume_2.pdf, id=126, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram
+_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram_
+random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Oats_102/histogram_random_volume_2.pdf used on input line 331.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/histogram_rand
+om_volume_3.pdf, id=127, 626.34pt x 418.56375pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/histogram
+_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/histogram_
+random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Oats_102/histogram_random_volume_3.pdf used on input line 332.
+(pdftex.def)             Requested size: 209.1301pt x 139.75508pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Oats_102/histogram_rand
+om_volume_4.pdf, id=128, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Oats_102/histogram
+_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Oats_102/histogram_
+random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Oats_102/histogram_random_volume_4.pdf used on input line 333.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Oats_102/histogram_rand
+om_volume_5.pdf, id=129, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Oats_102/histogram
+_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Oats_102/histogram_
+random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Oats_102/histogram_random_volume_5.pdf used on input line 334.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Oats_103/histogram_trih
+edral_1.pdf, id=130, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Oats_103/histogram
+_trihedral_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Oats_103/histogram_
+trihedral_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Oats_103/histogram_trihedral_1.pdf used on input line 342.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram_trih
+edral_2.pdf, id=131, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram
+_trihedral_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram_
+trihedral_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Oats_103/histogram_trihedral_2.pdf used on input line 343.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/histogram_trih
+edral_3.pdf, id=132, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/histogram
+_trihedral_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/histogram_
+trihedral_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Oats_103/histogram_trihedral_3.pdf used on input line 344.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Oats_103/histogram_trih
+edral_4.pdf, id=133, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Oats_103/histogram
+_trihedral_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Oats_103/histogram_
+trihedral_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Oats_103/histogram_trihedral_4.pdf used on input line 345.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Oats_103/histogram_trih
+edral_5.pdf, id=134, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Oats_103/histogram
+_trihedral_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Oats_103/histogram_
+trihedral_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Oats_103/histogram_trihedral_5.pdf used on input line 346.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/1th_observation/Oats_103/histogram_rand
+om_volume_1.pdf, id=135, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/1th_observation/Oats_103/histogram
+_random_volume_1.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/1th_observation/Oats_103/histogram_
+random_volume_1.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/1th_observation
+/Oats_103/histogram_random_volume_1.pdf used on input line 353.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram_rand
+om_volume_2.pdf, id=136, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram
+_random_volume_2.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram_
+random_volume_2.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/2th_observation
+/Oats_103/histogram_random_volume_2.pdf used on input line 354.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/histogram_rand
+om_volume_3.pdf, id=137, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/histogram
+_random_volume_3.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/histogram_
+random_volume_3.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/3th_observation
+/Oats_103/histogram_random_volume_3.pdf used on input line 355.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/4th_observation/Oats_103/histogram_rand
+om_volume_4.pdf, id=138, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/4th_observation/Oats_103/histogram
+_random_volume_4.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/4th_observation/Oats_103/histogram_
+random_volume_4.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/4th_observation
+/Oats_103/histogram_random_volume_4.pdf used on input line 356.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+
+<../../Figures/Report_19_09//Histograms/5th_observation/Oats_103/histogram_rand
+om_volume_5.pdf, id=139, 722.7pt x 578.16pt>
+File: ../../Figures/Report_19_09//Histograms/5th_observation/Oats_103/histogram
+_random_volume_5.pdf Graphic file (type pdf)
+
+<use ../../Figures/Report_19_09//Histograms/5th_observation/Oats_103/histogram_
+random_volume_5.pdf>
+Package pdftex.def Info: ../../Figures/Report_19_09//Histograms/5th_observation
+/Oats_103/histogram_random_volume_5.pdf used on input line 357.
+(pdftex.def)             Requested size: 209.1301pt x 167.3004pt.
+ [3] [4 <../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_101/hi
+stogram_trihedral_1.pdf> <../../Figures/Report_19_09//Histograms/2th_observatio
+n/Soybeans_101/histogram_trihedral_2.pdf> <../../Figures/Report_19_09//Histogra
+ms/3th_observation/Soybeans_101/histogram_trihedral_3.pdf> <../../Figures/Repor
+t_19_09//Histograms/4th_observation/Soybeans_101/histogram_trihedral_4.pdf> <..
+/../Figures/Report_19_09//Histograms/5th_observation/Soybeans_101/histogram_tri
+hedral_5.pdf>] [5 <../../Figures/Report_19_09//Histograms/1th_observation/Soybe
+ans_101/histogram_random_volume_1.pdf> <../../Figures/Report_19_09//Histograms/
+2th_observation/Soybeans_101/histogram_random_volume_2.pdf> <../../Figures/Repo
+rt_19_09//Histograms/3th_observation/Soybeans_101/histogram_random_volume_3.pdf
+> <../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_101/histogra
+m_random_volume_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observation/
+Soybeans_101/histogram_random_volume_5.pdf>] [6 <../../Figures/Report_19_09//Hi
+stograms/1th_observation/Soybeans_231/histogram_trihedral_1.pdf> <../../Figures
+/Report_19_09//Histograms/2th_observation/Soybeans_231/histogram_trihedral_2.pd
+f> <../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_231/histogr
+am_trihedral_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observation/Soy
+beans_231/histogram_trihedral_4.pdf> <../../Figures/Report_19_09//Histograms/5t
+h_observation/Soybeans_231/histogram_trihedral_5.pdf>]
+[7 <../../Figures/Report_19_09//Histograms/1th_observation/Soybeans_231/histogr
+am_random_volume_1.pdf> <../../Figures/Report_19_09//Histograms/2th_observation
+/Soybeans_231/histogram_random_volume_2.pdf> <../../Figures/Report_19_09//Histo
+grams/3th_observation/Soybeans_231/histogram_random_volume_3.pdf> <../../Figure
+s/Report_19_09//Histograms/4th_observation/Soybeans_231/histogram_random_volume
+_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observation/Soybeans_231/hi
+stogram_random_volume_5.pdf>] [8 <../../Figures/Report_19_09//Histograms/1th_ob
+servation/Soybeans_232/histogram_trihedral_1.pdf> <../../Figures/Report_19_09//
+Histograms/2th_observation/Soybeans_232/histogram_trihedral_2.pdf> <../../Figur
+es/Report_19_09//Histograms/3th_observation/Soybeans_232/histogram_trihedral_3.
+pdf> <../../Figures/Report_19_09//Histograms/4th_observation/Soybeans_232/histo
+gram_trihedral_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observation/S
+oybeans_232/histogram_trihedral_5.pdf>] [9 <../../Figures/Report_19_09//Histogr
+ams/1th_observation/Soybeans_232/histogram_random_volume_1.pdf> <../../Figures/
+Report_19_09//Histograms/2th_observation/Soybeans_232/histogram_random_volume_2
+.pdf> <../../Figures/Report_19_09//Histograms/3th_observation/Soybeans_232/hist
+ogram_random_volume_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observat
+ion/Soybeans_232/histogram_random_volume_4.pdf> <../../Figures/Report_19_09//Hi
+stograms/5th_observation/Soybeans_232/histogram_random_volume_5.pdf>] [10 <../.
+./Figures/Report_19_09//Histograms/1th_observation/Wheat_104/histogram_trihedra
+l_1.pdf> <../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/hist
+ogram_trihedral_2.pdf> <../../Figures/Report_19_09//Histograms/3th_observation/
+Wheat_104/histogram_trihedral_3.pdf> <../../Figures/Report_19_09//Histograms/4t
+h_observation/Wheat_104/histogram_trihedral_4.pdf> <../../Figures/Report_19_09/
+/Histograms/5th_observation/Wheat_104/histogram_trihedral_5.pdf>] [11 <../../Fi
+gures/Report_19_09//Histograms/1th_observation/Wheat_104/histogram_random_volum
+e_1.pdf> <../../Figures/Report_19_09//Histograms/2th_observation/Wheat_104/hist
+ogram_random_volume_2.pdf> <../../Figures/Report_19_09//Histograms/3th_observat
+ion/Wheat_104/histogram_random_volume_3.pdf> <../../Figures/Report_19_09//Histo
+grams/4th_observation/Wheat_104/histogram_random_volume_4.pdf> <../../Figures/R
+eport_19_09//Histograms/5th_observation/Wheat_104/histogram_random_volume_5.pdf
+>] [12 <../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histog
+ram_trihedral_1.pdf> <../../Figures/Report_19_09//Histograms/2th_observation/Wh
+eat_105/histogram_trihedral_2.pdf> <../../Figures/Report_19_09//Histograms/3th_
+observation/Wheat_105/histogram_trihedral_3.pdf> <../../Figures/Report_19_09//H
+istograms/4th_observation/Wheat_105/histogram_trihedral_4.pdf> <../../Figures/R
+eport_19_09//Histograms/5th_observation/Wheat_105/histogram_trihedral_5.pdf>]
+[13 <../../Figures/Report_19_09//Histograms/1th_observation/Wheat_105/histogram
+_random_volume_1.pdf> <../../Figures/Report_19_09//Histograms/2th_observation/W
+heat_105/histogram_random_volume_2.pdf> <../../Figures/Report_19_09//Histograms
+/3th_observation/Wheat_105/histogram_random_volume_3.pdf> <../../Figures/Report
+_19_09//Histograms/4th_observation/Wheat_105/histogram_random_volume_4.pdf> <..
+/../Figures/Report_19_09//Histograms/5th_observation/Wheat_105/histogram_random
+_volume_5.pdf>] [14 <../../Figures/Report_19_09//Histograms/1th_observation/Whe
+at_255/histogram_trihedral_1.pdf> <../../Figures/Report_19_09//Histograms/2th_o
+bservation/Wheat_255/histogram_trihedral_2.pdf> <../../Figures/Report_19_09//Hi
+stograms/3th_observation/Wheat_255/histogram_trihedral_3.pdf> <../../Figures/Re
+port_19_09//Histograms/4th_observation/Wheat_255/histogram_trihedral_4.pdf> <..
+/../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/histogram_trihed
+ral_5.pdf>] [15 <../../Figures/Report_19_09//Histograms/1th_observation/Wheat_2
+55/histogram_random_volume_1.pdf> <../../Figures/Report_19_09//Histograms/2th_o
+bservation/Wheat_255/histogram_random_volume_2.pdf> <../../Figures/Report_19_09
+//Histograms/3th_observation/Wheat_255/histogram_random_volume_3.pdf> <../../Fi
+gures/Report_19_09//Histograms/4th_observation/Wheat_255/histogram_random_volum
+e_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observation/Wheat_255/hist
+ogram_random_volume_5.pdf>] [16 <../../Figures/Report_19_09//Histograms/1th_obs
+ervation/Canola_43/histogram_trihedral_1.pdf> <../../Figures/Report_19_09//Hist
+ograms/2th_observation/Canola_43/histogram_trihedral_2.pdf> <../../Figures/Repo
+rt_19_09//Histograms/3th_observation/Canola_43/histogram_trihedral_3.pdf> <../.
+./Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogram_trihedra
+l_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observation/Canola_43/hist
+ogram_trihedral_5.pdf>] [17 <../../Figures/Report_19_09//Histograms/1th_observa
+tion/Canola_43/histogram_random_volume_1.pdf> <../../Figures/Report_19_09//Hist
+ograms/2th_observation/Canola_43/histogram_random_volume_2.pdf> <../../Figures/
+Report_19_09//Histograms/3th_observation/Canola_43/histogram_random_volume_3.pd
+f> <../../Figures/Report_19_09//Histograms/4th_observation/Canola_43/histogram_
+random_volume_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observation/Ca
+nola_43/histogram_random_volume_5.pdf>] [18 <../../Figures/Report_19_09//Histog
+rams/1th_observation/Canola_224/histogram_trihedral_1.pdf> <../../Figures/Repor
+t_19_09//Histograms/2th_observation/Canola_224/histogram_trihedral_2.pdf> <../.
+./Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogram_trihedr
+al_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observation/Canola_224/hi
+stogram_trihedral_4.pdf> <../../Figures/Report_19_09//Histograms/5th_observatio
+n/Canola_224/histogram_trihedral_5.pdf>] [19 <../../Figures/Report_19_09//Histo
+grams/1th_observation/Canola_224/histogram_random_volume_1.pdf> <../../Figures/
+Report_19_09//Histograms/2th_observation/Canola_224/histogram_random_volume_2.p
+df> <../../Figures/Report_19_09//Histograms/3th_observation/Canola_224/histogra
+m_random_volume_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observation/
+Canola_224/histogram_random_volume_4.pdf> <../../Figures/Report_19_09//Histogra
+ms/5th_observation/Canola_224/histogram_random_volume_5.pdf>] [20 <../../Figure
+s/Report_19_09//Histograms/1th_observation/Oats_102/histogram_trihedral_1.pdf> 
+<../../Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram_trih
+edral_2.pdf> <../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/h
+istogram_trihedral_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observati
+on/Oats_102/histogram_trihedral_4.pdf> <../../Figures/Report_19_09//Histograms/
+5th_observation/Oats_102/histogram_trihedral_5.pdf>] [21 <../../Figures/Report_
+19_09//Histograms/1th_observation/Oats_102/histogram_random_volume_1.pdf> <../.
+./Figures/Report_19_09//Histograms/2th_observation/Oats_102/histogram_random_vo
+lume_2.pdf> <../../Figures/Report_19_09//Histograms/3th_observation/Oats_102/hi
+stogram_random_volume_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observ
+ation/Oats_102/histogram_random_volume_4.pdf> <../../Figures/Report_19_09//Hist
+ograms/5th_observation/Oats_102/histogram_random_volume_5.pdf>] [22 <../../Figu
+res/Report_19_09//Histograms/1th_observation/Oats_103/histogram_trihedral_1.pdf
+> <../../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram_tr
+ihedral_2.pdf> <../../Figures/Report_19_09//Histograms/3th_observation/Oats_103
+/histogram_trihedral_3.pdf> <../../Figures/Report_19_09//Histograms/4th_observa
+tion/Oats_103/histogram_trihedral_4.pdf> <../../Figures/Report_19_09//Histogram
+s/5th_observation/Oats_103/histogram_trihedral_5.pdf>] [23 <../../Figures/Repor
+t_19_09//Histograms/1th_observation/Oats_103/histogram_random_volume_1.pdf> <..
+/../Figures/Report_19_09//Histograms/2th_observation/Oats_103/histogram_random_
+volume_2.pdf> <../../Figures/Report_19_09//Histograms/3th_observation/Oats_103/
+histogram_random_volume_3.pdf> <../../Figures/Report_19_09//Histograms/4th_obse
+rvation/Oats_103/histogram_random_volume_4.pdf> <../../Figures/Report_19_09//Hi
+stograms/5th_observation/Oats_103/histogram_random_volume_5.pdf>]
+(./report_19_09.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4422 strings out of 493029
- 58875 string characters out of 6136235
- 237030 words of memory out of 5000000
- 7867 multiletter control sequences out of 15000+600000
- 5755 words of font info for 21 fonts, out of 8000000 for 9000
+ 5100 strings out of 493029
+ 109055 string characters out of 6136234
+ 274888 words of memory out of 5000000
+ 8367 multiletter control sequences out of 15000+600000
+ 9174 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,24p,340b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report_19_09.pdf (3 pages, 4418220 bytes).
+ 38i,8n,24p,629b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on report_19_09.pdf (24 pages, 5383152 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 729 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 541 words of extra memory for PDF output out of 10000 (max. 10000000)
 

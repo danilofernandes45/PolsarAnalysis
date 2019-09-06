@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{commath}
+\usepackage{booktabs}
 \usepackage[alf]{abntex2cite}
 \usepackage{indentfirst}
 \usepackage{graphicx}
@@ -58,14 +59,16 @@ September\\
 In this report, some results of the analysis of samples referring to plantation regions observed over time are shown. The first observation was made on 16 May 2016, which was followed by four others with a time interval of 25 days between adjacent observations. 
 Those regions consist of three soybeans crops, three wheat, two oats and two canola and are shown in the figures \ref{fig:r1} to \ref{fig:r5}. Those samples were obtained using the classification of the regions given in the figure \ref{fig:classes}.
 
-\begin{figure}[hbt]
+The results consist of the graphic adjusting of the beta distribution to the histograms of the distances of the samples to the trihedral and random volume scatterers. In addition, the Kolmogorov-Smirnov good-of-fit test was performed to validate the hypothesis of the adjust. The choice of these scatterers is because they were more sensitive to vegetation variation in the analyzed regions, which can be verified in the figures \ref{fig:tp} and \ref{fig:rvp} that contain respectively the pixel proportions in the sample that is more similar to trihedral and the random volume as a function of time.
+
+\begin{figure}[!h]
 \centering
 \includegraphics[width = .55\linewidth]{/Regions/classes}
 \label{fig:classes}
 \caption{Classification of the regions on the image}
 \end{figure}
 
-\begin{figure*}[hbt]
+\begin{figure*}[!h]
 \centering
 
 \subfigure[1th observation\label{fig:r1}]{\includegraphics[width = .32\linewidth]{/Regions/regions_1}}
@@ -76,6 +79,284 @@ Those regions consist of three soybeans crops, three wheat, two oats and two can
 
 \caption{Samples analysed over time in where 1 to 10 corresponding respectively to Canola 43, Soybeans 231, Soybeans 232, Wheat 225, Canola 224, Soybeans 101, Oats 102, Oats 103, Wheat 105 and Wheat 104}
 \label{fig:regions}
+\end{figure*}
+
+\begin{figure*}[!h]
+\centering
+\subfigure[Trihedral\label{fig:tp}]{\includegraphics[width = .49\linewidth]{/Parameters/tri_proportion}}
+\subfigure[Random Volume\label{fig:rvp}]{\includegraphics[width = .49\linewidth]{/Parameters/rv_proportion}}
+\caption{Pixel proportions on the analysed regions more similar to trihedral and random volume as function of time, where SB, WT, CN and OT indicate respectively Soybeans, Wheat, Canola and Oats}
+\label{fig:pixel_proportions}
+\end{figure*}
+
+\newpage
+
+\section{Adjust the histograms to the Beta Distribution}
+
+The figures \ref{fig:sb101_hist_tri} to \ref{fig:ot103_hist_rv} contain the histograms of the Geodesic Distances between the scatterer (random or trihedral volume) and the pixels of the sample most similar to this scatterer. In addition, these histograms are graphically adjusted by the Beta Distribution, whose parameters were estimated from the distances analyzed.
+
+Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained $p$-values are in the table \ref{}.
+
+\begin{table}[hbt]
+\centering
+\caption{$p$-values of the Kolmogorov-Smirnov goodness-of-fit test of the distances to trihedral an random volume}\label{tab:pvalues_table}
+\begin{tabular}{lrrrrrrrrrr}
+
+\toprule
+& \multicolumn{2}{c}{First} & \multicolumn{2}{c}{Second} & \multicolumn{2}{c}{Third} & \multicolumn{2}{c}{Fourth} & \multicolumn{2}{c}{Fifth}\\
+& \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation}\\
+& TR & RV & TR & RV & TR & RV & TR & RV& TR & RV\\
+\cmidrule(lr){2-11}
+\textbf{SB 101} & 0.065 & 0.517 & 0.947 & 0.758 & 0.059 & 0.495 & 0.452 & 0.109 & 0.401 & 0.144\\
+\textbf{SB 231} & 0.823 & 0.650 & 0.903 & 0.197 & 0.459 & 0.135 & 0.628 & 0.008 & 0.570 & 0.593\\
+\textbf{SB 232} & 0.244 & 0.340 & 0.968 & 0.328 & 0.713 & 0.070 & 0.422 & 0.357 & 0.163 & 0.630\\
+\textbf{WT 104} & 0.178 & 0.715 & 0.421 & 0.094 & 0.514 & 0.779 & 0.062 & 0.369 & 0.602 & 0.919\\
+\textbf{WT 105} & 0.231 & 0.090 & 0.069 & 0.139 & 0.557 & 0.613 & 0.108 & 0.195 & 0.192 & 0.252\\
+\textbf{WT 255} & 0.235 & 0.513 & 0.270 & 0.375 & 0.628 & 0.279 & 0.653 & 0.069 & 0.437 & 0.993\\
+\textbf{CN 43}  & 0.238 & 0.406 & 0.217 & 0.202 & 0.930 & 0.318 & 0.623 & 0.732 & 0.262 & 0.747\\
+% \toprule
+% & $-1/4$-wave & $+1/4$-wave & Cylinder & Dihedral & Dipole\\ 
+% \cmidrule(lr){2-6}
+% \textbf{Forest} & 0.979 & 0.808 & 0.763 & 0.733 & 0.975\\
+% \textbf{Bare soil} & 0.361 & 0.893 & 0.264 & 0.443 & 0.475\\
+% \midrule
+% & Left & Narrow & Random & Right & Trihedral\\
+%              & helix & dihedral & volume & helix & \\
+% \cmidrule(lr){2-6}
+% \textbf{Forest} & 0.959 & 0.787 & 0.589 & 0.344 & 0.582\\
+% \textbf{Bare soil} & 0.099 & 0.206 & 0.480 & 0.072 & 0.127\\
+% \bottomrule
+\end{tabular} 
+\end{table}
+
+%SB101
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_101/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_101/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_trihedral_5}}
+\label{fig:sb101_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 101 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_101/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_101/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_random_volume_5}}
+\label{fig:sb101_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 101 most similar to random volume}
+\end{figure*}
+
+%SB231
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_231/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_231/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_231/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_231/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_231/histogram_trihedral_5}}
+\label{fig:sb231_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 231 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_231/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_231/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_231/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_231/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_231/histogram_random_volume_5}}
+\label{fig:sb231_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 231 most similar to random volume}
+\end{figure*}
+
+%SB232
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_232/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_232/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_232/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_232/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_232/histogram_trihedral_5}}
+\label{fig:sb232_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 232 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_232/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_232/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_232/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_232/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_232/histogram_random_volume_5}}
+\label{fig:sb232_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 232 most similar to random volume}
+\end{figure*}
+
+%WT104
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Wheat_104/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Wheat_104/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_104/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_104/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_104/histogram_trihedral_5}}
+\label{fig:wt104_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Wheat 104 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Wheat_104/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Wheat_104/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_104/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_104/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_104/histogram_random_volume_5}}
+\label{fig:wt104_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Wheat 104 most similar to random volume}
+\end{figure*}
+
+%WT105
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Wheat_105/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Wheat_105/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_105/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_105/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_105/histogram_trihedral_5}}
+\label{fig:wt105_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Wheat 105 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Wheat_105/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Wheat_105/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_105/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_105/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_105/histogram_random_volume_5}}
+\label{fig:wt105_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Wheat 105 most similar to random volume}
+\end{figure*}
+
+%WT255
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Wheat_255/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Wheat_255/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_255/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_255/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_255/histogram_trihedral_5}}
+\label{fig:wt255_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Wheat 255 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Wheat_255/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Wheat_255/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_255/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_255/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_255/histogram_random_volume_5}}
+\label{fig:wt255_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Wheat 255 most similar to random volume}
+\end{figure*}
+
+%CN43
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Canola_43/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Canola_43/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_43/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_43/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_43/histogram_trihedral_5}}
+\label{fig:cn43_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Canola 43 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Canola_43/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Canola_43/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_43/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_43/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_43/histogram_random_volume_5}}
+\label{fig:cn43_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Canola 43 most similar to random volume}
+\end{figure*}
+
+%CN224
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Canola_224/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Canola_224/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_224/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_224/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_224/histogram_trihedral_5}}
+\label{fig:cn224_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Canola 224 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Canola_224/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Canola_224/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_224/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_224/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_224/histogram_random_volume_5}}
+\label{fig:cn224_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Canola 224 most similar to random volume}
+\end{figure*}
+
+%OT102
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Oats_102/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Oats_102/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_102/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_102/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_102/histogram_trihedral_5}}
+\label{fig:ot102_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Oats 102 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Oats_102/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Oats_102/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_102/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_102/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_102/histogram_random_volume_5}}
+\label{fig:ot102_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Oats 102 most similar to random volume}
+\end{figure*}
+
+%OT103
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Oats_103/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Oats_103/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_103/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_103/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_103/histogram_trihedral_5}}
+\label{fig:ot103_hist_tri}
+\caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Oats 103 most similar to trihedral}
+\end{figure*}
+
+\begin{figure*}[hbt]
+\centering
+\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Oats_103/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Oats_103/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_103/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_103/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_103/histogram_random_volume_5}}
+\label{fig:ot103_hist_rv}
+\caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Oats 103 most similar to random volume}
 \end{figure*}
 
 \end{document}

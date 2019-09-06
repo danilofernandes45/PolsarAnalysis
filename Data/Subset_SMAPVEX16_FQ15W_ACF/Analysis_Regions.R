@@ -212,10 +212,40 @@ wt_rv_mean$X <- 1:5
 ot_rv_mean <- ot_rv_alpha / (ot_rv_alpha + ot_rv_beta)
 ot_rv_mean$X <- 1:5
 
+#============================================================
+#Proportions
+tri_prop <- data.frame(
+  X = 1:5,
+  SB101 = c(1481, 867, 429, 397, 319)/1950, #SOYBEANS 101
+  SB231 = c(1248, 702, 452, 613, 488)/1950, #SOYBEANS 231
+  SB232 = c(1275, 649, 474, 596, 518)/1950, #SOYBEANS 231-232
+  WT104 = c(1618, 478, 161, 133, 140)/2275, #WHEAT 104
+  WT105 = c(1488, 482, 196, 154, 160)/2275, #WHEAT 105
+  WT255 = c(1552, 567, 180, 85, 157)/2275, #WHEAT 255
+  CN43 = c(1964, 1002, 485, 168, 207)/2750, #CANOLA 43
+  CN224 = c(2106, 1716, 234, 162, 212)/2745, #CANOLA 224
+  OT102 = c(1441, 1087, 354, 121, 92)/2275, #OATS 102
+  OT103 = c(1429, 1153, 388, 110, 99)/2275 #OATS 103
+)
+
+rv_prop <- data.frame(
+  X = 1:5,
+  SB101 = c(71, 306, 633, 743, 829)/1950, #SOYBEANS 101
+  SB231 = c(161, 357, 703, 663, 774)/1950, #SOYBEANS 231
+  SB232 = c(132, 387, 649, 630, 811)/1950, #SOYBEANS 231-232
+  WT104 = c(144, 861, 842, 1257, 1099)/2275, #WHEAT 104
+  WT105 = c(222, 852, 842, 1240, 1117)/2275, #WHEAT 105
+  WT255 = c(205, 746, 917, 829, 904)/2275, #WHEAT 255
+  CN43 = c(155, 625, 1195, 1413, 1395)/2270, #CANOLA 43
+  CN224 = c(87, 209, 1298, 1457, 1334)/2745, #CANOLA 224
+  OT102 = c(246, 430, 817, 842, 1054)/2275, #OATS 102
+  OT103 = c(266, 386, 809, 833, 1045)/2275 #OATS 103
+)
+
 library(ggplot2)
 #Analysis per sample
-ggplot(aes(x = X, y = value, group = variable, color = variable), data = melt(ot_rv_beta, id.vars = "X")) +
-  xlab("Sample") + ylab("Parameter value") +
+ggplot(aes(x = X, y = value, group = variable, color = variable), data = melt(rv_prop, id.vars = "X")) +
+  xlab("Sample") + ylab("Proportion value") +
   geom_point() + geom_line()
 
 alpha_tri = c()
