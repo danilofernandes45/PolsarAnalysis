@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.7.25)  5 SEP 2019 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.6)  5 SEP 2019 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -540,39 +540,6 @@ Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count115
 )
-(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
-Package: subfig 2005/06/28 ver: 1.3 subfig package
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen126
-\captionmargin@=\dimen127
-\captionwidth=\dimen128
-\caption@tempdima=\dimen129
-\caption@indent=\dimen130
-\caption@parindent=\dimen131
-\caption@hangindent=\dimen132
-)
-\c@ContinuedFloat=\count116
-)
-\c@KVtest=\count117
-\sf@farskip=\skip54
-\sf@captopadj=\dimen133
-\sf@capskip=\skip55
-\sf@nearskip=\skip56
-\c@subfigure=\count118
-\c@subfigure@save=\count119
-\c@lofdepth=\count120
-\c@subtable=\count121
-\c@subtable@save=\count122
-\c@lotdepth=\count123
-\sf@top=\skip57
-\sf@bottom=\skip58
-)
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -580,18 +547,38 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-\Gm@cnth=\count124
-\Gm@cntv=\count125
-\c@Gm@tempcnt=\count126
-\Gm@bindingoffset=\dimen134
-\Gm@wd@mp=\dimen135
-\Gm@odd@mp=\dimen136
-\Gm@even@mp=\dimen137
-\Gm@layoutwidth=\dimen138
-\Gm@layoutheight=\dimen139
-\Gm@layouthoffset=\dimen140
-\Gm@layoutvoffset=\dimen141
+\Gm@cnth=\count116
+\Gm@cntv=\count117
+\c@Gm@tempcnt=\count118
+\Gm@bindingoffset=\dimen126
+\Gm@wd@mp=\dimen127
+\Gm@odd@mp=\dimen128
+\Gm@even@mp=\dimen129
+\Gm@layoutwidth=\dimen130
+\Gm@layoutheight=\dimen131
+\Gm@layouthoffset=\dimen132
+\Gm@layoutvoffset=\dimen133
 \Gm@dimlist=\toks23
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip54
+\subfigcapskip=\skip55
+\subfigcaptopadj=\dimen134
+\subfigbottomskip=\skip56
+\subfigcapmargin=\dimen135
+\subfiglabelskip=\skip57
+\c@subfigure=\count119
+\c@lofdepth=\count120
+\c@subtable=\count121
+\c@lotdepth=\count122
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip58
+\subfig@bottom=\skip59
 )
 (./report_19_09.aux)
 \openout1 = `report_19_09.aux'.
@@ -611,16 +598,16 @@ LaTeX Font Info:    ... okay on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count127
-\scratchdimen=\dimen142
+\scratchcounter=\count123
+\scratchdimen=\dimen136
 \scratchbox=\box54
-\nofMPsegments=\count128
-\nofMParguments=\count129
+\nofMPsegments=\count124
+\nofMParguments=\count125
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count130
-\MPscratchDim=\dimen143
-\MPnumerator=\count131
-\makeMPintoPDFobject=\count132
+\MPscratchCnt=\count126
+\MPscratchDim=\dimen137
+\MPnumerator=\count127
+\makeMPintoPDFobject=\count128
 \everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -666,10 +653,6 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: End \AtBeginDocument code.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -706,23 +689,74 @@ Package caption Info: End \AtBeginDocument code.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] (./report_19_09.aux) )
- 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<../../Images/Report_19_09//Regions/classes.png, id=9, 646.415pt x 795.97375pt>
+File: ../../Images/Report_19_09//Regions/classes.png Graphic file (type png)
+<use ../../Images/Report_19_09//Regions/classes.png>
+Package pdftex.def Info: ../../Images/Report_19_09//Regions/classes.png used on
+ input line 63.
+(pdftex.def)             Requested size: 234.73654pt x 289.04018pt.
+
+<../../Images/Report_19_09//Regions/regions_1.png, id=10, 446.66875pt x 617.306
+24pt>
+File: ../../Images/Report_19_09//Regions/regions_1.png Graphic file (type png)
+ <use ../../Images/Report_19_09//Regions/regions_1.png>
+Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_1.png used 
+on input line 71.
+(pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
+
+<../../Images/Report_19_09//Regions/regions_2.png, id=12, 446.66875pt x 617.306
+24pt>
+File: ../../Images/Report_19_09//Regions/regions_2.png Graphic file (type png)
+ <use ../../Images/Report_19_09//Regions/regions_2.png>
+Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_2.png used 
+on input line 72.
+(pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
+
+<../../Images/Report_19_09//Regions/regions_3.png, id=13, 446.66875pt x 617.306
+24pt>
+File: ../../Images/Report_19_09//Regions/regions_3.png Graphic file (type png)
+ <use ../../Images/Report_19_09//Regions/regions_3.png>
+Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_3.png used 
+on input line 73.
+(pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
+
+<../../Images/Report_19_09//Regions/regions_4.png, id=14, 446.66875pt x 617.306
+24pt>
+File: ../../Images/Report_19_09//Regions/regions_4.png Graphic file (type png)
+ <use ../../Images/Report_19_09//Regions/regions_4.png>
+Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_4.png used 
+on input line 74.
+(pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
+
+<../../Images/Report_19_09//Regions/regions_5.png, id=15, 446.66875pt x 617.306
+24pt>
+File: ../../Images/Report_19_09//Regions/regions_5.png Graphic file (type png)
+ <use ../../Images/Report_19_09//Regions/regions_5.png>
+Package pdftex.def Info: ../../Images/Report_19_09//Regions/regions_5.png used 
+on input line 75.
+(pdftex.def)             Requested size: 136.57635pt x 188.7538pt.
+ [1 <../../Images/Report_19_09//Regions/classes.png>] [2 <../../Images/Report_1
+9_09//Regions/regions_1.png> <../../Images/Report_19_09//Regions/regions_2.png>
+ <../../Images/Report_19_09//Regions/regions_3.png> <../../Images/Report_19_09/
+/Regions/regions_4.png> <../../Images/Report_19_09//Regions/regions_5.png>] (./
+report_19_09.aux) ) 
 Here is how much of TeX's memory you used:
- 5410 strings out of 493029
- 76487 string characters out of 6136234
- 255319 words of memory out of 5000000
- 8861 multiletter control sequences out of 15000+600000
+ 4422 strings out of 493029
+ 58875 string characters out of 6136235
+ 237030 words of memory out of 5000000
+ 7867 multiletter control sequences out of 15000+600000
  5755 words of font info for 21 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,4n,42p,340b,171s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report_19_09.pdf (2 pages, 36781 bytes).
+ 38i,6n,24p,340b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on report_19_09.pdf (3 pages, 4418220 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 15 compressed objects within 1 object stream
+ 42 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

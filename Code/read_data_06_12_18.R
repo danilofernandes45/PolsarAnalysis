@@ -134,9 +134,9 @@ vvvv <- read_file(vvvv_file, nrow = nrow, ncol = ncol)
 
 matrix <- array(0, dim = c(nrow, ncol, 3))
 
-matrix[,,1] <- ecdf(hhhh)(hhhh)
-matrix[,,2] <- ecdf(hvhv)(hvhv)
-matrix[,,3] <- ecdf(vvvv)(vvvv)
+# matrix[,,1] <- ecdf(hhhh)(hhhh)
+# matrix[,,2] <- ecdf(hvhv)(hvhv)
+# matrix[,,3] <- ecdf(vvvv)(vvvv)
 
 # library("png")
 # writePNG(matrix, target = "test.png")
@@ -180,4 +180,4 @@ matrix <- select_sample(matrix, c(425, 65, 315, 35)) #OT 102
 matrix <- select_sample(matrix, c(500, 65, 310, 35)) #OT 103
 
 library(png)
-writePNG(matrix, target = "regions_2.png")
+writePNG(matrix, target = "regions_4.png")

@@ -16,17 +16,17 @@ SIZE = 2275
 #Beta(4.456, 13.458)
 #p-value = 0.0687
 
-#3TH SAMPLE -> SIZE = 
-#Beta()
-#p-value =
+#3TH SAMPLE -> SIZE = 196
+#Beta(5.733, 14.528)
+#p-value = 0.5568
 
-#4TH SAMPLE -> SIZE = 
-#Beta()
-#p-value =
+#4TH SAMPLE -> SIZE = 154
+#Beta(3.347, 7.189)
+#p-value = 0.1075
 
-#5TH SAMPLE -> SIZE = 
-#Beta()
-#p-value =
+#5TH SAMPLE -> SIZE = 160
+#Beta(4.555, 11.353)
+#p-value = 0.1920
 
 
 #KS-TEST => RANDM VOLUME (FILTERED)
@@ -39,14 +39,14 @@ SIZE = 2275
 #Beta(5.582, 9.885)
 #p-value = 0.1386
 
-#3TH SAMPLE -> SIZE = 
-#Beta()
-#p-value =
+#3TH SAMPLE -> SIZE = 842
+#Beta(6.789, 12.832)
+#p-value = 0.6134
 
-#4TH SAMPLE -> SIZE = 
-#Beta()
-#p-value =
+#4TH SAMPLE -> SIZE = 1240
+#Beta(4.819, 7.538)
+#p-value = 0.1949
 
-#5TH SAMPLE -> SIZE = 
-#Beta()
-#p-value =
+#5TH SAMPLE -> SIZE = 1117
+#Beta(5.398, 8.922)
+#p-value = 0.2524
