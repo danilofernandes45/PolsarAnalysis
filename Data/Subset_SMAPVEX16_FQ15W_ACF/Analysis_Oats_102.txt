@@ -1,52 +1,51 @@
 #=======================================================================
-#OATS 102
+#WHEAT 105
 
-dim1 <- c(412, 65, 255, 35) #Sample
+dim2 <- c(425, 65, 315, 35) #Sample
 SIZE = 2275
 
 #=======================================================================
 
 #KS-TEST => TRIHEDRAL (FILTERED)
 
-#1TH SAMPLE -> SIZE = 1647
-#Beta(2.395, 10.252)
-#p-value = 0.1229
+#1TH SAMPLE -> SIZE = 1441
+#Beta(3.111, 11.172)
+#p-value = 0.2885
 
-#2TH SAMPLE -> SIZE = 1181
-#Beta(3.099, 10.719)
-#p-value = 0.5372
+#2TH SAMPLE -> SIZE = 10087
+#Beta(3.374, 11.398)
+#p-value = 0.2432
 
-#3TH SAMPLE -> SIZE = 743
-#Beta(4.189, 13.215)
-#p-value = 0.7787
+#3TH SAMPLE -> SIZE = 354
+#Beta(5.17, 15.745)
+#p-value = 0.3836
 
-#4TH SAMPLE -> SIZE = 541
-#Beta(4.563, 13.168)
-#p-value = 0.394
+#4TH SAMPLE -> SIZE = 121
+#Beta(6.184, 17.611)
+#p-value = 0.7098
 
-#5TH SAMPLE -> SIZE = 759
-#Beta(4.361, 11.956)
-#p-value = 0.8156
-
+#5TH SAMPLE -> SIZE = 92
+#Beta(5.851, 14.977)
+#p-value = 0.9275
 
 #KS-TEST => RANDOM VOLUME (FILTERED)
 
-#1TH SAMPLE -> SIZE = 112
-#Beta(4.722, 10.100)
-#p-value = 0.5516
+#1TH SAMPLE -> SIZE = 246
+#Beta(5.132, 9.49)
+#p-value = 0.1913
 
-#2TH SAMPLE -> SIZE = 337
-#Beta(7.04, 14.182)
-#p-value = 0.0614
+#2TH SAMPLE -> SIZE = 430
+#Beta(5.503, 10.916)
+#p-value = 0.5316
 
-#3TH SAMPLE -> SIZE = 575
-#Beta(6.593, 13.566)
-#p-value = 0.3518
+#3TH SAMPLE -> SIZE = 817
+#Beta(6.823, 12.764)
+#p-value = 0.2123
 
-#4TH SAMPLE -> SIZE = 806
-#Beta(6.054, 11.188)
-#p-value = 0.1699
+#4TH SAMPLE -> SIZE = 842
+#Beta(6.051, 11.23)
+#p-value = 0.3704 
 
-#5TH SAMPLE -> SIZE = 804
-#Beta(5.813, 10.290)
-#p-value = 0.1837
+#5TH SAMPLE -> SIZE = 1054
+#Beta(6.054, 9.989)
+#p-value = 0.3961
