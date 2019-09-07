@@ -1,3 +1,7 @@
+select_region <- function(dim){
+  
+}
+
 read_int_complex_file <- function(file, nrow, ncol){
   
   complex_numbers <- matrix(
