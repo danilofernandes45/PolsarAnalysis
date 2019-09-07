@@ -65,7 +65,7 @@ The results consist of the graphic adjusting of the beta distribution to the his
 \centering
 \includegraphics[width = .55\linewidth]{/Regions/classes}
 \label{fig:classes}
-\caption{Classification of the regions on the image}
+\caption{Classification of the regions on the PolSAR image}
 \end{figure}
 
 \begin{figure*}[!h]
@@ -93,9 +93,35 @@ The results consist of the graphic adjusting of the beta distribution to the his
 
 \section{Adjust the histograms to the Beta Distribution}
 
-The figures \ref{fig:sb101_hist_tri} to \ref{fig:ot103_hist_rv} contain the histograms of the Geodesic Distances between the scatterer (random or trihedral volume) and the pixels of the sample most similar to this scatterer. In addition, these histograms are graphically adjusted by the Beta Distribution, whose parameters were estimated from the distances analyzed.
+The figures \ref{fig:sb101_hist_tri} to \ref{fig:ot103_hist_rv} contain the histograms of the Geodesic Distances between the scatterer (random or trihedral volume) and the pixels of the sample most similar to this scatterer.
+The number of those pixels are in the table \ref{tab:size_sample} which TR and RV indicates respectively trihedral and random volume. In addiction, the histograms are graphically adjusted by the Beta Distribution, whose parameters were estimated from the distances analyzed.
 
-Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained $p$-values are in the table \ref{}.
+Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained $p$-values are in the table \ref{tab:pvalues_table}. In this table, the biggest and least $p$-values are in bold.
+
+\begin{table}[hbt]
+\centering
+\caption{Number of pixels more similar to trihedral and random volume}\label{tab:size_sample}
+\begin{tabular}{lrrrrrrrrrr}
+
+\toprule
+& \multicolumn{2}{c}{First} & \multicolumn{2}{c}{Second} & \multicolumn{2}{c}{Third} & \multicolumn{2}{c}{Fourth} & \multicolumn{2}{c}{Fifth}\\
+& \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation}\\
+& TR & RV & TR & RV & TR & RV & TR & RV& TR & RV\\
+\cmidrule(lr){2-11}
+\textbf{SB 101} & 1481 & 71 & 867 & 306 & 429 & 633 & 397 & 743 & 319 & 829\\
+\textbf{SB 231} & 1285 & 148 & 656 & 381 & 449 & 706 & 615 & 649 & 508 & 775\\
+\textbf{SB 232} & 1275 & 132 & 649 & 387 & 474 & 649 & 596 & 630 & 518 & 811\\
+\textbf{WT 104} & 1618 & 144 & 478 & 861 & 161 & 842 & 133 & 1257 & 140 & 1099\\
+\textbf{WT 105} & 1488 & 222 & 482 & 852 & 196 & 842 & 154 & 1240 & 160 & 1117\\
+\textbf{WT 255} & 1552 & 205 & 567 & 746 & 180 & 917 & 85 & 829 & 157 & 904\\
+\textbf{CN 43}  & 1964 & 155 & 1002 & 625 & 485 & 1195 & 168 & 1413 & 207 & 1395\\
+\textbf{CN 224} & 2106 & 87 & 1716 & 209 & 234 & 1298 & 162 & 1457 & 212 & 1334\\
+\textbf{OT 102} & 1441 & 246 & 1087 & 430 & 354 & 817 & 121 & 842 & 92 & 1054\\
+\textbf{OT 103} & 1429 & 266 & 1153 & 386 & 388 & 806 & 110 & 833 & 99 & 1045\\
+\bottomrule
+\end{tabular} 
+\end{table}
+
 
 \begin{table}[hbt]
 \centering
@@ -107,25 +133,17 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation}\\
 & TR & RV & TR & RV & TR & RV & TR & RV& TR & RV\\
 \cmidrule(lr){2-11}
-\textbf{SB 101} & 0.065 & 0.517 & 0.947 & 0.758 & 0.059 & 0.495 & 0.452 & 0.109 & 0.401 & 0.144\\
-\textbf{SB 231} & 0.823 & 0.650 & 0.903 & 0.197 & 0.459 & 0.135 & 0.628 & 0.008 & 0.570 & 0.593\\
+\textbf{SB 101} & 0.065 & 0.517 & 0.947 & 0.758 & \textbf{0.059} & 0.495 & 0.452 & 0.109 & 0.401 & 0.144\\
+\textbf{SB 231} & 0.775 & 0.242 & 0.573 & 0.166 & 0.314 & 0.275 & 0.239 & 0.114 & 0.416 & 0.070\\
 \textbf{SB 232} & 0.244 & 0.340 & 0.968 & 0.328 & 0.713 & 0.070 & 0.422 & 0.357 & 0.163 & 0.630\\
 \textbf{WT 104} & 0.178 & 0.715 & 0.421 & 0.094 & 0.514 & 0.779 & 0.062 & 0.369 & 0.602 & 0.919\\
 \textbf{WT 105} & 0.231 & 0.090 & 0.069 & 0.139 & 0.557 & 0.613 & 0.108 & 0.195 & 0.192 & 0.252\\
-\textbf{WT 255} & 0.235 & 0.513 & 0.270 & 0.375 & 0.628 & 0.279 & 0.653 & 0.069 & 0.437 & 0.993\\
+\textbf{WT 255} & 0.235 & 0.513 & 0.270 & 0.375 & 0.628 & 0.279 & 0.653 & 0.069 & 0.437 & \textbf{0.993}\\
 \textbf{CN 43}  & 0.238 & 0.406 & 0.217 & 0.202 & 0.930 & 0.318 & 0.623 & 0.732 & 0.262 & 0.747\\
-% \toprule
-% & $-1/4$-wave & $+1/4$-wave & Cylinder & Dihedral & Dipole\\ 
-% \cmidrule(lr){2-6}
-% \textbf{Forest} & 0.979 & 0.808 & 0.763 & 0.733 & 0.975\\
-% \textbf{Bare soil} & 0.361 & 0.893 & 0.264 & 0.443 & 0.475\\
-% \midrule
-% & Left & Narrow & Random & Right & Trihedral\\
-%              & helix & dihedral & volume & helix & \\
-% \cmidrule(lr){2-6}
-% \textbf{Forest} & 0.959 & 0.787 & 0.589 & 0.344 & 0.582\\
-% \textbf{Bare soil} & 0.099 & 0.206 & 0.480 & 0.072 & 0.127\\
-% \bottomrule
+\textbf{CN 224} & 0.184 & 0.116 & 0.128 & 0.333 & 0.298 & 0.714 & 0.813 & 0.409 & 0.305 & 0.391\\
+\textbf{OT 102} & 0.289 & 0.191 & 0.243 & 0.532 & 0.384 & 0.212 & 0.710 & 0.370 & 0.928 & 0.396\\
+\textbf{OT 103} & 0.096 & 0.139 & 0.139 & 0.186 & 0.265 & 0.079 & 0.936 & 0.079 & 0.989 & 0.489\\
+\bottomrule
 \end{tabular} 
 \end{table}
 
@@ -137,8 +155,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_trihedral_5}}
-\label{fig:sb101_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 101 most similar to trihedral}
+\label{fig:sb101_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -148,8 +166,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_random_volume_5}}
-\label{fig:sb101_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 101 most similar to random volume}
+\label{fig:sb101_hist_rv}
 \end{figure*}
 
 %SB231
@@ -160,8 +178,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_231/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_231/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_231/histogram_trihedral_5}}
-\label{fig:sb231_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 231 most similar to trihedral}
+\label{fig:sb231_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -171,8 +189,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_231/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_231/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_231/histogram_random_volume_5}}
-\label{fig:sb231_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 231 most similar to random volume}
+\label{fig:sb231_hist_rv}
 \end{figure*}
 
 %SB232
@@ -183,8 +201,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_232/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_232/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_232/histogram_trihedral_5}}
-\label{fig:sb232_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 232 most similar to trihedral}
+\label{fig:sb232_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -194,8 +212,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_232/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_232/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_232/histogram_random_volume_5}}
-\label{fig:sb232_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 232 most similar to random volume}
+\label{fig:sb232_hist_rv}
 \end{figure*}
 
 %WT104
@@ -206,8 +224,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_104/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_104/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_104/histogram_trihedral_5}}
-\label{fig:wt104_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Wheat 104 most similar to trihedral}
+\label{fig:wt104_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -217,8 +235,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_104/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_104/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_104/histogram_random_volume_5}}
-\label{fig:wt104_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Wheat 104 most similar to random volume}
+\label{fig:wt104_hist_rv}
 \end{figure*}
 
 %WT105
@@ -229,8 +247,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_105/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_105/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_105/histogram_trihedral_5}}
-\label{fig:wt105_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Wheat 105 most similar to trihedral}
+\label{fig:wt105_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -240,8 +258,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_105/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_105/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_105/histogram_random_volume_5}}
-\label{fig:wt105_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Wheat 105 most similar to random volume}
+\label{fig:wt105_hist_rv}
 \end{figure*}
 
 %WT255
@@ -252,8 +270,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_255/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_255/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_255/histogram_trihedral_5}}
-\label{fig:wt255_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Wheat 255 most similar to trihedral}
+\label{fig:wt255_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -263,8 +281,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Wheat_255/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Wheat_255/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Wheat_255/histogram_random_volume_5}}
-\label{fig:wt255_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Wheat 255 most similar to random volume}
+\label{fig:wt255_hist_rv}
 \end{figure*}
 
 %CN43
@@ -275,8 +293,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_43/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_43/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_43/histogram_trihedral_5}}
-\label{fig:cn43_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Canola 43 most similar to trihedral}
+\label{fig:cn43_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -286,8 +304,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_43/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_43/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_43/histogram_random_volume_5}}
-\label{fig:cn43_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Canola 43 most similar to random volume}
+\label{fig:cn43_hist_rv}
 \end{figure*}
 
 %CN224
@@ -298,8 +316,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_224/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_224/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_224/histogram_trihedral_5}}
-\label{fig:cn224_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Canola 224 most similar to trihedral}
+\label{fig:cn224_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -309,8 +327,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Canola_224/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Canola_224/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Canola_224/histogram_random_volume_5}}
-\label{fig:cn224_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Canola 224 most similar to random volume}
+\label{fig:cn224_hist_rv}
 \end{figure*}
 
 %OT102
@@ -321,8 +339,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_102/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_102/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_102/histogram_trihedral_5}}
-\label{fig:ot102_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Oats 102 most similar to trihedral}
+\label{fig:ot102_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -332,8 +350,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_102/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_102/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_102/histogram_random_volume_5}}
-\label{fig:ot102_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Oats 102 most similar to random volume}
+\label{fig:ot102_hist_rv}
 \end{figure*}
 
 %OT103
@@ -344,8 +362,8 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_103/histogram_trihedral_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_103/histogram_trihedral_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_103/histogram_trihedral_5}}
-\label{fig:ot103_hist_tri}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Oats 103 most similar to trihedral}
+\label{fig:ot103_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
@@ -355,8 +373,11 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Oats_103/histogram_random_volume_3}}
 \subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Oats_103/histogram_random_volume_4}}
 \subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Oats_103/histogram_random_volume_5}}
-\label{fig:ot103_hist_rv}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Oats 103 most similar to random volume}
+\label{fig:ot103_hist_rv}
 \end{figure*}
+
+\section{Conclusions}
+It can be concluded from the $p$-values table that the Beta distribution adjusts the distances of PolSAR data of the analyzed cultures to trihedral and random volume at the significance level of 0.05.
 
 \end{document}

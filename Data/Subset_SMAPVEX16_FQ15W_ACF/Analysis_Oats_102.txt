@@ -18,7 +18,7 @@ SIZE = 2275
 
 #3TH SAMPLE -> SIZE = 354
 #Beta(5.17, 15.745)
-#p-value = 0.0255
+#p-value = 0.3836
 
 #4TH SAMPLE -> SIZE = 121
 #Beta(6.184, 17.611)
@@ -40,7 +40,7 @@ SIZE = 2275
 
 #3TH SAMPLE -> SIZE = 817
 #Beta(6.823, 12.764)
-#p-value = 0.3300
+#p-value = 0.2123
 
 #4TH SAMPLE -> SIZE = 842
 #Beta(6.051, 11.23)
