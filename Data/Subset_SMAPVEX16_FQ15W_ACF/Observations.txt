@@ -5,3 +5,14 @@ OBSERVAÇÕES
   1. Pôde-se observar que à medida que o grau de vegetação aumentava e a quatidade de solo exposto diminuia, os dados -- inicialmente mais próximos de trihedral -- distanciava-se deste e aproximava-se de random volume. Além disso, ambas as distâncias mostraram-se obedecer a distribuição beta (avaliado por KS teste).
   
   2. À medida que a vegetação crescia os parâmetros da distribuição beta variava para ambas as distâncias e de modo diferente para regiões diferentes (Hip.: Diferentes tipos de vegetação tem diferentes taxas de crescimento).
+
+  3. As três amostras de SB aparentam possuir o mesmo grau de vegetação nas cinco observações com exceção da primeira. Nesta SB 101 apresenta considerável vegetação enquanto SB 231 e SB 232 aparentam possuir quase nenhuma cobertura vegetal. HIPÓTESE: SB 231 e 232 retratam o crescimento da soja no decorrer do tempo, assim como SB 101, contudo esta aparenta ter iniciado plantio poucos dias após a primeira observação.
+
+  4. CN 43 e 224 aparetam retratar o crescimento de Canola ao longo das observações, contudo aparentam ter diferentes graus de vegetação nas três primeiras. Parece ter reduzido a vegetação em CN 224 entre a primeira e segunda observação. CN 43 aparenta estar constante crescimento vegetal.
+
+
+  5 WT 225, 105 e 104 assemelham-se nas três primeiras observações e entre as duas primeiras parece ter ocorrido uma colheita. Nas duas últimas observações a primeira amostra divergiu das duas últimas.
+
+  6. OT 102 e 103 parece estar em processo de colheita.
+
+  7. Analisar crescimento atraves de SB e CN, retirando amostras divergentes segundo as imagens (A 1ª de SB 101 e 1ª e 2ª de CN 224) => Ajuste Logaritmo, Exponencial sobre a média.

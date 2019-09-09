@@ -244,7 +244,7 @@ rv_prop <- data.frame(
 
 library(ggplot2)
 #Analysis per sample
-ggplot(aes(x = X, y = value, group = variable, color = variable), data = melt(rv_prop, id.vars = "X")) +
+ggplot(aes(x = X, y = value, group = variable, color = variable), data = melt(ot_tri_mean, id.vars = "X")) +
   xlab("Sample") + ylab("Proportion value") +
   geom_point() + geom_line()
 
