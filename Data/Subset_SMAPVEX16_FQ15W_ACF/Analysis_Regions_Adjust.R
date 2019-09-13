@@ -30,13 +30,16 @@ beta <- exp(beta)
 
 x <- seq(from = 1, to = 100, by = 0.1)
 
+cf <- c(-1.2499837190720555, -33.711218973385584, 0.27316860724079817, -2.3361746063775404)
+#Erro quadrático médio => 3.033815285074885e-05
+
 library(ggplot2)
 #Analysis per sample
 ggplot() +
   geom_point(aes(x = day, y = value, group = variable, color = variable), data = data) +
   xlab("Sample") + ylab("Proportion value") +
-  geom_point() + geom_line() +
-  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
+  #geom_line(aes(x = x, y = -2.7/(0.7*(x+45)) + 0.29 , colour = "blue")) +
+  geom_line(aes(x = x, y = -cf[4]/(cf[1]*x + cf[2]) + cf[3], colour = "red"))
 
 ggplot() +
   geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
