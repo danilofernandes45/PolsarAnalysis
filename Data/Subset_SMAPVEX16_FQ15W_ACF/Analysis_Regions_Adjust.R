@@ -41,5 +41,5 @@ ggplot() +
   #geom_line(aes(x = x, y = -2.7/(0.7*(x+45)) + 0.29 , colour = "blue")) +
   geom_line(aes(x = x, y = -cf[4]/(cf[1]*x + cf[2]) + cf[3], colour = "red"))
 
-ggplot() +
-  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
+#ggplot() +
+#  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
