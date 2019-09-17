@@ -106,7 +106,7 @@ def newton_rapson(function, jacobian, x, eps, kmax):
 	delta_x = len(x)*[1]
 
 	while(norm(delta_x) >= eps and k < kmax):
-		
+
 		delta_x = gauss_seidel(jacobian(x), neg(function(x)), eps, kmax)
 		x = sum(x, delta_x)
 
@@ -124,7 +124,7 @@ def modified_newton_rapson(function, jacobian, x, eps, kmax):
 	jacobian = jacobian(x)
 
 	while(norm(delta_x) >= eps and k < kmax):
-		
+
 		delta_x = gauss_seidel(jacobian, neg(function(x)), eps, kmax)
 		x = sum(x, delta_x)
 
@@ -160,7 +160,7 @@ def function(coef):
 
 	return func
 
-		
+
 
 def jacobian(coef):
 	matrix = [[0,0,0,0],[0,0,0,0],[0,0,0,0], [0,0,0,0]]
@@ -190,7 +190,7 @@ def jacobian(coef):
 
 	matrix[3][0] = matrix[0][3]
 	matrix[3][1] = matrix[1][3]
-	matrix[3][2] = matrix[2][3]		
+	matrix[3][2] = matrix[2][3]
 
 	return matrix
 
@@ -241,6 +241,9 @@ for i in range(100):
 
 	print(solution)
 	print(mse)
+
+result = [2.4152595376304946, 65.14960279830522, 0.2795808804507602, 4.741333658415843]
+print(mean_squared_error(result, fun))
 
 print("Solution:")
 print(solution)

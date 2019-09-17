@@ -43,6 +43,7 @@ ggplot() +
   geom_boxplot(aes(x = day, y = tri_mean, group = day), data = data) +
   xlab("Day") + ylab("Mean") +
   geom_line(aes(x = x, y = -cf[4]/(cf[1]*x + cf[2]) + cf[3], colour = "red"), size = 1.5) + 
+  scale_color_discrete(name = "Functions", labels = c("f(t)")) +
   stat_summary(fun.y=mean, geom="line", aes(x = data$day, y = data$tri_mean, group=1))  + 
   stat_summary(fun.y=mean, geom="point", aes(x = data$day, y = data$tri_mean))
 
