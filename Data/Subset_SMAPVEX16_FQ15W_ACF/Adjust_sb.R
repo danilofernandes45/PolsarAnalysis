@@ -27,21 +27,21 @@ for(i in 1:45){
   }
 }
 
-day <- rep(c(1, 25, 49, 73, 97), times = 45)
+day <- rep(c(0, 24, 48, 72, 96), times = 45)
 data <- data.frame(day = day, tri_mean = tri_mean)
-x <- seq(from = 1, to = 100, by = 0.1)
+x <- seq(from = 0, to = 100, by = 0.1)
 
 # ggplot(aes(x = day, y = value), data = melt(data, id.vars = "day")) +
 #   geom_point() + geom_smooth()
 
-cf <- c(2.4152595376304946, 65.14960279830522, 0.2795808804507602, 4.741333658415843)
-#MSE = 0.0008370245662659823
+cf <- c(2.415, 67.565, 0.280, 4.741)
+#MSE = 0.0008371997809741466
 
 
 ggplot() +
   #geom_smooth(aes(x = day, y = value), data = melt(data, id.vars = "day")) +
   geom_boxplot(aes(x = day, y = tri_mean, group = day), data = data) +
-  xlab("Day") + ylab("Mean") +
+  xlab("t (days)") + ylab("Mean") +
   geom_line(aes(x = x, y = -cf[4]/(cf[1]*x + cf[2]) + cf[3], colour = "red"), size = 1.5) + 
   scale_color_discrete(name = "Functions", labels = c("f(t)")) +
   stat_summary(fun.y=mean, geom="line", aes(x = data$day, y = data$tri_mean, group=1))  + 

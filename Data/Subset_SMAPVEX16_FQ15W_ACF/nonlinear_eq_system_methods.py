@@ -227,25 +227,25 @@ def mean_squared_error(coef, fun):
 # print("Error")
 # print(quadratic_medium_error(solution, fun))
 
-solution = []
-mse = 10000000
-for i in range(100):
-	init = [10 * random(), 10 * random(), 10 * random(), 10 * random()]
-	print(init)
-	result = modified_newton_rapson(function, jacobian, init, 10**(-10), 100000)
-	new_mse = mean_squared_error(result, fun)
+# solution = []
+# mse = 10000000
+# for i in range(100):
+# 	init = [10 * random(), 10 * random(), 10 * random(), 10 * random()]
+# 	print(init)
+# 	result = modified_newton_rapson(function, jacobian, init, 10**(-10), 100000)
+# 	new_mse = mean_squared_error(result, fun)
 
-	if(new_mse < mse):
-		solution = result
-		mse = new_mse
+# 	if(new_mse < mse):
+# 		solution = result
+# 		mse = new_mse
 
-	print(solution)
-	print(mse)
+# 	print(solution)
+# 	print(mse)
 
-result = [2.4152595376304946, 65.14960279830522, 0.2795808804507602, 4.741333658415843]
+result = [2.415, 67.565, 0.280, 4.741]
 print(mean_squared_error(result, fun))
 
-print("Solution:")
-print(solution)
-print("Quadratic Medium Error:")
-print(mse)
+# print("Solution:")
+# print(solution)
+# print("Quadratic Medium Error:")
+# print(mse)
