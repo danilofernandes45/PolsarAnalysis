@@ -138,7 +138,7 @@ def modified_newton_rapson(function, jacobian, x, eps, kmax):
 vec_x = []
 vec_y = []
 
-with open("data_tri_mean.csv") as file:
+with open("data_tri_mean_sb232.csv") as file:
 	data = csv.reader(file)
 	for row in data:
 		vec_x.append(int(row[1]))
@@ -242,7 +242,7 @@ def mean_squared_error(coef, fun):
 # 	print(solution)
 # 	print(mse)
 
-result = [2.415, 67.565, 0.280, 4.741]
+result = [2.415, 67.565, 0.277, 4.741]
 print(mean_squared_error(result, fun))
 
 # print("Solution:")

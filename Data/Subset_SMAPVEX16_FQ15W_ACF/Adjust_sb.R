@@ -1,11 +1,22 @@
-dim <- c(90, 65, 5, 30)
+dim <- c(90, 65, 5, 30) #Sample 231
+dim <- c(100, 65, 50, 30) #Sample 232
 
 dim <- array(0, dim = c(4, 45))
 
 count <- 1
+#SB231
+#MSE = 0.000843668569069063
 for(i in 0:8){
   for(j in 0:4){
     dim[,count] <- c(90 + i*7, 7, 5 + j*6, 6)
+    count <- count + 1
+  }
+}
+#SB232
+#MSE = 0.0008219669350049282
+for(i in 0:8){
+  for(j in 0:4){
+    dim[,count] <- c(100 + i*7, 7, 50 + j*6, 6)
     count <- count + 1
   }
 }
@@ -34,7 +45,7 @@ x <- seq(from = 0, to = 100, by = 0.1)
 # ggplot(aes(x = day, y = value), data = melt(data, id.vars = "day")) +
 #   geom_point() + geom_smooth()
 
-cf <- c(2.415, 67.565, 0.280, 4.741)
+cf <- c(2.415, 67.565, 0.277, 4.741)
 #MSE = 0.0008371997809741466
 
 
