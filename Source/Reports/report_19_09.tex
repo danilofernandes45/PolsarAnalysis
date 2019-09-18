@@ -386,7 +386,7 @@ In order to adjust the mean as a function of time for both regions, the followin
 \begin{equation}
 f(t) = -\frac{a}{bt + c} + d
 \end{equation}
-which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number of days since the first observation (t = 0). For these adjustments, the lack of fit tests were performed whose ANOVA tables are in tables \ref{tab:anova_sb231} and \ref{tab:anova_sb232}.
+which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number of days since the first observation (t = 0). For these adjustments, the lack of fit tests were performed whose ANOVA tables are in tables \ref{tab:anova_sb231} and \ref{tab:anova_sb232}. From these it can be concluded that the proposed model is acceptable at the significance level of 0.1.
 
 \begin{table}[hbt]
   \centering
@@ -394,12 +394,12 @@ which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number 
   \label{tab:anova_sb231}
   \begin{tabular}{lrrrrr}
     \toprule
-    & Degree of & Sum & Mean & Fisher & p-value\\
-    & freedom & squared & squared & statistics &\\
+    & Degree of & Sum of squared & Mean squared & Fisher & p-value\\
+    & freedom & errors & error & statistics &\\
     \cmidrule(lr){2-6}
-    \textbf{Residual} & & & & &\\
-    \textbf{Lack od fit} & & & & &\\
-    \textbf{Pure error} & & & & &\\
+    \textbf{Residual} & 223 & 0.1912 & 0.0008 & &\\
+    \textbf{Lack od fit} & 3 & 0.0043 & 0.0014 & 1.7087 & 0.1661\\
+    \textbf{Pure error} & 220 & 0.1859 & 0.0008 & &\\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -410,12 +410,12 @@ which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number 
   \label{tab:anova_sb232}
   \begin{tabular}{lrrrrr}
     \toprule
-    & Degree of & Sum & Mean & Fisher & p-value\\
-    & freedom & squared & squared & statistics &\\
+    & Degree of & Sum of squared & Mean squared & Fisher & p-value\\
+    & freedom & errors & error & statistics &\\
     \cmidrule(lr){2-6}
-    \textbf{Residual} & & & & &\\
-    \textbf{Lack od fit} & & & & &\\
-    \textbf{Pure error} & & & & &\\
+    \textbf{Residual} & 223 & 0.1836 & 0.0008 & &\\
+    \textbf{Lack od fit} & 3 & 0.0020 & 0.0007 & 0.7973 & 0.4965\\
+    \textbf{Pure error} & 220 & 0.1819 & 0.0008 & &\\
     \bottomrule
   \end{tabular}
 \end{table}

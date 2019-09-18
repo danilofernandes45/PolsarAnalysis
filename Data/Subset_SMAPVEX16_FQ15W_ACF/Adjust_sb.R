@@ -32,7 +32,7 @@ wd <- c(
 mean_y <- c(0,0,0,0,0)
 for(j in 1:5){
   setwd(wd[j])
-  mean_y[j] <- mean(getFilteredData("trihedral", dim1))
+  mean_y[j] <- mean(getFilteredData("trihedral", dim2))
 } 
 
 tri_mean <- array(0, dim = c(225))
@@ -80,18 +80,21 @@ ggplot() +
 #LACK OF FIT TEST
 #================================================
 
+ss_residual <- sum( (data$tri_mean - ( -cf[4]/(cf[1]*data$day + cf[2]) + cf[3] ))^2 )
+ms_residual <- ss_residual / 223
+
 x_value <- c(0, 24, 48, 72, 96)
 #mean_y <- tapply(data$tri_mean, data$day, mean)
 y <- -cf[4] / (cf[1] * x_value + cf[2]) + cf[3]
 
-lof_error <- sum(45*(mean_y - y)^2)
-qme_lof <- lof_error / 3 #(m - p - 1)
+ss_lof <- sum(45*(mean_y - y)^2)
+ms_lof <- ss_lof / 3 #(m - p - 1)
 
 var_y <- tapply(data$tri_mean, data$day, sd)^2
-pure_error <- sum(45*var_y)
-qme_pure <- pure_error / 220
+ss_pure <- sum(45*var_y)
+ms_pure <- ss_pure / 220
 
-F0 <- qme_lof/qme_pure
+F0 <- ms_lof/ms_pure
 pf(F0, 3, 220, lower.tail = FALSE)
 
 #NOTE: AMBOS ACEITOS AO NÍVEL DE SIGNIFICÂNCIA DE 0.25
