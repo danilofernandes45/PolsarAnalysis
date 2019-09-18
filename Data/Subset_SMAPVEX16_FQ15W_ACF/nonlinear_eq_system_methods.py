@@ -112,7 +112,7 @@ def newton_rapson(function, jacobian, x, eps, kmax):
 
 		k += 1
 
-	print("Número de iterações: %d"%k)
+	#print("Número de iterações: %d"%k)
 	return x
 
 def modified_newton_rapson(function, jacobian, x, eps, kmax):
@@ -138,7 +138,7 @@ def modified_newton_rapson(function, jacobian, x, eps, kmax):
 vec_x = []
 vec_y = []
 
-with open("data_tri_mean_sb232.csv") as file:
+with open("data_tri_mean_sb231.csv") as file:
 	data = csv.reader(file)
 	for row in data:
 		vec_x.append(int(row[1]))
@@ -227,25 +227,24 @@ def mean_squared_error(coef, fun):
 # print("Error")
 # print(quadratic_medium_error(solution, fun))
 
-# solution = []
-# mse = 10000000
-# for i in range(100):
-# 	init = [10 * random(), 10 * random(), 10 * random(), 10 * random()]
-# 	print(init)
-# 	result = modified_newton_rapson(function, jacobian, init, 10**(-10), 100000)
-# 	new_mse = mean_squared_error(result, fun)
+solution = []
+mse = 10000000
+for i in range(100000):
+	init = [10 * random(), 10 * random(), 10 * random(), 10 * random()]
+	#print(init)
+	result = newton_rapson(function, jacobian, init, 10**(-25), 100000)
+	new_mse = mean_squared_error(result, fun)
 
-# 	if(new_mse < mse):
-# 		solution = result
-# 		mse = new_mse
+	if(new_mse < mse):
+		solution = result
+		mse = new_mse
+		#print(solution)
+		#print(mse)
 
-# 	print(solution)
-# 	print(mse)
+# result = [2.415, 67.565, 0.277, 4.741]
+# print(mean_squared_error(result, fun))
 
-result = [2.415, 67.565, 0.277, 4.741]
-print(mean_squared_error(result, fun))
-
-# print("Solution:")
-# print(solution)
-# print("Quadratic Medium Error:")
-# print(mse)
+print("Solution:")
+print(solution)
+print("Quadratic Medium Error:")
+print(mse)

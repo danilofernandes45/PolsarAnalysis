@@ -386,7 +386,39 @@ In order to adjust the mean as a function of time for both regions, the followin
 \begin{equation}
 f(t) = -\frac{a}{bt + c} + d
 \end{equation}
-which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.277$ and $t$ is the number of days since the first observation (t = 0). For these fits, the Mean Squared Errors obtained for Soybeans 231 and 232 were respectively $8.436 \times 10^{-4}$ and $8.220 \times 10^{-4}$.
+which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number of days since the first observation (t = 0). For these adjustments, the lack of fit tests were performed whose ANOVA tables are in tables \ref{tab:anova_sb231} and \ref{tab:anova_sb232}.
+
+\begin{table}[hbt]
+  \centering
+  \caption{ANOVA for lack of fit on Soybeans 231}
+  \label{tab:anova_sb231}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    & Degree of & Sum & Mean & Fisher & p-value\\
+    & freedom & squared & squared & statistics &\\
+    \cmidrule(lr){2-6}
+    \textbf{Residual} & & & & &\\
+    \textbf{Lack od fit} & & & & &\\
+    \textbf{Pure error} & & & & &\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{ANOVA for lack of fit on Soybeans 232}
+  \label{tab:anova_sb232}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    & Degree of & Sum & Mean & Fisher & p-value\\
+    & freedom & squared & squared & statistics &\\
+    \cmidrule(lr){2-6}
+    \textbf{Residual} & & & & &\\
+    \textbf{Lack od fit} & & & & &\\
+    \textbf{Pure error} & & & & &\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{figure*}[!h]
   \subfigure[Soybeans 231\label{subfig:tri_mean_sb231}]{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb231}}
