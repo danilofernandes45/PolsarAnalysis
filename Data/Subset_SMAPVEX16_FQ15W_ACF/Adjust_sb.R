@@ -48,6 +48,25 @@ x <- seq(from = 0, to = 100, by = 0.1)
 cf <- c(2.415, 67.565, 0.277, 4.741)
 #MSE = 0.0008371997809741466
 
+#LACK OF FIT
+#================================================
+
+x_value <- c(0, 24, 48, 72, 96)
+mean_y <- tapply(data$tri_mean, data$day, mean)
+y <- -cf[4] / (cf[1] * x_value + cf[2]) + cf[3]
+
+lof_error <- sum(45*(mean_y - y)^2)
+qme_lof <- lof_error / 3 #(m - p - 1)
+
+var_y <- tapply(data$tri_mean, data$day, sd)^2
+pure_error <- sum(45*var_y)
+qme_pure <- pure_error / 220
+
+F0 <- qme_lof/qme_pure
+
+#NOTE: AMBOS ACEITOS AO NÍVEL DE SIGNIFICÂNCIA DE 0.25
+
+#================================================
 
 ggplot() +
   #geom_smooth(aes(x = day, y = value), data = melt(data, id.vars = "day")) +
