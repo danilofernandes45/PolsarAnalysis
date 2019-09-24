@@ -1,3 +1,9 @@
+entropy <- function(vector){
+  probs <- sapply(vector, function(x) length(which(x == vector))/length(vector))
+  return(-sum(probs * log2(probs)))
+}
+  
+
 wd <- c(
   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/01_Subset_16_May_2016/T3",
   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/02_Subset_09_June_2016/T3",
@@ -28,15 +34,31 @@ for(j in 1:5){
 }
 
 data <- data[-1,]
+data$class <- as.factor(data$class)
+
+#===============================================================================
+#Decision Trees
 
 library(C50)
 library(printr)
 
-train.indices <- sample(1:nrow(data), nrow(data)//3)
+set.seed(2111)
+train.indices <- sample(1:nrow(data), 2*nrow(data)%/%3)
 data.train <- data[train.indices, ]
 data.test <- data[-train.indices, ]
 
-model <- C5.0(class ~., data=data.train)
+model <- C5.0(x = data.train[,scatterers], y = data.train$class, trials = 3)
 results <- predict(object=model, newdata=data.test, type="class")
-table(results, iris.test$class)
+table(results, data.test$class)
 plot(model)
+
+#=================================================================================
+#Mutual Information
+
+mutual_info <- array(0, dim = c(10))
+for(i in 1:10){
+  mutual_info[i] <- entropy(data[,i])
+  for(j in 1:5){
+    mutual_info[i] <- mutual_info[i] - entropy(data[ which(data$class == j), i])
+  }
+}
