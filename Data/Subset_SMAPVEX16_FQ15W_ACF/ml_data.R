@@ -39,18 +39,28 @@ data$class <- as.factor(data$class)
 #===============================================================================
 #Decision Trees
 
-library(C50)
-library(printr)
+library(party)
+
+data <- data[-which(data$class != 1 & data$class != 5),]
 
 set.seed(2111)
-train.indices <- sample(1:nrow(data), 2*nrow(data)%/%3)
-data.train <- data[train.indices, ]
-data.test <- data[-train.indices, ]
+train_indices <- sample(1:nrow(data), 2*nrow(data)%/%3)
+data_train <- data[train_indices, ]
+data_test <- data[-train_indices, ]
+rownames(data_train) <- NULL
+rownames(data_test) <- NULL
 
-model <- C5.0(x = data.train[,scatterers], y = data.train$class, trials = 3)
-results <- predict(object=model, newdata=data.test, type="class")
-table(results, data.test$class)
-plot(model)
+#1
+tree = ctree(class ~ ., data = data_train)
+plot(tree, main="Conditional Inference Tree for Data")
+table(predict(tree, data_test), data_test$class)
+
+#2
+tree = rpart(class ~ ., data = data_train, method = "class")
+rpart.plot(tree)
+predictions <- array(1, nrow(data_test))
+predictions[ which(predict(tree, data_test)[,1] < predict(tree, data_test)[,5]) ] <- 5
+table(predictions, data_test$class)
 
 #=================================================================================
 #Mutual Information
@@ -59,6 +69,27 @@ mutual_info <- array(0, dim = c(10))
 for(i in 1:10){
   mutual_info[i] <- entropy(data[,i])
   for(j in 1:5){
-    mutual_info[i] <- mutual_info[i] - entropy(data[ which(data$class == j), i])
+    mutual_info[i] <- mutual_info[i] - 0.2*entropy(data[ which(data$class == j), i])
   }
 }
+#MI are equals
+#=================================================================================
+#Covariance
+
+coef_var <- array(0, dim = c(10))
+
+for(i in 1:10){
+  coef_var[i] <- cov(data[,i], data$class) / (sd(data[,i]) * sd(data$class))
+}
+
+cov <- data.frame(sct = scatterers, cov = covariance) 
+#Greatests covariances -> Trihedral, Left helix, right helix
+
+#=================================================================================
+#Plot 3d
+
+library(plotly)
+plot_ly(x = data[which(data$class == 1), 6], y = data[which(data$class == 1), 9], z = data[which(data$class == 1), 10])
+
+data15 <- data[-which(data$class != 1 & data$class != 5),]
+plot_ly(data = data15, x = ~`random volume`, y = ~`right helix`, z = ~trihedral, color = ~class)

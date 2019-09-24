@@ -547,7 +547,7 @@ plotQQPlotBeta <- function(scatterer, dim, filter = FALSE, title = ""){
   }
   
   else {
-    sample <- getSimilarity(scatterer, dim)
+    sample <- c(getGeoDist(scatterer, dim))
   }
   
   mean <- mean(sample)
@@ -571,7 +571,7 @@ plotQQPlotPert <- function(scatterer, dim, filter = FALSE, title = "", min, max)
   }
   
   else {
-    sample <- getSimilarity(scatterer, dim)
+    sample <- getGeoDist(scatterer, dim)
   }
   
   mode <- (6*mean(sample) - min - max)/4
