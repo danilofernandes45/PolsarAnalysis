@@ -1,4 +1,5 @@
-scatterer <- "left helix"
+#Usar para classificar: dihedral, right helix e left helix
+scatterer <- "dihedral"
 
 setwd(wd[1])
 sample1 <- getGeoDist(scatterer, dim1)
@@ -23,4 +24,12 @@ ggplot() +
 ecdf(sample1)(0.9)
 1 - ecdf(sample2)(0.9)
 
-plotQQPlotBeta("left helix", dim1)
+dim1 <- c(90, 65, 5, 30)
+
+#Proposed sample
+dim3 <- c(110, 15, 10, 15)
+
+ksTestBeta("dihedral", dim3)
+ksTestBeta("left helix", dim3)
+ksTestBeta("right helix", dim3)
+

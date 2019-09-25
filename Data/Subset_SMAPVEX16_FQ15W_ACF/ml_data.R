@@ -40,10 +40,12 @@ data$class <- as.factor(data$class)
 #Decision Trees
 
 library(party)
+library(rpart)
+library(rpart.plot)
 
 data <- data[-which(data$class != 1 & data$class != 5),]
 
-set.seed(2111)
+set.seed(123)
 train_indices <- sample(1:nrow(data), 2*nrow(data)%/%3)
 data_train <- data[train_indices, ]
 data_test <- data[-train_indices, ]
