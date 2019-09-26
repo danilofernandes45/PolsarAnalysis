@@ -592,7 +592,7 @@ ksTestBeta <- function(scatterer, dim, filter = FALSE){
   }
   
   else {
-    sample <- getSimilarity(scatterer, dim)
+    sample <- getGeoDist(scatterer, dim)
   }
   
   mean <- mean(sample)
