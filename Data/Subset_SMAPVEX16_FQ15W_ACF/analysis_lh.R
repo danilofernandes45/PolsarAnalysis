@@ -1,5 +1,5 @@
 #Usar para classificar: dihedral, right helix e left helix
-scatterer <- "dihedral"
+scatterer <- "left helix"
 
 setwd(wd[1])
 sample1 <- getGeoDist(scatterer, dim1)
@@ -92,3 +92,23 @@ surface$z <- dbeta(surface$x, 21, 1.6)*dbeta(surface$y, 21, 1.6)
 dens2 <- array(surface$z, dim = c(length(x), length(x)))
 
 plot_ly(showscale = FALSE) %>% add_surface(dens1) %>% add_surface(dens2, opacity = 0.7)
+
+#============================================================================================
+#Conditional density for Dihedral 
+setwd(wd[1])
+sample_lh1 <- getGeoDist("left helix", dim1)
+sample_rh1 <- getGeoDist("right helix", dim1)
+sample_di1 <- getGeoDist("dihedral", dim1)
+
+fsample_di1 <- sample_di1[ which(sample_lh1 > 0.912 & sample_rh1 < 0.912) ]
+
+setwd(wd[5])
+sample_lh5 <- getGeoDist("left helix", dim1)
+sample_rh5 <- getGeoDist("right helix", dim1)
+sample_di5 <- getGeoDist("dihedral", dim1)
+
+fsample_di5 <- sample_di5[ which(sample_lh1 > 0.912 & sample_rh1 < 0.912) ]
+
+ggplot() + 
+  geom_histogram(aes(x = c(fsample_di5), y = ..density..), fill = "green", alpha = 0.5, bins = 45) + xlab("x") +
+  geom_histogram(aes(x = c(fsample_di1), y = ..density..), fill = "red", alpha = 0.5, bins = 45)
