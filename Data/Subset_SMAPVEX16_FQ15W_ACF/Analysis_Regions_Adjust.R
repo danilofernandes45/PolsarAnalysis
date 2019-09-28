@@ -30,6 +30,9 @@ beta <- exp(beta)
 
 x <- seq(from = 1, to = 100, by = 0.1)
 
+cf <- c(-1.2499837190720555, -33.711218973385584, 0.27316860724079817, -2.3361746063775404)
+#Erro quadrático médio => 3.033815285074885e-05
+
 library(ggplot2)
 #Analysis per sample
 ggplot() +
@@ -39,5 +42,5 @@ ggplot() +
   geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red")) +
   geom_line(aes(x = x, y = log10(x+5)/23 + 0.17, colour = "blue"))
 
-ggplot() +
-  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
+#ggplot() +
+#  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
