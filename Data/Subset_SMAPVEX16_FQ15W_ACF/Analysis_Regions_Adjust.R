@@ -36,7 +36,8 @@ ggplot() +
   geom_point(aes(x = day, y = value, group = variable, color = variable), data = data) +
   xlab("Sample") + ylab("Proportion value") +
   geom_point() + geom_line() +
-  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
+  geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red")) +
+  geom_line(aes(x = x, y = log10(x+5)/23 + 0.17, colour = "blue"))
 
 ggplot() +
   geom_line(aes(x = x, y = beta * x ^ alpha, colour = "red"))
