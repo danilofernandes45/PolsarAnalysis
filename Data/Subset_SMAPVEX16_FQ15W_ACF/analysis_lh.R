@@ -1,11 +1,17 @@
 #Usar para classificar: dihedral, right helix e left helix
-scatterer <- "left helix"
+
+dim1 <- c(90, 65, 5, 30)
+
+#Proposed sample
+dim3 <- c(90, 15, 10, 15)
+
+scatterer <- "right helix"
 
 setwd(wd[1])
-sample1 <- getGeoDist(scatterer, dim1)
+sample1 <- getGeoDist(scatterer, dim3)
 
 setwd(wd[5])
-sample2 <- getGeoDist(scatterer, dim1)
+sample2 <- getGeoDist(scatterer, dim3)
 
 # #Estimative of Beta parameters
 # mean <- mean(sample)
@@ -14,20 +20,18 @@ sample2 <- getGeoDist(scatterer, dim1)
 # beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
 # 
 # #Plot
-# x <- seq( from = range[1], to = range[2], by = 0.001)
+x <- seq( from = 0, to = 1, by = 0.001)
 # desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
 
 ggplot() + 
-  geom_histogram(aes(x = c(sample2), y = ..density..), fill = "green", alpha = 0.5, bins = 45) + xlab("x") +
-  geom_histogram(aes(x = c(sample1), y = ..density..), fill = "red", alpha = 0.5, bins = 45)
+  geom_histogram(aes(x = c(sample1), y = ..density..), fill = "red", alpha = 0.35, bins = 45) + xlab("x") +
+  geom_histogram(aes(x = c(sample2), y = ..density..), fill = "green", alpha = 0.35, bins = 45) +
+  geom_line(aes(x = x, y = dbeta(x, 10, 1.85), colour = "red"), size = 2) + xlab("x") +
+  geom_line(aes(x = x, y = dbeta(x, 21, 1.6), colour = "green"), size = 2) +
+  scale_color_discrete(name = "Parameters", labels = c("Beta(21, 1.6)", "Beta(10, 1.85)"))
 
 ecdf(sample1)(0.9)
 1 - ecdf(sample2)(0.9)
-
-dim1 <- c(90, 65, 5, 30)
-
-#Proposed sample
-dim3 <- c(110, 15, 10, 15)
 
 setwd(wd[5])
 ksTestBeta("dihedral", dim3) #Beta(12.362, 2.05)
@@ -100,14 +104,14 @@ sample_lh1 <- getGeoDist("left helix", dim1)
 sample_rh1 <- getGeoDist("right helix", dim1)
 sample_di1 <- getGeoDist("dihedral", dim1)
 
-fsample_di1 <- sample_di1[ which(sample_lh1 > 0.912 & sample_rh1 < 0.912) ]
+fsample_di1 <- sample_di1[ which(sample_lh1 < 0.912 & sample_rh1 > 0.912) ]
 
 setwd(wd[5])
 sample_lh5 <- getGeoDist("left helix", dim1)
 sample_rh5 <- getGeoDist("right helix", dim1)
 sample_di5 <- getGeoDist("dihedral", dim1)
 
-fsample_di5 <- sample_di5[ which(sample_lh1 > 0.912 & sample_rh1 < 0.912) ]
+fsample_di5 <- sample_di5[ which(sample_lh1 < 0.912 & sample_rh1 > 0.912) ]
 
 ggplot() + 
   geom_histogram(aes(x = c(fsample_di5), y = ..density..), fill = "green", alpha = 0.5, bins = 45) + xlab("x") +
