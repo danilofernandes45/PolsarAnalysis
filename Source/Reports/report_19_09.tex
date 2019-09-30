@@ -22,6 +22,8 @@
   bottom = 2cm
 }
 
+\usepackage{tabularx}
+
 \begin{document}
 %\maketitle
 
@@ -428,7 +430,61 @@ which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number 
 \end{figure*}
 
 \section{Classificator for vegetation regions}
-In this section a classificator is proposed based on results of the analysis of a subregion of Soybeans 231 with dimensions 15x15. For that, a Beta distribution was adjusted for its geodesic distances to left helix and right on the first and last observation. 
+In this section a classificator is proposed based on results of the analysis of a subregion of Soybeans 231 with dimensions 15x15. For that, a Beta distribution was fitted for its geodesic distances to left and right helix on the first and last observation. The histograms of these distances are graphically adjusted in figures \ref{subfig:lh_subreg_sb231} and \ref{subfig:lh_subreg_sb231}. In adiction, the Komolgorov-Smirnov test for goodness-of-fit was performed and returned $p$-values are in the table \ref{tab:pvalues_table_lh_rh}.
+
+\begin{figure*}[!h]
+  \subfigure[Histogram of the distances to left helix\label{subfig:lh_subreg_sb231}]{\includegraphics[width = .5\linewidth]{/Histograms/hist_sb231_lh}}
+  \subfigure[Histogram of the distances to right helix\label{subfig:rh_subreg_sb231}]{\includegraphics[width = .5\linewidth]{/Histograms/hist_sb231_rh}}
+  \caption{Histograms of the distances between subregion extracted from Soybeans 231 and elementary scatterers}
+  \label{fig:hist_lh_rh}
+\end{figure*}
+
+\begin{table}[hbt]
+  \centering
+  \caption{$p$-values of the Kolmogorov-Smirnov goodness-of-fit test of the distances to left and right helix}\label{tab:pvalues_table_lh_rh}
+  \begin{tabular}{lrr}
+    \toprule
+    & Left helix & Right helix\\
+    \cmidrule{2-3}
+    \textbf{First sample} & 0.406 & 0.172\\
+    \textbf{Last sample} & 0.940 & 0.817\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Since the distances to the left helix and right helix are independent, because these are orthogonal, it is possible to define $d = 0.912$ as cutoff point for the densities Beta(21, 1.6) and Beta(10, 1.85) and obtain the joint probabilities shown in table \ref{tab:joint_prob}, where $D_{lh}$ and $D_{rh}$ are respectively the distance to left helix and right helix.
+
+\begin{table}[hbt]
+  \centering
+  \caption{Joint probabilities for distance to left and right helix}\label{tab:joint_prob}
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}llll}
+    \toprule
+    & \multicolumn{2}{c}{$D_{rh} \ge 0.912$} & \multicolumn{2}{c}{$D_{rh} > 0.912$}\\
+    & $D_{rh} \le 0.912$ & $D_{rh} > 0.912$ & $D_{rh} \le 0.912$ & $D_{rh} > 0.912$\\
+    \cmidrule{2-5}
+    \textbf{First sample} & \textbf{0.09} & 0.21 & 0.21 & \textbf{0.49}\\
+    \textbf{Last sample} & \textbf{0.49} & 0.21 & 0.21 & \textbf{0.09}\\
+    \bottomrule
+  \end{tabular*}
+\end{table}
+
+Assume the pixels in the first and last observation as poor and rich in vegetation, respectively. Then, it is possible classify pixels with $d_{lh} > 0.912$ and $d_{rh} > 0.912$ as poor in vegetation and those with $d_{lh} \le 0.912$ and $d_{rh} \le 0.912$ as rich in vegetation. In this, there is 0.09 of probability that classify a poor pixel in vegetation as rich and virce-versa. However, this approach allows classify only 56\% of the both populations.
+
+For classify the other 44\% of the population, the components of the data in the direction of these elementary scatterers are removed as follows:
+\begin{equation}
+  v_{data}' =  v_{data} - \frac{<v_{data}, v_{lh}>}{\norm{v_{lh}}^2} v_{lh} - \frac{<v_{data}, v_{rh}>}{\norm{v_{rh}}^2} v_{rh},
+\end{equation}
+where $v_{data}$, $v_{lh}$ and $v_{rh}$ are respectively data, left helix and right helix in Kennaugh form. Then, the folow distance is calculate:
+\begin{equation}
+  D_{d} = \frac{1}{\pi} \cos^{-1}\left(\frac{<v_{data}', v_d>}{\norm{v_{data}'}\norm{v_d}}\right) = \frac{1}{2}GD(v_{data}', v_d),
+\end{equation}
+where $v_d$ is dihedral in Kennaugh form. This distance was used because $GD(v_{data}', v_d) \in [0, 2]$ for analysed subregion. The histograms of this distance between dihedral and analysed samples are shown in the figure \ref{fig:hist_di} and the $p$-values from Komolgorov-Smirnov goodness-of-fit test for first and last observation are respectively $0.127$ and $0.105$. 
+\begin{figure*}[!h]
+  \centering
+  \includegraphics[width = .5\linewidth]{Histograms/hist_mod_di}
+  \caption{Modified geodesic distance between dihedral and samples}
+  \label{fig:hist_di}
+\end{figure*}
 
 
 

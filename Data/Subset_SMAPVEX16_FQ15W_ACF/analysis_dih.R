@@ -44,13 +44,6 @@ beta5 <- ( 1 - mean5 ) * ( mean5 * ( 1 - mean5 ) / var5 - 1)
 
 desc5 <- paste("Beta(", round(alpha5, 3), ", ", round(beta5, 3), ")", sep="")
 
-ggplot() + 
-  geom_histogram(aes(x = c(sample5), y = ..density..), fill = "green", alpha = 0.5, bins = 45) + 
-  geom_histogram(aes(x = c(sample1), y = ..density..), fill = "red", alpha = 0.5, bins = 45) + xlab("x") +
-  geom_line(aes(x = x, y = dbeta(x, alpha5, beta5)), color = "green", size = 1.3) +
-  geom_line(aes(x = x, y = dbeta(x, alpha1, beta1)), color = "red", size = 1.3) +
-  scale_color_discrete(name = "Parameters", labels = c(desc1, desc5))
-
 alpha1 <- 436
 beta1 <- 456
 
@@ -59,6 +52,13 @@ beta5 <- 71.7
 
 ks.test(sample1, "pbeta", shape1 = alpha1, shape2 = beta1) #436, 456
 ks.test(sample5, "pbeta", shape1 = alpha5, shape2 = beta5) #70.5, 71.7
+
+ggplot() + 
+  geom_histogram(aes(x = c(sample1), y = ..density..), fill = "red", alpha = 0.35, bins = 45) + xlab("x") +
+  geom_histogram(aes(x = c(sample5), y = ..density..), fill = "green", alpha = 0.35, bins = 45) +
+  geom_line(aes(x = x, y = dbeta(x, alpha5, beta5), colour = "red"), size = 2) +
+  geom_line(aes(x = x, y = dbeta(x, alpha1, beta1), colour = "green"), size = 2) + 
+  scale_color_discrete(name = "Parameters", labels = c(desc1, desc5))
 
 plot_ly() %>% add_lines(x = x, y = dbeta(x, alpha1, beta1)) %>% add_lines(x = x, y = dbeta(x, alpha5, beta5))
 
