@@ -459,7 +459,7 @@ Since the distances to the left helix and right helix are independent, because t
   \caption{Joint probabilities for distance to left and right helix}\label{tab:joint_prob}
   \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}cccc}
     \toprule
-    & \multicolumn{2}{c}{$D_{rh} \ge 0.912$} & \multicolumn{2}{c}{$D_{rh} > 0.912$}\\
+    & \multicolumn{2}{c}{$D_{rh} \le 0.912$} & \multicolumn{2}{c}{$D_{rh} > 0.912$}\\
     & $D_{rh} \le 0.912$ & $D_{rh} > 0.912$ & $D_{rh} \le 0.912$ & $D_{rh} > 0.912$\\
     \cmidrule{2-5}
     \textbf{First sample} & \textbf{0.09} & 0.21 & 0.21 & \textbf{0.49}\\
@@ -488,7 +488,7 @@ where $D_d' \in [0, 1]$ and $v_d$ is dihedral elementary scatterer in Kennaugh f
 
 Since the procedure described makes $D_d'$ independent of $D_{lh}$ and $D_{rh}$, the fitted distributions can be used to classify the remaining population. For this, 
 define $d_d = 0.462$ and $d_d = 0.512$, which are inserctions between densities, as cutoff points, whose related probabilities are shown in the table \ref{tab:prob_di}.
-With this, a pixel unclassified by $d_{lh}$ and $d_{rh}$ and with $d_d' < 0.462$ or $d_d' > 0.512$ can be classified as rich in vegetation and, in opposite case, as poor in vegetation. In this situation, the probability of classify a rich pixel as poor is 0.13 and the opposite with probability 0.44.
+With this, a pixel unclassified by $d_{lh}$ and $d_{rh}$ and with $d_d' < 0.462$ or $d_d' > 0.512$ can be classified as rich in vegetation and, in opposite case, as poor in vegetation. In this situation, the probability of classify a poor pixel as rich is 0.13 and the opposite with probability 0.44. 
 
 \begin{table}[hbt]
   \centering
@@ -503,7 +503,89 @@ With this, a pixel unclassified by $d_{lh}$ and $d_{rh}$ and with $d_d' < 0.462$
   \end{tabular*}
 \end{table}
 
-\section{Conclusions}
-It can be concluded from the $p$-values table that the Beta distribution adjusts the distances of PolSAR data of the analyzed cultures to trihedral and random volume at the significance level of 0.05.
+This classifier can be evaluated by analysing of your confusion matrix. The table \ref{tab:theoretical_confusion_matrix} shows the theoretical confusion matrix (in percentage) for this model and the table \ref{tab:theoretical_analysis} shows the corresponding values of accuracy, coverage and precision.
+
+\begin{table}[hbt]
+  \centering
+  \caption{Theoretical confusion matrix}\label{tab:theoretical_confusion_matrix}
+  \begin{tabular}{lcc}
+    \toprule
+    & Poor in vegetation & Rich in vegetation\\
+    \cmidrule{2-3}
+    \textbf{Poor in vegetation} & 0.855 & 0.145\\
+    \textbf{Rich in vegetation} & 0.275 & 0.725\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Theoretical accuracy, coverage and precision}\label{tab:theoretical_analysis}
+  \begin{tabular}{lccc}
+    \toprule
+    & Accuracy & Coverage & Precision\\
+    \cmidrule{2-4}
+    \textbf{Poor in vegetation} & 0.790 & 0.855 & 0.757\\
+    \textbf{Rich in vegetation} & 0.790 & 0.725 & 0.833\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The tables \ref{tab:subregion_sb231_confusion_matrix} and \ref{tab:sb231_confusion_matrix} show respectively the confusion matrices (in percentage) obtained by applying the model to the samples from the analysed subregion and Soybeans 231 region. In addiction, the tables \ref{tab:subregion_sb231_analysis} and \ref{tab:sb231_analysis} show their corresponding values of accuracy, coverage and precision. When comparing the theoretical values with the values obtained by applying the classifier to the data in these tables, the proximity between them is evident, which suggests that the model is suitable for the data.
+
+\begin{table}[hbt]
+  \centering
+  \caption{Confusion matrix obtained by applying the model to the analysed subregion of Soybeans 231}\label{tab:subregion_sb231_confusion_matrix}
+  \begin{tabular}{lcc}
+    \toprule
+    & Poor in vegetation & Rich in vegetation\\
+    \cmidrule{2-3}
+    \textbf{Poor in vegetation} & 0.827 & 0.173\\
+    \textbf{Rich in vegetation} & 0.333 & 0.667\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Confusion matrix obtained by applying the model to the Soybeans 231 region}\label{tab:sb231_confusion_matrix}
+  \begin{tabular}{lcc}
+    \toprule
+    & Poor in vegetation & Rich in vegetation\\
+    \cmidrule{2-3}
+    \textbf{Poor in vegetation} & 0.788 & 0.212\\
+    \textbf{Rich in vegetation} & 0.333 & 0.667\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Accuracy, coverage and precision for the model applied to the analysed subregion}\label{tab:subregion_sb231_analysis}
+  \begin{tabular}{lccc}
+    \toprule
+    & Accuracy & Coverage & Precision\\
+    \cmidrule{2-4}
+    \textbf{Poor in vegetation} & 0.747 & 0.827 & 0.713\\
+    \textbf{Rich in vegetation} & 0.747 & 0.667 & 0.794\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Accuracy, coverage and precision for the model applied to the Soyebeans 231 region}\label{tab:sb231_analysis}
+  \begin{tabular}{lccc}
+    \toprule
+    & Accuracy & Coverage & Precision\\
+    \cmidrule{2-4}
+    \textbf{Poor in vegetation} & 0.727 & 0.788 & 0.703\\
+    \textbf{Rich in vegetation} & 0.727 & 0.667 & 0.759\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% \section{Conclusions}
+% It can be concluded from the $p$-values table that the Beta distribution adjusts the distances of PolSAR data of the analyzed cultures to trihedral and random volume at the significance level of 0.05.
 
 \end{document}
