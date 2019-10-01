@@ -452,12 +452,12 @@ In this section a classificator is proposed based on results of the analysis of 
   \end{tabular}
 \end{table}
 
-Since the distances to the left helix and right helix are independent, because these are orthogonal, it is possible to define $d = 0.912$ as cutoff point for the densities Beta(21, 1.6) and Beta(10, 1.85) and obtain the joint probabilities shown in table \ref{tab:joint_prob}, where $D_{lh}$ and $D_{rh}$ are respectively the distance to left helix and right helix.
+Since the distances to the left helix and right helix are independent, because these are orthogonal, it is possible to define $d = 0.912$ as cutoff point for the densities Beta(21, 1.6) and Beta(10, 1.85) and obtain the joint probabilities shown in the table \ref{tab:joint_prob}, where $D_{lh}$ and $D_{rh}$ are respectively the distance to left helix and right helix.
 
 \begin{table}[hbt]
   \centering
   \caption{Joint probabilities for distance to left and right helix}\label{tab:joint_prob}
-  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}llll}
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}cccc}
     \toprule
     & \multicolumn{2}{c}{$D_{rh} \ge 0.912$} & \multicolumn{2}{c}{$D_{rh} > 0.912$}\\
     & $D_{rh} \le 0.912$ & $D_{rh} > 0.912$ & $D_{rh} \le 0.912$ & $D_{rh} > 0.912$\\
@@ -468,17 +468,17 @@ Since the distances to the left helix and right helix are independent, because t
   \end{tabular*}
 \end{table}
 
-Assume the pixels in the first and last observation as poor and rich in vegetation, respectively. Then, it is possible classify pixels with $d_{lh} > 0.912$ and $d_{rh} > 0.912$ as poor in vegetation and those with $d_{lh} \le 0.912$ and $d_{rh} \le 0.912$ as rich in vegetation. In this, there is 0.09 of probability that classify a poor pixel in vegetation as rich and virce-versa. However, this approach allows classify only 56\% of the both populations.
+Assume the pixels in the first and last observation as poor and rich in vegetation, respectively. Then, it is possible classify pixels with $d_{lh} > 0.912$ and $d_{rh} > 0.912$ as poor in vegetation and those with $d_{lh} \le 0.912$ and $d_{rh} \le 0.912$ as rich in vegetation. In this, there is 0.09 probability that a poor pixel in vegetation be classified rich and virce-versus. However, this approach allows classify only 56\% of the both populations.
 
 For classify the other 44\% of the population, the components of the data in the direction of these elementary scatterers are removed as follows:
 \begin{equation}
   v_{data}' =  v_{data} - \frac{<v_{data}, v_{lh}>}{\norm{v_{lh}}^2} v_{lh} - \frac{<v_{data}, v_{rh}>}{\norm{v_{rh}}^2} v_{rh},
 \end{equation}
-where $v_{data}$, $v_{lh}$ and $v_{rh}$ are respectively data, left helix and right helix in Kennaugh form. Then, the folow distance is calculate:
+where $v_{data}$, $v_{lh}$ and $v_{rh}$ are respectively data, left helix and right helix in Kennaugh form. Then, the follow distance is calculate:
 \begin{equation}
-  D_{d} = \frac{1}{\pi} \cos^{-1}\left(\frac{<v_{data}', v_d>}{\norm{v_{data}'}\norm{v_d}}\right) = \frac{1}{2}GD(v_{data}', v_d),
+  D_{d}' = \frac{1}{\pi} \cos^{-1}\left(\frac{<v_{data}', v_d>}{\norm{v_{data}'}\norm{v_d}}\right) = \frac{1}{2}GD(v_{data}', v_d),
 \end{equation}
-where $v_d$ is dihedral in Kennaugh form. This distance was used because $GD(v_{data}', v_d) \in [0, 2]$ for analysed subregion. The histograms of this distance between dihedral and analysed samples are shown in the figure \ref{fig:hist_di} and the $p$-values from Komolgorov-Smirnov goodness-of-fit test for first and last observation are respectively $0.127$ and $0.105$. 
+where $D_d' \in [0, 1]$ and $v_d$ is dihedral elementary scatterer in Kennaugh form. This distance was used because $GD(v_{data}', v_d) \in [0, 2]$ for analysed subregion. The histograms of this distance between dihedral and analysed samples are shown in the figure \ref{fig:hist_di} and the $p$-values from Komolgorov-Smirnov goodness-of-fit test for first and last observation are respectively $0.127$ and $0.105$. 
 \begin{figure*}[!h]
   \centering
   \includegraphics[width = .5\linewidth]{Histograms/hist_mod_di}
@@ -486,7 +486,22 @@ where $v_d$ is dihedral in Kennaugh form. This distance was used because $GD(v_{
   \label{fig:hist_di}
 \end{figure*}
 
+Since the procedure described makes $D_d'$ independent of $D_{lh}$ and $D_{rh}$, the fitted distributions can be used to classify the remaining population. For this, 
+define $d_d = 0.462$ and $d_d = 0.512$, which are inserctions between densities, as cutoff points, whose related probabilities are shown in the table \ref{tab:prob_di}.
+With this, a pixel unclassified by $d_{lh}$ and $d_{rh}$ and with $d_d' < 0.462$ or $d_d' > 0.512$ can be classified as rich in vegetation and, in opposite case, as poor in vegetation. In this situation, the probability of classify a rich pixel as poor is 0.13 and the opposite with probability 0.44.
 
+\begin{table}[hbt]
+  \centering
+  \caption{Probabilities for modified geodesic distance to dihedral}\label{tab:prob_di}
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}ccc}
+    \toprule
+    & $D_d' < 0.462$ & $0.462 \le D_d' \le 0.512$ & $D_d' > 0.512$\\
+    \cmidrule{2-4}
+    \textbf{First sample} & 0.05 & 0.87 & 0.08\\
+    \textbf{Last sample} & 0.21 & 0.44 & 0.35\\
+    \bottomrule
+  \end{tabular*}
+\end{table}
 
 \section{Conclusions}
 It can be concluded from the $p$-values table that the Beta distribution adjusts the distances of PolSAR data of the analyzed cultures to trihedral and random volume at the significance level of 0.05.
