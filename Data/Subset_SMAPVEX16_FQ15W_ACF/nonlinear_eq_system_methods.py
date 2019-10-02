@@ -57,8 +57,8 @@ def gauss_seidel(matrix, vector, eps, kmax):
 
 	matrix = nonzero_diagonal(matrix)
 
-	x_1 = len(vector)*[0]
-	x_0 = len(vector)*[1]
+	x_1 = [0]*len(vector)
+	x_0 = [1]*len(vector)
 	k = 0
 
 	while(dist(x_1, x_0) >= eps and k <= kmax):
@@ -109,10 +109,7 @@ def newton_rapson(function, jacobian, x, eps, kmax):
 
 		delta_x = gauss_seidel(jacobian(x), neg(function(x)), eps, kmax)
 		x = sum(x, delta_x)
-
 		k += 1
-
-	#print("Número de iterações: %d"%k)
 	return x
 
 def modified_newton_rapson(function, jacobian, x, eps, kmax):
@@ -129,8 +126,6 @@ def modified_newton_rapson(function, jacobian, x, eps, kmax):
 		x = sum(x, delta_x)
 
 		k += 1
-
-	#print("Número de iterações: %d"%k)
 	return x
 
 
@@ -138,7 +133,7 @@ def modified_newton_rapson(function, jacobian, x, eps, kmax):
 vec_x = []
 vec_y = []
 
-with open("data_tri_mean_sb231.csv") as file:
+with open("data_tri_mean_cn43.csv") as file:
 	data = csv.reader(file)
 	for row in data:
 		vec_x.append(int(row[1]))
@@ -229,17 +224,17 @@ def mean_squared_error(coef, fun):
 
 solution = []
 mse = 10000000
-for i in range(100000):
+for i in range(1000000):
 	init = [10 * random(), 10 * random(), 10 * random(), 10 * random()]
 	#print(init)
-	result = newton_rapson(function, jacobian, init, 10**(-25), 100000)
+	result = newton_rapson(function, jacobian, init, 10**(-15), 1000)
 	new_mse = mean_squared_error(result, fun)
 
 	if(new_mse < mse):
 		solution = result
 		mse = new_mse
-		#print(solution)
-		#print(mse)
+		print(solution)
+		print(mse)
 
 # result = [2.415, 67.565, 0.277, 4.741]
 # print(mean_squared_error(result, fun))
