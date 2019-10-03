@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-\usepackage[portuguese]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{commath}
@@ -58,47 +58,51 @@ September\\
 
 \section{Introduction}
 
-In this report, some results of the analysis of samples referring to plantation regions observed over time are shown. The first observation was made on 16 May 2016, which was followed by four others with a time interval of 24 days between adjacent observations. 
-Those regions consist of three soybeans crops, three wheat, two oats and two canola and are shown in the figures \ref{fig:r1} to \ref{fig:r5}. Those samples were obtained using the classification of the regions given in the figure \ref{fig:classes}.
+In this report, we show results of the analysis of samples from plantation regions observed over time.
+%%% ACF Me parece que siunitx ajuda formatar datas, mas eu nunca o fiz
+The first observation was made on 16 May 2016, which was followed by four others at time intervals of 24 days. 
+Those regions consist of three soybeans crops, three wheat, two oats, and two canola and are shown in Figs.~\ref{fig:r1} to~\ref{fig:r5}. 
+Those samples were obtained using the classification of the regions given in Fig.~\ref{fig:classes}.
+%%% ACF Como foi obtida essa classificação
 
-The results consist of the graphic adjusting of the beta distribution to the histograms of the distances of the samples to the trihedral and random volume scatterers. In addition, the Kolmogorov-Smirnov good-of-fit test was performed to validate the hypothesis of the adjust. The choice of these scatterers is because they were more sensitive to vegetation variation in the analyzed regions, which can be verified in the figures \ref{fig:tp} and \ref{fig:rvp} that contain respectively the pixel proportions in the sample that is more similar to trihedral and the random volume as a function of time.
+We fit the Beta distribution to histograms of the distances of the samples to the trihedral and random volume scatterers. 
+In addition, we perfor the Kolmogorov-Smirnov good-of-fit test to verify the quality of the fit. 
+These scatterers were chosen because they were more sensitive to vegetation variation in the analyzed regions, as can be verified in the Figs.~\ref{fig:tp} and~\ref{fig:rvp} which contain, respectively, the pixel proportions in the sample that is more similar to the trihedral and the random volume as a function of time.
 
-\begin{figure}[!h]
+\begin{figure}[hbt]
 \centering
 \includegraphics[width = .55\linewidth]{/Regions/classes}
 \label{fig:classes}
 \caption{Classification of the regions on the PolSAR image}
 \end{figure}
 
-\begin{figure*}[!h]
+\begin{figure*}[hbt]
 \centering
-
 \subfigure[1th observation\label{fig:r1}]{\includegraphics[width = .32\linewidth]{/Regions/regions_1}}
 \subfigure[2th observation\label{fig:r2}]{\includegraphics[width = .32\linewidth]{/Regions/regions_2}}
 \subfigure[3th observation\label{fig:r3}]{\includegraphics[width = .32\linewidth]{/Regions/regions_3}}
 \subfigure[4th observation\label{fig:r4}]{\includegraphics[width = .32\linewidth]{/Regions/regions_4}}
 \subfigure[5th observation\label{fig:r5}]{\includegraphics[width = .32\linewidth]{/Regions/regions_5}}
-
-\caption{Samples analysed over time in where 1 to 10 corresponding respectively to Canola 43, Soybeans 231, Soybeans 232, Wheat 225, Canola 224, Soybeans 101, Oats 102, Oats 103, Wheat 105 and Wheat 104}
+\caption{Samples analyzed over time: 1 to 10 corresponding, respectively, to Canola 43, Soybeans 231, Soybeans 232, Wheat 225, Canola 224, Soybeans 101, Oats 102, Oats 103, Wheat 105 and Wheat 104}
 \label{fig:regions}
 \end{figure*}
 
-\begin{figure*}[!h]
+\begin{figure*}[hbt]
 \centering
 \subfigure[Trihedral\label{fig:tp}]{\includegraphics[width = .49\linewidth]{/Parameters/tri_proportion}}
 \subfigure[Random Volume\label{fig:rvp}]{\includegraphics[width = .49\linewidth]{/Parameters/rv_proportion}}
-\caption{Pixel proportions on the analysed regions more similar to trihedral and random volume as function of time, where SB, WT, CN and OT indicate respectively Soybeans, Wheat, Canola and Oats}
+\caption{Pixel proportions on the analyzed regions more similar to the trihedral and random volume as function of time, where SB, WT, CN and OT indicate, respectively, Soybeans, Wheat, Canola and Oats}
 \label{fig:pixel_proportions}
 \end{figure*}
 
-\newpage
+\section{Fitting the Beta Distribution}
 
-\section{Adjust the histograms to the Beta Distribution}
+Figs.~\ref{fig:sb101_hist_tri} to~\ref{fig:ot103_hist_rv} show the histograms of the Geodesic Distances between the scatterer (random or trihedral volume) and the pixels of the sample most similar to it.
+The number of those pixels are in Table~\ref{tab:size_sample}, in which TR and RV indicate, respectively, trihedral and random volume. 
+The parameters of the Beta distribution were estimated by maximum likelihood.
 
-The figures \ref{fig:sb101_hist_tri} to \ref{fig:ot103_hist_rv} contain the histograms of the Geodesic Distances between the scatterer (random or trihedral volume) and the pixels of the sample most similar to this scatterer.
-The number of those pixels are in the table \ref{tab:size_sample} which TR and RV indicates respectively trihedral and random volume. In addiction, the histograms are graphically adjusted by the Beta Distribution, whose parameters were estimated from the distances analyzed.
-
-Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained $p$-values are in the table \ref{tab:pvalues_table}. In this table, the biggest and least $p$-values are in bold.
+Table~\ref{tab:pvalues_table} shows the $p$-values of the goodness-of-fit as assessed by the Komolgorov-Smirnov test. 
+Largest and smallest $p$-values are highlighted in bold.
 
 \begin{table}[hbt]
 \centering
@@ -380,15 +384,18 @@ Those adjusts was verified by Komolgorov-Smirnov good-of-fit test whose obtained
 \end{figure*}
 
 \section{Parameters evaluation}
-When observing the regions referring to Soybeans 231 and 232 along its samples in the figure \ref{fig:regions}, which are respectively indexed by 2 and 3, it can be assumed that there was a gradual increase in the degree of vegetation of these regions.
+When observing the regions referring to Soybeans 231 and 232 along its samples in the Fig.~\ref{fig:regions}, which are respectively indexed by 2 and 3, it can be assumed that there was a gradual increase in the degree of vegetation of these regions.
 
-In order to relate this to the variation of the information contained in the distances of its data to the trihedral, the graphs of the figures \ref{subfig:tri_mean_sb231} and \ref{subfig:tri_mean_sb232} were produced. Each graph contains, for each observation, a boxplot of the means of the distances between trihedral and the subregions generated by dividing a region into 45 subregions with dimensions 7x6. In addition, all boxplots were connected by the mean of their means.
+In order to relate this to the variation of the information contained in the distances of the data to the trihedral scatterer, in Figs.~\ref{subfig:tri_mean_sb231} and~\ref{subfig:tri_mean_sb232} we show, for each observation, a boxplot of the means of the distances between trihedral and the subregions generated by dividing a region into 45 subregions of size $7\times 6$.
+In addition, all boxplots were connected by the mean of their means.
 
-In order to adjust the mean as a function of time for both regions, the following function has been proposed:
+We adjusted the mean as a function of time for both regions with the following function:
 \begin{equation}
-f(t) = -\frac{a}{bt + c} + d
+f(t) = -\frac{a}{bt + c} + d,
 \end{equation}
-which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number of days since the first observation (t = 0). For these adjustments, the lack of fit tests were performed whose ANOVA tables are in tables \ref{tab:anova_sb231} and \ref{tab:anova_sb232}. From these it can be concluded that the proposed model is acceptable at the significance level of 0.1.
+in which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number of days since the first observation ($t = 0$). 
+We checked lack of fit with ANOVA; Tables~\ref{tab:anova_sb231} and~\ref{tab:anova_sb232} show the results. 
+We conclude that the proposed model is acceptable at the significance level of $0.1$.
 
 \begin{table}[hbt]
   \centering
@@ -422,7 +429,7 @@ which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number 
   \end{tabular}
 \end{table}
 
-\begin{figure*}[!h]
+\begin{figure*}[hbt]
   \subfigure[Soybeans 231\label{subfig:tri_mean_sb231}]{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb231}}
   \subfigure[Soybeans 232\label{subfig:tri_mean_sb232}]{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb232}}
   \caption{Mean of the distances between trihedral and samples extracted from Soybeans 231 and 232 over time}
@@ -430,9 +437,16 @@ which $a = 4.741$, $b = 2.415$, $c = 67.565$, $d = 0.276$ and $t$ is the number 
 \end{figure*}
 
 \section{Classificator for vegetation regions}
-In this section a classificator is proposed based on results of the analysis of a subregion of Soybeans 231 with dimensions 15x15. For that, a Beta distribution was fitted for its geodesic distances to left and right helix on the first and last observation. The histograms of these distances are graphically adjusted in figures \ref{subfig:lh_subreg_sb231} and \ref{subfig:lh_subreg_sb231}. In adiction, the Komolgorov-Smirnov test for goodness-of-fit was performed and returned $p$-values are in the table \ref{tab:pvalues_table_lh_rh}.
 
-\begin{figure*}[!h]
+We propose a classificator based on results of the analysis of a subregion of Soybeans 231 with dimensions $15\times 15$ pixels. 
+We fitted a Beta distribution to its geodesic distances to the left and right helices on the first and last observation. 
+%%% ACF Não ficou claro. O que são estas "first and last observation".
+
+Figs.~\ref{subfig:lh_subreg_sb231} and~\ref{subfig:lh_subreg_sb231} show the histograms and the fitted densities. 
+%%% ACF veja acima como escrevi um texto similar para o que segue 
+In adiction, the Komolgorov-Smirnov test for goodness-of-fit was performed and returned $p$-values are in the table \ref{tab:pvalues_table_lh_rh}.
+
+\begin{figure*}[hbt]
   \subfigure[Histogram of the distances to left helix\label{subfig:lh_subreg_sb231}]{\includegraphics[width = .5\linewidth]{/Histograms/hist_sb231_lh}}
   \subfigure[Histogram of the distances to right helix\label{subfig:rh_subreg_sb231}]{\includegraphics[width = .5\linewidth]{/Histograms/hist_sb231_rh}}
   \caption{Histograms of the distances between subregion extracted from Soybeans 231 and elementary scatterers}
@@ -468,9 +482,12 @@ Since the distances to the left helix and right helix are independent, because t
   \end{tabular*}
 \end{table}
 
-Assume the pixels in the first and last observation as poor and rich in vegetation, respectively. Then, it is possible classify pixels with $d_{lh} > 0.912$ and $d_{rh} > 0.912$ as poor in vegetation and those with $d_{lh} \le 0.912$ and $d_{rh} \le 0.912$ as rich in vegetation. In this, there is 0.09 probability that a poor pixel in vegetation be classified rich and virce-versus. However, this approach allows classify only 56\% of the both populations.
+Assume the pixels in the first and last observation as poor and rich in vegetation, respectively. Then, it is possible classify pixels with $d_{lh} > 0.912$ and $d_{rh} > 0.912$ as poor in vegetation and those with $d_{lh} \le 0.912$ and $d_{rh} \le 0.912$ as rich in vegetation. In this, there is 0.09 probability that a poor pixel in vegetation be classified rich and vice-versa. However, this approach allows classify only 56\% of the both populations.
 
+%%% ACF Até aqui 3 Outubro 2019, 9:05 GMT+8
+%%% ACF Use \SI{44}{\percent} para porcentagens
 For classify the other 44\% of the population, the components of the data in the direction of these elementary scatterers are removed as follows:
+%%% ACF Use \rangle e \langle para produto interno
 \begin{equation}
   v_{data}' =  v_{data} - \frac{<v_{data}, v_{lh}>}{\norm{v_{lh}}^2} v_{lh} - \frac{<v_{data}, v_{rh}>}{\norm{v_{rh}}^2} v_{rh},
 \end{equation}
@@ -479,7 +496,7 @@ where $v_{data}$, $v_{lh}$ and $v_{rh}$ are respectively data, left helix and ri
   D_{d}' = \frac{1}{\pi} \cos^{-1}\left(\frac{<v_{data}', v_d>}{\norm{v_{data}'}\norm{v_d}}\right) = \frac{1}{2}GD(v_{data}', v_d),
 \end{equation}
 where $D_d' \in [0, 1]$ and $v_d$ is dihedral elementary scatterer in Kennaugh form. This distance was used because $GD(v_{data}', v_d) \in [0, 2]$ for analysed subregion. The histograms of this distance between dihedral and analysed samples are shown in the figure \ref{fig:hist_di} and the $p$-values from Komolgorov-Smirnov goodness-of-fit test for first and last observation are respectively $0.127$ and $0.105$. 
-\begin{figure*}[!h]
+\begin{figure*}[hbt]
   \centering
   \includegraphics[width = .5\linewidth]{Histograms/hist_mod_di}
   \caption{Modified geodesic distance between dihedral and samples}
