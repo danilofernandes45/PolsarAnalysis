@@ -5,6 +5,7 @@ library(ggplot2)
 library(stats4)
 library(raster)
 library(logitnorm)
+library(ggthemes)
 
 source("pert.R")
 
@@ -409,9 +410,11 @@ plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range 
   
   ggplot() + 
     geom_histogram(aes(x = c(sample), y = ..density..), bins = 45) + xlab("x") +
-    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), size = 1.3) +
+    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), alpha = 0.7, size = 3) +
     scale_color_discrete(name = "Parameters", labels = c(desc)) +
-    ggtitle(title) + theme(plot.title = element_text(hjust = 0.5))
+    ggtitle(title) + theme(plot.title = element_text(hjust = 0.5)) +
+    theme_few() +
+    theme(text = element_text(size=20))
 }
 
 plotHistogramNorm <- function(scatterer, dim, filter = FALSE, title = ""){
