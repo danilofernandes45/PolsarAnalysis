@@ -28,7 +28,9 @@ ggplot() +
   geom_histogram(aes(x = c(sample2), y = ..density..), fill = "green", alpha = 0.35, bins = 45) +
   geom_line(aes(x = x, y = dbeta(x, 21, 1.6), colour = "green"), size = 2) +
   geom_line(aes(x = x, y = dbeta(x, 10, 1.85), colour = "red"), size = 2) + xlab("x") +
-  scale_color_discrete(name = "Parameters", labels = c("Beta(21, 1.6)", "Beta(10, 1.85)"))
+  scale_color_discrete(name = "Parameters", labels = c("Beta(21, 1.6)", "Beta(10, 1.85)")) +
+  theme_few() +
+  theme(text = element_text(size=20))
 
 ecdf(sample1)(0.9)
 1 - ecdf(sample2)(0.9)

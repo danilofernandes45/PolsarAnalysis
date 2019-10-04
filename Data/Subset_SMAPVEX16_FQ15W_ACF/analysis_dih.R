@@ -29,18 +29,18 @@ sample1 <- getDistDihedral(dim)
 setwd(wd[5])
 sample5 <- getDistDihedral(dim)
 
-mean1 <- mean(sample1)
-var1 <- sd(sample1) ^ 2
-alpha1 <- mean1 * ( mean1 * (1 - mean1) / var1 - 1 )
-beta1 <- ( 1 - mean1 ) * ( mean1 * ( 1 - mean1 ) / var1 - 1)
+# mean1 <- mean(sample1)
+# var1 <- sd(sample1) ^ 2
+# alpha1 <- mean1 * ( mean1 * (1 - mean1) / var1 - 1 )
+# beta1 <- ( 1 - mean1 ) * ( mean1 * ( 1 - mean1 ) / var1 - 1)
 
 x <- seq( from = 0, to = 1, by = 0.001)
 desc1 <- paste("Beta(", round(alpha1, 3), ", ", round(beta1, 3), ")", sep="")
 
-mean5 <- mean(sample5)
-var5 <- sd(sample5) ^ 2
-alpha5 <- mean5 * ( mean5 * (1 - mean5) / var5 - 1 )
-beta5 <- ( 1 - mean5 ) * ( mean5 * ( 1 - mean5 ) / var5 - 1)
+# mean5 <- mean(sample5)
+# var5 <- sd(sample5) ^ 2
+# alpha5 <- mean5 * ( mean5 * (1 - mean5) / var5 - 1 )
+# beta5 <- ( 1 - mean5 ) * ( mean5 * ( 1 - mean5 ) / var5 - 1)
 
 desc5 <- paste("Beta(", round(alpha5, 3), ", ", round(beta5, 3), ")", sep="")
 
@@ -58,7 +58,9 @@ ggplot() +
   geom_histogram(aes(x = c(sample5), y = ..density..), fill = "green", alpha = 0.35, bins = 45) +
   geom_line(aes(x = x, y = dbeta(x, alpha5, beta5), colour = "red"), size = 2) +
   geom_line(aes(x = x, y = dbeta(x, alpha1, beta1), colour = "green"), size = 2) + 
-  scale_color_discrete(name = "Parameters", labels = c(desc1, desc5))
+  scale_color_discrete(name = "Parameters", labels = c(desc1, desc5)) +
+  theme_few() +
+  theme(text = element_text(size=20))
 
 plot_ly() %>% add_lines(x = x, y = dbeta(x, alpha1, beta1)) %>% add_lines(x = x, y = dbeta(x, alpha5, beta5))
 
