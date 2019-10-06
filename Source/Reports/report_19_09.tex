@@ -12,7 +12,7 @@
 \usepackage{geometry}
 \usepackage[alf]{abntex2cite}
 \usepackage{siunitx}
-\usepackage{subfigure}
+\usepackage[scriptsize]{subfigure}
 \graphicspath{{../../Figures/Report_19_09/}{../../Images/Report_19_09/}}
 
 \geometry{
@@ -64,8 +64,9 @@ In this report, we show results of the analysis of samples from plantation regio
 The first observation was made on 16 May 2016, which was followed by four others at time intervals of 24 days. 
 Those regions consist of three soybeans crops, three wheat, two oats, and two canola and are shown in Figs.~\ref{fig:r1} to~\ref{fig:r5}. 
 Those samples were obtained using the classification of the regions given in Fig.~\ref{fig:classes}.
-%%% ACF Como foi obtida essa classificação
+
 %%% DFC Debanshu enviou-me a classificação das regiões junto com o dataset
+%%% ACF Esse relatório irá para Avik e Debanshu; dizer a origem da classificação
 
 We fit the Beta distribution to histograms of the distances of the samples to the trihedral and random volume scatterers. 
 In addition, we perfor the Kolmogorov-Smirnov good-of-fit test to verify the quality of the fit. 
@@ -110,7 +111,7 @@ Largest and smallest $p$-values are highlighted in bold.
 \centering
 \caption{Number of pixels more similar to trihedral and random volume}\label{tab:size_sample}
 \begin{tabular}{lrrrrrrrrrr}
-
+%%% Fazer referência às datas (USE SIUNITX)
 \toprule
 & \multicolumn{2}{c}{First} & \multicolumn{2}{c}{Second} & \multicolumn{2}{c}{Third} & \multicolumn{2}{c}{Fourth} & \multicolumn{2}{c}{Fifth}\\
 & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation} & \multicolumn{2}{c}{observation}\\
@@ -158,22 +159,22 @@ Largest and smallest $p$-values are highlighted in bold.
 %SB101
 \begin{figure*}[hbt]
 \centering
-\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_101/histogram_trihedral_1}}
-\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_101/histogram_trihedral_2}}
-\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_trihedral_3}}
-\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_trihedral_4}}
-\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_trihedral_5}}
+\subfigure[1th observation]{\includegraphics[width = .19\linewidth]{/Histograms/1th_observation/Soybeans_101/histogram_trihedral_1}}
+\subfigure[2th observation]{\includegraphics[width = .19\linewidth]{/Histograms/2th_observation/Soybeans_101/histogram_trihedral_2}}
+\subfigure[3th observation]{\includegraphics[width = .19\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_trihedral_3}}
+\subfigure[4th observation]{\includegraphics[width = .19\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_trihedral_4}}
+\subfigure[5th observation]{\includegraphics[width = .19\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_trihedral_5}}
 \caption{Histograms of the Geodesic Distances between trihedral and the pixels of the sample extracted from Soybeans 101 most similar to trihedral}
 \label{fig:sb101_hist_tri}
 \end{figure*}
 
 \begin{figure*}[hbt]
 \centering
-\subfigure[1th observation]{\includegraphics[width = .49\linewidth]{/Histograms/1th_observation/Soybeans_101/histogram_random_volume_1}}
-\subfigure[2th observation]{\includegraphics[width = .49\linewidth]{/Histograms/2th_observation/Soybeans_101/histogram_random_volume_2}}
-\subfigure[3th observation]{\includegraphics[width = .49\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_random_volume_3}}
-\subfigure[4th observation]{\includegraphics[width = .49\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_random_volume_4}}
-\subfigure[5th observation]{\includegraphics[width = .49\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_random_volume_5}}
+\subfigure[1th observation]{\includegraphics[width = .19\linewidth]{/Histograms/1th_observation/Soybeans_101/histogram_random_volume_1}}
+\subfigure[2th observation]{\includegraphics[width = .19\linewidth]{/Histograms/2th_observation/Soybeans_101/histogram_random_volume_2}}
+\subfigure[3th observation]{\includegraphics[width = .19\linewidth]{/Histograms/3th_observation/Soybeans_101/histogram_random_volume_3}}
+\subfigure[4th observation]{\includegraphics[width = .19\linewidth]{/Histograms/4th_observation/Soybeans_101/histogram_random_volume_4}}
+\subfigure[5th observation]{\includegraphics[width = .19\linewidth]{/Histograms/5th_observation/Soybeans_101/histogram_random_volume_5}}
 \caption{Histograms of the Geodesic Distances between random volume and the pixels of the sample extracted from Soybeans 101 most similar to random volume}
 \label{fig:sb101_hist_rv}
 \end{figure*}
@@ -435,6 +436,7 @@ We conclude that the proposed model is acceptable at the significance level of $
   \subfigure[Soybeans 231\label{subfig:tri_mean_sb231}]{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb231}}
   \subfigure[Soybeans 232\label{subfig:tri_mean_sb232}]{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb232}}
   \caption{Mean of the distances between trihedral and samples extracted from Soybeans 231 and 232 over time}
+  %%% ACF Usar notch=TRUE, explicar e analisar: é um intervalo de confiança assintótico ao 95% da mediana
   \label{fig:tri_mean_sb_231_232}
 \end{figure*}
 
