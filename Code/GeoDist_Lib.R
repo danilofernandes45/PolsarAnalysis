@@ -386,7 +386,7 @@ plotHeatmap <- function(scatterer, dim, title = ""){
   
 }
 
-plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range = c(0, 1)){
+plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range = c(0, 1), color = "black"){
   
   sample <- c(0)
   #Get sample
@@ -409,7 +409,7 @@ plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range 
   desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
   
   ggplot() + 
-    geom_histogram(aes(x = c(sample), y = ..density..), bins = 45) + xlab("x") +
+    geom_histogram(aes(x = c(sample), y = ..density..), bins = 45, fill = color) + xlab("x") +
     geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), alpha = 0.7, size = 3) +
     scale_color_discrete(name = "Parameters", labels = c(desc)) +
     ggtitle(title) + theme(plot.title = element_text(hjust = 0.5)) +

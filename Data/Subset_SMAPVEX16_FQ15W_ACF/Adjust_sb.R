@@ -32,7 +32,7 @@ wd <- c(
 mean_y <- c(0,0,0,0,0)
 for(j in 1:5){
   setwd(wd[j])
-  mean_y[j] <- mean(getFilteredData("trihedral", dim2))
+  mean_y[j] <- mean(getFilteredData("trihedral", dim1))
 } 
 
 tri_mean <- array(0, dim = c(225))
@@ -103,11 +103,13 @@ pf(F0, 3, 220, lower.tail = FALSE)
 
 ggplot() +
   #geom_smooth(aes(x = day, y = value), data = melt(data, id.vars = "day")) +
-  geom_boxplot(aes(x = day, y = tri_mean, group = day), data = data) +
+  geom_boxplot(aes(x = day, y = tri_mean, group = day), data = data, notch = TRUE) +
   xlab("t (days)") + ylab("Mean") +
   geom_line(aes(x = x, y = -cf[4]/(cf[1]*x + cf[2]) + cf[3], colour = "red"), size = 1.5) + 
   scale_color_discrete(name = "Functions", labels = c("f(t)")) +
-  geom_line(aes(x = x_value, y = mean_y), size = 1)
+  geom_line(aes(x = x_value, y = mean_y), size = 1) +
+  theme_few() +
+  theme(text = element_text(size=20))
   #stat_summary(fun.y=mean, geom="line", aes(x = data$day, y = data$tri_mean, group=1))  + 
   #stat_summary(fun.y=mean, geom="point", aes(x = data$day, y = data$tri_mean))
 

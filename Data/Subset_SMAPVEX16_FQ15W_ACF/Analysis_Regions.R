@@ -215,7 +215,7 @@ ot_rv_mean$X <- 1:5
 #============================================================
 #Proportions
 tri_prop <- data.frame(
-  X = 1:5,
+  X = c(0, 24, 48, 72, 96),
   SB101 = c(1481, 867, 429, 397, 319)/1950, #SOYBEANS 101
   SB231 = c(1285, 656, 449, 615, 508)/1950, #SOYBEANS 231
   SB232 = c(1275, 649, 474, 596, 518)/1950, #SOYBEANS 232
@@ -229,7 +229,7 @@ tri_prop <- data.frame(
 )
 
 rv_prop <- data.frame(
-  X = 1:5,
+  X = c(0, 24, 48, 72, 96),
   SB101 = c(71, 306, 633, 743, 829)/1950, #SOYBEANS 101
   SB231 = c(148, 381, 706, 649, 775)/1950, #SOYBEANS 231
   SB232 = c(132, 387, 649, 630, 811)/1950, #SOYBEANS 232
@@ -244,9 +244,11 @@ rv_prop <- data.frame(
 
 library(ggplot2)
 #Analysis per sample
-ggplot(aes(x = X, y = value, group = variable, color = variable), data = melt(ot_tri_mean, id.vars = "X")) +
-  xlab("Sample") + ylab("Proportion value") +
-  geom_point() + geom_line()
+ggplot(aes(x = X, y = value, group = variable, color = variable), data = melt(tri_prop, id.vars = "X")) +
+  xlab("t(days)") + ylab("Proportion value") +
+  geom_point() + geom_line() +
+  theme_few() +
+  theme(text = element_text(size=20))
 
 alpha_tri = c()
 alpha_rv = c()

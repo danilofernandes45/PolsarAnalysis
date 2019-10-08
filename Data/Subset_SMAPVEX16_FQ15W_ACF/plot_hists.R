@@ -18,15 +18,17 @@ dim[8,] <- c(500, 65, 310, 35) #OT 103
 dim[9,] <- c(444, 65, 370, 35) #WT 105
 dim[10,] <- c(515, 65, 360, 35) #WT 104
 
+color <- c("#eed712", "#6F634B", "#6F634B", "#f5deb3", "#eed712",
+           "#6F634B", "#d0c4ab", "#d0c4ab", "#f5deb3", "#f5deb3")
 dest <- c("Canola_43", "Soybeans_231", "Soybeans_232", "Wheat_225", "Canola_224",
           "Soybeans_101", "Oats_102", "Oats_103", "Wheat_105", "Wheat_104")
 
 for(i in 1:5){
   setwd(wd[i])
   for (j in 1:10){
-    plotHistogramBeta("trihedral", dim[j,], filter = TRUE)
+    plotHistogramBeta("trihedral", dim[j,], filter = TRUE, color = color[j])
     ggsave(paste("~/PolsarAnalysis/Figures/Report_19_09/Histograms/", i, "th_observation/", dest[j], "/histogram_trihedral_", i, ".pdf", sep = ""), width = 12, height = 8)
-    plotHistogramBeta("random volume", dim[j,], filter = TRUE)
+    plotHistogramBeta("random volume", dim[j,], filter = TRUE, color = color[j])
     ggsave(paste("~/PolsarAnalysis/Figures/Report_19_09/Histograms/", i, "th_observation/", dest[j], "/histogram_random_volume_", i, ".pdf", sep = ""), width = 12, height = 8)
   }
 }
