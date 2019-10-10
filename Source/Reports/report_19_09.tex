@@ -501,9 +501,9 @@ For classify the other \SI{44}{\percent} of the population, the components of th
 \begin{equation}
   v_{data}' =  v_{data} - \frac{\langle v_{data}, v_{lh} \rangle}{\norm{v_{lh}}^2} v_{lh} - \frac{\langle v_{data}, v_{rh} \rangle}{\norm{v_{rh}}^2} v_{rh},
 \end{equation}
-where $v_{data}$, $v_{lh}$ and $v_{rh}$ are respectively data, left helix and right helix in Kennaugh form. Then, the follow distance is calculate:
+where $v_{data}$, $v_{lh}$ and $v_{rh}$ are respectively data, left helix and right helix in Kennaugh form. Then, we compute the followin distance:
 \begin{equation}
-  D_{d}' = \frac{1}{\pi} \cos^{-1}\left(\frac{\langle v_{data}', v_d \rangle}{\norm{v_{data}'}\norm{v_d}}\right) = \frac{1}{2}GD(v_{data}', v_d),
+  D_{d}' = \frac{1}{\pi} \cos^{-1}\frac{\langle v_{data}', v_d \rangle}{\norm{v_{data}'}\norm{v_d}} = \frac{1}{2}GD(v_{data}', v_d),
 \end{equation}
 where $D_d' \in [0, 1]$ and $v_d$ is dihedral elementary scatterer in Kennaugh form. This distance was used because $GD(v_{data}', v_d) \in [0, 2]$ for analysed subregion. The histograms of this distance between dihedral and analysed samples are shown in the figure \ref{fig:hist_di} and the $p$-values from Komolgorov-Smirnov goodness-of-fit test for first and last observation are respectively $0.127$ and $0.105$.
 \begin{figure}[hbt]
