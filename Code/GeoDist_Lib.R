@@ -410,11 +410,11 @@ plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range 
   
   ggplot() + 
     geom_histogram(aes(x = c(sample), y = ..density..), bins = 45, fill = color) + xlab("x") +
-    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), alpha = 0.7, size = 3) +
+    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), alpha = 0.7, size = 5) +
     scale_color_discrete(name = "Parameters", labels = c(desc)) +
     ggtitle(title) + theme(plot.title = element_text(hjust = 0.5)) +
     theme_few() +
-    theme(text = element_text(size=20))
+    theme(text = element_text(size=40))
 }
 
 plotHistogramNorm <- function(scatterer, dim, filter = FALSE, title = ""){
