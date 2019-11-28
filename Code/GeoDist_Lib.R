@@ -5,7 +5,6 @@ library(ggplot2)
 library(stats4)
 library(raster)
 library(logitnorm)
-library(ggthemes)
 
 source("pert.R")
 
@@ -386,7 +385,7 @@ plotHeatmap <- function(scatterer, dim, title = ""){
   
 }
 
-plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range = c(0, 1), color = "black"){
+plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = ""){
   
   sample <- c(0)
   #Get sample
@@ -405,16 +404,14 @@ plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = "", range 
   beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
   
   #Plot
-  x <- seq( from = range[1], to = range[2], by = 0.001)
+  x <- seq( from = 0, to = 1, by = 0.001)
   desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
   
   ggplot() + 
-    geom_histogram(aes(x = c(sample), y = ..density..), bins = 45, fill = color) + xlab("x") +
-    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), alpha = 0.7, size = 5) +
+    geom_histogram(aes(x = c(sample), y = ..density..), bins = 45) + xlab("x") +
+    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), size = 1.3) +
     scale_color_discrete(name = "Parameters", labels = c(desc)) +
-    ggtitle(title) + theme(plot.title = element_text(hjust = 0.5)) +
-    theme_few() +
-    theme(text = element_text(size=40))
+    ggtitle(title) + theme(plot.title = element_text(hjust = 0.5))
 }
 
 plotHistogramNorm <- function(scatterer, dim, filter = FALSE, title = ""){
@@ -550,7 +547,7 @@ plotQQPlotBeta <- function(scatterer, dim, filter = FALSE, title = ""){
   }
   
   else {
-    sample <- c(getGeoDist(scatterer, dim))
+    sample <- getSimilarity(scatterer, dim)
   }
   
   mean <- mean(sample)
@@ -574,7 +571,7 @@ plotQQPlotPert <- function(scatterer, dim, filter = FALSE, title = "", min, max)
   }
   
   else {
-    sample <- getGeoDist(scatterer, dim)
+    sample <- getSimilarity(scatterer, dim)
   }
   
   mode <- (6*mean(sample) - min - max)/4
@@ -586,23 +583,36 @@ plotQQPlotPert <- function(scatterer, dim, filter = FALSE, title = "", min, max)
   
 }
 
-ksTestBeta <- function(scatterer, dim, filter = FALSE){
-  
-  sample <- c(0)
-  #Get sample
+alpha_gd <- function(dim, filter  = FALSE){
+  data = c()
   if(filter){
-    sample <- getFilteredData(scatterer, dim)
+    data = getFilteredData("trihedral" , dim)
+  } else {
+    data = getGeoDist("trihedral", dim)
   }
-  
-  else {
-    sample <- getGeoDist(scatterer, dim)
+  return(90*data)
+}
+
+helicity_gd <- function(dim, filter = FALSE){
+  data = c()
+  if(filter){
+    data = 1 - sqrt( getFilteredData("left helix" , dim) * getFilteredData("right helix" , dim) )
+  } else {
+    data = 1 - sqrt( getGeoDist("left helix", dim) * getGeoDist("right helix", dim) )
   }
+  return(45*data)
+}
+
+purity_gd <- function(dim, filter = TRUE){
   
-  mean <- mean(sample)
-  var <- sd(sample) ^ 2
-  alpha <- mean * ( mean * (1 - mean) / var - 1 )
-  beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+  hhhh <- read_data("HHHH", dim)
+  hvhv <- read_data("HVHV", dim)
+  vvvv <- read_data("VVVV", dim)
   
-  return( ks.test(sample, "pbeta", shape1 = alpha, shape2 = beta))
+  data <- (hhhh + hvhv + vvvv) / 2
+  
+  data <- ( 1.5 * data )^2
+  
+  return(data)
   
 }
