@@ -108,7 +108,7 @@ plot_mix <- function(vec1, vec2){
   eta <- seq(from = 0, to = 1, by = 0.001)
   vec1 <- matrix(vec1, nrow = length(eta), ncol = 16, byrow = TRUE)
   vec2 <- matrix(vec2, nrow = length(eta), ncol = 16, byrow = TRUE)
-  mix <- eta * vec1 + (1-eta) * vec2
+  mix <- (1-eta) * vec1 + eta * vec2
   
   alphas <- apply(mix, 1, alpha_gd)
   helicities <- apply(mix, 1, helicity_gd)
