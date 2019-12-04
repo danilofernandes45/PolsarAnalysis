@@ -43,7 +43,7 @@ right_helix <- c(1, 0, 0, 1,
                  0, 0, 0, 0,
                  1, 0, 0, 1)
 
-despol <- c(1, 0, 0, 0,
+depol <- c(1, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0)
@@ -78,7 +78,33 @@ purity_gd <- function(vector){
 
 library(ggplot2)
 library(plotly)
-plot_mix <- function(vec1, vec2, option){
+
+plot_mix <- function(vec1, vec2){
+
+  tag1 = ""
+  tag2 = ""
+  if(all(vec1 == trihedral)){ tag1 = "Trihedral" }
+  else if(all(vec1 == cylinder)){tag1 = "Cylinder"}
+  else if(all(vec1 == dipole)){tag1 = "Dipole"}
+  else if(all(vec1 == pos_wave)){tag1 = "+1/4-wave"}
+  else if(all(vec1 == neg_wave)){tag1 = "-1/4-wave"}
+  else if(all(vec1 == narrow_di)){tag1 = "Narrow dihedral"}
+  else if(all(vec1 == dihedral)){tag1 = "Dihedral"}
+  else if(all(vec1 == left_helix)){tag1 = "Left helix"}
+  else if(all(vec1 == right_helix)){tag1 = "Right helix"}
+  else if(all(vec1 == despol)){tag1 = "Depolarizer"}
+  
+  if(all(vec2 == trihedral)){ tag2 = "Trihedral" }
+  else if(all(vec2 == cylinder)){tag2 = "Cylinder"}
+  else if(all(vec2 == dipole)){tag2 = "Dipole"}
+  else if(all(vec2 == pos_wave)){tag2 = "+1/4-wave"}
+  else if(all(vec2 == neg_wave)){tag2 = "-1/4-wave"}
+  else if(all(vec2 == narrow_di)){tag2 = "Narrow dihedral"}
+  else if(all(vec2 == dihedral)){tag2 = "Dihedral"}
+  else if(all(vec2 == left_helix)){tag2 = "Left helix"}
+  else if(all(vec2 == right_helix)){tag2 = "Right helix"}
+  else if(all(vec2 == despol)){tag2 = "Depolarizer"} 
+  
   eta <- seq(from = 0, to = 1, by = 0.001)
   vec1 <- matrix(vec1, nrow = length(eta), ncol = 16, byrow = TRUE)
   vec2 <- matrix(vec2, nrow = length(eta), ncol = 16, byrow = TRUE)
@@ -88,26 +114,19 @@ plot_mix <- function(vec1, vec2, option){
   helicities <- apply(mix, 1, helicity_gd)
   purities <- apply(mix, 1, purity_gd)
   
-  if(option == 1){
-    plot_ly(x = alphas, y = helicities, z = eta, type = 'scatter3d', mode = 'lines',
-            line = list(width = 6, color = "red", colorscale = 'Viridis')) %>%
-      layout(scene = list(xaxis = list(title = 'Alpha'),
-                        yaxis = list(title = 'Helicity'),
-                        zaxis = list(title = 'Eta')))
-  }else if(option == 2){
-    plot_ly(x = alphas, y = purities, z = eta, type = 'scatter3d', mode = 'lines',
-            line = list(width = 6, color = "red", colorscale = 'Viridis')) %>%
-      layout(scene = list(xaxis = list(title = 'Alpha'),
-                          yaxis = list(title = 'Purity'),
-                          zaxis = list(title = 'Eta')))
-  }else{
-    plot_ly(x = helicities, y = purities, z = eta, type = 'scatter3d', mode = 'lines',
-            line = list(width = 6, color = "red", colorscale = 'Viridis')) %>%
-      layout(scene = list(xaxis = list(title = 'Helicity'),
-                          yaxis = list(title = 'Purity'),
-                          zaxis = list(title = 'Eta')))
+  len = length(alphas)
   
-  }
+  plot_ly(x = alphas, y = helicities, z = purities, type = 'scatter3d', mode = 'lines', name = "Trace",
+          line = list(width = 6, color = eta, colorscale = "Bluered")) %>%
+    add_trace(x = alphas[1], y = helicities[1], z = purities[1], name = tag1,
+              mode = "markers", marker = list(color = "blue")) %>%
+    add_trace(x = alphas[len], y = helicities[len], z = purities[len], name = tag2,
+              mode = "markers", marker = list(color = "red")) %>%
+    layout(scene = list(xaxis = list(title = 'Alpha'),
+                        yaxis = list(title = 'Helicity'),
+                        zaxis = list(title = 'Purity')))
+  
+  
   # plot <- ggplot() + geom_line(aes(x = alphas, y = helicities), colour = "red", size = 1.5) + xlab("Alpha") + ylab("Helicity")
   # ggsave(paste(label, "_alpha_helicity.pdf", sep = ""), plot, width = 10, height = 10, units = "in")
   # 
