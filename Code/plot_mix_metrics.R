@@ -43,7 +43,7 @@ right_helix <- c(1, 0, 0, 1,
                  0, 0, 0, 0,
                  1, 0, 0, 1)
 
-depol <- c(1, 0, 0, 0,
+despol <- c(1, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0)
@@ -79,7 +79,7 @@ purity_gd <- function(vector){
 library(ggplot2)
 library(plotly)
 
-plot_mix <- function(vec1, vec2){
+plot_mix <- function(vec1, vec2, adjustable = FALSE){
 
   tag1 = ""
   tag2 = ""
@@ -92,7 +92,7 @@ plot_mix <- function(vec1, vec2){
   else if(all(vec1 == dihedral)){tag1 = "Dihedral"}
   else if(all(vec1 == left_helix)){tag1 = "Left helix"}
   else if(all(vec1 == right_helix)){tag1 = "Right helix"}
-  else if(all(vec1 == despol)){tag1 = "Depolarizer"}
+  else if(all(vec1 == despol)){tag1 = "Despolarizer"}
   
   if(all(vec2 == trihedral)){ tag2 = "Trihedral" }
   else if(all(vec2 == cylinder)){tag2 = "Cylinder"}
@@ -103,7 +103,7 @@ plot_mix <- function(vec1, vec2){
   else if(all(vec2 == dihedral)){tag2 = "Dihedral"}
   else if(all(vec2 == left_helix)){tag2 = "Left helix"}
   else if(all(vec2 == right_helix)){tag2 = "Right helix"}
-  else if(all(vec2 == despol)){tag2 = "Depolarizer"} 
+  else if(all(vec2 == despol)){tag2 = "Despolarizer"} 
   
   eta <- seq(from = 0, to = 1, by = 0.001)
   vec1 <- matrix(vec1, nrow = length(eta), ncol = 16, byrow = TRUE)
@@ -116,15 +116,22 @@ plot_mix <- function(vec1, vec2){
   
   len = length(alphas)
   
-  plot_ly(x = alphas, y = helicities, z = purities, type = 'scatter3d', mode = 'lines', name = "Trace",
+  p <- plot_ly(x = alphas, y = helicities, z = purities, type = 'scatter3d', mode = 'lines', name = "Trace",
           line = list(width = 6, color = eta, colorscale = "Bluered")) %>%
     add_trace(x = alphas[1], y = helicities[1], z = purities[1], name = tag1,
               mode = "markers", marker = list(color = "blue")) %>%
     add_trace(x = alphas[len], y = helicities[len], z = purities[len], name = tag2,
-              mode = "markers", marker = list(color = "red")) %>%
-    layout(scene = list(xaxis = list(title = 'Alpha'),
-                        yaxis = list(title = 'Helicity'),
-                        zaxis = list(title = 'Purity')))
+              mode = "markers", marker = list(color = "red"))
+  
+  if(adjustable){
+    p %>% layout(scene = list(xaxis = list(title = 'Alpha'),
+                              yaxis = list(title = 'Helicity'),
+                              zaxis = list(title = 'Purity')))
+  } else {
+    p %>% layout(scene = list(xaxis = list(title = 'Alpha', range = c(0, 90)),
+                              yaxis = list(title = 'Helicity', range = c(0,45)),
+                              zaxis = list(title = 'Purity', range = c(0,1))))
+  }
   
   
   # plot <- ggplot() + geom_line(aes(x = alphas, y = helicities), colour = "red", size = 1.5) + xlab("Alpha") + ylab("Helicity")
