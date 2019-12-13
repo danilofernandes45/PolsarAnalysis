@@ -583,6 +583,23 @@ plotQQPlotPert <- function(scatterer, dim, filter = FALSE, title = "", min, max)
   
 }
 
+ksTestBeta <- function(scatterer, dim, filter = FALSE){
+  
+  sample <- c(0)
+  if(filter){
+    sample <- getFilteredData(scatterer, dim)
+  } else {
+    sample <- getGeoDist(scatterer, dim)
+  }
+  mean <- mean(sample)
+  var <- sd(sample) ^ 2
+  alpha <- mean * ( mean * (1 - mean) / var - 1 )
+  beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+  
+  return( ks.test(sample, "pbeta", shape1 = alpha, shape2 = beta))
+  
+}
+
 alpha_gd <- function(dim, filter  = FALSE){
   data = c()
   if(filter){
