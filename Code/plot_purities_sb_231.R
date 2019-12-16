@@ -30,3 +30,67 @@ for(i in 1:5){
   ggsave(paste("~/PolsarAnalysis/plot", i, ".pdf", sep=""), p, units = "in", height = 10, width = 12)
 }
 
+colors <- c("red", "orange", "yellow", "yellowgreen", "green")
+
+sample <- array(0, dim = c(65, 30, 5))
+for(i in 1:5){
+  setwd(wd[i])
+  sample[,,i] <- purity_gd(dim)
+}
+
+ggplot() + xlab("Purity") + ylab("Density") + scale_color_manual(values = c("0", "24", "48", "72", "96")) +
+  geom_histogram(aes(x = c(sample[,,1]), y = ..density..), bins = 200, fill = colors[1], alpha = 0.4) +
+  geom_histogram(aes(x = c(sample[,,2]), y = ..density..), bins = 200, fill = colors[2], alpha = 0.4) +
+  geom_histogram(aes(x = c(sample[,,3]), y = ..density..), bins = 200, fill = colors[3], alpha = 0.4) +
+  geom_histogram(aes(x = c(sample[,,4]), y = ..density..), bins = 200, fill = colors[4], alpha = 0.4) +
+  geom_histogram(aes(x = c(sample[,,5]), y = ..density..), bins = 200, fill = colors[5], alpha = 0.4)
+
+library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+
+# Build dataset with different distributions
+data <- data.frame(
+  day = c( rep("0", 1950), rep("24", 1950), rep("48", 1950), rep("72", 1950), rep("96", 1950) ),
+  value = c( c(sample[,,1]), c(sample[,,2]), c(sample[,,3]), c(sample[,,4]), c(sample[,,5]) )
+)
+
+# Represent it
+ggplot(data = data) +
+  geom_histogram(aes(x=value, y = ..density.., fill=day, group = day), color="#e9ecef", alpha=0.5, position = 'identity', bins = 200) +
+  scale_fill_manual(values=colors) +
+  theme_ipsum() + xlab("Purity") + ylab("Density") +
+  labs(fill="Day")
+
+#Sample Day 0
+
+resample <- sample[10:15,10:20,1] #Pvalue = 0.1125
+resample <- sample[30:40,10:15,1] #Pvalue = 0.1140
+resample <- sample[20:25,10:20,1] #Pvalue = 0.1049
+
+alpha <- 0.625
+beta <- 2325.476
+
+ks.test(resample, "pbeta", shape1 = alpha, shape2 = beta)
+
+#Sample Day 24
+
+resample <- sample[10:15,10:20,2] #Pvalue = 0.1039
+resample <- sample[30:40,10:15,2] #Pvalue = 0.2175
+resample <- sample[20:25,10:20,2] #Pvalue = 0.2123
+
+alpha <- 0.917
+beta <- 301.784
+
+ks.test(resample, "pbeta", shape1 = alpha, shape2 = beta)
+
+#Sample Day 48
+
+resample <- sample[1:5,10:15,3] #Pvalue = 0.1497
+resample <- sample[1:10,15:20,3] #Pvalue = 0.1089
+resample <- sample[15:20,20:25,3] #Pvalue = 0.1084
+
+alpha <- 0.777
+beta <- 22.773
+
+ks.test(resample, "pbeta", shape1 = alpha, shape2 = beta)
