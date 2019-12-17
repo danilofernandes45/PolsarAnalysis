@@ -22,7 +22,7 @@ for(i in 1:5){
   desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
   
   p <- ggplot() + 
-    geom_histogram(aes(x = c(sample), y = ..density..), bins = 45) + xlab("x") + 
+    geom_histogram(aes(x = c(sample), y = ..density..), bins = 200) + xlab("x") + 
     geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), size = 1.3) +
     scale_color_discrete(name = "Parameters", labels = c(desc)) +
     theme(plot.title = element_text(hjust = 0.5))
@@ -37,13 +37,6 @@ for(i in 1:5){
   setwd(wd[i])
   sample[,,i] <- purity_gd(dim)
 }
-
-ggplot() + xlab("Purity") + ylab("Density") + scale_color_manual(values = c("0", "24", "48", "72", "96")) +
-  geom_histogram(aes(x = c(sample[,,1]), y = ..density..), bins = 200, fill = colors[1], alpha = 0.4) +
-  geom_histogram(aes(x = c(sample[,,2]), y = ..density..), bins = 200, fill = colors[2], alpha = 0.4) +
-  geom_histogram(aes(x = c(sample[,,3]), y = ..density..), bins = 200, fill = colors[3], alpha = 0.4) +
-  geom_histogram(aes(x = c(sample[,,4]), y = ..density..), bins = 200, fill = colors[4], alpha = 0.4) +
-  geom_histogram(aes(x = c(sample[,,5]), y = ..density..), bins = 200, fill = colors[5], alpha = 0.4)
 
 library(ggplot2)
 library(dplyr)
@@ -62,6 +55,21 @@ ggplot(data = data) +
   theme_ipsum() + xlab("Purity") + ylab("Density") +
   labs(fill="Day")
 
+#===============================================================================================
+k <- 1
+x <- seq(from = 0, to = 0.001, by = 0.000001)
+emp_cdf <- ecdf(sample[,,k])
+
+mean <- mean(sample[,,k])
+var <- sd(sample[,,k]) ^ 2
+alpha <- mean * ( mean * (1 - mean) / var - 1 )
+beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+
+ggplot() +
+  geom_line(aes(x = x, y = pbeta(x, alpha, beta), colour = "red")) + ylab("probability") +
+  geom_line(aes(x = x, y = emp_cdf(x) ))
+
+#===============================================================================================
 #Sample Day 0
 
 resample <- sample[10:15,10:20,1] #Pvalue = 0.1125
