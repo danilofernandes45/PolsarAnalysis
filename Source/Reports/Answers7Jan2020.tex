@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+
+\usepackage{natbib}
+\usepackage{bm,bbm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,eulerpx}
+\usepackage{microtype}
+\usepackage[letterpaper]{geometry}
+
+\title{Answers}
+\author{Alejandro C.\ Frery}
+\date{7 January 2020}
+
+\setlength{\parskip}{.1\baselineskip}%
+
+
+\begin{document}
+\maketitle
+
+\section{The Logarithmic Transformation}
+
+Assume we have a sample of strictly positive data $\bm z=(z_1,\dots,z_n)$.
+A commodity in data analysis consists in, after assessing the sample properties of $\bm z$, exploring the properties of $\bm w = (w_1,\dots,w_n)=(\log z_1,\dots,\log z_n)$.
+The rationale behind such transformation is the Lognormal distribution.
+
+Consider the random variable $W$ following the Gaussian distribution with mean $\mu\in\mathbbm R$ and variance $\sigma^2>0$; denote this situation $W\sim N(\mu,\sigma^2)$.
+The random variable $Z=\exp \{X\}$ follows a Lognormal distribution with parameter $(\mu,\sigma^2)$, and has density
+\begin{equation}
+\frac {1}{x\sigma {\sqrt {2\pi }}}
+ \exp \Big\{-\frac {\left(\ln x-\mu \right)^{2}}{2\sigma ^{2}}\Big\}.
+\label{eq:densLognormal}
+\end{equation}
+While a sample from $Z$ will be positive, their logarithmic transformation will be real.
+
+If the transformed data can be modeled by a Gaussian distribution, we gain the ability of using classical tools to handle them.
+
+\section{Measures of Separability}
+
+Consider two samples of possibly different size $\bm z_1=(z_{1,1},\dots,z_{1,n_1})$ and $\bm z_2=(z_{2,1},\dots,z_{2,n_2})$.
+A measure of separability is a quantifier of how different these samples are.
+Usual measures of separability have positive support.
+
+The Euclidean distance is a measure of separability between samples of the same size $n$:
+$$
+d_{\text{E}}(\bm z_1, \bm z_2) = \sqrt{\sum_{i=1}^{n} (z_{1,i}-z_{2,i})^2}.
+$$
+The Minkowski distance of order $p>0$ is a generalization of the Euclidean distance:
+$$
+d_{\text{M}}^{(p)}(\bm z_1, \bm z_2) = 
+	\begin{cases}
+		\big(\sum_{i=1}^{n} |z_{1,i}-z_{2,i}|^p\big)^{1/p} & \text{if }p\text{ is finite}, \\
+		\max_{1\leq i\leq n}\big\{ |z_{1,i}-z_{2,i}| \big\} & \text{otherwise}.
+	\end{cases}
+$$
+Notice that $d_{\text{M}}^{(2)}(\bm z_1, \bm z_2)=d_{\text{E}}(\bm z_1, \bm z_2) $.
+
+The Minkowski distance does not make any assumption about the sample properties of the data.
+It is a geometric measure of separability.
+The book by \citet{EncyclopediaofDistances} provides a comprehensive view of distances, similarities, dissimilarities and related concepts.
+
+A number of relevant problems in signal and image processing and analysis can be solved by formulating them in the form of the following hypothesis test:
+\begin{quote}
+	Consider the $N$ samples $\bm z_1,\dots,\bm z_N$ such that $\bm z_j = z_{1,j}, \dots, z_{n_j,j}$.
+	Is there enough evidence to reject the null hypothesis that they were produced by the same model $\mathcal D({\bm\theta})$?
+\end{quote}
+The aforementioned problem assumes that the $N$ samples might be of different sizes $n_1, \dots, n_N$, and that the model $\mathcal D({\bm\theta})$ is a probability distribution indexed by the unknown $q$-dimensional parameter ${\bm\theta}\in\Theta\subset \mathbbm R^q$.
+Eventually, there might be no known model, and it will have to be learned from the data and the underlying hypotheses of the problem.
+
+
+There are connections between the problem of checking the null hypothesis, and the use of distances.
+Intuitively, our the test statistic for the null hypothesis could be a distance between the samples.
+
+Let us start by assuming that we have a stochastic model with probability distribution $\mathcal D({\bm\theta})$, that ${\bm\theta}$ is a $p$-dimensional unknown parameter, and that the distribution is characterized by a probability density function $f(z;\bm{\theta})$.
+This model may describe real, complex, vector- or matrix-valued random variables.
+
+Assume we can compute a maximum likelihood estimator of ${\bm\theta}$, denoted $\widehat{\bm\theta}$, using a random sample $\bm Z = Z_1,\dots,Z_n$.
+Consider the $N$ random samples $\bm Z_1,\dots,\bm Z_N$ such that each is comprised of $n_j$ observations, $1\leq j\leq N$, i.e., $\bm Z_j = Z_{1,j}, \dots, Z_{n_j,j}$.
+With them, we compute the $N$ maximum likelihood estimators $\widehat{\bm\theta}_1,\dots,\widehat{\bm\theta}_N$.    
+
+An intuitive way of checking if the $N$ samples were produced by the same distribution is comparing the $N$ maximum likelihood estimates.
+This approach has been extensively studied in the Statistics literature, but there are few results when dealing with distributions not belonging to the set of the most classical models.
+
+Consider the following elements:
+\begin{enumerate}[label=\textbf{(E\arabic*)},itemsep=5pt]
+	\item\label{E1} a strictly increasing differentiable function $h\colon(0,\infty)\to[0,\infty)$ such that $h(0)=0$
+	\item\label{E2} a convex twice-differentiable function $\phi\colon(0,\infty)\to[0,\infty)$.
+\end{enumerate}
+Then, the $h$-$\phi$ divergence between two models $\mathcal D_1$ and $\mathcal D_2$ with common support $\mathcal A$ is given by
+\begin{equation}
+D^h_\phi(\mathcal D_1,\mathcal D_2) = 
+h\left(
+\int_{\mathcal A} \phi\Big(
+\frac{f_1}{f_2} 
+\Big)
+f_2
+\right),
+\label{eq:DhphiGeneral}
+\end{equation}
+where $f_1$ and $f_2$ are the probability density functions which characterize the distributions $\mathcal D_1$ and $\mathcal D_2$, respectively.
+The extension to discrete models is immediate.
+Table~\ref{tab-1} presents choices of $h$ and $phi$ which lead to commonly used divergences;
+other distances, e.g.\ Triangular, Harmonic, and $\chi^2$, can be obtained by choosing $h$ and $\phi$ adequately.
+
+\begin{table*}[hbt]
+	\centering   
+	\caption{($h,\phi$)-divergences and their functions}
+	\begin{tabular}{ccc}
+		\toprule
+		{ $(h,\phi)$-{distance}} & { $h(y)$} & { $\phi(x)$} \\
+		\midrule
+		Kullback-Leibler & ${y}/{2}$ & $(x-1)\log x$  \\
+		R\'{e}nyi (order $0<\beta<1$) & $\frac{1}{\beta-1}\log((\beta-1)y+1)$ & 
+		$\frac{x^{1-\beta}+x^{\beta}-\beta(x-1)-2}{2(\beta-1)}$\\
+		Bhattacharyya  & $-\log(1-y)$ & $-\sqrt{x}+\frac{x+1}{2}$ \\
+		Hellinger  & ${y}/{2}$ &  $(1-\sqrt{x})^2$  \\ \bottomrule
+	\end{tabular}
+	\label{tab-1}
+\end{table*}
+
+Although the $h$-$\phi$ divergence formalism is appealing \textit{per se}, it becomes more useful after transforming these measures into distances.
+A simple symmetrization leads to $h$-$\phi$ distances:
+\begin{equation}
+d^h_\phi(\mathcal D_1,\mathcal D_2) = \frac{D^h_\phi(\mathcal D_1,\mathcal D_2) + D^h_\phi(\mathcal D_2,\mathcal D_1)}{2}.
+\label{eq:DistanceFromDivergence}
+\end{equation}
+
+We are usually interested in comparing samples hypothetically from the same model $\mathcal D$.
+We may do this by plugging the maximum likelihood estimators $\widehat{\bm\theta}_1$ and $\widehat{\bm\theta}_2$ in~\eqref{eq:DistanceFromDivergence}, yielding $d^h_\phi(\widehat{\bm\theta}_1$,$\widehat{\bm\theta}_2)$.
+
+Again, although appealing, $d^h_\phi$ distances are not comparable among them neither possess rich semantic interpretation.
+This enhancement was obtained by \cite{PAMOSAME1995}, who provided means to transforming any $d^h_\phi$ distance into a test statistic with known asymptotic distribution.
+
+When the sample sizes $n_1$ and $n_2$ with which we computed the maximum likelihood estimators $\widehat{\bm\theta}_1$ and $\widehat{\bm\theta}_2$ are large in the following sense:
+$\lim_{n_1,n_2\to\infty} n_1/(n_1+n_2)=\lambda\in(0,1)$, then, under the null hypothesis that ${\bm\theta}_1={\bm\theta}_2$ holds that
+\begin{equation}
+S^h_\phi (\widehat{\bm\theta}_1,\widehat{\bm\theta}_2) = 
+\frac{2 n_1 n_2}{n_1 + n_2}
+\frac{d^h_\phi(\widehat{\bm\theta}_1,\widehat{\bm\theta}_2)}{h'(0) \phi''(1)} \to S \text{ in distribution},
+\label{eq:SStatistic}
+\end{equation}
+with $S$ a random variable following a $\chi^2$ distribution with $q$ degrees of freedom.
+
+The importance of this theorem lies in the fact that the asymptotic distribution of the test statistic $S$ does not depend on the particular choices of $h$ and $\phi$.
+It can, therefore, be used to check the null hypothesis that the same model originated the samples.
+
+The Hellinger distance is particularly convenient for comparing samples from Beta distributions.
+A random variable $Z$ obeys a Beta distribution with parameters $a,b>0$ if its probability density function is
+$$
+f_Z(z;a,b) = \frac1{B(a,b)} z^{a-1} (1-z)^{b-1} \mathbbm 1_{(0,1)}(z),
+$$
+where
+$$
+B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}.
+$$
+We denote this situation $Z\sim\text{B}(a,b)$
+In the following, we will omit the indicator function.
+
+The Hellinger distance between $Z_1\sim\text{B}(a_1,b_1)$ and $Z_2\sim\text{B}(a_2,b_2)$ is
+\begin{equation}
+\begin{split}
+d_{\text{H}}(Z_1,Z_2) & = 1-\int_{0}^{1}\sqrt{f_{Z_1} f_{Z_2}} \\
+	& = 1-\frac{1}{\sqrt{B(a_1,b_1)B(a_2,b_2)}} \int_0^1 z^{\frac{a_1+a_2}{2}-1} (1-z)^{\frac{b_1+b_2}{2}-1} = \\
+	& = 1- \frac{B\big(\frac{a_1+a_2}{2},\frac{b_1+b_2}{2}\big)}{\sqrt{B(a_1,b_1)B(a_2,b_2)}}.
+\end{split}
+\label{eq:DistHellingerBeta}
+\end{equation}
+
+Back to our problem of comparing two samples $\bm z_1=$ and $\bm z_1$ of sizes $n_1$ and $n_2$, respectively, from the Beta distribution, we first estimate $(a_i,b_i)$ by maximum likelihood with $(\widehat a_i, \widehat b_i)$ with $\bm z_i$, for $i=1,2$.
+Then, we plug the estimates in~\eqref{eq:DistHellingerBeta} and obtain
+$d_{\text{H}}\big((\widehat a_1, \widehat b_1),(\widehat a_2, \widehat b_2)\big)$.
+
+We then transform this (sample) Hellinger distance into a test statistic.
+Using that the Hellinger distance is defined by $h(y)=y/2$ and by $\phi(x)=(1-\sqrt{x})^2$, we have that $h'(0)=1/2$ and that $\phi''(1)=1/2$; therefore, the test statistic based on this distance for the null hypothesis $H_0:(a_1,b_1)=(a_2,b_2)$ is
+\begin{equation}
+S_{\text{H}}\big((\widehat a_1, \widehat b_1),(\widehat a_2, \widehat b_2)\big) =
+8\frac{n_1n_2}{n_1+n_2} \Bigg(
+1- \frac{B\big(\frac{\widehat a_1+\widehat a_2}{2},\frac{\widehat b_1+\widehat b_2}{2}\big)}{\sqrt{B(\widehat a_1,\widehat b_1)B(\widehat a_2,\widehat b_2)}}
+	\Bigg).
+\end{equation}
+Using~\eqref{eq:SStatistic}, we know that $S_{\text{H}}$ has, asymptotically, a $\chi^2_2$ distribution.
+
+Among other advantages, the approach based on stochastic distances allows using different distances and making them comparable.
+
+\bibliographystyle{agsm}
+\bibliography{../../Bibliography/references}
+\end{document}
