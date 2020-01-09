@@ -1,20 +1,15 @@
 dim <- c(90, 65, 5, 30) #Sample 231
 
-# wd <- c(
-#   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/01_Subset_16_May_2016/T3",
-#   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/02_Subset_09_June_2016/T3",
-#   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/03_Subset_03_July_2016/T3",
-#   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/04_Subset_27_July_2016/T3",
-#   "~/PolsarAnalysis/Data/Subset_SMAPVEX16_FQ15W_ACF/05_Subset_20_Aug_2016/T3"
-# )
-
+#To work, the directory of this code should be Working Directory
+actual_dir <- getwd()
 wd <- c(
-  "~/Documents/Alunos/Danilo Fernandes/Data/Subset_SMAPVEX16_FQ15W_ACF/01_Subset_16_May_2016/T3",
-  "~/Documents/Alunos/Danilo Fernandes/Data/Subset_SMAPVEX16_FQ15W_ACF/02_Subset_09_June_2016/T3",
-  "~/Documents/Alunos/Danilo Fernandes/Data/Subset_SMAPVEX16_FQ15W_ACF/03_Subset_03_July_2016/T3",
-  "~/Documents/Alunos/Danilo Fernandes/Data/Subset_SMAPVEX16_FQ15W_ACF/04_Subset_27_July_2016/T3",
-  "~/Data/Subset_SMAPVEX16_FQ15W_ACF/05_Subset_20_Aug_2016/T3"
+  paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/01_Subset_16_May_2016/T3", sep=""),
+  paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/02_Subset_09_June_2016/T3", sep = ""),
+  paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/03_Subset_03_July_2016/T3", sep = ""),
+  paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/04_Subset_27_July_2016/T3", sep = ""),
+  paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/05_Subset_20_Aug_2016/T3", sep = "")
 )
+
 
 for(i in 1:5){
   setwd(wd[i])
@@ -38,7 +33,7 @@ for(i in 1:5){
   ggsave(paste("~/PolsarAnalysis/plot", i, ".pdf", sep=""), p, units = "in", height = 10, width = 12)
 }
 
-colors <- c("red", "orange", "yellow", "yellowgreen", "green")
+colors <- c("red", "orange", "yellow", "greenyellow", "green4")
 
 sample <- array(0, dim = c(65, 30, 5))
 for(i in 1:5){
@@ -58,12 +53,27 @@ data <- data.frame(
   value = c( c(sample[,,1]), c(sample[,,2]), c(sample[,,3]), c(sample[,,4]), c(sample[,,5]) )
 )
 
+### Com Alejandro, 3 janeiro 2020
+
+df.sample <- data.frame(t1=as.vector(sample[,,1]), 
+                        t2=as.vector(sample[,,2]), 
+                        t3=as.vector(sample[,,3]), 
+                        t4=as.vector(sample[,,4]), 
+                        t5=as.vector(sample[,,5]))
+range(sample)
+
+ggplot(data=df.sample) +
+  geom_histogram(aes(x=t1, y=..density..), fill="red", alpha=.5) +
+  geom_histogram(aes(x=t2, y=..density..), fill="green", alpha=.5) +
+  scale_x_continuous(trans="log10")
+
 # Represent it
 ggplot(data = data) +
   geom_histogram(aes(x=value, y = ..density.., fill=day, group = day), color="#e9ecef", 
                  alpha=0.5, position = 'identity', bins=nclass.FD(data$value)/4) +
   scale_fill_manual(values=colors) +
-  theme_ipsum() + xlab("Purity [log10]") + ylab("Density") +
+  theme_ipsum(base_family = "Times New Roman", base_size = 35, axis_title_size = 35)+
+  xlab("Purity [log10]") + ylab("Density") +
   geom_boxploth(aes(x=value, y=day, fill=day, group=day), notch=TRUE, width=.2, outlier.size = .5) +
   labs(fill="Day") +
   scale_x_continuous(trans="log10")
@@ -77,10 +87,10 @@ shapiro.test(log10(df.sample$t5))
 ggplot(data) +
   geom_qq(aes(sample=log10(value), group=day, col=day)) +
   stat_qq_line(aes(sample=log10(value), group=day, col=day)) +
-  xlab("Theoretical Quantiles") + ylab("Purity [log10]") +
-  theme_ipsum() +
-  theme(text=element_text(family="Times New Roman", size=20))
-  
+  scale_color_manual(values=colors) +
+  xlab("Theoretical Quantiles") + ylab("Purity [log10]") + labs(col="Day") +
+  theme_ipsum(base_family = "Times New Roman", base_size = 35, axis_title_size = 35)   
+
 #===============================================================================================
 k <- 1
 x <- seq(from = 0, to = 0.001, by = 0.00000001)
@@ -128,19 +138,5 @@ alpha <- 0.777
 beta <- 22.773
 
 ks.test(resample, "pbeta", shape1 = alpha, shape2 = beta)
-
-### Com Alejandro, 3 janeiro 2020
-
-df.sample <- data.frame(t1=as.vector(sample[,,1]), 
-                        t2=as.vector(sample[,,2]), 
-                        t3=as.vector(sample[,,3]), 
-                        t4=as.vector(sample[,,4]), 
-                        t5=as.vector(sample[,,5]))
-range(sample)
-
-ggplot(data=df.sample) +
-  geom_histogram(aes(x=t1, y=..density..), fill="red", alpha=.5) +
-  geom_histogram(aes(x=t2, y=..density..), fill="green", alpha=.5) +
-  scale_x_continuous(trans="log10")
   
 

@@ -5,13 +5,13 @@ dim1 <- c(90, 65, 5, 30)
 #Proposed sample
 dim3 <- c(90, 15, 10, 15)
 
-scatterer <- "right helix"
+scatterer <- "test4"
 
 setwd(wd[1])
-sample1 <- getGeoDist(scatterer, dim3)
+sample1 <- getGeoDist(scatterer, dim1)
 
 setwd(wd[5])
-sample2 <- getGeoDist(scatterer, dim3)
+sample2 <- getGeoDist(scatterer, dim1)
 
 # #Estimative of Beta parameters
 # mean <- mean(sample)
@@ -26,14 +26,14 @@ x <- seq( from = 0, to = 1, by = 0.001)
 ggplot() + 
   geom_histogram(aes(x = c(sample1), y = ..density..), fill = "red", alpha = 0.35, bins = 45) + xlab("x") +
   geom_histogram(aes(x = c(sample2), y = ..density..), fill = "green", alpha = 0.35, bins = 45) +
-  geom_line(aes(x = x, y = dbeta(x, 21, 1.6), colour = "green"), size = 2) +
+    geom_line(aes(x = x, y = dbeta(x, 21, 1.6), colour = "green"), size = 2) +
   geom_line(aes(x = x, y = dbeta(x, 10, 1.85), colour = "red"), size = 2) + xlab("x") +
   scale_color_discrete(name = "Parameters", labels = c("Beta(21, 1.6)", "Beta(10, 1.85)")) +
   theme_few() +
   theme(text = element_text(size=20))
 
-ecdf(sample1)(0.9)
-1 - ecdf(sample2)(0.9)
+ecdf(sample1)(0.932)
+1 - ecdf(sample2)(0.932)
 
 setwd(wd[5])
 ksTestBeta("dihedral", dim3) #Beta(12.362, 2.05)
