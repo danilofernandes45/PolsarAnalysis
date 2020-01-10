@@ -5,6 +5,8 @@ library(ggplot2)
 library(stats4)
 library(raster)
 library(logitnorm)
+library(dplyr)
+library(hrbrthemes)
 
 source("pert.R")
 
@@ -411,6 +413,7 @@ plotHistogramBeta <- function(scatterer, dim, filter = FALSE, title = ""){
     geom_histogram(aes(x = c(sample), y = ..density..), bins = 45) + xlab("x") +
     geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), size = 1.3) +
     scale_color_discrete(name = "Parameters", labels = c(desc)) +
+    #theme_ipsum(base_family = "Times New Roman", base_size = 20, axis_title_size = 20) +
     ggtitle(title) + theme(plot.title = element_text(hjust = 0.5))
 }
 

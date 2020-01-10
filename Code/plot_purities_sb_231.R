@@ -49,7 +49,8 @@ require(ggstance) # Permite gráficos ggplot2 na horizontal
 
 # Build dataset with different distributions
 data <- data.frame(
-  day = c( rep("0", 1950), rep("24", 1950), rep("48", 1950), rep("72", 1950), rep("96", 1950) ),
+  #day = c( rep("16 May 2016", 1950), rep("09 June 2016", 1950), rep("03 July 2016", 1950), rep("27 July 2016", 1950), rep("20 Aug. 2016", 1950) ),
+  day = c( rep("2016-05-16", 1950), rep("2016-06-09", 1950), rep("2016-07-03", 1950), rep("2016-07-27", 1950), rep("2016-08-20", 1950) ),
   value = c( c(sample[,,1]), c(sample[,,2]), c(sample[,,3]), c(sample[,,4]), c(sample[,,5]) )
 )
 
@@ -90,6 +91,34 @@ ggplot(data) +
   scale_color_manual(values=colors) +
   xlab("Theoretical Quantiles") + ylab("Purity [log10]") + labs(col="Day") +
   theme_ipsum(base_family = "Times New Roman", base_size = 35, axis_title_size = 35)   
+
+##==================================================
+#Alpha index (GD to trihedral)
+setwd(wd[1])
+sample_1 <- getFilteredData("trihedral",dim)
+setwd(wd[2])
+sample_2 <- getFilteredData("trihedral",dim)
+setwd(wd[3])
+sample_3 <- getFilteredData("trihedral",dim)
+setwd(wd[4])
+sample_4 <- getFilteredData("trihedral",dim)
+setwd(wd[5])
+sample_5 <- getFilteredData("trihedral",dim)
+
+data <- data.frame(
+  #day = c( rep("16 May 2016", 1950), rep("09 June 2016", 1950), rep("03 July 2016", 1950), rep("27 July 2016", 1950), rep("20 Aug. 2016", 1950) ),
+  day = c( rep("2016-05-16", length(sample_1)), rep("2016-06-09", length(sample_2)), rep("2016-07-03", length(sample_3)), rep("2016-07-27", length(sample_4)), rep("2016-08-20", length(sample_5)) ),
+  value = c( c(sample_1), c(sample_2), c(sample_3), c(sample_4), c(sample_5) )
+)
+
+ggplot(data = data) +
+  geom_histogram(aes(x=value, y = ..density.., fill=day, group = day), color="#e9ecef", 
+                 alpha=0.5, position = 'identity', bins=nclass.FD(data$value)/4) +
+  scale_fill_manual(values=colors) +
+  theme_ipsum(base_family = "Times New Roman", base_size = 35, axis_title_size = 35)+
+  xlab("Normalized Alpha") + ylab("Density") +
+  geom_boxploth(aes(x=value, y=day, fill=day, group=day), notch=TRUE, width=.2, outlier.size = .5) +
+  labs(fill="Day")
 
 #===============================================================================================
 k <- 1
