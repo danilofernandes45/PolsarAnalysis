@@ -15,7 +15,7 @@
 %\usepackage[scriptsize]{subfigure}
 %\usepackage{caption}
 \usepackage{subcaption}
-\graphicspath{{../../Figures/Report_19_09/}{../../Images/Report_19_09/}}
+\graphicspath{{../../Figures/Report_19_09/}{../../Figures/Report_20_01/}{../../Images/Report_19_09/}}
 
 \geometry{
   paper = a4paper,
@@ -54,25 +54,29 @@ Professor: Alejandro Frery\\
 
 \begin{center}
 \vspace{\fill}
-September\\
-2019
+January\\
+2020
 \end{center}
 \end{titlepage}
 
+\section*{\centering Abstract}
+
+In this report, we investigate the statistical properties of the distances between classified polarimetric synthetic aperture radar (PolSAR) data samples from crop regions over time and scatterers using the Geodesic Distance. This investigation can be justified by the possibility of using these properties to characterise these regions in terms of distances, and allowing the degree of vegetation and the way it has varied over time to be inferred.
+
 \section{Introduction}
 
-In this report, we show results of the analysis of samples from plantation regions observed over time.
+We show in this report results of the analysis of samples from plantation regions observed over time.
 %%% ACF Me parece que siunitx ajuda formatar datas, mas eu nunca o fiz
 The first observation was made on 16 May 2016, which was followed by four others at time intervals of 24 days. 
 Those regions consist of three soybeans crops, three wheat, two oats, and two canola and are shown in Figs.~\ref{fig:r1} to~\ref{fig:r5}. 
-Those samples were obtained using the classification of the regions given in Fig.~\ref{fig:classes}. These dataset and classification were disponibilized by Avik Bhattacharya and his research group.
+Those samples were obtained using the classification of the regions given in Fig.~\ref{fig:classes}. These dataset and classification were disponibilized by Prof. Avik Bhattacharya and his research group.
 
 %%% DFC Debanshu enviou-me a classificação das regiões junto com o dataset
 %%% ACF Esse relatório irá para Avik e Debanshu; dizer a origem da classificação
 
-We fit the Beta distribution to histograms of the distances of the samples to the trihedral and random volume scatterers. 
-In addition, we perfor the Kolmogorov-Smirnov good-of-fit test to verify the quality of the fit. 
-These scatterers were chosen because they were more sensitive to vegetation variation in the analyzed regions, as can be verified in the Figs.~\ref{fig:tp} and~\ref{fig:rvp} which contain, respectively, the pixel proportions in the sample that is more similar to the trihedral and the random volume as a function of time.
+%We fit the Beta distribution to histograms of the distances of the samples to the trihedral and random volume scatterers. 
+%In addition, we perfor the Kolmogorov-Smirnov good-of-fit test to verify the quality of the fit. 
+%These scatterers were chosen because they were more sensitive to vegetation variation in the analyzed regions, as can be verified in the Figs.~\ref{fig:tp} and~\ref{fig:rvp} which contain, respectively, the pixel proportions in the sample that is more similar to the trihedral and the random volume as a function of time.
 
 \begin{figure}[hbt]
   \centering
@@ -92,17 +96,17 @@ These scatterers were chosen because they were more sensitive to vegetation vari
   \label{fig:regions}
 \end{figure}
 
-\begin{figure}[ht]
-    \centering
-    \subcaptionbox{Trihedral\label{fig:tp}}{\includegraphics[width = .49\linewidth]{/Parameters/tri_proportion}}
-    \subcaptionbox{Random Volume\label{fig:rvp}}{\includegraphics[width = .49\linewidth]{/Parameters/rv_proportion}}
-    \caption{Pixel proportions on the analyzed regions more similar to the trihedral and random volume as function of time, where SB, WT, CN and OT indicate, respectively, Soybeans, Wheat, Canola and Oats}
-    \label{fig:pixel_proportions}
-\end{figure}
+% \begin{figure}[ht]
+%     \centering
+%     \subcaptionbox{Trihedral\label{fig:tp}}{\includegraphics[width = .49\linewidth]{/Parameters/tri_proportion}}
+%     \subcaptionbox{Random Volume\label{fig:rvp}}{\includegraphics[width = .49\linewidth]{/Parameters/rv_proportion}}
+%     \caption{Pixel proportions on the analyzed regions more similar to the trihedral and random volume as function of time, where SB, WT, CN and OT indicate, respectively, Soybeans, Wheat, Canola and Oats}
+%     \label{fig:pixel_proportions}
+% \end{figure}
 
 \section{Fitting the Beta Distribution}
 
-Figs.~\ref{fig:sb101_hist_tri} to~\ref{fig:ot103_hist_rv} show the histograms of the Geodesic Distances between the scatterer (random or trihedral volume) and the pixels of the sample most similar to it.
+We fit the Beta distribution to histograms of the geodesic distances of the samples to the trihedral and random volume scatterers. Figs.~\ref{fig:sb101_hist_tri} to~\ref{fig:ot103_hist_rv} show the histograms of the distances between the scatterer and the pixels of the sample most similar to it.
 The number of those pixels are in Table~\ref{tab:size_sample}, in which TR and RV indicate, respectively, trihedral and random volume.
 The parameters of the Beta distribution were estimated by maximum likelihood.
 
@@ -389,7 +393,7 @@ Largest and smallest $p$-values are highlighted in bold.
 \end{figure}
 
 \section{Parameters evaluation}
-When observing the regions referring to Soybeans 231 and 232 along its samples in the Fig.~\ref{fig:regions}, which are respectively indexed by 2 and 3, it can be assumed that there was a gradual increase in the degree of vegetation of these regions.
+When observing the regions referring to Soybeans 231 and 232 along its samples in the Fig.~\ref{fig:regions}, which are respectively indexed by 2 and 3 , it can be assumed that there was a gradual increase in the degree of vegetation of these regions.
 
 In order to relate this to the variation of the information contained in the distances of the data to the trihedral scatterer, in Figs.~\ref{subfig:tri_mean_sb231} and~\ref{subfig:tri_mean_sb232} we show, for each observation, a boxplot of the means of the distances between trihedral and the subregions generated by dividing a region into 45 subregions of size $7\times 6$.
 In addition, all boxplots were connected by the mean of their means. It can be observed that the median in the first two samples of both regions is different at the confidence level of 0.95.
@@ -435,21 +439,78 @@ We conclude that the proposed model is acceptable at the significance level of $
 \end{table}
 
 \begin{figure}[hbt]
-  \subcaptionbox{Soybeans 231\label{subfig:tri_mean_sb231}}{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb231}}
-  \subcaptionbox{Soybeans 232\label{subfig:tri_mean_sb232}}{\includegraphics[width = .5\linewidth]{/Parameters/mean_tri_over_time_sb232}}
+  \subcaptionbox{Soybeans 231\label{subfig:tri_mean_sb231}}{\includegraphics[width = .48\linewidth]{/Parameters/mean_tri_over_time_sb231}}
+  \subcaptionbox{Soybeans 232\label{subfig:tri_mean_sb232}}{\includegraphics[width = .48\linewidth]{/Parameters/mean_tri_over_time_sb232}}
   \caption{Mean of the distances between trihedral and samples extracted from Soybeans 231 and 232 over time}
   %%% ACF Usar notch=TRUE, explicar e analisar: é um intervalo de confiança assintótico ao 95% da mediana
   \label{fig:tri_mean_sb_231_232}
 \end{figure}
 
+\section{Separability test}
+
+We also performed a separability test based on the Helinger distance between the distances of different images from Soybeans 231 to trihedral assuming the Beta distribution.
+Table~\ref{tab:pvalues_sep_alpha} shows the $p$-values of the null hypothesis that each pair comes from the same law.
+We observe that at level \num{0.05}, the only null hypothesis that cannot be rejected is that the data from the two last dates come from the same law.
+
+\begin{table}[hbt]
+  \footnotesize
+  \centering
+  \caption{$p$-values from Separability test}
+  \label{tab:pvalues_sep_alpha}
+  \begin{tabular}{ccccc}
+  \toprule
+& \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \midrule
+  \textbf{16 May 2016}  & $7.467 \times 10^{-8}$ & $9.223 \times 10^{-12}$ & $5.159 \times 10^{-21}$ & $1.311 \times 10^{-24}$ \\
+  \textbf{09 June 2016}  & --- & $2.640 \times 10^{-3}$ & $4.551 \times 10^{-4}$ & $1.757 \times 10^{-6}$ \\
+  \textbf{03 July 2016}  & --- & --- & $4.318 \times 10^{-2}$ & $1.072 \times 10^{-2}$\\
+  \textbf{27 July 2016}  & --- & --- & --- & $3.642 \times 10^{-1}$ \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Geodesic Purity Index}
+
+In this section, we analyse the geodesic purity index computed for the samples from Soybeans 231 region, which images are $30 \times 65$ pixels. The roadmap for the data analysis of these images is:
+\begin{enumerate}
+  \item Obtaining the geodesic purity index of the data;
+  \item Making a descriptive analysis of the data with histograms and boxplots;
+  \item Fitting the data with models;
+  \item Making separability tests.
+\end{enumerate}
+
+A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
+The data look crammed in their original space, though.
+
+After this initial qualitative analysis, we decided to transform the data applying the logarithmic function.
+Fig.~\ref{fig:histograms_purity} shows the histograms and boxplots. 
+The closeness to Gaussian distributions is remarkable.
+The QQ-Plots shown in Fig.~\ref{fig:qqplots} provide more evidence of such good adherence.
+Table~\ref{tab:pvalues_purities} provides the $p$-values of the Shapiro-Wilk test of goodness-of-fit to the Gaussian distribution.
+There is no evidence, thus, to reject the hypothesis that the log-transformed purity data follows Gaussian distributions.
+
+\begin{figure}[hbt]
+  \centering
+  \subcaptionbox{Histograms\label{fig:histograms_purity}}{\includegraphics[width = .95\linewidth]{histograms}}
+  \subcaptionbox{QQPlots\label{fig:qqplots}}{\includegraphics[width = .95\linewidth]{qqplots}}
+  \caption{Descriptive analysis of the logarithm purity values for each image}
+  \label{fig:desc_analysis}
+\end{figure}
+
+\begin{table}[hbt]
+  \centering
+  \caption{$p$-values from Shapiro-Wilk Test}
+  \label{tab:pvalues_purities}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\\midrule
+    \textbf{$p$-value} & 0.4963 & 0.0650 & 0.3494 & 0.0585 & 0.3919\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \section{Classifier for vegetation regions}
 
-We propose a classifier based on results of the analysis of a subregion of Soybeans 231 with dimensions $15\times 15$ pixels.
-We fitted a Beta distribution to its geodesic distances to the left and right helices on the first and last observation of this subregion, which belong to the regions indicated by index 1 in the figures \ref{fig:r1} and \ref{fig:r5}, respectively.
-%%% ACF Não ficou claro. O que são estas "first and last observation".
-%%% DFC Corrigido
-
-Figs.~\ref{subfig:lh_subreg_sb231} and~\ref{subfig:lh_subreg_sb231} show the histograms and the fitted densities.
+We propose a classifier based on results of the analysis of a subregion of Soybeans 231 with dimensions $15\times 15$ pixels. We fitted a Beta distribution to its geodesic distances to the left and right helices on the first and last observation of this subregion, which belong to the regions indicated by index 2 in the figures \ref{fig:r1} and \ref{fig:r5}, respectively. Figs.~\ref{subfig:lh_subreg_sb231} and~\ref{subfig:lh_subreg_sb231} show the histograms and the fitted densities.
 %%% ACF veja acima como escrevi um texto similar para o que segue
 In adiction, the Komolgorov-Smirnov test for goodness-of-fit was performed and returned $p$-values are in the table \ref{tab:pvalues_table_lh_rh}.
 
@@ -612,7 +673,6 @@ The tables \ref{tab:subregion_sb231_confusion_matrix} and \ref{tab:sb231_confusi
   \end{tabular}
 \end{table}
 
-% \section{Conclusions}
-% It can be concluded from the $p$-values table that the Beta distribution adjusts the distances of PolSAR data of the analyzed cultures to trihedral and random volume at the significance level of 0.05.
-
+\section{Conclusion}
+We concluded that the Beta distribution can be used to model the distances from crop regions to the trihedral and random volume scatterers and that their parameters vary when the degree of vegetation changes. Additionally, the lognormal distribution proved to be a possible model for the geodesic purity index. These conclusions highlight the relevance of conducting a complete investigation to characterize vegetation images based on Geodesic Distance that can result in applications of deforestation and crop monitoring.
 \end{document}
