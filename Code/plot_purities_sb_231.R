@@ -11,27 +11,27 @@ wd <- c(
 )
 
 
-for(i in 1:5){
-  setwd(wd[i])
-  sample <- purity_gd(dim)
-  
-  mean <- mean(sample)
-  var <- sd(sample) ^ 2
-  alpha <- mean * ( mean * (1 - mean) / var - 1 )
-  beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
-  
-  #Plot
-  x <- seq( from = 0, to = max(sample), by = 0.0001)
-  desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
-  
-  p <- ggplot() + 
-    geom_histogram(aes(x = c(sample), y = ..density..), bins = 200) + xlab("x") + 
-    geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), size = 1.3) +
-    scale_color_discrete(name = "Parameters", labels = c(desc)) +
-    theme(plot.title = element_text(hjust = 0.5))
-  
-  ggsave(paste("~/PolsarAnalysis/plot", i, ".pdf", sep=""), p, units = "in", height = 10, width = 12)
-}
+# for(i in 1:5){
+#   setwd(wd[i])
+#   sample <- purity_gd(dim)
+#   
+#   mean <- mean(sample)
+#   var <- sd(sample) ^ 2
+#   alpha <- mean * ( mean * (1 - mean) / var - 1 )
+#   beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+#   
+#   #Plot
+#   x <- seq( from = 0, to = max(sample), by = 0.0001)
+#   desc <- paste("Beta(", round(alpha, 3), ", ", round(beta, 3), ")", sep="")
+#   
+#   p <- ggplot() + 
+#     geom_histogram(aes(x = c(sample), y = ..density..), bins = 200) + xlab("x") + 
+#     geom_line(aes(x = x, y = dbeta(x, alpha, beta), colour = "red"), size = 1.3) +
+#     scale_color_discrete(name = "Parameters", labels = c(desc)) +
+#     theme(plot.title = element_text(hjust = 0.5))
+#   
+#   ggsave(paste("~/PolsarAnalysis/plot", i, ".pdf", sep=""), p, units = "in", height = 10, width = 12)
+# }
 
 colors <- c("red", "orange", "yellow", "greenyellow", "green4")
 
@@ -78,6 +78,44 @@ ggplot(data = data) +
   geom_boxploth(aes(x=value, y=day, fill=day, group=day), notch=TRUE, width=.2, outlier.size = .5) +
   labs(fill="Day") +
   scale_x_continuous(trans="log10")
+
+#Individual plots
+
+# mean <- mean(log10(sample[,,k]))
+# sd <- sd(log10(sample[,,k]))
+# 
+# x <- seq( from = 0, to = 1, by = 0.001)
+# desc <- paste("Normal(", round(mean, 3), ", ", round(sd, 3), "²)", sep="")
+k <- 5
+ggplot() +
+  geom_histogram(aes(x=log10(c(sample[,,k])), y = ..density..), color="#636F4B", fill="#636F4B", 
+                 alpha=0.7, position = 'identity', bins=nclass.scott(c(sample[,,k]))) +
+  theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
+  xlab("Purity [log10]") + ylab("Density") + xlim(c(-7, 2))
+
+setwd(wd[2])
+sample <- getFilteredData("trihedral", dim)
+ggplot() +
+  geom_histogram(aes(x=c(sample), y = ..density..), color="#636F4B", 
+                 alpha=0.6, position = 'identity', bins=nclass.FD(sample)) +
+  theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
+  xlab("Normalized Alpha") + ylab("Density") + xlim(c(0, 1))
+
+setwd(wd[1])
+sample <- c(helicity_gd(dim) / 45)
+ggplot() +
+  geom_histogram(aes(x=c(sample), y = ..density..), color="#636F4B", 
+                 alpha=0.6, position = 'identity', bins=nclass.FD(sample)/1.1) +
+  theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
+  xlab("Normalized Helicity") + ylab("Density") + xlim(c(0, 1)) + ylim(c(0, 10))
+
+mean <- mean(sample)
+var <- sd(sample)^2
+
+alpha <- mean * ( mean * (1 - mean) / var - 1 )
+beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+
+ks.test(sample, "pbeta", shape1 = alpha, shape2 = beta)
 
 shapiro.test(log10(df.sample$t1))
 shapiro.test(log10(df.sample$t2))
