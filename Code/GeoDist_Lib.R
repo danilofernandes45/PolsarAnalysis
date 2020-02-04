@@ -613,13 +613,8 @@ alpha_gd <- function(dim, filter  = FALSE){
   return(90*data)
 }
 
-helicity_gd <- function(dim, filter = FALSE){
-  data = c()
-  if(filter){
-    data = 1 - sqrt( getFilteredData("left helix" , dim) * getFilteredData("right helix" , dim) )
-  } else {
-    data = 1 - sqrt( getGeoDist("left helix", dim) * getGeoDist("right helix", dim) )
-  }
+helicity_gd <- function(dim){
+  data = 1 - sqrt( getGeoDist("left helix", dim) * getGeoDist("right helix", dim) )
   return(45*data)
 }
 
@@ -629,10 +624,17 @@ purity_gd <- function(dim, filter = TRUE){
   hvhv <- read_data("HVHV", dim)
   vvvv <- read_data("VVVV", dim)
   
-  data <- (hhhh + hvhv + vvvv) / 2
+  hhhv <- read_complex_data("HHHV", dim)
+  hhvv <- read_complex_data("HHVV", dim)
+  hvvv <- read_complex_data("HVVV", dim)
   
-  data <- ( 1.5 * data )^2
+  mod_kennaugh <- c(sqrt( hhhh^2 + hvhv^2 + vvvv^2 + 2*Mod(hhhv)^2 + 2*Mod(hhvv)^2 + 2*Mod(hvvv)^2 ))
+  inner_prod <- c( (hhhh + hvhv + vvvv) ) / 2
   
-  return(data)
+  gd_data <- (2/pi)*acos( inner_prod / mod_kennaugh )
+  
+  data <- ( 1.5 * gd_data )^2
+  
+  return( data )
   
 }

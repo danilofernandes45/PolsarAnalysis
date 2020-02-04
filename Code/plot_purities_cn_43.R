@@ -1,4 +1,6 @@
-dim <- c(25, 55, 30, 39) #Canola 43 [50 -> 39]
+dim <- c(25, 55, 30, 50) #Canola 43
+
+dim <- c(25, 50, 30, 39) #Canola 43 -> Used
 
 #To work, the directory of this code should be Working Directory
 actual_dir <- getwd()
@@ -10,7 +12,7 @@ wd <- c(
   paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/05_Subset_20_Aug_2016/T3", sep = "")
 )
 
-sample <- array(0, dim = c(55, 39, 5))
+sample <- array(0, dim = c(50, 39, 5))
 for(i in 1:5){
   setwd(wd[i])
   sample[,,i] <- purity_gd(dim)

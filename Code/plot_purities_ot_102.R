@@ -1,4 +1,7 @@
-dim <- c(500, 65, 310, 30) #Oats 102 [35 -> 30]
+dim <- c(500, 65, 310, 35) #Oats 102 
+dim <- c(500, 65, 310, 35) #Oats 103
+
+dim <- c(500, 40, 311, 30) #Oats 102 [Used]
 
 #To work, the directory of this code should be Working Directory
 actual_dir <- getwd()
@@ -16,7 +19,7 @@ for(i in 1:5){
   sample[,,i] <- purity_gd(dim)
 }
 
-k <- 5
+k <- 2
 ggplot() +
   geom_histogram(aes(x=log10(c(sample[,,k])), y = ..density..), fill="#EFE6D8", color = "#EFE6D8", 
                  alpha=0.8, position = 'identity', bins=nclass.scott(c(sample[,,k]))) +
