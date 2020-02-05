@@ -93,10 +93,10 @@ ggplot() +
   theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
   xlab("Purity [log10]") + ylab("Density") + xlim(c(-7, 2))
 
-setwd(wd[2])
+setwd(wd[5])
 sample <- getFilteredData("trihedral", dim)
 ggplot() +
-  geom_histogram(aes(x=c(sample), y = ..density..), color="#636F4B", 
+  geom_histogram(aes(x=c(sample), y = ..density..), color="#636F4B", fill ="#636F4B", 
                  alpha=0.6, position = 'identity', bins=nclass.FD(sample)) +
   theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
   xlab("Normalized Alpha") + ylab("Density") + xlim(c(0, 1))
