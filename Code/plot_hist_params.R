@@ -50,7 +50,7 @@ plot_norm_alpha <- function(dim, k, color){
     geom_histogram(aes(x=sample, y = ..density..), fill=color, color = color, 
                    alpha=0.8, position = 'identity', bins=nclass.FD(sample)) +
     theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
-    xlab("Purity [log10]") + ylab("Density") + xlim(c(0, 1))# + ylim(c(0, 4))
+    xlab("Normalized Alpha") + ylab("Density") + xlim(c(0, 1)) + ylim(c(0, 4))
 }
 
 #Compute parameters for normalized alpha from a sample at the time
