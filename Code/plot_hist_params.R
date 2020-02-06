@@ -67,3 +67,14 @@ compute_params_alpha <- function(dim, k){
   
   return(c(alpha, beta))
 }
+
+ksTestAlpha <- function(dim, k){
+  setwd(wd[k])
+  sample <- getFilteredData("trihedral", dim)
+  mean <- mean(sample)
+  var <- sd(sample) ^ 2
+  alpha <- mean * ( mean * (1 - mean) / var - 1 )
+  beta <- ( 1 - mean ) * ( mean * ( 1 - mean ) / var - 1)
+  
+  return( c( length(sample),ks.test(sample, "pbeta", shape1 = alpha, shape2 = beta)$p.value))
+}
