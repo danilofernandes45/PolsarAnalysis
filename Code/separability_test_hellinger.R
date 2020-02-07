@@ -1,5 +1,3 @@
-dim <- c(90, 65, 5, 30) #Sample 231
-
 #To work, the directory of this code should be Working Directory
 actual_dir <- getwd()
 wd <- c(
@@ -10,8 +8,9 @@ wd <- c(
   paste(actual_dir, "/../Data/Subset_SMAPVEX16_FQ15W_ACF/05_Subset_20_Aug_2016/T3", sep = "")
 )
 
+#Set a dim
+#dim <- dim_sb231 <- c(90, 65, 5, 30)
 #Analysis of alpha index
-
 compute_statistic <- function(i, j){
   setwd(wd[i])
   sample <- getFilteredData("trihedral", dim)
