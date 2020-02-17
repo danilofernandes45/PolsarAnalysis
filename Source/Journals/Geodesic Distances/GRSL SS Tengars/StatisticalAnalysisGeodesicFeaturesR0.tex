@@ -1,0 +1,1137 @@
+%% bare_jrnl.tex
+%% V1.4a
+%% 2014/09/17
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8a or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_conf_compsoc.tex,
+%%                    bare_jrnl_compsoc.tex, bare_jrnl_transmag.tex
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices and paper sizes can       ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/tex-archive/info/epslatex/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Do not use the stfloats baselinefloat ability as IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/dblfloatfix/
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/url/
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Title}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Danilo~Fernandes,
+        Debanshu~Ratha,
+        Alejandro~C.~Frery,~\IEEEmembership{Senior~Member,~IEEE}
+        and~Avik~Bhattacharya,~\IEEEmembership{Senior~Member,~IEEE}% <-this % stops a space
+%\thanks{M. Shell is with the Department
+%of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
+%GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
+%\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+%\thanks{Manuscript received April 19, 2005; revised September 17, 2014.}
+}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~13, No.~9, September~2014}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2014 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+The abstract goes here.
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+IEEEtran, journal, \LaTeX, paper, template.
+\end{IEEEkeywords}
+
+
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps.
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
+for IEEE journal papers produced under \LaTeX\ using
+IEEEtran.cls version 1.8a and later.
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+I wish you the best of success.
+
+\hfill mds
+ 
+\hfill September 17, 2014
+
+\subsection{Subsection Heading Here}
+Subsection text here.
+
+% needed in second column of first page if using \IEEEpubid
+%\IEEEpubidadjcol
+
+\subsubsection{Subsubsection Heading Here}
+Subsubsection text here.
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command,
+% and the \label for the overall figure must come after \caption.
+% \hfil is used as a separator to get equal spacing.
+% Watch out that the combined width of all the subfigures on a 
+% line do not exceed the text width or a line break will occur.
+%
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+%\label{fig_second_case}}
+%\caption{Simulation results for the network.}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat[]), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+% labels, the optional argument to \subfloat must be present. If a
+% subcaption is not desired, just leave its contents blank,
+% e.g., \subfloat[].
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table and, given that table
+% captions serve much like titles, are usually capitalized except for words
+% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+% and up, which are usually not capitalized unless they are the first or
+% last word of the caption. Table text will default to \footnotesize as
+% IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that the IEEE does not put floats in the very first column
+% - or typically anywhere on the first page for that matter. Also,
+% in-text middle ("here") positioning is typically not used, but it
+% is allowed and encouraged for Computer Society conferences (but
+% not Computer Society journals). Most IEEE journals/conferences use
+% top floats exclusively. 
+% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the
+% \fnbelowfloat command of the stfloats package.
+
+
+\section{Metodology}
+
+We analyse five PolSAR images of the same soilbeans crop region obtained over time, which were made available by Prof. Avik Bhattacharya and his research group. The first image was taken 16 May 2016, followed by four others at time intervals of \num{24} days. The images are $30 \times 65$ pixels.
+Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the data in Pauli Decomposition. 
+
+\begin{figure}[hbt]
+  \centering
+  \subcaptionbox{16 May\label{fig:day_0}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_0}}
+  \subcaptionbox{9 June\label{fig:day_24}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_24}}
+  \subcaptionbox{3 July\label{fig:day_48}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_48}}
+  \subcaptionbox{27 July\label{fig:day_72}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_72}}
+  \subcaptionbox{20 Aug.\label{fig:day_96}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_96}}
+  \caption{Crop samples taken in 2016 over time, in Pauli decomposition}
+  \label{fig:sample_images}
+\end{figure}
+
+The roadmap for the data analysis of these images is:
+\begin{enumerate}
+  \item Obtaining the geodesic purity index and scattering type angle of the data;
+  \item Making a descriptive analysis of the data with histograms and boxplots;
+  \item Fitting the data with models;
+  \item Making separability tests.
+\end{enumerate}
+
+\section{Data analysis}
+
+\subsection{Geodesic Purity Index}
+
+A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
+The data look crammed in their original space, though.
+
+After this initial qualitative analysis, we decided to transform the data applying the logarithmic function.
+Fig.~\ref{fig:histograms_purity_sb231} shows the histograms and boxplots. 
+The closeness to Gaussian distributions is remarkable.
+The QQ-Plots shown in Fig.~\ref{fig:qqplots} provide more evidence of such good adherence.
+Table~\ref{tab:pvalues_purities_sb231} provides the $p$-values of the Shapiro-Wilk test of goodness-of-fit to the Gaussian distribution.
+There is no evidence, thus, to reject the hypothesis that the log-transformed purity data follows Gaussian distributions.
+
+% \begin{figure}[hbt]
+%     \centering
+%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_1}}
+%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_2}}
+%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_3}}
+%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_4}}
+%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_5}}
+%     \caption{Histograms of the $log10$ of geodesic purity index from Soybeans 231}
+%     \label{fig:histograms_purity_sb231}
+% \end{figure}
+
+% \begin{figure}[hbt]
+%     \centering
+%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/log_purity_cn43_1}}
+%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/log_purity_cn43_2}}
+%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/log_purity_cn43_3}}
+%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/log_purity_cn43_4}}
+%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/log_purity_cn43_5}}
+%     \caption{Histograms of the $log10$ of geodesic purity index from Canola 43}
+%     \label{fig:histograms_purity_cn43}
+% \end{figure}
+
+% \begin{figure}[hbt]
+%     \centering
+%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/log_purity_wt104_1}}
+%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/log_purity_wt104_2}}
+%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/log_purity_wt104_3}}
+%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/log_purity_wt104_4}}
+%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/log_purity_wt104_5}}
+%     \caption{Histograms of the $log10$ of geodesic purity index from Wheat 104}
+%     \label{fig:histograms_purity_wt104}
+% \end{figure}
+
+% \begin{figure}[hbt]
+%     \centering
+%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/log_purity_ot102_1}}
+%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/log_purity_ot102_2}}
+%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/log_purity_ot102_3}}
+%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/log_purity_ot102_4}}
+%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/log_purity_ot102_5}}
+%     \caption{Histograms of the $log10$ of geodesic purity index from Oats 102}
+%     \label{fig:histograms_purity_ot102}
+% \end{figure}
+
+%\begin{figure}[hbt]
+%  \centering
+%  \subcaptionbox{Histograms\label{fig:histograms_purity}}{\includegraphics[width = .95\linewidth]{histograms}}
+%  \subcaptionbox{QQPlots\label{fig:qqplots}}{\includegraphics[width = .95\linewidth]{qqplots}}
+%  \caption{Descriptive analysis of the logarithm purity values for each image}
+%  \label{fig:desc_analysis}
+%\end{figure}
+
+% \begin{table}[hbt]
+%   \centering
+%   \caption{$p$-values from Shapiro-Wilk Test for Soybeans 231}
+%   \label{tab:pvalues_purities_sb231}
+%   \begin{tabular}{lrrrrr}
+%     \toprule
+%     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\
+%                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+
+%     \textbf{$p$-value} & 0.4963 & 0.0650 & 0.3494 & 0.0585 & 0.3919\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+% \begin{table}[hbt]
+%   \centering
+%   \caption{$p$-values from Shapiro-Wilk Test for Canola 43}
+%   \label{tab:pvalues_purities_sb231}
+%   \begin{tabular}{lrrrrr}
+%     \toprule
+%     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\
+%                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+
+%     \textbf{$p$-value} & 0.1143 & 0.7359 & 0.5855 & $2.6\times 10^{-16}$ & $2.6\times 10^{-16}$\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+% \begin{table}[hbt]
+%   \centering
+%   \caption{$p$-values from Shapiro-Wilk Test for Wheat 104}
+%   \label{tab:pvalues_purities_sb231}
+%   \begin{tabular}{lrrrrr}
+%     \toprule
+%     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\
+%                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+
+%     \textbf{$p$-value} & 0.8189 & 0.9042 & 0.0025 & 0.3929 & 0.0544\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+% \begin{table}[hbt]
+%   \centering
+%   \caption{$p$-values from Shapiro-Wilk Test for Oats 102}
+%   \label{tab:pvalues_purities_sb231}
+%   \begin{tabular}{lrrrrr}
+%     \toprule
+%     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\
+%                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+
+%     \textbf{$p$-value} & 0.4928 & $5.24\times 10^{-8}$ & 0.5263 & 0.0484 & 0.9694\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+\subsection{Geodesic Scattering Type Angle}
+
+In this analysis, the geodesic distance to the trihedral - the normalized geodesic scattering type angle - was obtained from the samples. From these computed distances, those referring to pixels closer to the trihedral than to the other elementary scatterers (cylinder, dipole, dihedral, narrow dihedral, left helix, right helix, $-1/4$-wave, $+1/4$-wave) were selected.
+
+From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha} along with the sample size.
+
+\begin{figure}[hbt]
+\centering
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_5}}
+\caption{Histograms of the geodesic distances between trihedral and the pixels from Soybeans 231 most similar to trihedral}
+\label{fig:histograms_alpha_sb231}
+\end{figure}
+
+\begin{table}[hbt]
+  \centering
+  \caption{$p$-values from Komolgorov-Smirnov Test for normalized from Soybeans 231}
+  \label{tab:pvalues_alpha_sb231}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{Sample size} & 1285 & 656 & 449 & 615 & 508\\
+    \textbf{$p$-value} & 0.7746 & 0.5734 & 0.3137 & 0.2392 & 0.4158\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[hbt]
+\centering
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_5}}
+\caption{Histograms of the geodesic distances between trihedral and the pixels from Canola 43 most similar to trihedral}
+\label{fig:histograms_alpha_cn43}
+\end{figure}
+
+\begin{table}[hbt]
+  \centering
+  \caption{$p$-values from Komolgorov-Smirnov Test for normalized alpha from Canola 43}
+  \label{tab:pvalues_alpha_cn43}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{Sample size} & 1549 & 804 & 385 & 133 & 164\\
+    \textbf{$p$-value} & 0.2292 & 0.6397 & 0.8759 & 0.3613 & 0.8828\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[hbt]
+\centering
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_5}}
+\caption{Histograms of the geodesic distances between trihedral and the pixels from Oats 102 most similar to trihedral}
+\label{fig:histograms_alpha_ot102}
+\end{figure}
+
+\begin{figure}[hbt]
+\centering
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_5}}
+\caption{Histograms of the geodesic distances between trihedral and the pixels from Wheat 104 most similar to trihedral}
+\label{fig:histograms_alpha_wt104}
+\end{figure}
+
+\begin{table}[hbt]
+  \centering
+  \caption{$p$-values from Komolgorov-Smirnov Test for normalized alpha from Oats 102}
+  \label{tab:pvalues_alpha_ot102}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{Sample size} & 1207 & 991 & 263 & 82 & 66\\
+    \textbf{$p$-value} & 0.3504 & 0.2841 & 0.4707 & 0.2933 & 0.3958\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{$p$-values from Komolgorov-Smirnov Test for normalized alpha from Wheat 104}
+  \label{tab:pvalues_alpha_wt104}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{Sample size} & 1382 & 413 & 131 & 122 & 116\\
+    \textbf{$p$-value} & 0.1795 & 0.8726 & 0.5488 & 0.3261 & 0.7663\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Soybeans 231}
+  \label{tab:params_helicity}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{$\hat{\alpha}$} & 3.1092 & 4.1239 & 3.7793 & 4.6720 & 4.8640\\
+    \textbf{$\hat{\beta}$} & 11.5536 & 13.6485 & 11.2156 & 13.8374 & 13.8050\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Canola 43}
+  \label{tab:params_alpha_cn43}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{$\hat{\alpha}$} & 2.5812 & 4.0304 & 5.6943 & 6.0239 & 6.0750\\
+    \textbf{$\hat{\beta}$} & 10.3476 & 13.4359 & 16.1670 & 14.8314 & 15.2520\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Oats 102}
+  \label{tab:params_alpha_ot102}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{$\hat{\alpha}$} & 3.1005  & 2.9157 & 4.9835 & 7.2026 & 6.8227\\
+    \textbf{$\hat{\beta}$} & 10.5901 & 10.3148 & 14.9391 & 21.4717 & 18.5422\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Wheat 104}
+  \label{tab:params_alpha_wt104}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+    \textbf{$\hat{\alpha}$} & 2.7237 & 4.6521 & 7.8296 & 4.1457 & 5.7762\\
+    \textbf{$\hat{\beta}$} & 10.2709 & 12.8761 & 20.2683 & 9.2153 & 14.3660\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Additionally, we performed a separability test based on the Hellinger distance between the original samples assuming the Beta distribution.
+Table~\ref{tab:pvalues_sep_alpha} shows the $p$-values of the null hypothesis that each pair comes from the same law.
+We observe that at level $0.05$, the only null hypothesis that cannot be rejected is that the data from the two last dates come from the same law.
+
+\begin{table}[hbt]
+  \footnotesize
+  \centering
+  \caption{$p$-values from Separability Test for normalized alpha from Soybeans 231}
+  \label{tab:pvalues_sep_alpha_sb231}
+  \begin{tabular}{ccccc}
+  \toprule
+& \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \midrule
+  \textbf{16 May}  & $7.47 \times 10^{-8}$ & $9.22 \times 10^{-12}$ & $5.16 \times 10^{-21}$ & $1.31 \times 10^{-24}$ \\
+  \textbf{09 June}  & --- & $2.64 \times 10^{-3}$ & $4.55 \times 10^{-4}$ & $1.76 \times 10^{-6}$ \\
+  \textbf{03 July}  & --- & --- & $4.32 \times 10^{-2}$ & $1.07 \times 10^{-2}$\\
+  \textbf{27 July}  & --- & --- & --- & $3.64 \times 10^{-1}$ \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \footnotesize
+  \centering
+  \caption{$p$-values from Separability Test for normalized alpha from Canola 43}
+  \label{tab:pvalues_sep_alpha_cn43}
+  \begin{tabular}{ccccc}
+  \toprule
+  & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \midrule
+  \textbf{16 May}  & $1.86 \times 10^{-19}$ & $4.07 \times 10^{-36}$ & $2.75 \times 10^{-25}$ & $9.79 \times 10^{-27}$ \\
+  \textbf{09 June}  & --- & $5.28 \times 10^{-8}$ & $2.94 \times 10^{-10}$ & $3.06 \times 10^{-10}$ \\
+  \textbf{03 July}  & --- & --- & $1.48 \times 10^{-2}$ & $3.21 \times 10^{-2}$\\
+  \textbf{27 July}  & --- & --- & --- & $9.39 \times 10^{-1}$ \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \footnotesize
+  \centering
+  \caption{$p$-values from Separability Test for normalized alpha from Oats 102}
+  \label{tab:pvalues_sep_alpha_ot102}
+  \begin{tabular}{ccccc}
+  \toprule
+  & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \midrule
+  \textbf{16 May}  & $2.77 \times 10^{-1}$ & $3.71 \times 10^{-8}$ & $2.18 \times 10^{-7}$ & $7.32 \times 10^{-7}$ \\
+  \textbf{09 June}  & --- & $2.08 \times 10^{-10}$ & $1.47 \times 10^{-8}$ & $5.45 \times 10^{-8}$ \\
+  \textbf{03 July}  & --- & --- & $1.09 \times 10^{-1}$ & $1.01 \times 10^{-1}$\\
+  \textbf{27 July}  & --- & --- & --- & $4.08 \times 10^{-1}$ \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+  \footnotesize
+  \centering
+  \caption{$p$-values from Separability Test for normalized alpha from Wheat 104}
+  \label{tab:pvalues_sep_alpha_wt104}
+  \begin{tabular}{ccccc}
+  \toprule
+  & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \midrule
+  \textbf{16 May}  & $4.24 \times 10^{-27}$ & $2.61 \times 10^{-24}$ & $3.08 \times 10^{-19}$ & $1.32 \times 10^{-17}$ \\
+  \textbf{09 June}  & --- & $5.42 \times 10^{-4}$ & $2.70 \times 10^{-4}$ & $5.58 \times 10^{-2}$ \\
+  \textbf{03 July}  & --- & --- & $3.31 \times 10^{-5}$ & $1.58 \times 10^{-1}$\\
+  \textbf{27 July}  & --- & --- & --- & $3.24 \times 10^{-2}$ \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Geodesic Helicity}
+
+In the figures \ref{fig:histograms_helicity} the histograms of normalized helicities computed for each sample are shown. For these, goodness-of-fit tests were performed -- through Komolgorov-Smirnov Test -- with Beta distribution, whose $p$-values are shown in table \ref{tab:pvalues_helicities}.
+
+% \begin{figure}[hbt]
+%     \centering
+%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/helicity_sb231_1}}
+%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/helicity_sb231_2}}
+%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/helicity_sb231_3}}
+%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/helicity_sb231_4}}
+%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/helicity_sb231_5}}
+%     \caption{Histograms of the normalized geodesic helicities}
+%     \label{fig:histograms_helicity}
+% \end{figure}
+
+% \begin{table}[hbt]
+%   \centering
+%   \caption{Maximum Likelihood estimated Beta parameters for normalized helicity from Soybeans 231}
+%   \label{tab:params_helicity}
+%   \begin{tabular}{lrrrrr}
+%     \toprule
+%     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
+%                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+%     \textbf{$\hat{\alpha}$} & 2.0984 & 2.4793 & 3.0300 & 2.8211 & 3.2862\\
+%     \textbf{$\hat{\beta}$} & 26.0484 & 18.0347 & 17.0150 & 16.9940 & 17.6112\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+
+% \begin{table}[hbt]
+%   \centering
+%   \caption{$p$-values from Komolgorov-Smirnov Test for normalized helicity from Soybeans 231}
+%   \label{tab:pvalues_helicities}
+%   \begin{tabular}{lrrrrr}
+%     \toprule
+%     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\
+%                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
+%     \textbf{$p$-value} & 0.0018  & 0.0118 & 0.9812 & 0.2525 & 0.3358\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+\section{Conclusion}
+The conclusion goes here. This is the beginning paper to look at~\cite{Ratha2020}.
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+\appendices
+\section{Proof of the First Zonklar Equation}
+Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+\section{}
+Appendix two text goes here.
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+
+
+The authors would like to thank...
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+% \begin{thebibliography}{1}
+
+% \bibitem{IEEEhowto:kopka}
+% H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+% \end{thebibliography}
+
+% % biography section
+% % 
+% % If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% % needed around the contents of the optional argument to biography to prevent
+% % the LaTeX parser from getting confused when it sees the complicated
+% % \includegraphics command within an optional argument. (You could create
+% % your own custom macro containing the \includegraphics command to make things
+% % simpler here.)
+% %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% % or if you just want to reserve a space for a photo:
+
+% \begin{IEEEbiography}{Michael Shell}
+% Biography text here.
+% \end{IEEEbiography}
+
+% % if you will not have a photo at all:
+% \begin{IEEEbiographynophoto}{John Doe}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% % insert where needed to balance the two columns on the last page with
+% % biographies
+% %\newpage
+
+% \begin{IEEEbiographynophoto}{Jane Doe}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% % You can push biographies down or up by placing
+% % a \vfill before or after them. The appropriate
+% % use of \vfill depends on what kind of text is
+% % on the last page and whether or not the columns
+% % are being equalized.
+
+% %\vfill
+
+% % Can be used to pull up biographies so that the bottom of the last one
+% % is flush with the other column.
+% %\enlargethispage{-5in}
+
+\bibliographystyle{IEEEbib}
+\bibliography{mybibfile}
+
+
+% % that's all folks
+\end{document}
