@@ -60,6 +60,9 @@
 % \documentclass[journal]{../sty/IEEEtran}
 
 \usepackage{graphicx}
+
+\graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Images/GRSL_2020/}}
+
 \usepackage{subcaption}
 \usepackage{booktabs}
 
@@ -600,16 +603,16 @@ Subsubsection text here.
 
 \section{Metodology}
 
-We analyse five PolSAR images of the same soilbeans crop region obtained over time, which were made available by Prof. Avik Bhattacharya and his research group. The first image was taken 16 May 2016, followed by four others at time intervals of \num{24} days. The images are $30 \times 65$ pixels.
+We analyse five PolSAR images of the same soilbeans crop region obtained over time, which were made available by Prof. Avik Bhattacharya and his research group. The first image was taken 16 May 2016, followed by four others at time intervals of $24$ days. The images are $30 \times 65$ pixels.
 Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the data in Pauli Decomposition. 
 
 \begin{figure}[hbt]
   \centering
-  \subcaptionbox{16 May\label{fig:day_0}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_0}}
-  \subcaptionbox{9 June\label{fig:day_24}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_24}}
-  \subcaptionbox{3 July\label{fig:day_48}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_48}}
-  \subcaptionbox{27 July\label{fig:day_72}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_72}}
-  \subcaptionbox{20 Aug.\label{fig:day_96}}{\includegraphics[width = .19\linewidth]{Images/sb231_day_96}}
+  \subcaptionbox{16 May\label{fig:day_0}}{\includegraphics[width = .19\linewidth]{sb231_day_0}}
+  \subcaptionbox{9 June\label{fig:day_24}}{\includegraphics[width = .19\linewidth]{sb231_day_24}}
+  \subcaptionbox{3 July\label{fig:day_48}}{\includegraphics[width = .19\linewidth]{sb231_day_48}}
+  \subcaptionbox{27 July\label{fig:day_72}}{\includegraphics[width = .19\linewidth]{sb231_day_72}}
+  \subcaptionbox{20 Aug.\label{fig:day_96}}{\includegraphics[width = .19\linewidth]{sb231_day_96}}
   \caption{Crop samples taken in 2016 over time, in Pauli decomposition}
   \label{fig:sample_images}
 \end{figure}
@@ -626,15 +629,15 @@ The roadmap for the data analysis of these images is:
 
 \subsection{Geodesic Purity Index}
 
-A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
-The data look crammed in their original space, though.
-
-After this initial qualitative analysis, we decided to transform the data applying the logarithmic function.
-Fig.~\ref{fig:histograms_purity_sb231} shows the histograms and boxplots. 
-The closeness to Gaussian distributions is remarkable.
-The QQ-Plots shown in Fig.~\ref{fig:qqplots} provide more evidence of such good adherence.
-Table~\ref{tab:pvalues_purities_sb231} provides the $p$-values of the Shapiro-Wilk test of goodness-of-fit to the Gaussian distribution.
-There is no evidence, thus, to reject the hypothesis that the log-transformed purity data follows Gaussian distributions.
+% A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
+% The data look crammed in their original space, though.
+% 
+% After this initial qualitative analysis, we decided to transform the data applying the logarithmic function.
+% Fig.~\ref{fig:histograms_purity_sb231} shows the histograms and boxplots. 
+% The closeness to Gaussian distributions is remarkable.
+% The QQ-Plots shown in Fig.~\ref{fig:qqplots} provide more evidence of such good adherence.
+% Table~\ref{tab:pvalues_purities_sb231} provides the $p$-values of the Shapiro-Wilk test of goodness-of-fit to the Gaussian distribution.
+% There is no evidence, thus, to reject the hypothesis that the log-transformed purity data follows Gaussian distributions.
 
 % \begin{figure}[hbt]
 %     \centering
@@ -748,15 +751,15 @@ There is no evidence, thus, to reject the hypothesis that the log-transformed pu
 
 In this analysis, the geodesic distance to the trihedral - the normalized geodesic scattering type angle - was obtained from the samples. From these computed distances, those referring to pixels closer to the trihedral than to the other elementary scatterers (cylinder, dipole, dihedral, narrow dihedral, left helix, right helix, $-1/4$-wave, $+1/4$-wave) were selected.
 
-From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha} along with the sample size.
+From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha_sb231} along with the sample size.
 
 \begin{figure}[hbt]
 \centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/alpha_sb231_5}}
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_sb231_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_sb231_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_sb231_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_sb231_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{alpha_sb231_5}}
 \caption{Histograms of the geodesic distances between trihedral and the pixels from Soybeans 231 most similar to trihedral}
 \label{fig:histograms_alpha_sb231}
 \end{figure}
@@ -777,11 +780,11 @@ From this selected distances per image, it was generated the histograms shown in
 
 \begin{figure}[hbt]
 \centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Canola_43/alpha_cn43_5}}
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_cn43_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_cn43_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_cn43_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_cn43_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{alpha_cn43_5}}
 \caption{Histograms of the geodesic distances between trihedral and the pixels from Canola 43 most similar to trihedral}
 \label{fig:histograms_alpha_cn43}
 \end{figure}
@@ -802,22 +805,22 @@ From this selected distances per image, it was generated the histograms shown in
 
 \begin{figure}[hbt]
 \centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Oats_102/alpha_ot102_5}}
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_ot102_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_ot102_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_4}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_5}}
 \caption{Histograms of the geodesic distances between trihedral and the pixels from Oats 102 most similar to trihedral}
 \label{fig:histograms_alpha_ot102}
 \end{figure}
 
 \begin{figure}[hbt]
 \centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Wheat_104/alpha_wt104_5}}
+\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_1}}
+\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_2}}
+\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_3}}
+\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_4}}
+\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_5}}
 \caption{Histograms of the geodesic distances between trihedral and the pixels from Wheat 104 most similar to trihedral}
 \label{fig:histograms_alpha_wt104}
 \end{figure}
@@ -907,7 +910,7 @@ From this selected distances per image, it was generated the histograms shown in
 \end{table}
 
 Additionally, we performed a separability test based on the Hellinger distance between the original samples assuming the Beta distribution.
-Table~\ref{tab:pvalues_sep_alpha} shows the $p$-values of the null hypothesis that each pair comes from the same law.
+Table~\ref{tab:pvalues_sep_alpha_sb231} shows the $p$-values of the null hypothesis that each pair comes from the same law.
 We observe that at level $0.05$, the only null hypothesis that cannot be rejected is that the data from the two last dates come from the same law.
 
 \begin{table}[hbt]
@@ -976,7 +979,7 @@ We observe that at level $0.05$, the only null hypothesis that cannot be rejecte
 
 \subsection{Geodesic Helicity}
 
-In the figures \ref{fig:histograms_helicity} the histograms of normalized helicities computed for each sample are shown. For these, goodness-of-fit tests were performed -- through Komolgorov-Smirnov Test -- with Beta distribution, whose $p$-values are shown in table \ref{tab:pvalues_helicities}.
+%In the figures \ref{fig:histograms_helicity} the histograms of normalized helicities computed for each sample are shown. For these, goodness-of-fit tests were performed -- through Komolgorov-Smirnov Test -- with Beta distribution, whose $p$-values are shown in table \ref{tab:pvalues_helicities}.
 
 % \begin{figure}[hbt]
 %     \centering
@@ -1018,7 +1021,7 @@ In the figures \ref{fig:histograms_helicity} the histograms of normalized helici
 % \end{table}
 
 \section{Conclusion}
-The conclusion goes here. This is the beginning paper to look at~\cite{Ratha2020}.
+%The conclusion goes here. This is the beginning paper to look at~\cite{Ratha2020}.
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
