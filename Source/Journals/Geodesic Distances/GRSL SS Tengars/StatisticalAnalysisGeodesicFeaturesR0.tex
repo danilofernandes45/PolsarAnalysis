@@ -11,6 +11,10 @@
 \usepackage{dblfloatfix}
 \usepackage{url}
 \usepackage{color}
+\usepackage{bm,bbm}
+\usepackage{siunitx}
+
+\DeclareMathOperator{\Tr}{Tr}
 
 \begin{document}
 
@@ -54,16 +58,239 @@ No statistical assessment of the properties of such distances under the hypothes
 In face of this new decomposition theorem, this paper makes qualitative and quantitative analyses of geodesic features (distances, $\alpha$, $\tau$, and purity).
 We compute those features between observations and a set of arbitrary prototypes (elementary backscatterers and other representative points).
 
+
 \section{Metodology}
 
 \subsection{The Kennaugh Representation}
 
-including prototypes
-\textcolor{red}{define prototypes}
+The $2 \times 2$ complex scattering matrix $\bm S$ has
+complete polarimetric information about backscattering
+from targets:
+$$
+\bm S = \begin{bmatrix}
+S_{\text{HH}} &S_{\text{HV}}\\
+S_{\text{VH}} &S_{\text{VV}}
+\end{bmatrix},
+$$
+where the subscripts $\text{H}$ and $\text{V}$ denote horizontal and vertical
+polarizations, respectively. 
+Following the reciprocity theorem
+in the case of a monostatic radar, 
+$S_{\text{HV}}=S_{\text{VH}}$.
+In such case, we obtain the Pauli vector as
+$$
+\bm k = \frac1{\sqrt{2}}
+	\begin{bmatrix}
+S_{\text{HH}} + S_{\text{VV}} 
+& S_{\text{HH}} - S_{\text{VV}} 
+& 2S_{\text{HV}}
+	\end{bmatrix}^T,
+$$
+where $T$ denotes transposition.
+
+The Pauli representation is useful for visual analysis (assigning its components to the red, green, and blue channels), and for defining the coherency matrix $\bm T$.
+Consider the availability of $n$ measures over the same type of target, then
+$$
+\bm T = \frac{1}{n} \sum_{i=1}^{n}\bm k_i \bm k_i^{T*},
+$$
+where ``$*$'' denotes the complex conjugate.
+
+Given a scattering matrix $\bm{S}$, the $4 \times 4$ real Kennaugh matrix $\bm{K}$ is defined as~\cite{Pottier09}:
+\begin{equation}
+%\label{coKen}
+\bm{K} = \frac{1}{2}\bm{A}^*(\bm{S} \otimes \bm{S}^*) \bm{A}^{*T}, \quad \bm{A} = \left[
+\begin{array}{cccc}
+1 & 0 & 0 & 1\\
+1 & 0 & 0 & -1\\
+0 & 1 & 1 & 0\\
+0 & j & -j & 0
+\end{array}\right],
+\end{equation}
+where $\otimes$ is the Kronecker product, and  $j = \sqrt{-1}$.
+The Kennaugh matrix can be obtained from the coherency matrix $\bm{T}$~\cite{PolarisationApplicationsRemoteSensing}:
+\begin{equation}
+\label{incoKen}
+\bm{K} =
+\left[\arraycolsep=.7pt
+\begin{array}{cccc}
+\frac{T_{11}+T_{22}+ T_{33}}{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
+\Re(T_{12}) & \frac{T_{11}+T_{22}-T_{33}}{2} & \Re(T_{23}) & \Im(T_{13})\\
+\Re(T_{13}) & \Re(T_{23}) & \frac{T_{11}-T_{22}+T_{33}}{2} & - \Im(T_{12})\\
+\Im(T_{23}) & \Im(T_{13}) & - \Im(T_{12}) &\frac{-T_{11}+T_{22}+T_{33}}{2}
+\end{array}\right],
+\end{equation}
+where $\Re(\cdot)$ and $\Im(\cdot)$ denote real and imaginary parts of a complex number. 
+
+The set of all representative elements for various $\bm{K}$ matrices lie on $\mathbbm{S}^{15}$, the surface of the unit sphere in $\mathbbm{R}^{16}$. 
+Therefore, the geodesic distance is the intrinsic way to measure the distance between the two $\bm{K}$ matrices.
+
+This also means that the geodesic distance on the unit sphere is a natural way to measure the dissimilarity between targets. 
+In particular, the geodesic distance ($\text{GD}$) on the unit sphere of $4 \times 4$ real matrices was found to be useful for several applications such as change detection~\cite{ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms}, 
+unsupervised land-cover classification~\cite{ClassificationPolSARGeodesic}, 
+vegetation monitoring~\cite{AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019}, and 
+extraction of urban footprint~\cite{NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019} using PolSAR images. 
+The $\text{GD}$ between two Kennaugh matrices $\bm{K}_1$ and $\bm{K}_2$ is
+\begin{equation}
+\text{GD}(\bm{K}_1,\bm{K}_2) =  \frac{2}{\pi} \cos^{-1}\frac{\Tr(\bm{K}_1^T\bm{K}_2)}{\sqrt{\Tr(\bm{K}_1^T\bm{K}_1)}\sqrt{\Tr(\bm{K}_2^T\bm{K}_2)}} ,
+\label{eq:GD_Ken}
+\end{equation}
+where $\Tr$ denotes the trace operator. 
+The factor $2/\pi$ normalizes the distance to $[0,1]$. 
+Therefore, $\text{GD}$ is the distance between the projections of $\bm{K}_1$ and $\bm{K}_2$ on the unit sphere centered at the origin in the space of $4 \times 4$ real matrices. 
+The $\text{GD}$ without the $2/\pi$ factor is an angular parameter (in radians) as it is computed over a unit sphere. 
+The quantity $\text{GD}(\bm{K}_1, \bm{K}_2)$ measures the angle between unit sphere projections of Kennaugh matrices $\bm{K}_1$ and  $\bm{K}_2$.
+
+As previously mentioned, these distances and associated measures have been successfully employed in several applications.
+Their statistical properties, though, have not been explored yet.
+In the following, we will verify how they behave.
+
+%including prototypes
+%\textcolor{red}{define prototypes}
+
+\section{Data Analysis}
+
+\subsection{Prototypes and Geodesic Measures}
+
+The electromagnetic analysis of prototypes is a fundamental part of the analysis of PolSAR data.
+Some of these prototypes are
+{trihedral} ($\text{t}$), 
+{dihedral} ($\text{d}$), 
+{random volume} ($\text{rv}$), 
+{narrow dihedral} ($\text{nd}$), 
+{cylinder}  ($\text{c}$), 
+{dipole}  ($\text{d}$), 
+{left helix} ($\text{lh}$), 
+{right helix} ($\text{rh}$), 
+{$+1/4$-wave} ($+1/4$), 
+and {$-1/4$-wave} ($-1/4$).
+Fig.~\ref{fig:ElementaryK} shows their Kennaugh matrices.
+
+\begin{figure*}
+\[
+\begin{split}
+&\bm K_{\text{t}} =
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & -1\\
+\end{bmatrix},
+%
+\bm K_{\text{d}} =
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & 1\\
+\end{bmatrix},
+%
+\bm K_{\text{rv}} =
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1/2 & 0 & 0\\
+0 & 0 & 1/2 & 0\\
+0 & 0 & 0 & 0\\
+\end{bmatrix},
+%
+\bm K_{\text{nd}} =
+\begin{bmatrix}
+5/8 & 3/8 & 0 & 0\\
+3/8 & 5/8 & 0 & 0\\
+0 & 0 & -1/2 & 0\\
+0 & 0 & 0 & 1/2
+\end{bmatrix},\\
+%
+&\bm K_{\text{c}} =
+\begin{bmatrix}
+5/8 & 3/8 & 0 & 0\\
+3/8 & 5/8 & 0 & 0\\
+0 & 0 & 1/2 & 0\\
+0 & 0 & 0 & -1/2\\
+\end{bmatrix},
+%
+\bm K_\text{dp}=
+\begin{bmatrix}
+1 & -1 & 0 & 0\\
+-1 & 1 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+\end{bmatrix},
+%
+ \bm K_{\text{lh}}=
+\begin{bmatrix}
+1 & 0 & 0 & -1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+-1 & 0 & 0 & 1\\
+\end{bmatrix},
+%
+\bm K_{\text{rh}}=
+\begin{bmatrix}
+1 & 0 & 0 & 1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+1 & 0 & 0 & 1\\
+\end{bmatrix},\\
+%
+&\bm K_{+1/4}=
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0\\
+\end{bmatrix},
+%
+\bm K_{-1/4}=
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & -1\\
+0 & 0 & -1 & 0\\
+\end{bmatrix},
+%
+\bm{K}_{\text{dep}} =
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}.
+\end{split}
+\]
+\caption{Kennaugh matrices of prototypes: {trihedral} ($\text{t}$), 
+	{dihedral} ($\bm K_{\text{d}}$), 
+	{random volume} ($\bm K_{\text{rv}}$), 
+	{narrow dihedral} ($\bm K_{\text{nd}}$), 
+	{cylinder}  ($\bm K_{\text{c}}$), 
+	{dipole}  ($\bm K_{\text{dp}}$), 
+	{left helix} ($\bm K_{\text{lh}}$), 
+	{right helix} ($\bm K_{\text{rh}}$), 
+	{$+1/4$-wave} ($\bm K_{+1/4}$), 
+ {$-1/4$-wave} ($\bm K_{-1/4}$), and ideal depolarizer $\bm K_{\text{dep}}$.}
+\label{fig:ElementaryK}
+\end{figure*}
+
+The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{dep}}$ matrix.
+The geodesic purity index is then:
+\begin{equation}
+P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{dep}})\Big)^2.
+\end{equation}
+
+Although the $\text{GD}$s are useful measures of dissimilarity, it will be more convenient to work with similarities.
+Since the $\text{GD}$s are defined on $[0,1]$, our (geodesic) similarity measure will be $f(\bm{K}, \bm{K}_{\text{ref}}) = 1-\text{GD}(\bm{K}, \bm{K}_{\text{ref}})$, where $\bm{K}_{\text{ref}}$ is any prototype or reference Kennaugh matrix.
+
+Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed a geodesic scattering type angle $\alpha_{\text{GD}}$.
+In analogy with the one defined by Cloude and Pottier~\cite{CloudePottier:97}, it describes 
+the distance to the trihedral prototype:
+\begin{equation}
+\alpha_{\text{GD}}(\bm{K}) = \SI{90}{\degree} \times \text{GD}(\bm{K},\bm{K}_{\text{t}}).
+\end{equation}
+
 
 \subsection{Samples}
 
-We analyse five PolSAR images of the same soilbeans crop region obtained over time, which were made available by Prof. Avik Bhattacharya and his research group. The first image was taken 16 May 2016, followed by four others at time intervals of $24$ days. The images are $30 \times 65$ pixels.
+We analyse five PolSAR images of the same soilbeans crop region obtained over time. 
+The first image was taken 16 May 2016, followed by four others at time intervals of $24$ days. The images are $30 \times 65$ pixels.
 Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the data in Pauli Decomposition. 
 
 \begin{figure}[hbt]
@@ -77,6 +304,12 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the data in Pauli Decomposition
   \label{fig:sample_images}
 \end{figure}
 
+We computed the distance of each pixel to all prototypes (except to $\bm K_{\text{dep}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
+
+\textcolor{red}{\hrulefill}
+
+From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha_sb231} along with the sample size.
+
 The roadmap for the data analysis of these images is:
 \begin{enumerate}
   \item Obtaining the geodesic purity index and scattering type angle of the data;
@@ -85,9 +318,6 @@ The roadmap for the data analysis of these images is:
   \item Making separability tests.
 \end{enumerate}
 
-\subsection{Geodesic Features}
-
-\subsubsection{Geodesic Purity Index}
 
 % A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
 % The data look crammed in their original space, though.
@@ -217,11 +447,6 @@ Fitting distributions
 Separability tests
 
 
-\subsection{Geodesic Scattering Type Angle}
-
-In this analysis, the geodesic distance to the trihedral - the normalized geodesic scattering type angle - was obtained from the samples. From these computed distances, those referring to pixels closer to the trihedral than to the other elementary scatterers (cylinder, dipole, dihedral, narrow dihedral, left helix, right helix, $-1/4$-wave, $+1/4$-wave) were selected.
-
-From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha_sb231} along with the sample size.
 
 \begin{figure}[hbt]
 \centering
@@ -513,7 +738,7 @@ We observe that at level $0.05$, the only null hypothesis that cannot be rejecte
 
 The authors would like to thank...
 
-\nocite{ClassificationPolSARGeodesic,AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019,NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019,APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress}
+\nocite{ClassificationPolSARGeodesic,AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019,NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019,APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress,TheKennaughElementFrameworkforMultiScaleMultiPolarizedMultiTemporalandMultiFrequencySARImagePreparation,ScatteringCharacteristicsXCL-BandPolSARData,RadarTargetRecognitionBasedonModifiedCharacteristicPolarizationStates,RedevelopmentofKennaughsTargetCharacteristicPolarizationStateTheoryUsingthePolarizationTransformationRationFormalismfortheCoherentCase}
 
 \bibliographystyle{IEEEtran}
 \bibliography{../../../../Bibliography/references}
