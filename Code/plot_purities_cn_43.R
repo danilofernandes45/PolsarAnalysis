@@ -1,5 +1,3 @@
-dim <- c(25, 55, 30, 50) #Canola 43
-
 dim <- c(25, 50, 30, 39) #Canola 43 -> Used
 
 #To work, the directory of this code should be Working Directory
@@ -19,25 +17,23 @@ for(i in 1:5){
 }
 
 ### BEGIN Plot for the GRSL paper (Alejandro, 16 March 2020)
-require(reshape2)
-PurityCanola <- sample
-
-# Convert the 3D matrix into a 2D structure
-dim(PurityCanola) <- c(dim(sample)[1]*dim(sample)[2],5)
-
-# melt and clean the 2D structure
-melt.PurityCanola <- melt(PurityCanola)
-melt.PurityCanola <- melt.PurityCanola[,-1]
-names(melt.PurityCanola) <- c("Date", "Purity")
-melt.PurityCanola$Date <- as.factor(melt.PurityCanola$Date)
+PurityCanola <- array(NA, dim=c(prod(dim(sample)), 2))
+PurityCanola[,1] <- sample[,,]
+PurityCanola[,2] <- rep(1:5, each=prod(dim(sample)[1:2]))
+PurityCanola <- data.frame(PurityCanola)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+PurityCanola[,2] <- dates[PurityCanola[,2]]
+names(PurityCanola) <- c("Purity", "Date")
+PurityCanola$Date <- factor(PurityCanola$Date,
+                            levels = dates)
 
 # Plot of Canola Purities
-ggplot(melt.PurityCanola, aes(x=Purity, fill=Date)) + 
-  geom_density(alpha=0.25) + 
-  labs(x="Canola Purity", y="Density") +
-  theme_ipsum(base_family = "Times New Roman", base_size = 20, axis_title_size = 20)
+ggplot(PurityCanola, aes(x=Purity, fill=Date)) + 
+  geom_density(alpha=.5) +
+  labs(x="Canola Purity 2016", y="Estimated Density") +
+  theme_ipsum(base_family = "Times New Roman", 
+              base_size = 20, axis_title_size = 20)
 
-ggplot(melt.PurityCanola, aes(x=Purity, fill=Date)) + geom_boxplot(alpha=0.25)
 ### END Plot for the GRSL paper (Alejandro, 16 March 2020)
 
 
