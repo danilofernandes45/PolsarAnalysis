@@ -18,6 +18,29 @@ for(i in 1:5){
   sample[,,i] <- purity_gd(dim)
 }
 
+### BEGIN Plot for the GRSL paper (Alejandro, 16 March 2020)
+require(reshape2)
+PurityCanola <- sample
+
+# Convert the 3D matrix into a 2D structure
+dim(PurityCanola) <- c(dim(sample)[1]*dim(sample)[2],5)
+
+# melt and clean the 2D structure
+melt.PurityCanola <- melt(PurityCanola)
+melt.PurityCanola <- melt.PurityCanola[,-1]
+names(melt.PurityCanola) <- c("Date", "Purity")
+melt.PurityCanola$Date <- as.factor(melt.PurityCanola$Date)
+
+# Plot of Canola Purities
+ggplot(melt.PurityCanola, aes(x=Purity, fill=Date)) + 
+  geom_density(alpha=0.25) + 
+  labs(x="Canola Purity", y="Density") +
+  theme_ipsum(base_family = "Times New Roman", base_size = 20, axis_title_size = 20)
+
+ggplot(melt.PurityCanola, aes(x=Purity, fill=Date)) + geom_boxplot(alpha=0.25)
+### END Plot for the GRSL paper (Alejandro, 16 March 2020)
+
+
 k <- 1
 
 ggplot() +
