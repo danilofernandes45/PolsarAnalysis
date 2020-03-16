@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{Statistical Properties of Geodesic Features in PolSAR Data}
+\title{Statistical Properties of Geodesic Features in PolSAR Data over Crops}
 
 \author{Danilo~Fernandes,
         Debanshu~Ratha,
@@ -53,9 +53,7 @@ Geodesic distance, PolSAR, Kennaugh representation
 \IEEEPARstart{G}{eodesic distances} between points in the Kennaugh representation
 No statistical assessment of the properties of such distances under the hypothesis of good samples
 
-
-
-In face of this new decomposition theorem, this paper makes qualitative and quantitative analyses of geodesic features (distances, $\alpha$, $\tau$, and purity).
+In face of this new decomposition theorem, this paper makes qualitative and quantitative analyses of geodesic features (distances, $\alpha_{\text{GD}}$, $\tau_{\text{GD}}$, and purity).
 We compute those features between observations and a set of arbitrary prototypes (elementary backscatterers and other representative points).
 
 
@@ -147,7 +145,6 @@ In the following, we will verify how they behave.
 %including prototypes
 %\textcolor{red}{define prototypes}
 
-\section{Data Analysis}
 
 \subsection{Prototypes and Geodesic Measures}
 
@@ -283,8 +280,11 @@ Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvar
 In analogy with the one defined by Cloude and Pottier~\cite{CloudePottier:97}, it describes 
 the distance to the trihedral prototype:
 \begin{equation}
-\alpha_{\text{GD}}(\bm{K}) = \SI{90}{\degree} \times \text{GD}(\bm{K},\bm{K}_{\text{t}}).
+\alpha_{\text{GD}}(\bm{K}) = \frac{\pi}{2}  \text{GD}(\bm{K},\bm{K}_{\text{t}}).
 \end{equation}
+
+\section{Data Analysis}
+
 
 
 \subsection{Samples}
