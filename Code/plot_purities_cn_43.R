@@ -16,7 +16,7 @@ for(i in 1:5){
   sample[,,i] <- purity_gd(dim)
 }
 
-### BEGIN Plot for the GRSL paper (Alejandro, 16 March 2020)
+### BEGIN Canola Purity Plot for the GRSL paper (Alejandro, 16-17 March 2020)
 PurityCanola <- array(NA, dim=c(prod(dim(sample)), 2))
 PurityCanola[,1] <- sample[,,]
 PurityCanola[,2] <- rep(1:5, each=prod(dim(sample)[1:2]))
@@ -32,9 +32,11 @@ ggplot(PurityCanola, aes(x=Purity, fill=Date)) +
   geom_density(alpha=.5) +
   labs(x="Canola Purity 2016", y="Estimated Density") +
   theme_ipsum(base_family = "Times New Roman", 
-              base_size = 20, axis_title_size = 20)
+              base_size = 20, axis_title_size = 20) +
+  scale_fill_ipsum()
+ggsave(file="CanolaPurity.pdf", width = 15, height=10, units="cm")
 
-### END Plot for the GRSL paper (Alejandro, 16 March 2020)
+### END of Canola Purity Plot for the GRSL paper (Alejandro, 16-17 March 2020)
 
 
 k <- 1
@@ -67,6 +69,36 @@ ggplot() +
   theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
   xlab("Normalized Alpha") + ylab("Density") + xlim(c(0, 1))
 
+### BEGIN Canola Alphas Plot for the GRSL paper (Alejandro, 17 March 2020)
+
+AlphaCanola <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- getFilteredData("trihedral", dim)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  AlphaCanola <- rbind(AlphaCanola, id.sample)
+}
+
+AlphaCanola <- data.frame(AlphaCanola)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+AlphaCanola[,2] <- dates[AlphaCanola[,2]]
+names(AlphaCanola) <- c("Alpha", "Date")
+AlphaCanola$Date <- factor(AlphaCanola$Date,
+                            levels = dates)
+
+# Plot of Canola Alphas
+ggplot(AlphaCanola, aes(x=Alpha, fill=Date)) + 
+  geom_density(alpha=.5) +
+  labs(x="Canola Alpha 2016", y="Estimated Density") +
+  theme_ipsum(base_family = "Times New Roman", 
+              base_size = 20, axis_title_size = 20) +
+  scale_fill_ipsum()
+ggsave(file="CanolaAlpha.pdf", width = 15, height=10, units="cm")
+
+### END of Canola Alphas Plot for the GRSL paper (Alejandro, 17 March 2020)
+
+
 setwd(wd[1])
 sample <- c(helicity_gd(dim) / 45)
 ggplot() +
@@ -74,3 +106,31 @@ ggplot() +
                  alpha=0.6, position = 'identity', bins=nclass.FD(sample)/1.1) +
   theme_ipsum(base_family = "Times New Roman", base_size = 70, axis_title_size = 70)+
   xlab("Normalized Helicity") + ylab("Density") + xlim(c(0, 1)) + ylim(c(0, 10))
+
+### BEGIN Canola Helicity Plot for the GRSL paper (Alejandro, 17 March 2020)
+
+HelicityCanola <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- c(helicity_gd(dim) / 45)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  HelicityCanola <- rbind(HelicityCanola, id.sample)
+}
+
+HelicityCanola <- data.frame(HelicityCanola)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+HelicityCanola[,2] <- dates[HelicityCanola[,2]]
+names(HelicityCanola) <- c("Helicity", "Date")
+HelicityCanola$Date <- factor(HelicityCanola$Date,
+                           levels = dates)
+
+# Plot of Canola Helicity
+ggplot(HelicityCanola, aes(x=Helicity, fill=Date)) + 
+  geom_density(alpha=.5) +
+  labs(x="Canola Helicity 2016", y="Estimated Density") +
+  theme_ipsum(base_family = "Times New Roman", 
+              base_size = 20, axis_title_size = 20) +
+  scale_fill_ipsum()
+
+### END of Canola Helicity Plot for the GRSL paper (Alejandro, 17 March 2020)

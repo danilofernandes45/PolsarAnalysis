@@ -267,21 +267,30 @@ Fig.~\ref{fig:ElementaryK} shows their Kennaugh matrices.
 \label{fig:ElementaryK}
 \end{figure*}
 
+Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed three new roll-invariant geodesic parameters, in analogy with classical ones~\cite{CloudePottier:97}: Purity, Scattering Type Angle, and Helicity.
+
 The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{dep}}$ matrix.
 The geodesic purity index is then:
 \begin{equation}
 P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{dep}})\Big)^2.
 \end{equation}
 
-Although the $\text{GD}$s are useful measures of dissimilarity, it will be more convenient to work with similarities.
-Since the $\text{GD}$s are defined on $[0,1]$, our (geodesic) similarity measure will be $f(\bm{K}, \bm{K}_{\text{ref}}) = 1-\text{GD}(\bm{K}, \bm{K}_{\text{ref}})$, where $\bm{K}_{\text{ref}}$ is any prototype or reference Kennaugh matrix.
+%Although the $\text{GD}$s are useful measures of dissimilarity, it will be more convenient to work with similarities.
+%Since the $\text{GD}$s are defined on $[0,1]$, our (geodesic) similarity measure will be $f(\bm{K}, \bm{K}_{\text{ref}}) = 1-\text{GD}(\bm{K}, \bm{K}_{\text{ref}})$, where $\bm{K}_{\text{ref}}$ is any prototype or reference Kennaugh matrix.
 
-Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed a geodesic scattering type angle $\alpha_{\text{GD}}$.
-In analogy with the one defined by Cloude and Pottier~\cite{CloudePottier:97}, it describes 
+The geodesic scattering type angle $\alpha_{\text{GD}}$ describes 
 the distance to the trihedral prototype:
 \begin{equation}
 \alpha_{\text{GD}}(\bm{K}) = \frac{\pi}{2}  \text{GD}(\bm{K},\bm{K}_{\text{t}}).
 \end{equation}
+
+The helicity parameter provides a quantitative estimation of target symmetry~\cite{Touzi:TGARS:2007} in the observation. 
+This quantity is derived as the (geometric) mean of the distances from left and right helices:
+\begin{equation}
+\tau_{\text{GD}} = \frac\pi4 \big(1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}\big).
+\end{equation}
+The multiplication by $\pi/4$ makes the scale equal for comparison with $|\tau_{m_1}|$~\cite{Touzi:TGARS:2007}. 
+For trihedral target, $\tau_{GD} = 0$ and for helices $\tau_{GD} = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$. 
 
 \section{Data Analysis}
 
