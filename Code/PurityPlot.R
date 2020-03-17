@@ -16,6 +16,10 @@ PurityPlot <- ggplot(Purity, aes(x=Purity, fill=Date)) +
   scale_fill_ipsum() +
   theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
   
-PurityPlot + facet_grid(.~ Crop)  
+PurityPlot + 
+  theme(legend.position="bottom",
+        legend.title=element_blank(),
+        legend.margin = margin(rep(0,4), "cm")) + 
+  facet_grid(.~ Crop)  
 ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/Purity.pdf", 
        width = 210, height=60, units="mm")
