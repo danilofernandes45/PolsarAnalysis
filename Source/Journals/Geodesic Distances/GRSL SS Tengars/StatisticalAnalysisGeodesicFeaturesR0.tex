@@ -1,7 +1,7 @@
 \documentclass[journal]{IEEEtran}
 
 \usepackage{graphicx}
-\graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Images/GRSL_2020/}}
+\graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Figures/GRSL_2020/FactorPlots/}{../../../../Images/GRSL_2020/}}
 
 \usepackage[font=footnotesize]{subcaption}
 \usepackage{booktabs}
@@ -298,9 +298,10 @@ For trihedral target, $\tau_{GD} = 0$ and for helices $\tau_{GD} = \pi/4$, which
 
 \subsection{Samples}
 
-We analyse five PolSAR images of the same soilbeans crop region obtained over time. 
+We analyse five PolSAR images of the same region obtained over time.
 The first image was taken 16 May 2016, followed by four others at time intervals of $24$ days. The images are $30 \times 65$ pixels.
-Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the data in Pauli Decomposition. 
+
+Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomposition. 
 
 \begin{figure}[hbt]
   \centering
@@ -314,6 +315,20 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the data in Pauli Decomposition
 \end{figure}
 
 We computed the distance of each pixel to all prototypes (except to $\bm K_{\text{dep}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
+
+\begin{figure*}[htb]
+\centering
+\includegraphics[width=\linewidth]{Purity}
+\caption{Purity Indexes from Canola, Oats, Soy Beans, and Wheat in five dates}\label{fig:AllPurities}
+\end{figure*}
+
+\begin{figure}[hbt]
+\centering
+\subcaptionbox{Geodesic Purity Index $P_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaPurity}}
+\subcaptionbox{Geodesic Type Scattering Angle $\alpha_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaAlpha}}
+\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaHelicity}}
+\caption{Geodesic Indexes for Canola\label{fig:CanolaIndexes}}
+\end{figure}
 
 \textcolor{red}{\hrulefill}
 

@@ -32,10 +32,11 @@ ggplot(PurityCanola, aes(x=Purity, fill=Date)) +
   geom_density(alpha=.5) +
   labs(x="Canola Purity 2016", y="Estimated Density") +
   theme_ipsum(base_family = "Times New Roman", 
-              base_size = 20, axis_title_size = 20) +
-  scale_fill_ipsum()
-ggsave(file="CanolaPurity.pdf", width = 15, height=10, units="cm")
-
+              base_size = 10, axis_title_size = 10) +
+  scale_fill_ipsum() +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/CanolaPurity.pdf", 
+       width = 15, height=8, units="cm")
 ### END of Canola Purity Plot for the GRSL paper (Alejandro, 16-17 March 2020)
 
 
@@ -92,9 +93,12 @@ ggplot(AlphaCanola, aes(x=Alpha, fill=Date)) +
   geom_density(alpha=.5) +
   labs(x="Canola Alpha 2016", y="Estimated Density") +
   theme_ipsum(base_family = "Times New Roman", 
-              base_size = 20, axis_title_size = 20) +
-  scale_fill_ipsum()
-ggsave(file="CanolaAlpha.pdf", width = 15, height=10, units="cm")
+              base_size = 10, axis_title_size = 10) +
+  scale_fill_ipsum() +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm")) 
+
+ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/CanolaAlpha.pdf", 
+       width = 15, height=8, units="cm")
 
 ### END of Canola Alphas Plot for the GRSL paper (Alejandro, 17 March 2020)
 
@@ -130,7 +134,10 @@ ggplot(HelicityCanola, aes(x=Helicity, fill=Date)) +
   geom_density(alpha=.5) +
   labs(x="Canola Helicity 2016", y="Estimated Density") +
   theme_ipsum(base_family = "Times New Roman", 
-              base_size = 20, axis_title_size = 20) +
-  scale_fill_ipsum()
+              base_size = 10, axis_title_size = 10) +
+  scale_fill_ipsum() +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/CanolaHelicity.pdf", 
+       width = 15, height=8, units="cm")
 
 ### END of Canola Helicity Plot for the GRSL paper (Alejandro, 17 March 2020)

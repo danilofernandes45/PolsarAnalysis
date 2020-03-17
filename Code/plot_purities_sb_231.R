@@ -41,6 +41,29 @@ for(i in 1:5){
   sample[,,i] <- purity_gd(dim)
 }
 
+### BEGIN SoyBeans Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+PuritySoyBeans <- array(NA, dim=c(prod(dim(sample)), 2))
+PuritySoyBeans[,1] <- sample[,,]
+PuritySoyBeans[,2] <- rep(1:5, each=prod(dim(sample)[1:2]))
+PuritySoyBeans <- data.frame(PuritySoyBeans)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+PuritySoyBeans[,2] <- dates[PuritySoyBeans[,2]]
+names(PuritySoyBeans) <- c("Purity", "Date")
+PuritySoyBeans$Date <- factor(PuritySoyBeans$Date,
+                          levels = dates)
+
+# Plot of SoyBeans Purities
+ggplot(PuritySoyBeans, aes(x=Purity, fill=Date)) + 
+  geom_density(alpha=.5) +
+  labs(x="SoyBeans Purity 2016", y="Estimated Density") +
+  theme_ipsum(base_family = "Times New Roman", 
+              base_size = 10, axis_title_size = 10) +
+  scale_fill_ipsum() +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/SoyBeansPurity.pdf", 
+       width = 15, height=8, units="cm")
+### END of SoyBeans Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)

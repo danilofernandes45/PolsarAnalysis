@@ -16,6 +16,29 @@ for(i in 1:5){
   sample[,,i] <- purity_gd(dim)
 }
 
+### BEGIN Wheat Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+PurityWheat <- array(NA, dim=c(prod(dim(sample)), 2))
+PurityWheat[,1] <- sample[,,]
+PurityWheat[,2] <- rep(1:5, each=prod(dim(sample)[1:2]))
+PurityWheat <- data.frame(PurityWheat)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+PurityWheat[,2] <- dates[PurityWheat[,2]]
+names(PurityWheat) <- c("Purity", "Date")
+PurityWheat$Date <- factor(PurityWheat$Date,
+                          levels = dates)
+
+# Plot of Wheat Purities
+ggplot(PurityWheat, aes(x=Purity, fill=Date)) + 
+  geom_density(alpha=.5) +
+  labs(x="Wheat Purity 2016", y="Estimated Density") +
+  theme_ipsum(base_family = "Times New Roman", 
+              base_size = 10, axis_title_size = 10) +
+  scale_fill_ipsum() +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/WheatPurity.pdf", 
+       width = 15, height=8, units="cm")
+### END of Wheat Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+
 k <- 5
 
 ggplot() +
