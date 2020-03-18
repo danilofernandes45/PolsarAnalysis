@@ -64,6 +64,47 @@ ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/SoyBeansPurity.pdf",
        width = 15, height=8, units="cm")
 ### END of SoyBeans Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
 
+### BEGIN SoyBeans Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+AlphaSoyBeans <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- getFilteredData("trihedral", dim)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  AlphaSoyBeans <- rbind(AlphaSoyBeans, id.sample)
+}
+
+AlphaSoyBeans <- data.frame(AlphaSoyBeans)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+AlphaSoyBeans[,2] <- dates[AlphaSoyBeans[,2]]
+names(AlphaSoyBeans) <- c("Alpha", "Date")
+AlphaSoyBeans$Date <- factor(AlphaSoyBeans$Date,
+                         levels = dates)
+
+### END SoyBeans Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+### BEGIN SoyBeans Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+HelicitySoyBeans <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- c(helicity_gd(dim) / 45)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  HelicitySoyBeans <- rbind(HelicitySoyBeans, id.sample)
+}
+
+HelicitySoyBeans <- data.frame(HelicitySoyBeans)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+HelicitySoyBeans[,2] <- dates[HelicitySoyBeans[,2]]
+names(HelicitySoyBeans) <- c("Helicity", "Date")
+HelicitySoyBeans$Date <- factor(HelicitySoyBeans$Date,
+                            levels = dates)
+
+### END SoyBeans Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)

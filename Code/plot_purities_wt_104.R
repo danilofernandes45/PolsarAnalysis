@@ -39,6 +39,47 @@ ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/WheatPurity.pdf",
        width = 15, height=8, units="cm")
 ### END of Wheat Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
 
+### BEGIN Wheat Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+AlphaWheat <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- getFilteredData("trihedral", dim)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  AlphaWheat <- rbind(AlphaWheat, id.sample)
+}
+
+AlphaWheat <- data.frame(AlphaWheat)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+AlphaWheat[,2] <- dates[AlphaWheat[,2]]
+names(AlphaWheat) <- c("Alpha", "Date")
+AlphaWheat$Date <- factor(AlphaWheat$Date,
+                             levels = dates)
+
+### END Wheat Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+### BEGIN Wheat Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+HelicityWheat <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- c(helicity_gd(dim) / 45)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  HelicityWheat <- rbind(HelicityWheat, id.sample)
+}
+
+HelicityWheat <- data.frame(HelicityWheat)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+HelicityWheat[,2] <- dates[HelicityWheat[,2]]
+names(HelicityWheat) <- c("Helicity", "Date")
+HelicityWheat$Date <- factor(HelicityWheat$Date,
+                                levels = dates)
+
+### END Wheat Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+
 k <- 5
 
 ggplot() +

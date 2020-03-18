@@ -8,8 +8,8 @@ dim_wt104 <- c(515, 65, 360, 30)
 
 color_sb231 <- "#636F4B"
 color_cn43 <- "#FFC840"
-color_wt_104 <- "#F5DEB3"
 color_ot_102 <- "#EFE6D8"
+color_wt_104 <- "#F5DEB3"
 
 #Dataset path
 actual_dir <- getwd()

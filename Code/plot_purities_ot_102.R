@@ -51,3 +51,43 @@ ggplot(PurityOats, aes(x=Purity, fill=Date)) +
 ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/OatsPurity.pdf", 
        width = 15, height=8, units="cm")
 ### END of Oats Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+
+### BEGIN Oats Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+AlphaOats <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- getFilteredData("trihedral", dim)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  AlphaOats <- rbind(AlphaOats, id.sample)
+}
+
+AlphaOats <- data.frame(AlphaOats)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+AlphaOats[,2] <- dates[AlphaOats[,2]]
+names(AlphaOats) <- c("Alpha", "Date")
+AlphaOats$Date <- factor(AlphaOats$Date,
+                           levels = dates)
+
+### END Oats Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+### BEGIN Oats Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+HelicityOats <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- c(helicity_gd(dim) / 45)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  HelicityOats <- rbind(HelicityOats, id.sample)
+}
+
+HelicityOats <- data.frame(HelicityOats)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+HelicityOats[,2] <- dates[HelicityOats[,2]]
+names(HelicityOats) <- c("Helicity", "Date")
+HelicityOats$Date <- factor(HelicityOats$Date,
+                              levels = dates)
+
+### END Oats Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
