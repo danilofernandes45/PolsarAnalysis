@@ -16,6 +16,70 @@ for(i in 1:5){
   sample[,,i] <- purity_gd(dim)
 }
 
+### BEGIN Wheat Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+PurityWheat <- array(NA, dim=c(prod(dim(sample)), 2))
+PurityWheat[,1] <- sample[,,]
+PurityWheat[,2] <- rep(1:5, each=prod(dim(sample)[1:2]))
+PurityWheat <- data.frame(PurityWheat)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+PurityWheat[,2] <- dates[PurityWheat[,2]]
+names(PurityWheat) <- c("Purity", "Date")
+PurityWheat$Date <- factor(PurityWheat$Date,
+                          levels = dates)
+
+# Plot of Wheat Purities
+ggplot(PurityWheat, aes(x=Purity, fill=Date)) + 
+  geom_density(alpha=.5) +
+  labs(x="Wheat Purity 2016", y="Estimated Density") +
+  theme_ipsum(base_family = "Times New Roman", 
+              base_size = 10, axis_title_size = 10) +
+  scale_fill_ipsum() +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/WheatPurity.pdf", 
+       width = 15, height=8, units="cm")
+### END of Wheat Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
+
+### BEGIN Wheat Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+AlphaWheat <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- getFilteredData("trihedral", dim)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  AlphaWheat <- rbind(AlphaWheat, id.sample)
+}
+
+AlphaWheat <- data.frame(AlphaWheat)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+AlphaWheat[,2] <- dates[AlphaWheat[,2]]
+names(AlphaWheat) <- c("Alpha", "Date")
+AlphaWheat$Date <- factor(AlphaWheat$Date,
+                             levels = dates)
+
+### END Wheat Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+
+### BEGIN Wheat Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+HelicityWheat <- NULL
+for(i in 1:5){
+  setwd(wd[i])
+  sample <- c(helicity_gd(dim) / 45)
+  print(i); print(length(sample))
+  id.sample <- cbind(sample, rep(i, length(sample)))
+  HelicityWheat <- rbind(HelicityWheat, id.sample)
+}
+
+HelicityWheat <- data.frame(HelicityWheat)
+dates <- c("16 May", "9 June", "3 July", "27 July", "20 August")
+HelicityWheat[,2] <- dates[HelicityWheat[,2]]
+names(HelicityWheat) <- c("Helicity", "Date")
+HelicityWheat$Date <- factor(HelicityWheat$Date,
+                                levels = dates)
+
+### END Wheat Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+
+
 k <- 5
 
 ggplot() +

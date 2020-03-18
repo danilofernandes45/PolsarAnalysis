@@ -8,8 +8,8 @@ dim_wt104 <- c(515, 65, 360, 30)
 
 color_sb231 <- "#636F4B"
 color_cn43 <- "#FFC840"
-color_wt_104 <- "#F5DEB3"
 color_ot_102 <- "#EFE6D8"
+color_wt_104 <- "#F5DEB3"
 
 #Dataset path
 actual_dir <- getwd()
@@ -67,6 +67,7 @@ compute_params_alpha <- function(dim, k){
   
   return(c(alpha, beta))
 }
+<<<<<<< HEAD
 
 ksTestAlpha <- function(dim, k){
   setwd(wd[k])
@@ -78,3 +79,5 @@ ksTestAlpha <- function(dim, k){
   
   return( c( length(sample),ks.test(sample, "pbeta", shape1 = alpha, shape2 = beta)$p.value))
 }
+=======
+>>>>>>> 91620581427de17ca8eae3fb3bf8664359e2884c
