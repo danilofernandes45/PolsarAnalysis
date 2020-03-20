@@ -52,7 +52,7 @@ ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/OatsPurity.pdf",
        width = 15, height=8, units="cm")
 ### END of Oats Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
 
-### BEGIN Oats Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+### BEGIN Oats Alphas for the GRSL paper (Alejandro, 20 March 2020)
 
 AlphaOats <- NULL
 for(i in 1:5){
@@ -69,10 +69,10 @@ AlphaOats[,2] <- dates[AlphaOats[,2]]
 names(AlphaOats) <- c("Alpha", "Date")
 AlphaOats$Date <- factor(AlphaOats$Date,
                            levels = dates)
+### BEGIN Oats Alphas for the GRSL paper (Alejandro, 20 March 2020)
 
-### END Oats Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
 
-### BEGIN Oats Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+### BEGIN Oats Helicity for the GRSL paper (Alejandro, 20 March 2020)
 
 HelicityOats <- NULL
 for(i in 1:5){
@@ -90,4 +90,4 @@ names(HelicityOats) <- c("Helicity", "Date")
 HelicityOats$Date <- factor(HelicityOats$Date,
                               levels = dates)
 
-### END Oats Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+### BEGIN Oats Helicity for the GRSL paper (Alejandro, 20 March 2020)

@@ -77,3 +77,18 @@ HelicityPlot +
   facet_grid(.~ Crop)  
 ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/Helicity.pdf", 
        width = 210, height=60, units="mm", device = cairo_pdf)
+
+
+#### Only one plot
+
+Purity$Index <- "Purity"
+names(Purity) <- c("Observation", "Date", "Crop", "Index")
+Alpha$Index <- "Alpha"
+names(Alpha) <- c("Observation", "Date", "Crop", "Index")
+Helicity$Index <- "Helicity"
+names(Helicity) <- c("Observation", "Date", "Crop", "Index")
+
+GeodesicIndexes <- rbind(Purity, Alpha, Helicity)
+GeodesicIndexes$Index <- as.factor(GeodesicIndexes$Index)
+
+save(file="/Users/acfrery/Documents/Alunos/Danilo Fernandes/Data/ACFrery/GeodesicIndexes.Rdata", GeodesicIndexes)

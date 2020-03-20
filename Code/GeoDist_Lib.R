@@ -7,7 +7,7 @@ library(raster)
 library(logitnorm)
 library(dplyr)
 library(hrbrthemes)
-require(extrafonts)
+require(extrafont)
 
 source("pert.R")
 

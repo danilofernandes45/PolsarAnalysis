@@ -64,7 +64,7 @@ ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/SoyBeansPurity.pdf",
        width = 15, height=8, units="cm")
 ### END of SoyBeans Purity Plot for the GRSL paper (Alejandro, 17 March 2020)
 
-### BEGIN SoyBeans Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
+### BEGIN SoyBeans Alpha for the GRSL paper (Danilo, 18 March 2020)
 
 AlphaSoyBeans <- NULL
 for(i in 1:5){
@@ -84,7 +84,7 @@ AlphaSoyBeans$Date <- factor(AlphaSoyBeans$Date,
 
 ### END SoyBeans Alpha Plot for the GRSL paper (Danilo, 18 March 2020)
 
-### BEGIN SoyBeans Helicity Plot for the GRSL paper (Danilo, 18 March 2020)
+### BEGIN SoyBeans Helicity for the GRSL paper (Danilo, 18 March 2020)
 
 HelicitySoyBeans <- NULL
 for(i in 1:5){

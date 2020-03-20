@@ -294,13 +294,10 @@ For trihedral target, $\tau_{GD} = 0$ and for helices $\tau_{GD} = \pi/4$, which
 
 \section{Data Analysis}
 
-
-
 \subsection{Samples}
 
-We analyse five PolSAR images of the same region obtained over time.
+We analyzed five PolSAR images of the same region obtained over time.
 The first image was taken 16 May 2016, followed by four others at time intervals of $24$ days. The images are $30 \times 65$ pixels.
-
 Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomposition. 
 
 \begin{figure}[hbt]
@@ -316,19 +313,23 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomp
 
 We computed the distance of each pixel to all prototypes (except to $\bm K_{\text{dep}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
 
+Fig.~\ref{fig:AllIndexes} shows the three Geodesic Indexes (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$) for the four crops (Canola, Oats, Soy Beans, and Wheat) in the five dates here considered.
+
 \begin{figure*}[htb]
 \centering
-\includegraphics[width=\linewidth]{Purity}
-\caption{Geodesic Purity Indexes $P_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}\label{fig:AllPurities}
+\subcaptionbox{Geodesic Purity Indexes $P_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Purity}}
+\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Alpha}}
+\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Helicity}}
+\caption{The three Geodesic Indexes by crop and dates.}\label{fig:AllIndexes}
 \end{figure*}
 
-\begin{figure}[hbt]
-\centering
-\subcaptionbox{Geodesic Purity Index $P_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaPurity}}
-\subcaptionbox{Geodesic Type Scattering Angle $\alpha_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaAlpha}}
-\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaHelicity}}
-\caption{Geodesic Indexes for Canola\label{fig:CanolaIndexes}}
-\end{figure}
+%\begin{figure}[hbt]
+%\centering
+%\subcaptionbox{Geodesic Purity Index $P_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaPurity}}
+%\subcaptionbox{Geodesic Type Scattering Angle $\alpha_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaAlpha}}
+%\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaHelicity}}
+%\caption{Geodesic Indexes for Canola\label{fig:CanolaIndexes}}
+%\end{figure}
 
 \textcolor{red}{\hrulefill}
 
@@ -472,16 +473,16 @@ Separability tests
 
 
 
-\begin{figure}[hbt]
-\centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_sb231_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_sb231_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_sb231_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_sb231_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{alpha_sb231_5}}
-\caption{Histograms of the geodesic distances between trihedral and the pixels from Soybeans 231 most similar to trihedral}
-\label{fig:histograms_alpha_sb231}
-\end{figure}
+%\begin{figure}[hbt]
+%\centering
+%\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_sb231_1}}
+%\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_sb231_2}}
+%\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_sb231_3}}
+%\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_sb231_4}}
+%\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{alpha_sb231_5}}
+%\caption{Histograms of the geodesic distances between trihedral and the pixels from Soybeans 231 most similar to trihedral}
+%\label{fig:histograms_alpha_sb231}
+%\end{figure}
 
 \begin{table}[hbt]
   \centering
@@ -497,16 +498,16 @@ Separability tests
   \end{tabular}
 \end{table}
 
-\begin{figure}[hbt]
-\centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_cn43_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_cn43_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_cn43_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_cn43_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{alpha_cn43_5}}
-\caption{Histograms of the geodesic distances between trihedral and the pixels from Canola 43 most similar to trihedral}
-\label{fig:histograms_alpha_cn43}
-\end{figure}
+%\begin{figure}[hbt]
+%\centering
+%\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_cn43_1}}
+%\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_cn43_2}}
+%\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_cn43_3}}
+%\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_cn43_4}}
+%\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{alpha_cn43_5}}
+%\caption{Histograms of the geodesic distances between trihedral and the pixels from Canola 43 most similar to trihedral}
+%\label{fig:histograms_alpha_cn43}
+%\end{figure}
 
 \begin{table}[hbt]
   \centering
@@ -522,27 +523,27 @@ Separability tests
   \end{tabular}
 \end{table}
 
-\begin{figure}[hbt]
-\centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_ot102_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_ot102_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_4}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_5}}
-\caption{Histograms of the geodesic distances between trihedral and the pixels from Oats 102 most similar to trihedral}
-\label{fig:histograms_alpha_ot102}
-\end{figure}
+%\begin{figure}[hbt]
+%\centering
+%\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_ot102_1}}
+%\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{alpha_ot102_2}}
+%\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_3}}
+%\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_4}}
+%\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{alpha_ot102_5}}
+%\caption{Histograms of the geodesic distances between trihedral and the pixels from Oats 102 most similar to trihedral}
+%\label{fig:histograms_alpha_ot102}
+%\end{figure}
 
-\begin{figure}[hbt]
-\centering
-\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_1}}
-\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_2}}
-\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_3}}
-\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_4}}
-\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_5}}
-\caption{Histograms of the geodesic distances between trihedral and the pixels from Wheat 104 most similar to trihedral}
-\label{fig:histograms_alpha_wt104}
-\end{figure}
+%\begin{figure}[hbt]
+%\centering
+%\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_1}}
+%\subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_2}}
+%\subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_3}}
+%\subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_4}}
+%\subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{/alpha_wt104_5}}
+%\caption{Histograms of the geodesic distances between trihedral and the pixels from Wheat 104 most similar to trihedral}
+%\label{fig:histograms_alpha_wt104}
+%\end{figure}
 
 \begin{table}[hbt]
   \centering
