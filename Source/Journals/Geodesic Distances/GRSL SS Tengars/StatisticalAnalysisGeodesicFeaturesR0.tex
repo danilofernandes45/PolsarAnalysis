@@ -13,6 +13,7 @@
 \usepackage{color}
 \usepackage{bm,bbm}
 \usepackage{siunitx}
+\usepackage{multirow,bigstrut}
 
 \DeclareMathOperator{\Tr}{Tr}
 
@@ -151,128 +152,202 @@ In the following, we will verify how they behave.
 The electromagnetic analysis of prototypes is a fundamental part of the analysis of PolSAR data.
 Some of these prototypes are
 {trihedral} ($\text{t}$), 
-{dihedral} ($\text{d}$), 
-{random volume} ($\text{rv}$), 
-{narrow dihedral} ($\text{nd}$), 
-{cylinder}  ($\text{c}$), 
-{dipole}  ($\text{d}$), 
+{dihedral}, 
+{random volume}, 
+{narrow dihedral}, 
+{cylinder}, 
+{dipole}, 
 {left helix} ($\text{lh}$), 
 {right helix} ($\text{rh}$), 
-{$+1/4$-wave} ($+1/4$), 
-and {$-1/4$-wave} ($-1/4$).
-Fig.~\ref{fig:ElementaryK} shows their Kennaugh matrices.
+{$+1/4$-wave}, 
+and {$-1/4$-wave}.
+Table~\ref{Tab:ElementaryK} shows the Kennaugh matrices used in this work.
+Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} provide a comprehensive list of such matrices, with an application to crop monitoring using compact polarimetric SAR data.
 
-\begin{figure*}
-\[
-\begin{split}
-&\bm K_{\text{t}} =
-\begin{bmatrix}
-1 & 0 & 0 & 0\\
-0 & 1 & 0 & 0\\
-0 & 0 & 1 & 0\\
-0 & 0 & 0 & -1\\
-\end{bmatrix},
-%
-\bm K_{\text{d}} =
-\begin{bmatrix}
-1 & 0 & 0 & 0\\
-0 & 1 & 0 & 0\\
-0 & 0 & -1 & 0\\
-0 & 0 & 0 & 1\\
-\end{bmatrix},
-%
-\bm K_{\text{rv}} =
-\begin{bmatrix}
-1 & 0 & 0 & 0\\
-0 & 1/2 & 0 & 0\\
-0 & 0 & 1/2 & 0\\
-0 & 0 & 0 & 0\\
-\end{bmatrix},
-%
-\bm K_{\text{nd}} =
-\begin{bmatrix}
-5/8 & 3/8 & 0 & 0\\
-3/8 & 5/8 & 0 & 0\\
-0 & 0 & -1/2 & 0\\
-0 & 0 & 0 & 1/2
-\end{bmatrix},\\
-%
-&\bm K_{\text{c}} =
-\begin{bmatrix}
-5/8 & 3/8 & 0 & 0\\
-3/8 & 5/8 & 0 & 0\\
-0 & 0 & 1/2 & 0\\
-0 & 0 & 0 & -1/2\\
-\end{bmatrix},
-%
-\bm K_\text{dp}=
-\begin{bmatrix}
-1 & -1 & 0 & 0\\
--1 & 1 & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-\end{bmatrix},
-%
- \bm K_{\text{lh}}=
-\begin{bmatrix}
-1 & 0 & 0 & -1\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
--1 & 0 & 0 & 1\\
-\end{bmatrix},
-%
-\bm K_{\text{rh}}=
-\begin{bmatrix}
-1 & 0 & 0 & 1\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-1 & 0 & 0 & 1\\
-\end{bmatrix},\\
-%
-&\bm K_{+1/4}=
-\begin{bmatrix}
-1 & 0 & 0 & 0\\
-0 & 1 & 0 & 0\\
-0 & 0 & 0 & 1\\
-0 & 0 & 1 & 0\\
-\end{bmatrix},
-%
-\bm K_{-1/4}=
-\begin{bmatrix}
-1 & 0 & 0 & 0\\
-0 & 1 & 0 & 0\\
-0 & 0 & 0 & -1\\
-0 & 0 & -1 & 0\\
-\end{bmatrix},
-%
-\bm{K}_{\text{dep}} =
-\begin{bmatrix}
-1 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0
-\end{bmatrix}.
-\end{split}
-\]
+\begin{table}[hbt]
+\centering
 \caption{Kennaugh matrices of prototypes: {trihedral} ($\bm K_\text{t}$), 
-	{dihedral} ($\bm K_{\text{d}}$), 
-	{random volume} ($\bm K_{\text{rv}}$), 
-	{narrow dihedral} ($\bm K_{\text{nd}}$), 
-	{cylinder}  ($\bm K_{\text{c}}$), 
-	{dipole}  ($\bm K_{\text{dp}}$), 
-	{left helix} ($\bm K_{\text{lh}}$), 
-	{right helix} ($\bm K_{\text{rh}}$), 
-	{$+1/4$-wave} ($\bm K_{+1/4}$), 
- {$-1/4$-wave} ($\bm K_{-1/4}$), and ideal depolarizer $\bm K_{\text{dep}}$.}
-\label{fig:ElementaryK}
-\end{figure*}
+		{left helix} ($\bm K_{\text{lh}}$), 
+		{right helix} ($\bm K_{\text{rh}}$), 
+		and ideal depolarizer $\bm K_{\text{ID}}$.}\label{Tab:ElementaryK}
+\setlength{\tabcolsep}{4pt}
+%\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{*{17}{c}}\toprule
+&	\multicolumn{4}{c}{First Row} 
+	& \multicolumn{4}{c}{Second Row} 
+	& \multicolumn{4}{c}{Third Row} 
+	& \multicolumn{4}{c}{Fourth Row}\\ 
+	\cmidrule(rl){2-5} \cmidrule(rl){6-9} \cmidrule(rl){10-13} \cmidrule(rl){14-17} 
+$\bm K_{\text{t}}$
+	& $1$ & $0$ & $0$ & $0$
+	& $0$ & $1$ & $0$ & $0$
+	& $0$ & $0$ & $1$ & $0$
+	& $0$ & $0$ & $0$ & $-1$ \\
+%$\bm K_{\text{d}}$ &
+%	$1$ & $0$ & $0$ & $0$
+%	& $0$ & $1$ & $0$ & $0$
+%	& $0$ & $0$ & $-1$ & $0$
+%	& $0$ & $0$ & $0$ & $1$ \\
+%$\bm K_{\text{rv}}$ 
+%	& $1$ & $0$ & $0$ & $0$
+%	& $0$ & $\frac{1}{2}$ & $0$ & $0$
+%	& $0$ & $0$ & $\frac{1}{2}$ & $0$
+%	& $0$ & $0$ & $0$ & $0$\\
+%$\bm K_{\text{nd}}$ 
+%	&$\frac{5}{8}$ & $\frac{3}{8}$ & $0$ & $0$
+%	& $\frac{3}{8}$ & $\frac{5}{8}$ & $0$ & $0$
+%	& $0$ & $0$ & $-\frac{1}{2}$ & $0$
+%	& $0$ & $0$ & $0$ & $\frac{1}{2}$\\
+%$\bm K_{\text{c}}$
+%	& $\frac{5}{8}$ & $\frac{3}{8}$ & $0$ & $0$
+%	& $\frac{3}{8}$ & $\frac{5}{8}$ & $0$ & $0$
+%	& $0$ & $0$ & $\frac{1}{2}$ & $0$
+%	& $0$ & $0$ & $0$ & $-\frac{1}{2}$\\
+%$\bm K_\text{dp}$
+%	& $1$ & $-1$ & $0$ & $0$
+%	& $-1$ & $1$ & $0$ & $0$
+%	& $0$ & $0$ & $0$ & $0$
+%	& $0$ & $0$ & $0$ & $0$\\
+$ \bm K_{\text{lh}}$
+	& $1$ & $0$ & $0$ & $-1$
+	& $0$ & $0$ & $0$ & $0$
+	& $0$ & $0$ & $0$ & $0$
+	& $-1$ & $0$ & $0$ & $1$\\
+$ \bm K_{\text{rh}}$
+	& $1$ & $0$ & $0$ & $1$
+	& $0$ & $0$ & $0$ & $0$
+	& $0$ & $0$ & $0$ & $0$
+	& $1$ & $0$ & $0$ & $1$\\
+%$\bm K_{+1/4}$
+%	& $1$ & $0$ & $0$ & $0$
+%	& $0$ & $1$ & $0$ & $0$
+%	& $0$ & $0$ & $0$ & $1$
+%	& $0$ & $0$ & $1$ & $0$\\
+%$\bm K_{-1/4}$
+%	& $1$ & $0$ & $0$ & $0$
+%	& $0$ & $1$ & $0$ & $0$
+%	& $0$ & $0$ & $0$ & $-1$
+%	& $0$ & $0$ & $-1$ & $0$\\
+$\bm{K}_{\text{ID}}$
+	& $1$ & $0$ & $0$ & $0$
+	& $0$ & $0$ & $0$ & $0$
+	& $0$ & $0$ & $0$ & $0$
+	& $0$ & $0$ & $0$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%\begin{figure*}
+%\[
+%\begin{split}
+%&\bm K_{\text{t}} =
+%\begin{bmatrix}
+%1 & 0 & 0 & 0\\
+%0 & 1 & 0 & 0\\
+%0 & 0 & 1 & 0\\
+%0 & 0 & 0 & -1\\
+%\end{bmatrix},
+%%
+%\bm K_{\text{d}} =
+%\begin{bmatrix}
+%1 & 0 & 0 & 0\\
+%0 & 1 & 0 & 0\\
+%0 & 0 & -1 & 0\\
+%0 & 0 & 0 & 1\\
+%\end{bmatrix},
+%%
+%\bm K_{\text{rv}} =
+%\begin{bmatrix}
+%1 & 0 & 0 & 0\\
+%0 & 1/2 & 0 & 0\\
+%0 & 0 & 1/2 & 0\\
+%0 & 0 & 0 & 0\\
+%\end{bmatrix},
+%%
+%\bm K_{\text{nd}} =
+%\begin{bmatrix}
+%5/8 & 3/8 & 0 & 0\\
+%3/8 & 5/8 & 0 & 0\\
+%0 & 0 & -1/2 & 0\\
+%0 & 0 & 0 & 1/2
+%\end{bmatrix},\\
+%%
+%&\bm K_{\text{c}} =
+%\begin{bmatrix}
+%5/8 & 3/8 & 0 & 0\\
+%3/8 & 5/8 & 0 & 0\\
+%0 & 0 & 1/2 & 0\\
+%0 & 0 & 0 & -1/2\\
+%\end{bmatrix},
+%%
+%\bm K_\text{dp}=
+%\begin{bmatrix}
+%1 & -1 & 0 & 0\\
+%-1 & 1 & 0 & 0\\
+%0 & 0 & 0 & 0\\
+%0 & 0 & 0 & 0\\
+%\end{bmatrix},
+%%
+% \bm K_{\text{lh}}=
+%\begin{bmatrix}
+%1 & 0 & 0 & -1\\
+%0 & 0 & 0 & 0\\
+%0 & 0 & 0 & 0\\
+%-1 & 0 & 0 & 1\\
+%\end{bmatrix},
+%%
+%\bm K_{\text{rh}}=
+%\begin{bmatrix}
+%1 & 0 & 0 & 1\\
+%0 & 0 & 0 & 0\\
+%0 & 0 & 0 & 0\\
+%1 & 0 & 0 & 1\\
+%\end{bmatrix},\\
+%%
+%&\bm K_{+1/4}=
+%\begin{bmatrix}
+%1 & 0 & 0 & 0\\
+%0 & 1 & 0 & 0\\
+%0 & 0 & 0 & 1\\
+%0 & 0 & 1 & 0\\
+%\end{bmatrix},
+%%
+%\bm K_{-1/4}=
+%\begin{bmatrix}
+%1 & 0 & 0 & 0\\
+%0 & 1 & 0 & 0\\
+%0 & 0 & 0 & -1\\
+%0 & 0 & -1 & 0\\
+%\end{bmatrix},
+%%
+%\bm{K}_{\text{ID}} =
+%\begin{bmatrix}
+%1 & 0 & 0 & 0\\
+%0 & 0 & 0 & 0\\
+%0 & 0 & 0 & 0\\
+%0 & 0 & 0 & 0
+%\end{bmatrix}.
+%\end{split}
+%\]
+%\caption{Kennaugh matrices of prototypes: {trihedral} ($\bm K_\text{t}$), 
+%	{dihedral} ($\bm K_{\text{d}}$), 
+%	{random volume} ($\bm K_{\text{rv}}$), 
+%	{narrow dihedral} ($\bm K_{\text{nd}}$), 
+%	{cylinder}  ($\bm K_{\text{c}}$), 
+%	{dipole}  ($\bm K_{\text{dp}}$), 
+%	{left helix} ($\bm K_{\text{lh}}$), 
+%	{right helix} ($\bm K_{\text{rh}}$), 
+%	{$+1/4$-wave} ($\bm K_{+1/4}$), 
+% {$-1/4$-wave} ($\bm K_{-1/4}$), and ideal depolarizer $\bm K_{\text{ID}}$.}
+%\label{fig:ElementaryK}
+%\end{figure*}
 
 Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed three new roll-invariant geodesic parameters, in analogy with classical ones~\cite{CloudePottier:97}: Purity, Scattering Type Angle, and Helicity.
 
-The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{dep}}$ matrix.
+The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{ID}}$ matrix.
 The geodesic purity index is then:
 \begin{equation}
-P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{dep}})\Big)^2.
+P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{ID}})\Big)^2.
 \end{equation}
 
 %Although the $\text{GD}$s are useful measures of dissimilarity, it will be more convenient to work with similarities.
@@ -290,9 +365,9 @@ This quantity is derived as the (geometric) mean of the distances from left and 
 \tau_{\text{GD}} = \frac\pi4 \big(1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}\big).
 \end{equation}
 The multiplication by $\pi/4$ makes the scale equal (in radians) for comparison with $|\tau_{m_1}|$~\cite{Touzi:TGARS:2007}. 
-For trihedral target, $\tau_{GD} = 0$ and for helices $\tau_{GD} = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$. 
+For trihedral target, $\tau_{\text{GD}} = 0$ and for helices $\tau_{\text{GD}} = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$. 
 
-\section{Data Analysis}
+\section{Statistical Description}
 
 \subsection{Samples}
 
@@ -311,15 +386,16 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomp
   \label{fig:sample_images}
 \end{figure}
 
-We computed the distance of each pixel to all prototypes (except to $\bm K_{\text{dep}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
+We computed the distance of each pixel to all prototypes (except to $\bm K_{\text{ID}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
 
-Fig.~\ref{fig:AllIndexes} shows the three Geodesic Indexes (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$) for the four crops (Canola, Oats, Soy Beans, and Wheat) in the five dates here considered.
+Fig.~\ref{fig:AllIndexes} shows estimates of the densities of the three Geodesic Indexes (Purity $P_{\text{GD}}$, Scattering Type Angle -- Alpha $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$) for the four crops (Canola, Oats, Soy Beans, and Wheat) in the five dates here considered.
 
 \begin{figure*}[htb]
 \centering
-\subcaptionbox{Geodesic Purity Indexes $P_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Purity}}
-\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Alpha}}
-\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Helicity}}
+%\subcaptionbox{Geodesic Purity Indexes $P_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Purity}}
+%\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Alpha}}
+%\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Helicity}}
+\includegraphics[width=\linewidth]{Indexes}
 \caption{The three Geodesic Indexes by crop and dates.}\label{fig:AllIndexes}
 \end{figure*}
 
@@ -331,18 +407,17 @@ Fig.~\ref{fig:AllIndexes} shows the three Geodesic Indexes (Purity $P_{\text{GD}
 %\caption{Geodesic Indexes for Canola\label{fig:CanolaIndexes}}
 %\end{figure}
 
+
+
+%From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha_sb231} along with the sample size.
+%
+
+\subsection{Data Analysis}
+
+The compactness of the observations support, and the shape of the estimated densities suggest the use of the Beta distribution.
+
+
 \textcolor{red}{\hrulefill}
-
-From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha_sb231} along with the sample size.
-
-The roadmap for the data analysis of these images is:
-\begin{enumerate}
-  \item Obtaining the geodesic purity index and scattering type angle of the data;
-  \item Making a descriptive analysis of the data with histograms and boxplots;
-  \item Fitting the data with models;
-  \item Making separability tests.
-\end{enumerate}
-
 
 % A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
 % The data look crammed in their original space, though.
@@ -463,14 +538,7 @@ The roadmap for the data analysis of these images is:
 % \end{table}
 
 
-\section{Data analysis}
-
-Descriptive statistics
-
-Fitting distributions
-
-Separability tests
-
+%\section{Data analysis}
 
 
 %\begin{figure}[hbt]
