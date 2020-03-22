@@ -1,7 +1,7 @@
 \documentclass[journal]{IEEEtran}
 
 \usepackage{graphicx}
-\graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Figures/GRSL_2020/FactorPlots/}{../../../../Images/GRSL_2020/}}
+\graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Figures/GRSL_2020/FactorPlots/}{../../../../Images/GRSL_2020/}{../../../../Figures/Soybeans_231/}}
 
 \usepackage[font=footnotesize]{subcaption}
 \usepackage{booktabs}
@@ -143,10 +143,6 @@ As previously mentioned, these distances and associated measures have been succe
 Their statistical properties, though, have not been explored yet.
 In the following, we will verify how they behave.
 
-%including prototypes
-%\textcolor{red}{define prototypes}
-
-
 \subsection{Prototypes and Geodesic Measures}
 
 The electromagnetic analysis of prototypes is a fundamental part of the analysis of PolSAR data.
@@ -183,31 +179,6 @@ $\bm K_{\text{t}}$
 	& $0$ & $1$ & $0$ & $0$
 	& $0$ & $0$ & $1$ & $0$
 	& $0$ & $0$ & $0$ & $-1$ \\
-%$\bm K_{\text{d}}$ &
-%	$1$ & $0$ & $0$ & $0$
-%	& $0$ & $1$ & $0$ & $0$
-%	& $0$ & $0$ & $-1$ & $0$
-%	& $0$ & $0$ & $0$ & $1$ \\
-%$\bm K_{\text{rv}}$ 
-%	& $1$ & $0$ & $0$ & $0$
-%	& $0$ & $\frac{1}{2}$ & $0$ & $0$
-%	& $0$ & $0$ & $\frac{1}{2}$ & $0$
-%	& $0$ & $0$ & $0$ & $0$\\
-%$\bm K_{\text{nd}}$ 
-%	&$\frac{5}{8}$ & $\frac{3}{8}$ & $0$ & $0$
-%	& $\frac{3}{8}$ & $\frac{5}{8}$ & $0$ & $0$
-%	& $0$ & $0$ & $-\frac{1}{2}$ & $0$
-%	& $0$ & $0$ & $0$ & $\frac{1}{2}$\\
-%$\bm K_{\text{c}}$
-%	& $\frac{5}{8}$ & $\frac{3}{8}$ & $0$ & $0$
-%	& $\frac{3}{8}$ & $\frac{5}{8}$ & $0$ & $0$
-%	& $0$ & $0$ & $\frac{1}{2}$ & $0$
-%	& $0$ & $0$ & $0$ & $-\frac{1}{2}$\\
-%$\bm K_\text{dp}$
-%	& $1$ & $-1$ & $0$ & $0$
-%	& $-1$ & $1$ & $0$ & $0$
-%	& $0$ & $0$ & $0$ & $0$
-%	& $0$ & $0$ & $0$ & $0$\\
 $ \bm K_{\text{lh}}$
 	& $1$ & $0$ & $0$ & $-1$
 	& $0$ & $0$ & $0$ & $0$
@@ -218,16 +189,6 @@ $ \bm K_{\text{rh}}$
 	& $0$ & $0$ & $0$ & $0$
 	& $0$ & $0$ & $0$ & $0$
 	& $1$ & $0$ & $0$ & $1$\\
-%$\bm K_{+1/4}$
-%	& $1$ & $0$ & $0$ & $0$
-%	& $0$ & $1$ & $0$ & $0$
-%	& $0$ & $0$ & $0$ & $1$
-%	& $0$ & $0$ & $1$ & $0$\\
-%$\bm K_{-1/4}$
-%	& $1$ & $0$ & $0$ & $0$
-%	& $0$ & $1$ & $0$ & $0$
-%	& $0$ & $0$ & $0$ & $-1$
-%	& $0$ & $0$ & $-1$ & $0$\\
 $\bm{K}_{\text{ID}}$
 	& $1$ & $0$ & $0$ & $0$
 	& $0$ & $0$ & $0$ & $0$
@@ -237,111 +198,6 @@ $\bm{K}_{\text{ID}}$
 \end{tabular}
 \end{table}
 
-%\begin{figure*}
-%\[
-%\begin{split}
-%&\bm K_{\text{t}} =
-%\begin{bmatrix}
-%1 & 0 & 0 & 0\\
-%0 & 1 & 0 & 0\\
-%0 & 0 & 1 & 0\\
-%0 & 0 & 0 & -1\\
-%\end{bmatrix},
-%%
-%\bm K_{\text{d}} =
-%\begin{bmatrix}
-%1 & 0 & 0 & 0\\
-%0 & 1 & 0 & 0\\
-%0 & 0 & -1 & 0\\
-%0 & 0 & 0 & 1\\
-%\end{bmatrix},
-%%
-%\bm K_{\text{rv}} =
-%\begin{bmatrix}
-%1 & 0 & 0 & 0\\
-%0 & 1/2 & 0 & 0\\
-%0 & 0 & 1/2 & 0\\
-%0 & 0 & 0 & 0\\
-%\end{bmatrix},
-%%
-%\bm K_{\text{nd}} =
-%\begin{bmatrix}
-%5/8 & 3/8 & 0 & 0\\
-%3/8 & 5/8 & 0 & 0\\
-%0 & 0 & -1/2 & 0\\
-%0 & 0 & 0 & 1/2
-%\end{bmatrix},\\
-%%
-%&\bm K_{\text{c}} =
-%\begin{bmatrix}
-%5/8 & 3/8 & 0 & 0\\
-%3/8 & 5/8 & 0 & 0\\
-%0 & 0 & 1/2 & 0\\
-%0 & 0 & 0 & -1/2\\
-%\end{bmatrix},
-%%
-%\bm K_\text{dp}=
-%\begin{bmatrix}
-%1 & -1 & 0 & 0\\
-%-1 & 1 & 0 & 0\\
-%0 & 0 & 0 & 0\\
-%0 & 0 & 0 & 0\\
-%\end{bmatrix},
-%%
-% \bm K_{\text{lh}}=
-%\begin{bmatrix}
-%1 & 0 & 0 & -1\\
-%0 & 0 & 0 & 0\\
-%0 & 0 & 0 & 0\\
-%-1 & 0 & 0 & 1\\
-%\end{bmatrix},
-%%
-%\bm K_{\text{rh}}=
-%\begin{bmatrix}
-%1 & 0 & 0 & 1\\
-%0 & 0 & 0 & 0\\
-%0 & 0 & 0 & 0\\
-%1 & 0 & 0 & 1\\
-%\end{bmatrix},\\
-%%
-%&\bm K_{+1/4}=
-%\begin{bmatrix}
-%1 & 0 & 0 & 0\\
-%0 & 1 & 0 & 0\\
-%0 & 0 & 0 & 1\\
-%0 & 0 & 1 & 0\\
-%\end{bmatrix},
-%%
-%\bm K_{-1/4}=
-%\begin{bmatrix}
-%1 & 0 & 0 & 0\\
-%0 & 1 & 0 & 0\\
-%0 & 0 & 0 & -1\\
-%0 & 0 & -1 & 0\\
-%\end{bmatrix},
-%%
-%\bm{K}_{\text{ID}} =
-%\begin{bmatrix}
-%1 & 0 & 0 & 0\\
-%0 & 0 & 0 & 0\\
-%0 & 0 & 0 & 0\\
-%0 & 0 & 0 & 0
-%\end{bmatrix}.
-%\end{split}
-%\]
-%\caption{Kennaugh matrices of prototypes: {trihedral} ($\bm K_\text{t}$), 
-%	{dihedral} ($\bm K_{\text{d}}$), 
-%	{random volume} ($\bm K_{\text{rv}}$), 
-%	{narrow dihedral} ($\bm K_{\text{nd}}$), 
-%	{cylinder}  ($\bm K_{\text{c}}$), 
-%	{dipole}  ($\bm K_{\text{dp}}$), 
-%	{left helix} ($\bm K_{\text{lh}}$), 
-%	{right helix} ($\bm K_{\text{rh}}$), 
-%	{$+1/4$-wave} ($\bm K_{+1/4}$), 
-% {$-1/4$-wave} ($\bm K_{-1/4}$), and ideal depolarizer $\bm K_{\text{ID}}$.}
-%\label{fig:ElementaryK}
-%\end{figure*}
-
 Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed three new roll-invariant geodesic parameters, in analogy with classical ones~\cite{CloudePottier:97}: Purity, Scattering Type Angle, and Helicity.
 
 The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{ID}}$ matrix.
@@ -349,9 +205,6 @@ The geodesic purity index is then:
 \begin{equation}
 P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{ID}})\Big)^2.
 \end{equation}
-
-%Although the $\text{GD}$s are useful measures of dissimilarity, it will be more convenient to work with similarities.
-%Since the $\text{GD}$s are defined on $[0,1]$, our (geodesic) similarity measure will be $f(\bm{K}, \bm{K}_{\text{ref}}) = 1-\text{GD}(\bm{K}, \bm{K}_{\text{ref}})$, where $\bm{K}_{\text{ref}}$ is any prototype or reference Kennaugh matrix.
 
 The geodesic scattering type angle $\alpha_{\text{GD}}$ describes 
 the distance to the trihedral prototype:
@@ -392,38 +245,69 @@ Fig.~\ref{fig:AllIndexes} shows estimates of the densities of the three Geodesic
 
 \begin{figure*}[htb]
 \centering
-%\subcaptionbox{Geodesic Purity Indexes $P_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Purity}}
-%\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Alpha}}
-%\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, Oats, Soy Beans, and Wheat in five dates}{\includegraphics[width=\linewidth]{Helicity}}
 \includegraphics[width=\linewidth]{Indexes}
 \caption{The three Geodesic Indexes by crop and dates.}\label{fig:AllIndexes}
 \end{figure*}
 
-%\begin{figure}[hbt]
-%\centering
-%\subcaptionbox{Geodesic Purity Index $P_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaPurity}}
-%\subcaptionbox{Geodesic Type Scattering Angle $\alpha_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaAlpha}}
-%\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$}{\includegraphics[width=\linewidth]{CanolaHelicity}}
-%\caption{Geodesic Indexes for Canola\label{fig:CanolaIndexes}}
-%\end{figure}
-
-
-
-%From this selected distances per image, it was generated the histograms shown in the figure \ref{fig:histograms_alpha_sb231}. Through these graphs, one can suppose that these data obey a Beta distribution. To evaluate this assumption, the Komolgorov-Smirnov test was performed, whose $p$-values are in the table \ref{tab:pvalues_alpha_sb231} along with the sample size.
-%
-
 \subsection{Data Analysis}
 
-The compactness of the observations support, and the shape of the estimated densities suggest the use of the Beta distribution.
+The compactness of the observations support, and the shape of the estimated densities suggest the use of the Beta distribution, characterized by the probability density function:
+\begin{equation}
+f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm 1_{(0,1)}(x),
+\label{eq:BetaDensity}
+\end{equation}
+with $p,q>0$.
+%The data look crammed in their original space, though, and then we decided to assess the observations after a logarithmic transformation.
+%Fig.~\ref{fig:histograms_purity_sb231} shows the histograms and boxplots. 
+
+Tables~\ref{tab:params_alpha} shows, for each crop type, 
+the sample size ($n$), 
+the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and the $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Scattering Type Angle $\alpha_{\text{GD}}$.
+Notice that the minimum $p$-value is $0.1795$; there is, thus, no evidence that the Beta models should be rejected for these samples.
+Fig.~\ref{fig:WheatAlphaBetaFit} shows the histogram of these data and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins.
+
+\begin{table}[hbt]
+	\centering
+	\caption{Sample size ($n$), Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Scattering Type Angle $\alpha_{\text{GD}}$.}
+	\label{tab:params_alpha}
+	\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rlrrrrr}
+	\toprule
+\textbf{Crop} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
+Canola 	& $n$ & 1549 & 804 & 385 & 133 & 164\\
+ & $\widehat{p}$ & 2.5812 & 4.0304 & 5.6943 & 6.0239 & 6.0750\\
+		& $\widehat{q}$ & 10.3476 & 13.4359 & 16.1670 & 14.8314 & 15.2520\\ 
+ & $p$-value & 0.2292 & 0.6397 & 0.8759 & 0.3613 & 0.8828\\		
+		\midrule
+Soy Beans	& $n$ & 1285 & 656 & 449 & 615 & 508\\
+ &		$\widehat{p}$ & 3.1092 & 4.1239 & 3.7793 & 4.6720 & 4.8640\\
+			&		$\widehat{q}$ & 11.5536 & 13.6485 & 11.2156 & 13.8374 & 13.8050\\ 
+ & $p$-value & 0.7746 & 0.5734 & 0.3137 & 0.2392 & 0.4158\\			
+			\midrule
+Oats	& $n$ & 1207 & 991 & 263 & 82 & 66\\
+& $\widehat{p}$ & 3.1005  & 2.9157 & 4.9835 & 7.2026 & 6.8227\\
+		& $\widehat{q}$ & 10.5901 & 10.3148 & 14.9391 & 21.4717 & 18.5422\\ 
+& $p$-value & 0.3504 & 0.2841 & 0.4707 & 0.2933 & 0.3958\\
+		\midrule
+Wheat & $n$ & 1382 & 413 & 131 & 122 & 116\\
+& $\widehat{p}$ & 2.9096  & 4.6521 & 7.8296 & 4.1457 & 5.7762\\
+	& $\widehat{q}$ & 10.9248 & 12.8761 & 20.2683 & 9.2153 & 14.3660\\
+& $p$-value & 0.1795 & 0.8726 & 0.5488 & 0.3261 & 0.7663\\	
+	\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=\linewidth]{WheatAlphaBetaFit}
+\caption{Scattering Type Angle -- Alpha $\alpha_{\text{GD}}$ from Wheat, 16 May, and fitted Beta density.}\label{fig:WheatAlphaBetaFit}
+\end{figure}
+
 
 
 \textcolor{red}{\hrulefill}
 
-% A first inspection of the purity indexes suggested that Beta distributions may be a good explanatory model.
-% The data look crammed in their original space, though.
-% 
-% After this initial qualitative analysis, we decided to transform the data applying the logarithmic function.
-% Fig.~\ref{fig:histograms_purity_sb231} shows the histograms and boxplots. 
+ 
 % The closeness to Gaussian distributions is remarkable.
 % The QQ-Plots shown in Fig.~\ref{fig:qqplots} provide more evidence of such good adherence.
 % Table~\ref{tab:pvalues_purities_sb231} provides the $p$-values of the Shapiro-Wilk test of goodness-of-fit to the Gaussian distribution.
@@ -431,11 +315,11 @@ The compactness of the observations support, and the shape of the estimated dens
 
 % \begin{figure}[hbt]
 %     \centering
-%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_1}}
-%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_2}}
-%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_3}}
-%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_4}}
-%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{Figures/Soybeans_231/log_purity_sb231_5}}
+%     \subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{log_purity_sb231_1}}
+%     \subcaptionbox{09 June 2016}{\includegraphics[width = \linewidth]{log_purity_sb231_2}}
+%     \subcaptionbox{03 July 2016}{\includegraphics[width = \linewidth]{log_purity_sb231_3}}
+%     \subcaptionbox{27 July 2016}{\includegraphics[width = \linewidth]{log_purity_sb231_4}}
+%     \subcaptionbox{20 August 2016}{\includegraphics[width = \linewidth]{log_purity_sb231_5}}
 %     \caption{Histograms of the $log10$ of geodesic purity index from Soybeans 231}
 %     \label{fig:histograms_purity_sb231}
 % \end{figure}
@@ -552,20 +436,6 @@ The compactness of the observations support, and the shape of the estimated dens
 %\label{fig:histograms_alpha_sb231}
 %\end{figure}
 
-\begin{table}[hbt]
-  \centering
-  \caption{$p$-values from Komolgorov-Smirnov Test for normalized from Soybeans 231}
-  \label{tab:pvalues_alpha_sb231}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{Sample size} & 1285 & 656 & 449 & 615 & 508\\
-    \textbf{$p$-value} & 0.7746 & 0.5734 & 0.3137 & 0.2392 & 0.4158\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
 %\begin{figure}[hbt]
 %\centering
 %\subcaptionbox{16 May 2016}{\includegraphics[width = \linewidth]{alpha_cn43_1}}
@@ -576,20 +446,6 @@ The compactness of the observations support, and the shape of the estimated dens
 %\caption{Histograms of the geodesic distances between trihedral and the pixels from Canola 43 most similar to trihedral}
 %\label{fig:histograms_alpha_cn43}
 %\end{figure}
-
-\begin{table}[hbt]
-  \centering
-  \caption{$p$-values from Komolgorov-Smirnov Test for normalized alpha from Canola 43}
-  \label{tab:pvalues_alpha_cn43}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{Sample size} & 1549 & 804 & 385 & 133 & 164\\
-    \textbf{$p$-value} & 0.2292 & 0.6397 & 0.8759 & 0.3613 & 0.8828\\
-    \bottomrule
-  \end{tabular}
-\end{table}
 
 %\begin{figure}[hbt]
 %\centering
@@ -612,90 +468,6 @@ The compactness of the observations support, and the shape of the estimated dens
 %\caption{Histograms of the geodesic distances between trihedral and the pixels from Wheat 104 most similar to trihedral}
 %\label{fig:histograms_alpha_wt104}
 %\end{figure}
-
-\begin{table}[hbt]
-  \centering
-  \caption{$p$-values from Komolgorov-Smirnov Test for normalized alpha from Oats 102}
-  \label{tab:pvalues_alpha_ot102}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{Sample size} & 1207 & 991 & 263 & 82 & 66\\
-    \textbf{$p$-value} & 0.3504 & 0.2841 & 0.4707 & 0.2933 & 0.3958\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[hbt]
-  \centering
-  \caption{$p$-values from Komolgorov-Smirnov Test for normalized alpha from Wheat 104}
-  \label{tab:pvalues_alpha_wt104}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{Sample size} & 1382 & 413 & 131 & 122 & 116\\
-    \textbf{$p$-value} & 0.1795 & 0.8726 & 0.5488 & 0.3261 & 0.7663\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[hbt]
-  \centering
-  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Soybeans 231}
-  \label{tab:params_helicity}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{$\hat{\alpha}$} & 3.1092 & 4.1239 & 3.7793 & 4.6720 & 4.8640\\
-    \textbf{$\hat{\beta}$} & 11.5536 & 13.6485 & 11.2156 & 13.8374 & 13.8050\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[hbt]
-  \centering
-  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Canola 43}
-  \label{tab:params_alpha_cn43}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{$\hat{\alpha}$} & 2.5812 & 4.0304 & 5.6943 & 6.0239 & 6.0750\\
-    \textbf{$\hat{\beta}$} & 10.3476 & 13.4359 & 16.1670 & 14.8314 & 15.2520\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[hbt]
-  \centering
-  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Oats 102}
-  \label{tab:params_alpha_ot102}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{$\hat{\alpha}$} & 3.1005  & 2.9157 & 4.9835 & 7.2026 & 6.8227\\
-    \textbf{$\hat{\beta}$} & 10.5901 & 10.3148 & 14.9391 & 21.4717 & 18.5422\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}[hbt]
-  \centering
-  \caption{Maximum Likelihood estimated Beta parameters for normalized alpha from Wheat 104}
-  \label{tab:params_alpha_wt104}
-  \begin{tabular}{lrrrrr}
-    \toprule
-    \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
-                 & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-    \textbf{$\hat{\alpha}$} & 2.7237 & 4.6521 & 7.8296 & 4.1457 & 5.7762\\
-    \textbf{$\hat{\beta}$} & 10.2709 & 12.8761 & 20.2683 & 9.2153 & 14.3660\\
-    \bottomrule
-  \end{tabular}
-\end{table}
 
 Additionally, we performed a separability test based on the Hellinger distance between the original samples assuming the Beta distribution.
 Table~\ref{tab:pvalues_sep_alpha_sb231} shows the $p$-values of the null hypothesis that each pair comes from the same law.
@@ -788,8 +560,8 @@ We observe that at level $0.05$, the only null hypothesis that cannot be rejecte
 %     \toprule
 %     \textbf{Day} & \textbf{16 May} & \textbf{09 June} & \textbf{03 July} & \textbf{27 July} & \textbf{20 Aug.}\\ 
 %                  & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016} & \textbf{2016}\\\midrule
-%     \textbf{$\hat{\alpha}$} & 2.0984 & 2.4793 & 3.0300 & 2.8211 & 3.2862\\
-%     \textbf{$\hat{\beta}$} & 26.0484 & 18.0347 & 17.0150 & 16.9940 & 17.6112\\
+%     $\widehat{p}$ & 2.0984 & 2.4793 & 3.0300 & 2.8211 & 3.2862\\
+%     $\widehat{q}$ & 26.0484 & 18.0347 & 17.0150 & 16.9940 & 17.6112\\
 %     \bottomrule
 %   \end{tabular}
 % \end{table}
