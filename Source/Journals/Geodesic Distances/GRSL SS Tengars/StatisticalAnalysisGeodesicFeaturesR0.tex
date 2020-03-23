@@ -40,11 +40,14 @@
 \maketitle
 
 \begin{abstract}
-The abstract goes here.
+We make qualitative and quantitative analyses of roll-invariant geodesic features (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$), as measured on five dates of four different crops.
+After a qualitative analysis, we show that the Lognormal distribution is a good model for $P_{\text{GD}}$, while the Beta distribution explains well both $\alpha_{\text{GD}}$ and $\tau_{\text{GD}}$.
+We then verify that the estimated parameters from each date (and same crop) are significantly different, with only one exception.
+Finally, we make a temporal analysis of the behavior of these estimates.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Geodesic distance, PolSAR, Kennaugh representation
+Geodesic distance, PolSAR, Kennaugh representation, geodesic roll-invariant indexes
 \end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
@@ -53,12 +56,17 @@ Geodesic distance, PolSAR, Kennaugh representation
 
 \section{Introduction}
 
-\IEEEPARstart{G}{eodesic distances} between points in the Kennaugh representation
-No statistical assessment of the properties of such distances under the hypothesis of good samples
+\IEEEPARstart{G}{eodesic distances} between points in the Kennaugh representation have been recently proposed as a powerful means to analyze polarimetric data.
+Such distances are easy to compute as angles between points on the surface of the $16$-dimensional unit sphere, and they can be used to obtain roll-invariant indexes with good explanatory and discriminatory abilities.
+No statistical assessment of the properties of such indexes under the hypothesis of good samples has yet been performed.
 
-In face of this new decomposition theorem, this paper makes qualitative and quantitative analyses of geodesic features (distances, $\alpha_{\text{GD}}$, $\tau_{\text{GD}}$, and purity).
-We compute those features between observations and a set of arbitrary prototypes (elementary backscatterers and other representative points).
+In face of these new tools, this paper makes qualitative and quantitative analyses of roll-invariant geodesic features (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$).
+This work extends the results presented in Ref.~\cite{StatisticalPropertiesofGeodesicDistancesBetweenSamplesandElementaryScatterersinPolSARImagery2019} by considering these indexes, rather than the distances, and also by including a parametric modeling and a temporal analysis.
 
+After a qualitative analysis of these three geodesic indexes on samples from three crops and different dates, we show that the Lognormal distribution is a good model for the Geodesic Purity, while the Beta distribution explains well both the Geodesic Scattering Type Angle and the Geodesic Helicity.
+
+We then use test statistics based on the Hellinger distance to verify that the estimated parameters from each date (and same crop) are significantly different, with only one exception.
+Finally, we make a temporal analysis of the behavior of these estimates in the parameter space.
 
 \section{Metodology}
 
@@ -150,11 +158,11 @@ In the following, we will verify how they behave.
 The electromagnetic analysis of prototypes is a fundamental part of the analysis of PolSAR data.
 Some of these prototypes are
 {trihedral} ($\text{t}$), 
-{dihedral}, 
-{random volume}, 
-{narrow dihedral}, 
-{cylinder}, 
-{dipole}, 
+{dihedral} ($\text{d}$), 
+{random volume} ($\text{rv}$), 
+{narrow dihedral} ($\text{nd}$), 
+{cylinder} ($\text{c}$), 
+{dipole} ($\text{dp}$), 
 {left helix} ($\text{lh}$), 
 {right helix} ($\text{rh}$), 
 {$+1/4$-wave}, 
@@ -163,41 +171,83 @@ Table~\ref{Tab:ElementaryK} shows the Kennaugh matrices used in this work.
 Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} provide a comprehensive list of such matrices, with an application to crop monitoring using compact polarimetric SAR data.
 
 \begin{table}[hbt]
-\centering
-\caption{Kennaugh matrices of prototypes: {trihedral} ($\bm K_\text{t}$), 
-		{left helix} ($\bm K_{\text{lh}}$), 
-		{right helix} ($\bm K_{\text{rh}}$), 
-		and ideal depolarizer $\bm K_{\text{ID}}$.}\label{Tab:ElementaryK}
-\setlength{\tabcolsep}{4pt}
-%\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{*{17}{c}}\toprule
-&	\multicolumn{4}{c}{First Row} 
-	& \multicolumn{4}{c}{Second Row} 
-	& \multicolumn{4}{c}{Third Row} 
-	& \multicolumn{4}{c}{Fourth Row}\\ 
-	\cmidrule(rl){2-5} \cmidrule(rl){6-9} \cmidrule(rl){10-13} \cmidrule(rl){14-17} 
-$\bm K_{\text{t}}$
-	& $1$ & $0$ & $0$ & $0$
-	& $0$ & $1$ & $0$ & $0$
-	& $0$ & $0$ & $1$ & $0$
-	& $0$ & $0$ & $0$ & $-1$ \\
-$ \bm K_{\text{lh}}$
-	& $1$ & $0$ & $0$ & $-1$
-	& $0$ & $0$ & $0$ & $0$
-	& $0$ & $0$ & $0$ & $0$
-	& $-1$ & $0$ & $0$ & $1$\\
-$ \bm K_{\text{rh}}$
-	& $1$ & $0$ & $0$ & $1$
-	& $0$ & $0$ & $0$ & $0$
-	& $0$ & $0$ & $0$ & $0$
-	& $1$ & $0$ & $0$ & $1$\\
-$\bm{K}_{\text{ID}}$
-	& $1$ & $0$ & $0$ & $0$
-	& $0$ & $0$ & $0$ & $0$
-	& $0$ & $0$ & $0$ & $0$
-	& $0$ & $0$ & $0$ & $0$ \\
-\bottomrule
-\end{tabular}
+	\centering
+	\caption{Kennaugh matrices of prototypes: {trihedral} ($\text{t}$), 
+		{dihedral} ($\bm{K}_{\text{d}}$), 
+		{random volume} ($\bm{K}_{\text{rv}}$), 
+		{narrow dihedral} ($\bm{K}_{\text{nd}}$), 
+		{cylinder} ($\bm{K}_{\text{c}}$), 
+		{dipole} ($\bm{K}_{\text{dp}}$), 
+		{left helix} ($\bm{K}_{\text{lh}}$), 
+		{right helix} ($\bm{K}_{\text{rh}}$), 
+		{$+1/4$-wave} ($\bm{K}_{+1/4}$), 
+		{$-1/4$-wave} ($\bm{K}_{-1/4}$),
+		and Ideal Depolarizer ($\bm{K}_{\text{ID}}$)}\label{Tab:ElementaryK}
+	\setlength{\tabcolsep}{2.7pt}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{*{17}{c}}\toprule
+		&	\multicolumn{4}{c}{First Row} 
+		& \multicolumn{4}{c}{Second Row} 
+		& \multicolumn{4}{c}{Third Row} 
+		& \multicolumn{4}{c}{Fourth Row}\\ 
+		\cmidrule(rl){2-5} \cmidrule(rl){6-9} \cmidrule(rl){10-13} \cmidrule(rl){14-17} 
+		$\bm K_{\text{t}}$
+		& $1$ & $0$ & $0$ & $0$
+		& $0$ & $1$ & $0$ & $0$
+		& $0$ & $0$ & $1$ & $0$
+		& $0$ & $0$ & $0$ & $-1$ \\
+			$\bm K_{\text{d}}$ &
+			$1$ & $0$ & $0$ & $0$
+			& $0$ & $1$ & $0$ & $0$
+			& $0$ & $0$ & $-1$ & $0$
+			& $0$ & $0$ & $0$ & $1$ \\
+		$\bm K_{\text{rv}}$ 
+			& $1$ & $0$ & $0$ & $0$
+			& $0$ & $\frac{1}{2}$ & $0$ & $0$
+			& $0$ & $0$ & $\frac{1}{2}$ & $0$
+			& $0$ & $0$ & $0$ & $0$\\
+		$\bm K_{\text{nd}}$ 
+			&$\frac{5}{8}$ & $\frac{3}{8}$ & $0$ & $0$
+			& $\frac{3}{8}$ & $\frac{5}{8}$ & $0$ & $0$
+			& $0$ & $0$ & $-\frac{1}{2}$ & $0$
+			& $0$ & $0$ & $0$ & $\frac{1}{2}$\\
+		$\bm K_{\text{c}}$
+			& $\frac{5}{8}$ & $\frac{3}{8}$ & $0$ & $0$
+			& $\frac{3}{8}$ & $\frac{5}{8}$ & $0$ & $0$
+			& $0$ & $0$ & $\frac{1}{2}$ & $0$
+			& $0$ & $0$ & $0$ & $-\frac{1}{2}$\\
+		$\bm K_\text{dp}$
+			& $1$ & $-1$ & $0$ & $0$
+			& $-1$ & $1$ & $0$ & $0$
+			& $0$ & $0$ & $0$ & $0$
+			& $0$ & $0$ & $0$ & $0$\\
+		$ \bm K_{\text{lh}}$
+		& $1$ & $0$ & $0$ & $-1$
+		& $0$ & $0$ & $0$ & $0$
+		& $0$ & $0$ & $0$ & $0$
+		& $-1$ & $0$ & $0$ & $1$\\
+		$ \bm K_{\text{rh}}$
+		& $1$ & $0$ & $0$ & $1$
+		& $0$ & $0$ & $0$ & $0$
+		& $0$ & $0$ & $0$ & $0$
+		& $1$ & $0$ & $0$ & $1$\\
+		$\bm K_{+1/4}$
+			& $1$ & $0$ & $0$ & $0$
+			& $0$ & $1$ & $0$ & $0$
+			& $0$ & $0$ & $0$ & $1$
+			& $0$ & $0$ & $1$ & $0$\\
+		$\bm K_{-1/4}$
+			& $1$ & $0$ & $0$ & $0$
+			& $0$ & $1$ & $0$ & $0$
+			& $0$ & $0$ & $0$ & $-1$
+			& $0$ & $0$ & $-1$ & $0$\\
+		$\bm{K}_{\text{ID}}$
+		& $1$ & $0$ & $0$ & $0$
+		& $0$ & $0$ & $0$ & $0$
+		& $0$ & $0$ & $0$ & $0$
+		& $0$ & $0$ & $0$ & $0$ \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed three new roll-invariant geodesic parameters, in analogy with classical ones~\cite{CloudePottier:97}: Purity, Scattering Type Angle, and Helicity.
@@ -237,7 +287,7 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomp
   \subcaptionbox{3 July\label{fig:day_48}}{\includegraphics[width = .19\linewidth]{sb231_day_48}}
   \subcaptionbox{27 July\label{fig:day_72}}{\includegraphics[width = .19\linewidth]{sb231_day_72}}
   \subcaptionbox{20 Aug.\label{fig:day_96}}{\includegraphics[width = .19\linewidth]{sb231_day_96}}
-  \caption{Crop samples taken in 2016 over time, in Pauli decomposition}
+  \caption{Crop samples taken in 2016, in Pauli decomposition}
   \label{fig:sample_images}
 \end{figure}
 
@@ -245,8 +295,8 @@ Fig.~\ref{fig:AllIndexes} shows estimates of the densities of the three Geodesic
 
 \begin{figure*}[htb]
 \centering
-\includegraphics[width=\linewidth]{Indexes}
-\caption{The three Geodesic Indexes by crop and date.}\label{fig:AllIndexes}
+\includegraphics[width=.7\linewidth]{Indexes}
+\caption{Density estimates of the three Geodesic Indexes by crop and date.}\label{fig:AllIndexes}
 \end{figure*}
 
 \subsection{Data Analysis}
@@ -299,13 +349,15 @@ Fig.~\ref{fig:WorstPurityLognormalFit} shows the histogram of the data with the 
 	\end{tabular}
 \end{table}
 
-\begin{figure}[hbt]
+\begin{figure*}[hbt]
 	\centering
-	\includegraphics[width=\linewidth]{WheatPurityLognormalFit}
-	\caption{Purity $P_{\text{GD}}$ from Wheat, 16~May, and fitted Lognormal density.}\label{fig:WorstPurityLognormalFit}
-\end{figure}
-
-
+\subcaptionbox{Geodesic Purity $P_{\text{GD}}$ from Wheat, 16~May, and fitted Lognormal density.\label{fig:WorstPurityLognormalFit}}{\includegraphics[width=.32\linewidth]{WheatPurityLognormalFit}}
+%
+\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstAlphaBetaFit}}{\includegraphics[width=.32\linewidth]{CanolaAlphaBetaFit}}
+%
+\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstHelicityBetaFit}}{\includegraphics[width=.32\linewidth]{CanolaHelicityBetaFit}}
+	\caption{The three worst fits of Geodesic indexes.}
+\end{figure*}
 
 \subsubsection{Geodesic Scattering Type Angle and Helicity}
 
@@ -331,7 +383,7 @@ Fig.~\ref{fig:WorstAlphaBetaFit} shows the histogram of the data with the worst 
 	\centering
 	\caption{Sample size ($n$), Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Geodesic Scattering Type Angle $\alpha_{\text{GD}}$.}
 	\label{tab:params_alpha}
-	\setlength{\tabcolsep}{4pt}
+	\setlength{\tabcolsep}{3.8pt}
 \begin{tabular}{clrrrrr}
 	\toprule
 \textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
@@ -358,12 +410,6 @@ Fig.~\ref{fig:WorstAlphaBetaFit} shows the histogram of the data with the worst 
 \end{tabular}
 \end{table}
 
-\begin{figure}[hbt]
-\centering
-\includegraphics[width=\linewidth]{CanolaAlphaBetaFit}
-\caption{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.}\label{fig:WorstAlphaBetaFit}
-\end{figure}
-
 Table~\ref{tab:params_helicity} shows the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Geodesic Helicity $\tau_{\text{GD}}$.
 All samples sizes are $n=1950$.
 Although the $p$-value of five out of twenty samples falls below \SI{1}{\percent}, they are all larger than \SI{1}{\pertenmille}.
@@ -374,7 +420,7 @@ Fig.~\ref{fig:WorstHelicityBetaFit} shows the histogram of the data with the wor
 	\centering
 	\caption{Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Geodesic Helicity $\tau_{\text{GD}}$.}
 	\label{tab:params_helicity}
-	\setlength{\tabcolsep}{4pt}
+	\setlength{\tabcolsep}{3.8pt}
 	\begin{tabular}{clrrrrr}
 		\toprule
 		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
@@ -401,13 +447,38 @@ Fig.~\ref{fig:WorstHelicityBetaFit} shows the histogram of the data with the wor
 	\end{tabular}
 \end{table}
 
-\begin{figure}[hbt]
-	\centering
-	\includegraphics[width=\linewidth]{CanolaHelicityBetaFit}
-	\caption{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.}\label{fig:WorstHelicityBetaFit}
-\end{figure}
+\section{Temporal Evolution}
 
-\textcolor{red}{\hrulefill}
+We first checked the hypothesis that every pair of parameters from the same crop in different dates comes from different models.
+We used test statistics based on the Hellinger distance between the models~\cite{AnalyticExpressionsStochasticDistancesBetweenRelaxedComplexWishartDistributions}, and found that all the pairs are identifiable with \SI{5}{\percent} of significance, with the sole exception of $P_{\text{GD}}$ from Soy Beans in the two last dates.
+
+Fig.~\ref{fig:TemporalIndexes} (top) shows the temporal evolution of the parameter estimates $(\widehat\mu,\widehat\sigma)$ of the Lognormal distribution when describing the Geodesic Purity index $P_{\text{GD}}$.
+Canola, Oats, Soy Beans, and Wheat share similar behavior: $\widehat\mu$ decreases, while $\widehat\sigma$ increases with time, with the exception of the two last dates for Canola and Wheat.
+The stages of these four crops are easily identifiable by means of the Lognormal model, whereas Soy Beans have only four identifiable stages since, as noted, the estimates from the two last dates cannot be considered different.
+
+Fig.~\ref{fig:TemporalIndexes} (middle) shows the temporal evolution of the parameter estimates $(\widehat p, \widehat q)$ of the Beta distribution when modeling the Geodesic Scattering Type $\alpha_{\text{GD}}$.
+Wheat is the crops where the estimates span most of the parametric space, as opposed to Soy Beans that gather around small values.
+Although all estimates are significantly different, the two first dates of Oats are very close.
+
+The estimates $(\widehat p, \widehat q)$ of the Beta distribution for the Geodesic Helicity $\tau_{\text{GD}}$ (Fig.~\ref{fig:TemporalIndexes} bottom) suggest a decreasing tendency of $\widehat q$ along with an increasing trend of $\widehat p$ along time.
+
+\begin{figure*}
+\centering
+\includegraphics[width=.7\linewidth]{TemporalIndexes}
+\caption{Temporal evolution of the parameter estimates $(\widehat\mu,\widehat\sigma)$ of the Lognormal distribution for the Geodesic Purity ($P_{\text{GD}}$, top), and of $(\widehat p,\widehat q)$ of the Beta distribution for the Geodesic Scattering Type Angle ($\alpha_{\text{GD}}$, middle) and Helicity ($\tau_{\text{GD}}$, bottom).}\label{fig:TemporalIndexes}
+\end{figure*}
+%
+%\begin{figure*}
+%	\centering
+%	\includegraphics[width=.7\linewidth]{TemporalBetaScatteringTypeAngleParameters}
+%	\caption{Temporal evolution of the parameter estimates $(\widehat p,\widehat q)$ of the Beta distribution for the Geodesic Scattering Type Angle index.}\label{fig:TemporalAlpha}
+%\end{figure*}
+%
+%\begin{figure*}
+%	\centering
+%	\includegraphics[width=.7\linewidth]{TemporalBetaHelicityParameters}
+%	\caption{Temporal evolution of the parameter estimates $(\widehat p,\widehat q)$ of the Beta distribution for the Geodesic Helicity index.}\label{fig:TemporalHelicity	}
+%\end{figure*}
 
  
 % The closeness to Gaussian distributions is remarkable.
@@ -571,10 +642,10 @@ Fig.~\ref{fig:WorstHelicityBetaFit} shows the histogram of the data with the wor
 %\label{fig:histograms_alpha_wt104}
 %\end{figure}
 
-Additionally, we performed a separability test based on the Hellinger distance between the original samples assuming the Beta distribution.
-Table~\ref{tab:pvalues_sep_alpha_sb231} shows the $p$-values of the null hypothesis that each pair comes from the same law.
-We observe that at level $0.05$, the only null hypothesis that cannot be rejected is that the data from the two last dates come from the same law.
-
+%Additionally, we performed a separability test based on the Hellinger distance between the original samples assuming the Beta distribution.
+%Table~\ref{tab:pvalues_sep_alpha_sb231} shows the $p$-values of the null hypothesis that each pair comes from the same law.
+%We observe that at level $0.05$, the only null hypothesis that cannot be rejected is that the data from the two last dates come from the same law.
+%
 %\begin{table}[hbt]
 %  \footnotesize
 %  \centering
@@ -590,7 +661,7 @@ We observe that at level $0.05$, the only null hypothesis that cannot be rejecte
 %  \bottomrule
 %  \end{tabular}
 %\end{table}
-%
+%%
 %\begin{table}[hbt]
 %  \footnotesize
 %  \centering
@@ -692,7 +763,9 @@ Geodesic Helicity ($\tau_{\text{GD}}$) can be described by parsimonious and easy
 The Geodesic Purity is well described by the Lognormal distribution.
 This implies that the logarithmic transformation $\log P_{\text{GD}}$ can be assumed to follow a Gaussian distribution.
 Both the Geodesic Scattering Type Angle and the Geodesic Helicity can be modeled by the Beta distribution.
-These two models are indexed by two real parameters, with techniques readily available in most statistical software; we used \texttt{R}~\cite{RManual} v.~3.6.3 for data processing and analysis (in particular, we used the functions provided by the \texttt{Rfast} library~\cite{Rfast} for parameter estimation), as well as for producing the graphical outputs (with the \texttt{ggplot2} library~\cite{ggplot2}).
+These two models are indexed by two real parameters, with techniques readily available in most statistical software.
+
+We used \texttt{R}~\cite{RManual} v.~3.6.3 for data processing and analysis (in particular, we used the functions provided by the \texttt{Rfast} library~\cite{Rfast} for parameter estimation), as well as for producing the graphical outputs (with the \texttt{ggplot2} library~\cite{ggplot2}).
 
 \section*{Acknowledgment}
 

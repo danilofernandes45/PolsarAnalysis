@@ -109,7 +109,7 @@ GeodesicIndexes$Index <- as.factor(GeodesicIndexes$Index)
 save(file="/Users/acfrery/Documents/Alunos/Danilo Fernandes/Data/ACFrery/GeodesicIndexes.Rdata", GeodesicIndexes)
 
 ggplot(GeodesicIndexes, aes(x=Observation, fill=Date)) +
-  geom_boxplot(alpha=.5) +
+  geom_density(alpha=.5) +
 #  labs(x="Helicity 2016", y="Estimated Density") +
   theme_ipsum(base_family = "Times New Roman", 
               base_size = 10, axis_title_size = 10) +
@@ -209,8 +209,7 @@ for(crop in levels(Alpha$Crop)) {
   }
   
   ### Analysis of Helicity from Canola 16 May (the worst fit)
-  require(Rfast)
-  
+
   Canola16MayHelicity <-
     data.frame(Helicity = subset(Helicity, Crop == "Canola" &
                                 Date == "16 May")$Helicity)
@@ -230,7 +229,7 @@ for(crop in levels(Alpha$Crop)) {
       size = 3,
       col = "lightgoldenrod4"
     ) +
-    labs(x = expression(alpha[GD] ~ Helicity ~ 16 ~ May), y = "Histogram and Fitted Beta Density") +
+    labs(x = expression(tau[GD] ~ Canola ~ 16 ~ May), y = "Histogram and Fitted Beta Density") +
     theme_ipsum(
       base_family = "Times New Roman",
       base_size = 20,
@@ -238,7 +237,7 @@ for(crop in levels(Alpha$Crop)) {
     ) +
     theme(plot.margin = grid::unit(c(0, 0, 0, 0), "mm"))
   ggsave(
-    file = "../../../../Figures/GRSL_2020/FactorPlots/CanolaHelicityBetaFit.pdf",
+    file = "../Figures/GRSL_2020/FactorPlots/CanolaHelicityBetaFit.pdf",
     width = 210,
     height = 140,
     units = "mm",
@@ -262,30 +261,52 @@ for(crop in levels(Alpha$Crop)) {
           legend.margin = margin(rep(0,4), "cm")) + 
     facet_grid(.~ Crop) 
   
-### Estimating (p,q) and the KS test for Purity/2.25
-  for(crop in levels(Purity$Crop)) {
-    for(date in levels(Purity$Date)) {
-      sample <- (subset(Purity, Crop==crop & Date==date)$Purity) / 2.25
-      n <- length(sample)
-      pq <- beta.mle(sample)$param 
-      p.value <- ks.test(sample, pbeta, pq[1], pq[2])$p.value
-      column <- round(c(n, pq, p.value), 4)
-      print(c(crop, date, column), quote=FALSE)
-    }
-  } ### All p-values = 0
-
+PurityLogNormalParameters <- data.frame(NULL)
   ### Estimating the (mean, variance) for the lognormal distribution and the KS test for Purity/2.25
   for(crop in levels(Purity$Crop)) {
     for(date in levels(Purity$Date)) {
       sample <- (subset(Purity, Crop==crop & Date==date)$Purity)
       n <- length(sample)
-      pq <- lognorm.mle(sample)$param 
+      pq <- lognorm.mle(sample)$param
+      
+      PurityLogNormalParameters <- rbind(
+        PurityLogNormalParameters,
+        data.frame(mu=unname(pq[1]),
+                   sd=sqrt(unname(pq[2])),
+                   Date=date,
+                   Crop=crop)
+      )
+      
       p.value <- ks.test(sample, plnorm, pq[1], pq[2])$p.value
       column <- round(c(n, pq, p.value), 4)
       print(c(crop, date, column), quote=FALSE)
     }
   } ### All p-values = 0
-  
+
+# Temporal analysis of Purity parameters
+PurityTemporal <- ggplot(PurityLogNormalParameters, aes(x=mu, y=sd, group=Date)) +
+  geom_point(aes(shape=Date, color=Date), size=3) +
+  labs(x = expression(widehat(mu)), 
+       y = expression(widehat(sigma))
+       ) +
+  facet_grid(.~Crop) +
+  scale_fill_ipsum() +
+  theme_ipsum(
+    base_family = "Times New Roman",
+    base_size = 10,
+    axis_title_size = 10
+  ) +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),
+        legend.position="none", #"bottom" for individual plots
+        legend.title=element_blank(),
+        legend.margin = margin(rep(0,4), "cm")) 
+PurityTemporal
+
+ggsave(
+  file = "../Figures/GRSL_2020/FactorPlots/TemporalLogNormalPurityParameters.pdf",
+  width = 210, height = 60, units = "mm", device = cairo_pdf
+)
+
 ### First, log10 transformation, then  
 ### estimating the (mean, variance) for the normal distribution and the KS test for Purity
   for(crop in levels(Purity$Crop)) {
@@ -299,4 +320,153 @@ for(crop in levels(Alpha$Crop)) {
       print(c(crop, date, column), quote=FALSE)
     }
   } ### Excellent p-values
+
+  ### Estimating the (mean, variance) for the lognormal distribution and the KS test for Purity
+  for(crop in levels(Purity$Crop)) {
+    for(date in levels(Purity$Date)) {
+      sample <- subset(Purity, Crop==crop & Date==date)$Purity
+      n <- length(sample)
+      pq <- lognorm.mle(sample)$param 
+      p.value <- ad.test(sample, null = "plnorm", mean=pq[1], sd=sqrt(pq[2]),
+                         estimated=TRUE)$p.value
+      column <- round(c(n, pq, p.value), 4)
+      print(c(crop, date, column), quote=FALSE)
+    }
+  } ### Excellent p-values
   
+### Fitting the worst Lognormal model to Purity Wheat 16 May 
+  
+  Wheat16MayPurity <-
+    data.frame(Purity = subset(Purity, Crop == "Wheat" &
+                                   Date == "16 May")$Purity)
+  pq <- lognorm.mle(Wheat16MayPurity$Purity)$param 
+  minmax <- range(Wheat16MayPurity$Purity)
+  nbins.fd <-
+    ceiling((length(Wheat16MayPurity$Purity)^(1 / 3) * (minmax[2] - minmax[1])) / (2 * IQR(Wheat16MayPurity$Purity)))
+  
+  ggplot(Wheat16MayPurity, aes(x = Purity)) +
+    geom_histogram(aes(y = ..density..),
+                   bins = nbins.fd/2,
+                   fill = "white",
+                   col = "black") +
+    stat_function(
+      fun = dlnorm,
+      args = list(meanlog = pq[1], sdlog = sqrt(pq[2])),
+      size = 3,
+      col = "wheat4"
+    ) +
+    labs(x = expression(italic(P)[GD] ~ Wheat ~ 16 ~ May), 
+         y = "Histogram and Fitted Lognormal Density") +
+    theme_ipsum(
+      base_family = "Times New Roman",
+      base_size = 20,
+      axis_title_size = 20
+    ) +
+    theme(plot.margin = grid::unit(c(0, 0, 0, 0), "mm"))
+  ggsave(
+    file = "../Figures/GRSL_2020/FactorPlots/WheatPurityLognormalFit.pdf", 
+    width = 210, height = 140, units = "mm", device = cairo_pdf
+  )
+
+### Temporal Analysis Alpha
+  ScatteringTypeAngleParameters <- data.frame(NULL)
+  ### Estimating the (mean, variance) for the beta distribution
+  for(crop in levels(Alpha$Crop)) {
+    for(date in levels(Alpha$Date)) {
+      sample <- (subset(Alpha, Crop==crop & Date==date)$Alpha)
+      pq <- beta.mle(sample)$param
+      
+      ScatteringTypeAngleParameters <- rbind(
+        ScatteringTypeAngleParameters,
+        data.frame(p=unname(pq[1]),
+                   q=unname(pq[2]),
+                   Date=date,
+                   Crop=crop)
+      )
+    }
+  }
+  
+  # Temporal analysis of Alpha parameters
+AlphaTemporal <-  ggplot(ScatteringTypeAngleParameters, aes(x=p, y=q, group=Date)) +
+    geom_point(aes(shape=Date, color=Date), size=3) +
+    labs(x = expression(widehat(p)), 
+         y = expression(widehat(q))
+    ) +
+    facet_grid(.~Crop) +
+    scale_fill_ipsum() +
+    theme_ipsum(
+      base_family = "Times New Roman",
+      base_size = 10,
+      axis_title_size = 10
+    ) +
+    theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),
+          legend.position="none", #"bottom" for individual plots
+          legend.title=element_blank(),
+          legend.margin = margin(rep(0,4), "cm")) + 
+    facet_grid(.~ Crop) +
+    theme(
+      strip.background = element_blank(),
+      strip.text.x = element_blank()
+    )
+
+AlphaTemporal
+  
+ggsave(file = "../Figures/GRSL_2020/FactorPlots/TemporalBetaScatteringTypeAngleParameters.pdf",
+    width = 210, height = 60, units = "mm", device = cairo_pdf)
+
+### Temporal Analysis Helicity
+HelicityParameters <- data.frame(NULL)
+### Estimating the (mean, variance) for the beta distribution
+for(crop in levels(Helicity$Crop)) {
+  for(date in levels(Helicity$Date)) {
+    sample <- (subset(Helicity, Crop==crop & Date==date)$Helicity)
+    pq <- beta.mle(sample)$param
+    
+    HelicityParameters <- rbind(
+      HelicityParameters,
+      data.frame(p=unname(pq[1]),
+                 q=unname(pq[2]),
+                 Date=date,
+                 Crop=crop)
+    )
+  }
+}
+
+# Temporal analysis of Helicity parameters
+HelicityTemporal <- ggplot(HelicityParameters, aes(x=p, y=q, group=Date)) +
+  geom_point(aes(shape=Date, color=Date), size=3) +
+  labs(x = expression(widehat(p)), 
+       y = expression(widehat(q))
+  ) +
+  facet_grid(.~Crop) +
+  theme_ipsum(
+    base_family = "Times New Roman",
+    base_size = 8,
+    axis_title_size = 8
+  ) +
+  scale_fill_ipsum() +
+  theme_ipsum(
+    base_family = "Times New Roman",
+    base_size = 10,
+    axis_title_size = 10
+  ) +
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),
+        legend.position="bottom", #"bottom" for individual plots
+        legend.title=element_blank(),
+        legend.margin = margin(rep(0,4), "cm")) + 
+  facet_grid(.~ Crop) +
+  theme(
+    strip.background = element_blank(),
+    strip.text.x = element_blank()
+  )
+HelicityTemporal
+
+ggsave(file = "../Figures/GRSL_2020/FactorPlots/TemporalBetaHelicityParameters.pdf",
+       width = 210, height = 60, units = "mm", device = cairo_pdf)
+
+#### Only one plot with grid.arrange
+
+grid.arrange(PurityTemporal, AlphaTemporal, HelicityTemporal, nrow=3)
+TemporalIndexesPlot <- arrangeGrob(PurityTemporal, AlphaTemporal, HelicityTemporal, nrow=3)
+ggsave(file="../Figures/GRSL_2020/FactorPlots/TemporalIndexes.pdf", 
+       width = 210, height=200, units="mm", device = cairo_pdf, TemporalIndexesPlot)
