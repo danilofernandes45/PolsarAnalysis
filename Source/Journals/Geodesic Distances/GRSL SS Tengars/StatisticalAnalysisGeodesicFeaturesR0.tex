@@ -240,19 +240,76 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomp
   \label{fig:sample_images}
 \end{figure}
 
-We computed the distance of each pixel to all prototypes (except to $\bm K_{\text{ID}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
-
 Fig.~\ref{fig:AllIndexes} shows estimates of the densities of the three Geodesic Indexes (Purity $P_{\text{GD}}$, Scattering Type Angle -- Alpha $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$) for the four crops (Canola, Oats, Soy Beans, and Wheat) in the five dates here considered.
 
 \begin{figure*}[htb]
 \centering
 \includegraphics[width=\linewidth]{Indexes}
-\caption{The three Geodesic Indexes by crop and dates.}\label{fig:AllIndexes}
+\caption{The three Geodesic Indexes by crop and date.}\label{fig:AllIndexes}
 \end{figure*}
 
 \subsection{Data Analysis}
 
-The compactness of the observations support, and the shape of the estimated densities suggest the use of the Beta distribution, characterized by the probability density function:
+\subsubsection{Geodesic Purity}
+
+An exploratory data analysis revealed that the logarithmic transformation leads to data that can be well described by the Gaussian distribution.
+We, thus, opted for fitting the Lognormal law, characterized by the probability density function
+\begin{equation}
+f(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2} x} \exp\Big\{
+-\frac1{2 \sigma^2}\big(\log x - \mu\big)^2
+\Big\},
+\end{equation}
+where $\mu\in\mathbbm R$, and $\sigma^2>0$ are the parameters.
+
+Table~\ref{tab:params_purity} shows the Maximum Likelihood estimates of the Lognormal model ($\widehat \mu,\widehat{\sigma^2}$), and $p$-value of the Anderson-Darling goodness-of-fit test for the Geodesic Purity $P_{\text{GD}}$.
+All samples sizes are $n=1950$.
+Notice that the minimum $p$-value is $0.076$; there is, thus, no evidence that the Lognormal models should not be used for these samples.
+The Lognormal distribution has the additional advantage that it describes data which, after a logarithmic transformation, can be treated as Gaussian.
+Fig.~\ref{fig:WorstPurityLognormalFit} shows the histogram of the data with the worst fit (Wheat, 16~May), and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins.
+
+\begin{table}[hbt]
+	\centering
+	\caption{Maximum Likelihood estimates of the Lognormal model ($\widehat \mu,\widehat{\sigma^2}$), and $p$-value of the Anderson-Darling goodness-of-fit test for the Geodesic Purity $P_{\text{GD}}$.}
+	\label{tab:params_purity}
+	\setlength{\tabcolsep}{2pt}
+	\begin{tabular}{clrrrrr}
+		\toprule
+		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
+		\textbf{Canola} 	
+		& $\widehat{\mu}$ 		& $-0.0890$  & $-0.1738$   & $-0.2681$   & $-0.3187$   & $-0.3072$ \\
+		& $\widehat{\sigma^2}$ 	& 0.0295 	& 0.0676 	& 0.0994 	& 0.1269  	& 0.1361 \\ 
+		& $p$-value 			& 0.2701	& 0.2739 	& 0.7064 	& 0.5727 	& 0.7515\\		
+		\midrule
+		\textbf{Soy Beans}
+		& $\widehat{\mu}$ 		& $-0.1120$	& $-0.1831$	& $-0.2356$ & $-0.2278$ & $-0.2350$         \\
+		& $\widehat{\sigma^2}$ 	& 0.0334   	& 0.0670   	& 0.0859   	& 0.079   	& 0.0848 \\ 
+		& $p$-value 			& 0.8921 	& 0.8273 	& 0.7992 	& 0.9841 	& 0.7099\\			
+		\midrule
+		\textbf{Oats}
+		& $\widehat{\mu}$ 		& $-0.1223$ & $-0.1358$	& $-0.2578$ & $-0.2679$	& $-0.3008$ \\
+		& $\widehat{\sigma^2}$ 	& 0.0479 	& 0.0737   	& 0.1085 	& 0.1267  	& 0.1338 \\ 
+		& $p$-value 			& 0.8438 	& 0.1024 	& 0.8262 	& 0.7027	& 0.3977 \\
+		\midrule
+		\textbf{Wheat} 
+		& $\widehat{\mu}$ 		& $-0.0947$	& $-0.2392$ & $-0.2866$ & $-0.2837$ & $-0.3145$ \\
+		& $\widehat{\sigma^2}$ 	& 0.0310   	& 0.0972   	& 0.1099   	& 0.1461   	& 0.1269   \\
+		& $p$-value 			& 0.0760 	& 0.5490 	& 0.3051 	& 0.4034 	& 0.4177\\	
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{WheatPurityLognormalFit}
+	\caption{Purity $P_{\text{GD}}$ from Wheat, 16~May, and fitted Lognormal density.}\label{fig:WorstPurityLognormalFit}
+\end{figure}
+
+
+
+\subsubsection{Geodesic Scattering Type Angle and Helicity}
+
+The observations are bounded in $(0,1)$, 
+and the shape of their estimated densities also suggests the use of the Beta distribution, characterized by the probability density function:
 \begin{equation}
 f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm 1_{(0,1)}(x),
 \label{eq:BetaDensity}
@@ -260,6 +317,8 @@ f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm
 with $p,q>0$.
 %The data look crammed in their original space, though, and then we decided to assess the observations after a logarithmic transformation.
 %Fig.~\ref{fig:histograms_purity_sb231} shows the histograms and boxplots. 
+
+For $\alpha_{\text{GD}}$, we computed the distance of each pixel to all prototypes (except to $\bm K_{\text{ID}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
 
 Table~\ref{tab:params_alpha} shows, for each crop type and date, 
 the sample size ($n$), 
@@ -282,7 +341,7 @@ Fig.~\ref{fig:WorstAlphaBetaFit} shows the histogram of the data with the worst 
 		\midrule
 \textbf{Soy Beans}	& $n$ 			& 1285 		& 656 		& 449 		& 615 		& 508\\
  			& $\widehat{p}$ & 3.2348 	& 4.3843 	& 4.0188 	& 4.8295 	& 5.1401\\
-			& $\widehat{q}$ & 11.996 	& 14.4563 	& 11.8697 	& 14.2715 	& 14.5409\\ 
+			& $\widehat{q}$ & 11.9960 	& 14.4563 	& 11.8697 	& 14.2715 	& 14.5409\\ 
  			& $p$-value 	& 0.5666 	& 0.4052 	& 0.1814 	& 0.2687 	& 0.3187\\			
 			\midrule
 \textbf{Oats}	& $n$ 			& 1207 		& 991 		& 263 		& 82 		& 66\\
@@ -305,6 +364,7 @@ Fig.~\ref{fig:WorstAlphaBetaFit} shows the histogram of the data with the worst 
 \end{figure}
 
 Table~\ref{tab:params_helicity} shows the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Geodesic Helicity $\tau_{\text{GD}}$.
+All samples sizes are $n=1950$.
 Although the $p$-value of five out of twenty samples falls below \SI{1}{\percent}, they are all larger than \SI{0.1}{\permille}.
 We, thus, have no strong evidence against the Beta model for describing the Geodesic Helicity.
 Fig.~\ref{fig:WorstHelicityBetaFit} shows the histogram of the data with the worst fit (Canola, 16~May), and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins.
@@ -329,11 +389,11 @@ Fig.~\ref{fig:WorstHelicityBetaFit} shows the histogram of the data with the wor
 		\midrule
 		\textbf{Oats}
 		& $\widehat{p}$ & 2.3701   	& 2.1838  	& 3.529     & 4.2011 	& 4.7568 \\
-		& $\widehat{q}$ & 26.533 	& 20.4121   & 16.4932 	& 16.1089  	& 15.9517 \\ 
+		& $\widehat{q}$ & 26.5330 	& 20.4121   & 16.4932 	& 16.1089  	& 15.9517 \\ 
 		& $p$-value 	& 0.0016 	& 1E$-4$ 	& 0.541 	& 0.0078	& 0.1757 \\
 		\midrule
 		\textbf{Wheat} 
-		& $\widehat{p}$ & 2.3516   	& 3.3384  	& 4.396  	& 4.1996  	& 4.6823   \\
+		& $\widehat{p}$ & 2.3516   	& 3.3384  	& 4.3960  	& 4.1996  	& 4.6823   \\
 		& $\widehat{q}$ & 33.4388   & 17.1858   & 16.6094   & 14.8613   & 15.2931   \\
 		& $p$-value 	& 5E$-4$ 	& 0.2118 	& 0.0476 	& 0.0215 	& 1E$-4$\\	
 		\bottomrule
@@ -619,34 +679,25 @@ We observe that at level $0.05$, the only null hypothesis that cannot be rejecte
 %   \end{tabular}
 % \end{table}
 
-\section{Conclusion}
-%The conclusion goes here. This is the beginning paper to look at~\cite{Ratha2020}.
+\section{Conclusions}
 
-% if have a single appendix:
-%\appendix[Proof of the Zonklar Equations]
-% or
-%\appendix  % for no appendix heading
-% do not use \section anymore after \appendix, only \section*
-% is possibly needed
+Refs.~\cite{ClassificationPolSARGeodesic,AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019,NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019,APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress,ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms,ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData}
+have shown the expressiveness and usefulness of indexes derived from Geodesic Distances, but with no assessment of their statistical properties.
+This paper shows that the three main Geodesic Indexes, namely
+Geodesic Purity ($P_{\text{GD}}$),
+Geodesic Scattering Type Angle ($\alpha_{\text{GD}}$), and
+Geodesic Helicity ($\tau_{\text{GD}}$) can be described by parsimonious and easy to use models.
 
-% use appendices with more than one appendix
-% then use \section to start each appendix
-% you must declare a \section before using any
-% \subsection or using \label (\appendices by itself
-% starts a section numbered zero.)
-%
-
+The Geodesic Purity is well described by the Lognormal distribution.
+This implies that the logarithmic transformation $\log P_{\text{GD}}$ can be assumed to follow a Gaussian distribution.
+Both the Geodesic Scattering Type Angle and the Geodesic Helicity can be modeled by the Beta distribution.
+These two models are indexed by two real parameters, with techniques readily available in most statistical software; we used \texttt{R}~\cite{RManual} v.~3.6.3 for data processing and analysis (in particular, we used the functions provided by the \texttt{Rfast} library~\cite{Rfast} for parameter estimation), as well as for producing the graphical outputs (with the \texttt{ggplot2} library~\cite{ggplot2}).
 
 \section*{Acknowledgment}
 
-
-The authors would like to thank...
-
-\nocite{ClassificationPolSARGeodesic,AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019,NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019,APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress,TheKennaughElementFrameworkforMultiScaleMultiPolarizedMultiTemporalandMultiFrequencySARImagePreparation,ScatteringCharacteristicsXCL-BandPolSARData,RadarTargetRecognitionBasedonModifiedCharacteristicPolarizationStates,RedevelopmentofKennaughsTargetCharacteristicPolarizationStateTheoryUsingthePolarizationTransformationRationFormalismfortheCoherentCase}
+The authors would like to thank CNPq and Fapeal for providing partial support to this research.
 
 \bibliographystyle{IEEEtran}
 \bibliography{../../../../Bibliography/references}
 
-
-% % that's all folks
 \end{document}

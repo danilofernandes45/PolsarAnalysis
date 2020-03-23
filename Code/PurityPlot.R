@@ -1,6 +1,11 @@
 ### This script collects all the data in a single data frame
-
+require(ggplot2)
 require(gridExtra)
+require(hrbrthemes)
+require(Rfast)
+require(goftest)
+require(extrafont)
+
 
 ### Purity - Danilo 18/03/20
 
@@ -155,7 +160,7 @@ for(crop in levels(Alpha$Crop)) {
 }
 
   ### Analysis of Alpha from Canola 16 May (the worst fit)
-  require(Rfast)
+
   
   Canola16MayAlpha <-
     data.frame(Alpha = subset(Alpha, Crop == "Canola" &
@@ -240,15 +245,58 @@ for(crop in levels(Alpha$Crop)) {
     device = cairo_pdf
   )
 
-### Estimating (p,q) and the KS test for Purity/2
+  
+
+### Analysis of Purity samples (Alejandro 23 March 2020)
+
+  ggplot(Purity, aes(x=Purity, fill=Date)) +
+    geom_density(alpha=.5) +
+    labs(x="Purity 2016", y="Purity Estimated Density") +
+#    scale_x_continuous(trans="log10") + # uncomment for log10 scale
+    theme_ipsum(base_family = "Times New Roman", 
+                base_size = 10, axis_title_size = 10) +
+    scale_fill_ipsum() +
+    theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),
+          legend.position="none", #"bottom" for individual plots
+          legend.title=element_blank(),
+          legend.margin = margin(rep(0,4), "cm")) + 
+    facet_grid(.~ Crop) 
+  
+### Estimating (p,q) and the KS test for Purity/2.25
   for(crop in levels(Purity$Crop)) {
     for(date in levels(Purity$Date)) {
-      sample <- (subset(Purity, Crop==crop & Date==date)$Purity) / 2
+      sample <- (subset(Purity, Crop==crop & Date==date)$Purity) / 2.25
       n <- length(sample)
       pq <- beta.mle(sample)$param 
       p.value <- ks.test(sample, pbeta, pq[1], pq[2])$p.value
       column <- round(c(n, pq, p.value), 4)
       print(c(crop, date, column), quote=FALSE)
     }
-  }
+  } ### All p-values = 0
+
+  ### Estimating the (mean, variance) for the lognormal distribution and the KS test for Purity/2.25
+  for(crop in levels(Purity$Crop)) {
+    for(date in levels(Purity$Date)) {
+      sample <- (subset(Purity, Crop==crop & Date==date)$Purity)
+      n <- length(sample)
+      pq <- lognorm.mle(sample)$param 
+      p.value <- ks.test(sample, plnorm, pq[1], pq[2])$p.value
+      column <- round(c(n, pq, p.value), 4)
+      print(c(crop, date, column), quote=FALSE)
+    }
+  } ### All p-values = 0
+  
+### First, log10 transformation, then  
+### estimating the (mean, variance) for the normal distribution and the KS test for Purity
+  for(crop in levels(Purity$Crop)) {
+    for(date in levels(Purity$Date)) {
+      sample <- log10((subset(Purity, Crop==crop & Date==date)$Purity))
+      n <- length(sample)
+      pq <- normal.mle(sample)$param 
+      p.value <- ad.test(sample, null = "pnorm", mean=pq[1], sd=sqrt(pq[2]),
+                         estimated=TRUE)$p.value
+      column <- round(c(n, pq, p.value), 4)
+      print(c(crop, date, column), quote=FALSE)
+    }
+  } ### Excellent p-values
   
