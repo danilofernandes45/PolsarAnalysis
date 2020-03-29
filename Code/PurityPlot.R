@@ -5,6 +5,7 @@ require(hrbrthemes)
 require(Rfast)
 require(goftest)
 require(extrafont)
+require(ggrepel)
 
 
 ### Purity - Danilo 18/03/20
@@ -24,7 +25,7 @@ PurityPlot <- ggplot(Purity, aes(x=Purity, fill=Date)) +
               base_size = 10, axis_title_size = 10) +
   scale_fill_ipsum() +
   theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),
-        legend.position="none", #"bottom" for individual plots
+        legend.position="bottom", #"bottom" for individual plots
         legend.title=element_blank(),
         legend.margin = margin(rep(0,4), "cm")) + 
   facet_grid(.~ Crop)  
@@ -285,9 +286,13 @@ PurityLogNormalParameters <- data.frame(NULL)
 
 # Temporal analysis of Purity parameters
 PurityTemporal <- ggplot(PurityLogNormalParameters, aes(x=mu, y=sd, group=Date)) +
-  geom_point(aes(shape=Date, color=Date), size=3) +
+  geom_point(aes(shape=Date, color=Date), size=5,
+             shape = 21, fill = "orange",
+             color = "black", alpha=.7) +
+  geom_text(aes(label=as.integer(Date))) +
   labs(x = expression(widehat(mu)), 
-       y = expression(widehat(sigma))
+       y = expression(widehat(sigma)),
+       title = expression(Estimates~of~the~Lognormal~distribution~"for"~the~Purity~italic(P)[GD])
        ) +
   facet_grid(.~Crop) +
   scale_fill_ipsum() +
@@ -388,9 +393,13 @@ ggsave(
   
   # Temporal analysis of Alpha parameters
 AlphaTemporal <-  ggplot(ScatteringTypeAngleParameters, aes(x=p, y=q, group=Date)) +
-    geom_point(aes(shape=Date, color=Date), size=3) +
+    geom_point(aes(shape=Date, color=Date), , size=5,
+               shape = 21, fill = "orange",
+               color = "black", alpha=.7) +
+  geom_text(aes(label=as.integer(Date))) +
     labs(x = expression(widehat(p)), 
-         y = expression(widehat(q))
+         y = expression(widehat(q)),
+         title = expression(Estimates~of~the~"Beta"~distribution~"for"~the~Scattering~Type~Angle~alpha[GD])
     ) +
     facet_grid(.~Crop) +
     scale_fill_ipsum() +
@@ -433,11 +442,19 @@ for(crop in levels(Helicity$Crop)) {
 }
 
 # Temporal analysis of Helicity parameters
+rm(HelicityTemporal)
+set.seed(3)
+
+annot_Canola <- subset(HelicityParameters, Crop=="Canola", lab=Date)
 HelicityTemporal <- ggplot(HelicityParameters, aes(x=p, y=q, group=Date)) +
-  geom_point(aes(shape=Date, color=Date), size=3) +
+  geom_point(aes(shape=Date, color=Date), size=5,
+             shape = 21, fill = "orange",
+             color = "black", alpha=.7) +
+  geom_text(aes(label=as.integer(Date))) +
   labs(x = expression(widehat(p)), 
-       y = expression(widehat(q))
-  ) +
+       y = expression(widehat(q)),
+       title = expression(Estimates~of~the~"Beta"~distribution~"for"~the~Helicity~tau[GD])
+       ) +
   facet_grid(.~Crop) +
   theme_ipsum(
     base_family = "Times New Roman",
@@ -445,23 +462,17 @@ HelicityTemporal <- ggplot(HelicityParameters, aes(x=p, y=q, group=Date)) +
     axis_title_size = 8
   ) +
   scale_fill_ipsum() +
-  theme_ipsum(
-    base_family = "Times New Roman",
-    base_size = 10,
-    axis_title_size = 10
-  ) +
   theme(plot.margin=grid::unit(c(0,0,0,0), "mm"),
         legend.position="bottom", #"bottom" for individual plots
         legend.title=element_blank(),
-        legend.margin = margin(rep(0,4), "cm")) + 
-  facet_grid(.~ Crop) +
-  theme(
-    strip.background = element_blank(),
-    strip.text.x = element_blank()
-  )
+        legend.margin = margin(rep(0,4), "cm"),
+        strip.background = element_blank(),
+        strip.text.x = element_blank()
+  ) + 
+  geom_text_repel(data=annot_Canola, aes(label=Date), nudge_y=2, nudge_x=0, size=3)
 HelicityTemporal
 
-ggsave(file = "../Figures/GRSL_2020/FactorPlots/TemporalBetaHelicityParameters.pdf",
+  ggsave(file = "../Figures/GRSL_2020/FactorPlots/TemporalBetaHelicityParameters.pdf",
        width = 210, height = 60, units = "mm", device = cairo_pdf)
 
 #### Only one plot with grid.arrange
