@@ -3,7 +3,10 @@
 \usepackage{graphicx}
 \graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Figures/GRSL_2020/FactorPlots/}{../../../../Images/GRSL_2020/}{../../../../Figures/Soybeans_231/}}
 
-\usepackage[font=footnotesize]{subcaption}
+\usepackage{subcaption}
+\captionsetup[table]{font=small,size=smaller,textfont=sc}
+\captionsetup[figure]{font=small,size=smaller}
+
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
 \usepackage{cite}
@@ -21,15 +24,15 @@
 
 \begin{document}
 	
-	\title{Statistical Properties of Geodesic Features in PolSAR Data over Crops}
+	\title{Statistical Properties of Geodesic Roll-Invariant Indexes in PolSAR Data over Crops}
 	
 	\author{Danilo~Fernandes,
 		Debanshu~Ratha,
 		Avik~Bhattacharya,~\IEEEmembership{Senior~Member,~IEEE},
 		and~Alejandro~C.~Frery,~\IEEEmembership{Senior~Member,~IEEE}% <-this % stops a space
-		\thanks{D.\ Fernandes is with the}% <-this % stops a space
+		\thanks{D.\ Fernandes is with the Instituto Federal de Alagoas, Brazil. Email: dfc@laccan.ufal.br}% <-this % stops a space
 		\thanks{D.\ Ratha and A.\ Bhattacharya are with the \textit{Centre of Studies in Resources Engineering}
-			-- CSRE, Indian Institute of Technology Bombay, Mumbai , India. Email - debanshu.ratha@iitb.ac.in, avikb@csre.iitb.ac.in}% <-this % stops a space
+			-- CSRE, Indian Institute of Technology Bombay, Mumbai, India. Email: \{debanshu.ratha;avikb\}@csre.iitb.ac.in}% <-this % stops a space
 		\thanks{A.\ C.\ Frery is with the \textit{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica} -- LaCCAN, 
 			Universidade Federal de Alagoas -- Ufal, 
 			57072-900 Macei\'o, AL -- Brazil, and the Key Lab of Intelligent Perception and Image Understanding of the Ministry of Education, Xidian University, Xi'an, China. Email: acfrery@laccan.ufal.br}
@@ -54,19 +57,49 @@
 	\IEEEpeerreviewmaketitle
 	
 	\section{Introduction}
-	Polarimetric Synthetic Aperture Radar (PolSAR) data, in general, is corrupted by physical phenomenon of speckle which degrades the quality of the image. Also, the notion of distributed PolSAR targets requires an averaging over neighbouring pixels. Polarimetric channel power is obtained from second order statistics of coherent PolSAR measurements. These considerations while working with PolSAR data, call for a statistical approach for its interpretation~\cite{Pottier09}. 
-	Thus, statistical modeling of PolSAR data constitues an imporatant direction of research within PolSAR literature~\cite{Deng_2017}. %%DR added this line and survey reference. 
-	This is also true for parameters derived after such preprocessing of the PolSAR data for interpretation. When dealing with agricultural data, the parameters rarely show significant variation over the homogeneous crop fields. In such a case, collective analysis over large window averages is also useful, avoids analysis of identical data making the approach memory-efficient.%%%%DR added this para     
 	
-	Recently, geodesic distances between the Kennaugh matrix representations have been proposed as a powerful means to analyze PolSAR data. Such distances are easy to compute as angles between points on the surface of the $15$-dimensional unit sphere, and they can be used to obtain target roll-invariant indices with good explanatory and discriminatory abilities in terms of the nature of scattering mechanism~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress}. In particular, the geodesic distance ($\text{GD}$) on the unit sphere of $4 \times 4$ real matrices was found to be useful for several applications such as change detection~\cite{ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms}, 
+	\IEEEPARstart{P}{olarimetric}
+	data from extended targets are rich in valuable information.
+	An active research venue is the definition of features able to summarize such information leading to processing and analysis techniques.
+	The most useful features are the target roll-invariant parameters, i.e., those unaffected by the rotation of the target about the radar line of sight (LoS).
+	
+	Among the most important polarimetric features, one should mention Cloude \& Pottier's $H/\alpha$ decomposition~\cite{CloudePottier:97}, and Touzi's roll-invariant target parameters~\cite{Touzi:TGARS:2007}.
+	They lead to successful target scattering classification procedures, and to geophysical parameter extraction.
+	
+	More recently, Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress}, using the notion of the geodesic distance ($\text{GD}$) on the unit sphere embedded in the $16$-dimensional real (Euclidean) space, obtained a set of roll-invariant parameters which was utilized to build a PolSAR scattering classification scheme. 
+	The features derived by measuring the geodesic distances between PolSAR observation and elementary targets were useful in
+	change detection~\cite{ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms},
 	unsupervised land-cover classification~\cite{ClassificationPolSARGeodesic}, 
 	vegetation monitoring~\cite{AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019}, and 
-	extraction of urban footprint~\cite{NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019} using PolSAR images. The GD has also been utilized to provide a radar vegetation index (CpRVI) for compact polarimetric data~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} as well. However, no statistical assessment of the properties of such indices under the hypothesis of good samples has yet been performed.%%%%DR edited this para
+	extraction of urban footprint~\cite{NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019} using PolSAR images.
+	The geodesic distance also provides a radar vegetation index (CpRVI) for compact polarimetric data~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData}. 
 	
-	In face of these new tools, this paper makes qualitative and quantitative analyses of roll-invariant geodesic features (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$).
-	This work extends the results presented in Ref.~\cite{StatisticalPropertiesofGeodesicDistancesBetweenSamplesandElementaryScatterersinPolSARImagery2019} by considering a parametric modeling and a temporal analysis of these indices rather than the distances directly.%%%DR edited this para
+	However, it may be emphasized that the nature of these features is not deterministic, since they are extracted from extended targets and, thus, are subjected to the influence of speckle~\cite{Deng_2017}.
+	Nevertheless, none of the aforementioned works has explored the features' statistical properties.
 	
-	In this paper, we perform a qualitative analysis of these three geodesic indices on samples from three crops and different dates and show that the Lognormal distribution is a good model for the Geodesic Purity. In contrast, the Beta distribution explains well both the Geodesic Scattering Type Angle and the Geodesic Helicity.%%%DR edited this para
+	A first step in this direction was presented by Fernandes and Frery~\cite{StatisticalPropertiesofGeodesicDistancesBetweenSamplesandElementaryScatterersinPolSARImagery2019}.
+	The authors showed that geodesic distances between carefully selected samples and prototypes can be described by Beta distributions.
+	Such distances are the basis for computing the geodesic roll-invariant parameters which, thus, inherit their stochastic nature.
+	
+	%Polarimetric Synthetic Aperture Radar (PolSAR) data, in general, is corrupted by physical phenomenon of speckle which degrades the quality of the image. 
+	%Also, the notion of distributed PolSAR targets requires an averaging over neighboring pixels. Polarimetric channel power is obtained from second order statistics of coherent PolSAR measurements. 
+	%These considerations while working with PolSAR data, call for a statistical approach for its interpretation~\cite{Pottier09}. 
+	%Thus, statistical modeling of PolSAR data constitutes an important direction of research within PolSAR literature~\cite{Deng_2017}. %%DR added this line and survey reference. 
+	%This is also true for parameters derived after such preprocessing of the PolSAR data for interpretation. 
+	%When dealing with agricultural data, the parameters rarely show significant variation over the homogeneous crop fields. 
+	%In such a case, collective analysis over large window averages is also useful, avoids analysis of identical data making the approach memory-efficient.%%%%DR added this para  
+	%%%%AB: I do not understand the last portion of the first para!
+	%
+	%Recently, geodesic distances between the Kennaugh matrix representations have been proposed as a powerful means to analyze PolSAR data. Such distances are easy to compute as angles between points on the surface of the $15$-dimensional unit sphere, and they can be used to obtain target roll-invariant indices with good explanatory and discriminatory abilities in terms of the nature of scattering mechanism~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress}. In particular, the geodesic distance ($\text{GD}$) on the unit sphere of $4 \times 4$ real matrices was found to be useful for several applications such as change detection~\cite{ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms}, 
+	%unsupervised land-cover classification~\cite{ClassificationPolSARGeodesic}, 
+	%vegetation monitoring~\cite{AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019}, and 
+	%extraction of urban footprint~\cite{NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019} using PolSAR images. The GD has also been utilized to provide a radar vegetation index (CpRVI) for compact polarimetric data~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} as well. However, no statistical assessment of the properties of such indices under the hypothesis of good samples has yet been performed.%%%%DR edited this para
+	%
+	%In face of these new tools, this paper makes qualitative and quantitative analyses of roll-invariant geodesic features (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$).
+	%This work extends the results presented in Ref.~\cite{StatisticalPropertiesofGeodesicDistancesBetweenSamplesandElementaryScatterersinPolSARImagery2019} by considering a parametric modeling and a temporal analysis of these indices rather than the distances directly.%%%DR edited this para
+	
+	In this paper, we perform a qualitative analysis of the three geodesic indices on samples from four crops and five dates, and show that the Lognormal distribution is a good model for the Geodesic Purity. 
+	In contrast, the Beta distribution explains well both the Geodesic Scattering Type Angle and the Geodesic Helicity.%%%DR edited this para
 	
 	We then use test statistics based on the Hellinger distance to verify that the estimated parameters from each date (and same crop) are significantly different, with only one exception.
 	Finally, we make a temporal analysis of the behavior of these estimates in the parameter space.
@@ -109,27 +142,27 @@
 	
 	Given a scattering matrix $\bm{S}$, the $4 \times 4$ real Kennaugh matrix $\bm{K}$ is defined as~\cite{Pottier09}:
 	\begin{equation}
-	%\label{coKen}
-	\bm{K} = \frac{1}{2}\bm{A}^*(\bm{S} \otimes \bm{S}^*) \bm{A}^{*T}, \quad \bm{A} = \left[
-	\begin{array}{cccc}
-	1 & 0 & 0 & 1\\
-	1 & 0 & 0 & -1\\
-	0 & 1 & 1 & 0\\
-	0 & j & -j & 0
-	\end{array}\right],
+		%\label{coKen}
+		\bm{K} = \frac{1}{2}\bm{A}^*(\bm{S} \otimes \bm{S}^*) \bm{A}^{*T}, \quad \bm{A} = \left[
+		\begin{array}{cccc}
+			1 & 0 & 0 & 1\\
+			1 & 0 & 0 & -1\\
+			0 & 1 & 1 & 0\\
+			0 & j & -j & 0
+		\end{array}\right],
 	\end{equation}
 	where $\otimes$ is the Kronecker product, and  $j = \sqrt{-1}$.
 	The Kennaugh matrix can be obtained from the coherency matrix $\bm{T}$~\cite{PolarisationApplicationsRemoteSensing}:
 	\begin{equation}
-	\label{incoKen}
-	\bm{K} =
-	\left[\arraycolsep=.7pt
-	\begin{array}{cccc}
-	\frac{T_{11}+T_{22}+ T_{33}}{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
-	\Re(T_{12}) & \frac{T_{11}+T_{22}-T_{33}}{2} & \Re(T_{23}) & \Im(T_{13})\\
-	\Re(T_{13}) & \Re(T_{23}) & \frac{T_{11}-T_{22}+T_{33}}{2} & - \Im(T_{12})\\
-	\Im(T_{23}) & \Im(T_{13}) & - \Im(T_{12}) &\frac{-T_{11}+T_{22}+T_{33}}{2}
-	\end{array}\right],
+		\label{incoKen}
+		\bm{K} =
+		\left[\arraycolsep=.7pt
+		\begin{array}{cccc}
+			\frac{T_{11}+T_{22}+ T_{33}}{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
+			\Re(T_{12}) & \frac{T_{11}+T_{22}-T_{33}}{2} & \Re(T_{23}) & \Im(T_{13})\\
+			\Re(T_{13}) & \Re(T_{23}) & \frac{T_{11}-T_{22}+T_{33}}{2} & - \Im(T_{12})\\
+			\Im(T_{23}) & \Im(T_{13}) & - \Im(T_{12}) &\frac{-T_{11}+T_{22}+T_{33}}{2}
+		\end{array}\right],
 	\end{equation}
 	where $\Re(\cdot)$ and $\Im(\cdot)$ denote real and imaginary parts of a complex number. 
 	
@@ -142,8 +175,8 @@
 	
 	This also means that the geodesic distance ($\text{GD}$) on the unit sphere is a natural way to measure the dissimilarity between targets. The $\text{GD}$ between two $4 \times 4$ real Kennaugh matrices $\bm{K}_1$ and $\bm{K}_2$ is given in~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} as
 	\begin{equation}
-	\text{GD}(\bm{K}_1,\bm{K}_2) =  \frac{2}{\pi} \cos^{-1}\frac{\Tr(\bm{K}_1^T\bm{K}_2)}{\sqrt{\Tr(\bm{K}_1^T\bm{K}_1)}\sqrt{\Tr(\bm{K}_2^T\bm{K}_2)}} ,
-	\label{eq:GD_Ken}
+		\text{GD}(\bm{K}_1,\bm{K}_2) =  \frac{2}{\pi} \cos^{-1}\frac{\Tr(\bm{K}_1^T\bm{K}_2)}{\sqrt{\Tr(\bm{K}_1^T\bm{K}_1)}\sqrt{\Tr(\bm{K}_2^T\bm{K}_2)}} ,
+		\label{eq:GD_Ken}
 	\end{equation}
 	where $\Tr$ denotes the trace operator. 
 	The factor $2/\pi$ normalizes the distance to $[0,1]$. 
@@ -158,7 +191,7 @@
 	Some of these prototypes are
 	{trihedral} ($\text{t}$),
 	{cylinder} (${\text{c}}$),
-	{random volume} (${\text{rv}}$)\footnote{This is the random volume component first used in Freeman Durden Decomosition~\cite{freeman98}, and later utilized for land cover classification using PolSAR imagery in~\cite{ClassificationPolSARGeodesic}.},%%DR added footnote and FDD reference
+	the Freeman-Durden~\cite{freeman98} random volume (${\text{rv}}$),
 	{dipole} (${\text{dp}}$),
 	{$+1/4$-wave} (${+1/4}$), 
 	{$-1/4$-wave} (${-1/4}$),
@@ -167,7 +200,8 @@
 	{left helix} (${\text{lh}}$), 
 	{right helix} (${\text{rh}}$), 
 	and Ideal Depolarizer (${\text{ID}}$).
-	Table~\ref{Tab:ElementaryK} shows the Kennaugh matrices used in this work. Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} provide a comprehensive list of such matrices, with an application to crop monitoring using compact polarimetric SAR data.%%DR Order of prototypes uniformized with table. Corrected bib entry for Mandal et al, second author was missing/and author order was different. Edited para
+	Table~\ref{Tab:ElementaryK} shows the Kennaugh matrices used in this work. 
+	Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} apply such matrices to crop monitoring using compact polarimetric SAR data, but with a different random volume model.
 	
 	%%%DR Changed the order of the prototypes in the table. It may be noted the reference paper Mandal et al, does not have the \bm{K}_{\text{rv}} prototype used in the Freeman-Durden Decomposition (FDD). It is exclusively used in~\cite{ClassificationPolSARGeodesic} for an application by us.
 	
@@ -256,24 +290,39 @@
 	The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{ID}}$ matrix.
 	The geodesic purity index is then:
 	\begin{equation}
-	P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{ID}})\Big)^2.
+		P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{ID}})\Big)^2.
 	\end{equation}
 	
 	The geodesic scattering type angle $\alpha_{\text{GD}}$ describes 
 	the distance to the trihedral prototype:
 	\begin{equation}
-	\alpha_{\text{GD}}(\bm{K}) = \frac{\pi}{2}  \text{GD}(\bm{K},\bm{K}_{\text{t}}).
+		\alpha_{\text{GD}}'(\bm{K}) = \frac{\pi}{2}  \text{GD}(\bm{K},\bm{K}_{\text{t}}).
 	\end{equation}
 	
 	The helicity parameter provides a quantitative estimation of target symmetry~\cite{Touzi:TGARS:2007} in the observation. 
 	This quantity is derived as the (geometric) mean of the distances from left and right helices:
 	\begin{equation}
-	\tau_{\text{GD}} = \frac\pi4 \big(1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}\big).
+		\tau_{\text{GD}}' = \frac\pi4 \big(1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}\big).
 	\end{equation}
 	The multiplication by $\pi/4$ makes the scale equal (in radians) for comparison with $|\tau_{m_1}|$~\cite{Touzi:TGARS:2007}. 
-	For trihedral target, $\tau_{\text{GD}} = 0$ and for helices $\tau_{\text{GD}} = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$. 
+	For trihedral target, $\tau_{\text{GD}}' = 0$ and for helices $\tau_{\text{GD}}' = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$.
+	
+	We will analyze the geodesic scattering type angle and the geodesic purity index without scaling, i.e., $\alpha_{\text{GD}}(\bm{K}) = \text{GD}(\bm{K},\bm{K}_{\text{t}})$, and 
+	$\tau_{\text{GD}} = 1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}$.
+	With this, both measures are bound to $(0,1)$.
 	
 	\section{Statistical Description}
+	
+	\subsection{Initial considerations}
+	
+	Fernandes and Frery~\cite{StatisticalPropertiesofGeodesicDistancesBetweenSamplesandElementaryScatterersinPolSARImagery2019} showed that geodesic distances between carefully selected samples and prototypes can be described by Beta distributions.
+	They did not analyze the GD to the Ideal Depolarizer and, thus, there no available information about distribution of $P_{\text{GD}}$.
+	
+	With those results in mind, on the one hand, one might expect that $\alpha_{\text{GD}}$ follows a Beta distribution.
+	On the other hand, the distribution of $\sqrt{XY}$, with $X$ and $Y$ Beta random variables, cannot be expressed, in general, in a simple form.
+	If these random variables are independent, which is unlikely our case, the distribution of their product involves the ${}_2F_{1}$ hypergeometric function~\cite[Corollary~2.1]{OntheDistributionoftheProductofIndependentBetaRandomVariables}.
+	Therefore, there is also no available information about the distribution of $\tau_{\text{GD}}$.
+	
 	
 	\subsection{Samples}
 	
@@ -306,9 +355,9 @@
 	An exploratory data analysis revealed that the logarithmic transformation leads to data that can be well described by the Gaussian distribution.
 	We, thus, opted for fitting the Lognormal law, characterized by the probability density function
 	\begin{equation}
-	f(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2} x} \exp\Big\{
-	-\frac1{2 \sigma^2}\big(\log x - \mu\big)^2
-	\Big\},
+		f(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2} x} \exp\Big\{
+		-\frac1{2 \sigma^2}\big(\log x - \mu\big)^2
+		\Big\},
 	\end{equation}
 	where $\mu\in\mathbbm R$, and $\sigma^2>0$ are the parameters.
 	
@@ -351,11 +400,11 @@
 	
 	\begin{figure*}[hbt]
 		\centering
-		\subcaptionbox{Geodesic Purity $P_{\text{GD}}$ from Wheat, 16~May, and fitted Lognormal density.\label{fig:WorstPurityLognormalFit}}{\includegraphics[width=.32\linewidth]{WheatPurityLognormalFit}}
+		\subcaptionbox{Geodesic Purity $P_{\text{GD}}$ from Wheat, 16~May, and fitted Lognormal density.\label{fig:WorstPurityLognormalFit}}{\includegraphics[width=.25\linewidth]{WheatPurityLognormalFit}}
 		%
-		\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstAlphaBetaFit}}{\includegraphics[width=.32\linewidth]{CanolaAlphaBetaFit}}
+		\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstAlphaBetaFit}}{\includegraphics[width=.25\linewidth]{CanolaAlphaBetaFit}}
 		%
-		\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstHelicityBetaFit}}{\includegraphics[width=.32\linewidth]{CanolaHelicityBetaFit}}
+		\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstHelicityBetaFit}}{\includegraphics[width=.25\linewidth]{CanolaHelicityBetaFit}}
 		\caption{The three worst fits of Geodesic Indices.}
 	\end{figure*}
 	
@@ -364,8 +413,8 @@
 	The observations are bounded in $(0,1)$, 
 	and the shape of their estimated densities also suggests the use of the Beta distribution, characterized by the probability density function:
 	\begin{equation}
-	f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm 1_{(0,1)}(x),
-	\label{eq:BetaDensity}
+		f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm 1_{(0,1)}(x),
+		\label{eq:BetaDensity}
 	\end{equation}
 	with $p,q>0$.
 	%The data look crammed in their original space, though, and then we decided to assess the observations after a logarithmic transformation.
@@ -456,9 +505,16 @@
 	Canola, Oats, Soy Beans, and Wheat share similar behavior: $\widehat\mu$ decreases, while $\widehat\sigma$ increases with time, with the exception of the two last dates for Canola and Wheat.
 	The stages of these four crops are easily identifiable by means of the Lognormal model, whereas Soy Beans have only four identifiable stages since, as noted, the estimates from the two last dates cannot be considered different.
 	
+	In-situ measurements of the SMAPVEX16 campaign confirm that majority of the wheat and oat fields were at tillering during the second week of June. The Manitoba weekly crop reports~\cite{manitobaagriculture} suggest that soybean seeding was completed during this period and the plants were in their unifoliate to third trifoliate growth stage indicating very low Plant Area Index (PAI) and biomass values.
+	
+	From the Manitoba weekly crop reports~\cite{manitobaagriculture} canola seeding was almost completed, and the crop was emerging rapidly. Earlier seeded fields were reaching the rosette stage. Thus, the effect of the soil component is expected to dominate the radar response rather than the vegetation component.
+	
 	Fig.~\ref{fig:TemporalIndexes} (middle) shows the temporal evolution of the parameter estimates $(\widehat p, \widehat q)$ of the Beta distribution when modeling the Geodesic Scattering Type $\alpha_{\text{GD}}$.
 	Wheat is the crops where the estimates span most of the parametric space, as opposed to Soy Beans that gather around small values.
 	Although all estimates are significantly different, the two first dates of Oats are very close.
+	
+	During the first week of July, cereals (wheat and oats) were at their stem elongation to flag leaf stages. Some fields advanced to the heading stage. Consequently, increases in PAI and biomass are observed. 
+	In contrast, increases in PAI and wet biomass for soybean are less. According to the Manitoba weekly crop reports~\cite{manitobaagriculture}, the majority of canola fields were bolting, forming early flowers whereas podding started in the most advanced fields.
 	
 	The estimates $(\widehat p, \widehat q)$ of the Beta distribution for the Geodesic Helicity $\tau_{\text{GD}}$ (Fig.~\ref{fig:TemporalIndexes} bottom) suggest a decreasing tendency of $\widehat q$ along with an increasing trend of $\widehat p$ along time.
 	%%%DR Column fitted the figure to column width to prevent manuscript going beyond 5 pages. 
@@ -769,7 +825,8 @@
 	
 	\section*{Acknowledgment}
 	
-	The authors would like to thank CNPq and Fapeal for providing partial support to this research. D. Ratha would like to acknowledge the support of CSIR, Government of India towards his doctoral studies.
+	The authors would like to thank CNPq and Fapeal for providing partial support to this research. 
+	D.\ Ratha would like to acknowledge the support of CSIR, Government of India towards his doctoral studies. The authors would like to thanks Mr.\ Dipankar Mandal for proving information about the crop growth stages from the Manitoba (Canada) Agriculture reports.
 	
 	\bibliographystyle{IEEEtran}
 	\bibliography{references}
