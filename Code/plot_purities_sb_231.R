@@ -69,7 +69,8 @@ ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/SoyBeansPurity.pdf",
 AlphaSoyBeans <- NULL
 for(i in 1:5){
   setwd(wd[i])
-  sample <- getFilteredData("trihedral", dim)
+#  sample <- getFilteredData("trihedral", dim)
+  sample <- getGeoDist("trihedral", dim)
   print(i); print(length(sample))
   id.sample <- cbind(sample, rep(i, length(sample)))
   AlphaSoyBeans <- rbind(AlphaSoyBeans, id.sample)

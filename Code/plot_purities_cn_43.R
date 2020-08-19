@@ -75,7 +75,8 @@ ggplot() +
 AlphaCanola <- NULL
 for(i in 1:5){
   setwd(wd[i])
-  sample <- getFilteredData("trihedral", dim)
+#  sample <- getFilteredData("trihedral", dim)
+  sample <- getGeoDist("trihedral", dim)
   print(i); print(length(sample))
   id.sample <- cbind(sample, rep(i, length(sample)))
   AlphaCanola <- rbind(AlphaCanola, id.sample)

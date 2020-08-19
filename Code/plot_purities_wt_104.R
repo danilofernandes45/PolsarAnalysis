@@ -44,7 +44,8 @@ ggsave(file="../../../../Figures/GRSL_2020/FactorPlots/WheatPurity.pdf",
 AlphaWheat <- NULL
 for(i in 1:5){
   setwd(wd[i])
-  sample <- getFilteredData("trihedral", dim)
+#  sample <- getFilteredData("trihedral", dim)
+  sample <- getGeoDist("trihedral", dim)
   print(i); print(length(sample))
   id.sample <- cbind(sample, rep(i, length(sample)))
   AlphaWheat <- rbind(AlphaWheat, id.sample)
