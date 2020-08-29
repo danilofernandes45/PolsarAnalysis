@@ -361,3 +361,4 @@ TSWLatexianTemp*
 # End of https://www.gitignore.io/api/r,tex,linux,macos
 
 *.pdf
+/Data/Guatemala/
