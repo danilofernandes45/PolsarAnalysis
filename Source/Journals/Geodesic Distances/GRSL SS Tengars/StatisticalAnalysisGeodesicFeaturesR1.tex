@@ -1,7 +1,14 @@
 \documentclass[journal]{IEEEtran}
 
 \usepackage{graphicx}
-\graphicspath{{../../../../Figures/GRSL_2020/}{../../../../Figures/GRSL_2020/FactorPlots/}{../../../../Images/GRSL_2020/}{../../../../Figures/Soybeans_231/}}
+\graphicspath{{../../../../Figures/}
+	{../Figures/FactorPlots/}
+	{../Images/PNG/}
+	{../../../../Figures/GRSL_2020/}
+	{../../../../Figures/GRSL_2020/FactorPlots/}
+	{../../../../Images/GRSL_2020/}
+	{../../../../Figures/Soybeans_231/}
+}
 
 \usepackage{subcaption}
 \captionsetup[table]{font=small,size=smaller,textfont=sc}
@@ -11,7 +18,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{cite}
 \usepackage[cmex10]{amsmath}
-\usepackage{dblfloatfix}
+%\usepackage{dblfloatfix}
 \usepackage{url}
 \usepackage{color}
 \usepackage{bm,bbm}
@@ -33,9 +40,7 @@
 	\thanks{D.\ Fernandes is with the Instituto Federal de Alagoas, Brazil. Email: dfc@laccan.ufal.br}% <-this % stops a space
 	\thanks{D.\ Ratha and A.\ Bhattacharya are with the \textit{Centre of Studies in Resources Engineering}
 		-- CSRE, Indian Institute of Technology Bombay, Mumbai, India. Email: \{debanshu.ratha;avikb\}@csre.iitb.ac.in}% <-this % stops a space
-	\thanks{A.\ C.\ Frery is with the \textit{Laborat\'orio de Computa\c c\~ao Cient\'ifica e An\'alise Num\'erica} -- LaCCAN, 
-		Universidade Federal de Alagoas -- Ufal, 
-		57072-900 Macei\'o, AL -- Brazil, and the Key Lab of Intelligent Perception and Image Understanding of the Ministry of Education, Xidian University, Xi'an, China. Email: acfrery@laccan.ufal.br}
+	\thanks{A.\ C.\ Frery is with the School of Mathematics and Statistics, Victoria University of Wellington, 6140 New Zealand, and with the Key Lab of Intelligent Perception and Image Understanding of the Ministry of Education, Xidian University, Xi'an, China. Email: alejandro.frery@vuw.ac.nz}
 	\thanks{Manuscript received XX; revised YY.}}
 
 \markboth{IEEE Geoscience and Remote Sensing Letters}%
@@ -44,10 +49,10 @@
 \maketitle
 
 \begin{abstract}
-	We make qualitative and quantitative analyses of roll-invariant geodesic features (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$), as measured on five dates of four different crops.
-	After a qualitative analysis, we show that the Lognormal distribution is a good model for $P_{\text{GD}}$, while the Beta distribution explains well both $\alpha_{\text{GD}}$ and $\tau_{\text{GD}}$.
-	We then verify that the estimated parameters from each date (and the same crop) are significantly different, with only one exception.
-	Finally, we make a temporal analysis of the behavior of these estimates.
+We analyze from a statistical viewpoint roll-invariant geodesic features (Scattering Type Angle $\alpha_{\text{GD}}$, Helicity $\tau_{\text{GD}}$, and Purity $P_{\text{GD}}$), as measured on five dates of four different crops.
+We show that the Beta distribution explains well both $\alpha_{\text{GD}}$ and $\tau_{\text{GD}}$, while the Hyperbolic distribution is a good model for $P_{\text{GD}}$.
+These choices are guided by mapping third- and fourth-order sample statistics onto the Pearson System plane.
+Finally, we make a temporal analysis of the behavior of these estimates.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -81,11 +86,14 @@ The first step in this direction was presented by Fernandes and Frery~\cite{Stat
 The authors showed that Beta distributions adequately describe geodesic distances between samples and prototypes.
 Such distances are the basis for computing the geodesic roll-invariant parameters, which, thus, inherit their stochastic nature.
 
-In this paper, we perform a qualitative analysis of the three geodesic indices on samples from four crops and five dates and show that the Lognormal distribution is an adequate model for Geodesic Purity. 
-In contrast, the Beta distribution explains well both the Geodesic Scattering Type Angle and the Geodesic Helicity.
+In this paper, we perform a qualitative analysis of the three geodesic indices on samples from four crops and five dates.
+By mapping third- and fourth-order statistics onto the Pearson System plane we find that both the Geodesic Scattering Type Angle and the Geodesic Helicity can be described by the Beta distribution.
+There is no single distribution in that system able to describe the Geodesic Purity, but the mapping suggests the need of a four-parameter model.
+We then verified that the Hyperbolic distribution, which has nice geometrical properties, is a good choice for these data.
 
-We then use test statistics based on the Hellinger distance to verify that the estimated parameters from each date (and same crop) are significantly different, with only one exception.
-Finally, we make a temporal analysis of the behavior of these estimates in the parameter space.
+Finally, we make a temporal analysis of the behavior of these estimates in the parameter space, and we verify that, collectively, they are able to discriminate among crops and dates.
+
+This statistical knowledge is basilar for the design of, among others, classification algorithms based on roll-invariant parameters.
 
 \section{Methodology}
 
@@ -106,40 +114,42 @@ Following the reciprocity theorem
 in the case of a monostatic radar, 
 $S_{\text{HV}}=S_{\text{VH}}$.
 In such case, we obtain the Pauli scattering vector as
-$$
+$
 \bm k = \frac1{\sqrt{2}}
 \begin{bmatrix}
 S_{\text{HH}} + S_{\text{VV}} 
 & S_{\text{HH}} - S_{\text{VV}} 
 & 2S_{\text{HV}}
-\end{bmatrix}^T,
-$$
+\end{bmatrix}^T
+$,
 where $T$ denotes transposition.
 
 The Pauli representation is useful for visual analysis (assigning its components to the red, green, and blue channels), and for defining the coherency matrix $\bm T$.
-Consider the availability of $n$ measures over the same type of target, then
+Consider the availability of $L$ measures over the same type of target, then
 $$
-\bm T = \frac{1}{n} \sum_{i=1}^{n}\bm k_i \bm k_i^{T*},
+\bm T = \begin{bmatrix}
+T_{ij}
+\end{bmatrix}_{1\leq i,j\leq 3}= \frac{1}{L} \sum_{\ell=1}^{n}\bm k_\ell \bm k_\ell^{T*},
 $$
 where ``$*$'' denotes the complex conjugate.
 
-Given a scattering matrix $\bm{S}$, the $4 \times 4$ real Kennaugh matrix $\bm{K}$ is defined as~\cite{Pottier09}:
-\begin{equation}
-	%\label{coKen}
-	\bm{K} = \frac{1}{2}\bm{A}^*(\bm{S} \otimes \bm{S}^*) \bm{A}^{*T}, \quad \bm{A} = 
-	\begin{bmatrix}
-		1 & 0 & 0 & 1\\
-		1 & 0 & 0 & -1\\
-		0 & 1 & 1 & 0\\
-		0 & j & -j & 0
-	\end{bmatrix},
-\end{equation}
-where $\otimes$ is the Kronecker product, and  $j = \sqrt{-1}$.
+%Given a scattering matrix $\bm{S}$, the $4 \times 4$ real Kennaugh matrix $\bm{K}$ is defined as~\cite{Pottier09}:
+%\begin{equation}
+%	%\label{coKen}
+%	\bm{K} = \frac{1}{2}\bm{A}^*(\bm{S} \otimes \bm{S}^*) \bm{A}^{*T}, \quad \bm{A} = 
+%	\begin{bmatrix}
+%		1 & 0 & 0 & 1\\
+%		1 & 0 & 0 & -1\\
+%		0 & 1 & 1 & 0\\
+%		0 & j & -j & 0
+%	\end{bmatrix},
+%\end{equation}
+%where $\otimes$ is the Kronecker product, and  $j = \sqrt{-1}$.
 The Kennaugh matrix can be obtained from the coherency matrix $\bm{T}$~\cite{PolarisationApplicationsRemoteSensing}:
 \begin{equation}
 	\label{incoKen}
 	\bm{K} =
-\arraycolsep=.7pt
+\arraycolsep=.6pt
 	\begin{bmatrix}
 		\frac{T_{11}+T_{22}+ T_{33}}{2} & \Re(T_{12}) & \Re(T_{13}) & \Im(T_{23})\\
 		\Re(T_{12}) & \frac{T_{11}+T_{22}-T_{33}}{2} & \Re(T_{23}) & \Im(T_{13})\\
@@ -206,7 +216,7 @@ and {left and right helixes (${\text{lh}}$, ${\text{rh}}$, respectively):
 1 & 0 & 0 & 1\\
 \end{bmatrix}.
 \end{align*}
-Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} apply these and other matrices to crop monitoring using compact polarimetric SAR data.
+Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData} applied these and other matrices to crop monitoring using compact polarimetric SAR data.
 
 %\begin{table}[hbt]
 %	\centering
@@ -288,7 +298,21 @@ Mandal et al.~\cite{ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetr
 %	\end{tabular}
 %\end{table}
 
-Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed three new roll-invariant geodesic parameters, in analogy with classical ones~\cite{gil85,CloudePottier:97,Touzi:TGARS:2007}: Purity, Scattering Type Angle, and Helicity.
+Ratha et al.~\cite{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress} proposed three new roll-invariant geodesic parameters, in analogy with classical ones~\cite{CloudePottier:97,Touzi:TGARS:2007}: Scattering Type Angle, Helicity, and Purity.
+
+The geodesic scattering type angle $\alpha_{\text{GD}}$ describes 
+the distance to the trihedral prototype:
+\begin{equation}
+	\alpha_{\text{GD}}(\bm{K}) = \frac{\pi}{2}  \text{GD}(\bm{K},\bm{K}_{\text{t}}).
+\end{equation}
+
+The helicity parameter provides a quantitative estimation of target symmetry~\cite{Touzi:TGARS:2007} in the observation. 
+This quantity is derived as the (geometric) mean of the distances from left and right helices:
+\begin{equation}
+	\tau_{\text{GD}} = \frac\pi4 \big(1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}\big).
+\end{equation}
+The multiplication by $\pi/4$ makes the scale equal (in radians) for comparison with $|\tau_{m_1}|$~\cite{Touzi:TGARS:2007}. 
+For trihedral target, $\tau_{\text{GD}}' = 0$ and for helices $\tau_{\text{GD}}' = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$.
 
 The geodesic purity index measures the distance between a target and the ideal depolarizer, which is characterized by the $\bm{K}_{\text{ID}}$ matrix.
 The geodesic purity index is then:
@@ -296,24 +320,11 @@ The geodesic purity index is then:
 	P_{\text{GD}} = \Big(\frac{3}{2}\text{GD}(\bm{K}, \bm{K}_{\text{ID}})\Big)^2.
 \end{equation}
 
-The geodesic scattering type angle $\alpha_{\text{GD}}$ describes 
-the distance to the trihedral prototype:
-\begin{equation}
-	\alpha_{\text{GD}}'(\bm{K}) = \frac{\pi}{2}  \text{GD}(\bm{K},\bm{K}_{\text{t}}).
-\end{equation}
-
-The helicity parameter provides a quantitative estimation of target symmetry~\cite{Touzi:TGARS:2007} in the observation. 
-This quantity is derived as the (geometric) mean of the distances from left and right helices:
-\begin{equation}
-	\tau_{\text{GD}}' = \frac\pi4 \big(1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}\big).
-\end{equation}
-The multiplication by $\pi/4$ makes the scale equal (in radians) for comparison with $|\tau_{m_1}|$~\cite{Touzi:TGARS:2007}. 
-For trihedral target, $\tau_{\text{GD}}' = 0$ and for helices $\tau_{\text{GD}}' = \pi/4$, which matches with the scattering at extremities of $|\tau_{m_1}|$.
-
 We will analyze these three geodesic parameters:
-purity, scattering type angle, and helicity, the two last without scaling, i.e., $\alpha_{\text{GD}}(\bm{K}) = \text{GD}(\bm{K},\bm{K}_{\text{t}})$, and 
-$\tau_{\text{GD}} = 1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}$.
-With this, these two last measures lie in $[0,1]$.
+purity, scattering type angle, and helicity, in their natural domains.
+%, the two last without scaling, i.e., $\alpha_{\text{GD}}(\bm{K}) = \text{GD}(\bm{K},\bm{K}_{\text{t}})$, and 
+%$\tau_{\text{GD}} = 1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}$.
+%With this, these two last measures lie in $[0,1]$.
 
 \section{Statistical Description}
 
@@ -344,211 +355,415 @@ Figures~\ref{fig:day_0} to~\ref{fig:day_96} show the Canola data in Pauli Decomp
 	\label{fig:sample_images}
 \end{figure}
 
-Fig.~\ref{fig:AllIndexes} shows estimates of the densities of the three Geodesic Indices (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$) for the four crops (Canola, Oats, Soy Beans, and Wheat) in the five dates considered here.
+%Fig.~\ref{fig:AllIndexes} shows estimates of the densities of the three Geodesic Indices (Purity $P_{\text{GD}}$, Scattering Type Angle $\alpha_{\text{GD}}$, and Helicity $\tau_{\text{GD}}$) for the four crops (Canola, Oats, Soy Beans, and Wheat) in the five dates considered here.
+%
+%\begin{figure}[htb]
+%	\centering
+%	\includegraphics[width=\linewidth]{Indexes}
+%	\caption{Density estimates of the three Geodesic Indices by crop and date.}\label{fig:AllIndexes}
+%\end{figure}
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=\linewidth]{Indexes}
-	\caption{Density estimates of the three Geodesic Indices by crop and date.}\label{fig:AllIndexes}
-\end{figure}
+\subsection{Choice of Models}
 
-\subsection{Data Analysis}
+%\begin{table*}
+%\centering
+%\caption{Best fit within the Pearson System per Crop}
+%\begin{tabular}{cccccccccccccr}
+%\toprule
+%& \multicolumn{3}{c}{Canola}
+%& \multicolumn{3}{c}{Oats}
+%& \multicolumn{3}{c}{SoyBeans}
+%& \multicolumn{3}{c}{Wheat}\\
+%\cmidrule(lr){2-4}
+%\cmidrule(lr){5-7}
+%\cmidrule(lr){8-10}
+%\cmidrule(lr){11-13}
+%\textbf{Type}
+%& $\alpha_{\text{GD}}$
+%& $\tau_{\text{GD}}$
+%& $P_{\text{GD}}$
+%& $\alpha_{\text{GD}}$
+%& $\tau_{\text{GD}}$
+%& $P_{\text{GD}}$
+%& $\alpha_{\text{GD}}$
+%& $\tau_{\text{GD}}$
+%& $P_{\text{GD}}$
+%& $\alpha_{\text{GD}}$
+%& $\tau_{\text{GD}}$
+%& $P_{\text{GD}}$
+%& \textbf{Total}\\
+%\cmidrule(lr){2-4}
+%\cmidrule(lr){5-7}
+%\cmidrule(lr){8-10}
+%\cmidrule(lr){11-13}
+%I 	&2 &3 &0 &0 &3 &0 &1 &3 &0 &1 &3 &1 & 17\\
+%%II 	& & & & & & & & & & & & \\
+%III &3 &1 &3 &4 &0 &2 &2 &1 &0 &3 &1 &2 & 22\\
+%IV 	&0 &0 &2 &0 &0 &2 &0 &0 &3 &0 &0 &1 & 8\\
+%V 	&0 &1 &0 &1 &0 &1 &2 &0 &2 &1 &0 &1 & 9\\
+%VI 	&0 &0 &0 &0 &2 &0 &0 &1 &0 &0 &1 &0 & 4\\
+%\cmidrule(lr){1-1}
+%\cmidrule(lr){2-13}
+%\cmidrule(lr){14-14}
+%\textbf{Total} &5 &5 &5 &5 &5 &5 &5 &5 &5 &5 &5 &5 & 60\\ \bottomrule
+%\end{tabular}
+%\end{table*}
 
-\subsubsection{Geodesic Purity}
+The Pearson system of distribution consists of those whose density $f$ has smoothness properties, and is the solution of
+$$
+\frac{df}{dx} = 
+\frac{(x-a)f}{b_0+b_1 x + b_2 x^2}.
+$$
+This formulation gives rise to several types of distributions.
+We are interested in six models which, in simplified form~\cite[Table~6, p.~45]{SystemsofFrequencyCurves}, are:
+\begin{itemize}
+	\item \textbf{Main Types:}
+	\begin{itemize}
+		\item \textbf{Type~I:} Beta distribution with density:
+		\begin{equation}
+		f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm 1_{(0,1)}(x),
+		\label{eq:BetaDensity}
+		\end{equation}
+		with $p,q>0$.
+		
+		\item \textbf{Type~IV:} the distribution characterized by the density
+		\begin{align*}
+		f(x&;\alpha,\lambda,\nu,m) =
+		\frac{\Big|
+			\frac{\Gamma(m+\imath\nu/2)}{\Gamma(m)}
+			\Big|^2} {\alpha B(m-1/2,1/2)}\cdot\\
+		%
+	&	\Big[
+		1+\Big(\frac{x-\lambda}{\lambda}
+		\Big)^{2}
+		\Big]^{-m} 
+		% 
+		\exp\Big\{-\nu\arctan\frac{x-\lambda}{\alpha}\Big\},
+		\end{align*}
+		where $\imath=\sqrt{-1}$,
+		$B$ is the binomial coefficient,
+		$\alpha>0$, 
+		$m>1/2$, 
+		and $\nu\neq0$.
+		\item \textbf{Type~VI:} scaled and shifted F, or Beta Prime distribution with density:
+		$$
+		f(x;\alpha,\beta,\gamma,\lambda) = \frac{\Gamma(\alpha+\beta)}{|\gamma|\Gamma(\alpha) \Gamma(\beta)}
+		\frac{
+			\big(\frac{x-\lambda}{\gamma}\big)^{\alpha-1}
+		}{
+			\big(1+\frac{x-\lambda}{\gamma}\big)^{\alpha+\beta}
+		},
+		$$
+		where $\alpha,\beta>0$, $\gamma\neq0$, and $(x-\lambda)/\gamma>0$.
+		
 
-An exploratory data analysis revealed that the logarithmic transformation of the Geodesic Purity $P_{\text{GD}}$ leads to data that can be well described by the Gaussian distribution.
-We, thus, opted for fitting the Lognormal law, characterized by the probability density function
-\begin{equation}
-	f(x;\mu,\sigma^2) = \frac{1}{x\sqrt{2\pi\sigma^2} } \exp\Big\{
-	-\frac1{2 \sigma^2}(\log x - \mu)^2
-	\Big\},
-\end{equation}
-where $\mu\in\mathbbm R$, and $\sigma^2>0$ are the parameters.
+	\end{itemize}
+	\item \textbf{Transition Types:}
+		\begin{itemize}
+		\item \textbf{Type~II:} The distribution with density
+	\begin{equation}
+	f(x;\alpha,\beta) = k_{\alpha,\beta} \Big(
+	1-\frac{x^2}{\alpha^2}
+	\Big)^\beta \mathbbm 1_{(-\alpha,  \alpha)}(x),
+	\label{eq:TypeIIDensity}
+	\end{equation}
+	with $\beta>-1$.
 
-Table~\ref{tab:params_purity} shows the Maximum Likelihood estimates of the Lognormal model ($\widehat \mu,\widehat{\sigma^2}$), and $p$-value of the Anderson-Darling goodness-of-fit test for the Geodesic Purity $P_{\text{GD}}$.
-All samples sizes are $n=1950$.
-Notice that the minimum $p$-value is $0.076$; there is, thus, no evidence that the Lognormal models should not be used for these samples.
-The Lognormal distribution has the additional advantage that it describes data which, after a logarithmic transformation, can be treated as Gaussian.
+\item \textbf{Type~III:} Shifted Gamma distribution, with density:
+$$
+f(x; \alpha, \beta, \lambda)=
+\frac{1}{|\beta|^\alpha \Gamma(\alpha)}
+\big|x-\lambda\big|^{\alpha-1}
+\exp\Big\{
+-\frac{x-\lambda}{\beta}
+\Big\},
+$$
+where $\beta\neq0$, $\alpha>0$, and $(x-\lambda)/\beta>0$.
 
-Fig.~\ref{fig:WorstPurityLognormalFit} shows the histogram of the data with the worst fit (Wheat, 16~May), and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins because of its optimality~\cite{OntheHistogramAsaDensityEstimatorL2Theory1981}.
+		\item \textbf{Type~V:} shifted Inverse Gamma distribution, with density
+$$
+f(x;\alpha,\gamma,\lambda)= |\gamma|^\alpha \Gamma(\alpha) \big|x-\lambda\big|^{-\alpha-1} \exp\Big\{-\frac{\gamma}{x-\lambda} \Big\} ,
+$$
+where $\gamma\neq 0$, $\alpha>0$, and $\gamma/(x-\lambda)>0$.
+\end{itemize}
+\end{itemize}
+
+We used the corrected Akaike Information Criterion (AICc) for model selection within the Pearson System of distributions.
+This criterion provides a fair comparison of the fit of models with parameters of different dimension.
+The best model is the one that minimizes
+$$
+\text{AICc}\big({\bm x; \mathcal D(\theta)}\big) =  -2 \ln \mathcal L\big(\widehat\theta\big) +  \frac{2 k n} {n-k-1}.
+$$
+where $\mathcal L$ is the likelihood under model $\mathcal D$,
+$\theta$ is the parameter of dimension $k$ which indexes the model, $\widehat\theta$ is its maximum likelihood estimator,
+and $n$ is the size of the sample $\bm x$.
+Table~\ref{Tab:BestModelGeodesicIndex} shows the best model according to this criterion for each sample within the Pearson System.
 
 \begin{table}[hbt]
 	\centering
-	\caption{Maximum Likelihood estimates of the Lognormal model ($\widehat \mu,\widehat{\sigma^2}$), and $p$-value of the Anderson-Darling goodness-of-fit test for the Geodesic Purity $P_{\text{GD}}$.}
-	\label{tab:params_purity}
-	\setlength{\tabcolsep}{2pt}
-	\begin{tabular}{clrrrrr}
+	\caption{Best Models per Geodesic Index according to the AICc criterion}\label{Tab:BestModelGeodesicIndex}
+	\begin{tabular}{crrrr}
 		\toprule
-		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
-		\textbf{Canola}     
-		& $\widehat{\mu}$         & $-0.0890$  & $-0.1738$   & $-0.2681$   & $-0.3187$   & $-0.3072$ \\
-		& $\widehat{\sigma^2}$     & 0.0295     & 0.0676     & 0.0994     & 0.1269      & 0.1361 \\ 
-		& $p$-value             & 0.2701    & 0.2739     & 0.7064     & 0.5727     & 0.7515\\        
-		\midrule
-		\textbf{Soy Beans}
-		& $\widehat{\mu}$         & $-0.1120$    & $-0.1831$    & $-0.2356$ & $-0.2278$ & $-0.2350$         \\
-		& $\widehat{\sigma^2}$     & 0.0334       & 0.0670       & 0.0859       & 0.079       & 0.0848 \\ 
-		& $p$-value             & 0.8921     & 0.8273     & 0.7992     & 0.9841     & 0.7099\\            
-		\midrule
-		\textbf{Oats}
-		& $\widehat{\mu}$         & $-0.1223$ & $-0.1358$    & $-0.2578$ & $-0.2679$    & $-0.3008$ \\
-		& $\widehat{\sigma^2}$     & 0.0479     & 0.0737       & 0.1085     & 0.1267      & 0.1338 \\ 
-		& $p$-value             & 0.8438     & 0.1024     & 0.8262     & 0.7027    & 0.3977 \\
-		\midrule
-		\textbf{Wheat} 
-		& $\widehat{\mu}$         & $-0.0947$    & $-0.2392$ & $-0.2866$ & $-0.2837$ & $-0.3145$ \\
-		& $\widehat{\sigma^2}$     & 0.0310       & 0.0972       & 0.1099       & 0.1461       & 0.1269   \\
-		& $p$-value             & 0.0760     & 0.5490     & 0.3051     & 0.4034     & 0.4177\\    
+		\textbf{Type}
+		& $\alpha_{\text{GD}}$
+		& $\tau_{\text{GD}}$
+		& $P_{\text{GD}}$ 
+		& \textbf{Total}\\
+		\cmidrule(lr){1-1}
+		\cmidrule(lr){2-4}
+		\cmidrule(lr){5-5}
+		I	&18 &12 &1 	&31 \\
+		II	&2 	&0 &0 	&2 \\
+		III	&0 	&3 &7 	&10 \\
+		IV	&0 	&0 &8 	&8 \\
+		V	&0 	&1 &4 	&5 \\
+		VI 	&0 	&4 &0 	&4 \\
+		\cmidrule(lr){2-4} \cmidrule(lr){5-5}
+			&20 &20 &20 & 60 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-\begin{figure*}[hbt]
-	\centering
-	\subcaptionbox{Geodesic Purity $P_{\text{GD}}$ from Wheat, 16~May, and fitted Lognormal density.\label{fig:WorstPurityLognormalFit}}{\includegraphics[width=.25\linewidth]{WheatPurityLognormalFit}}
-	%
-	\subcaptionbox{Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstAlphaBetaFit}}{\includegraphics[width=.25\linewidth]{CanolaAlphaBetaFit}}
-	%
-	\subcaptionbox{Geodesic Helicity $\tau_{\text{GD}}$ from Canola, 16~May, and fitted Beta density.\label{fig:WorstHelicityBetaFit}}{\includegraphics[width=.25\linewidth]{CanolaHelicityBetaFit}}
-	\caption{The three worst fits of Geodesic Indices.}
-\end{figure*}
+The Pearson System also allows for a graphical display to assess the goodness-of-fit of a sample.
+The Pearson plot depicts families of distributions in a plane with coordinates $(\beta_1,\beta_2)$, where $\beta_1$ is the square of the skewness, and $\beta_2$ is the kurtosis.
 
-\subsubsection{Geodesic Scattering Type Angle and Helicity}
+The plot shown in Fig.~\ref{Fig:PearsonPlanes} show where 
+the Geodesic Scattering Type Angle $\alpha_{\text{GD}}$ (brown),
+Geodesic Helicity $\tau_{\text{GD}}$ (blue),
+and Geodesic Purity $P_{\text{GD}}$ (magenta)
+are mapped into this plane.
+Types~I, IV, and~VI distributions belong to the yellow, white, and purple areas, respectively.
+Type~II lies in the vertical red segment, while Types~II and~V are limited to the red and purple lines, resp.
+Other well-known distributions are shown as points, and the unfeasible region is depicted in gray.
 
-The observations are bounded in $[0,1]$, 
-and the shape of their estimated densities also suggests the use of the Beta distribution, characterized by the probability density function:
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{PearsonPlotAlphaHelicityPurity}
+	\caption{Samples Geodesic measures on the Pearson System plane: $\alpha_{\text{GD}}$ in brown, $\tau_{\text{GD}}$ in blue, and $P_{\text{GD}}$ in magenta.}\label{Fig:PearsonPlanes}
+\end{figure}
+
+Gathering the evidence provided by Table~\ref{Tab:BestModelGeodesicIndex} and by Fig.~\ref{Fig:PearsonPlanes}, and adding as additional criterion having a single model for $\alpha_{\text{GD}}$ and $\tau_{\text{GD}}$, we conclude that the Beta distribution is an adequate model.
+The same information leads to no obvious choice for $P_{\text{GD}}$.
+
+The samples of Geodesic Purity span distributions of Types~I (\SI{5}{\percent}),
+III (\SI{35}{\percent}), 
+IV (\SI{40}{\percent}), 
+and~V (\SI{20}{\percent}).
+Being the majority of samples well explained by Type~IV distributions, we expect to need a four-parameter model for $P_{\text{GD}}$.
+
+Since there is no single law within the Pearson System able to describe $P_{\text{GD}}$, we turn our attention to the Hyperbolic distribution.
+This model has been used with success in geology, fluid dynamics, biology, and econometry, to name a few~\cite{ErosionDepositionandSizeDistributionsofSand}.
+
+The standard Hyperbolic distribution is characterized by the density
 \begin{equation}
-	f(x; p, q) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} x^{p-1} (1-x)^{q-1} \mathbbm 1_{(0,1)}(x),
-	\label{eq:BetaDensity}
+f(x;\pi,\zeta)=\frac{\exp\big\{-\zeta\big[\sqrt{(1+\pi^2)(1+x^2)} - \pi x \big]\big\}}{2 K_1(\zeta) \sqrt{1+\pi^2} }  
+,\label{Eq:DensHyperbolic}
 \end{equation}
-with $p,q>0$.
+where $K_1$ is the modified Bessel function of the third kind and order $1$, and $\zeta>0$ and $\pi\in\mathbbm R$ are shape parameters.
+A location $\mu\in\mathbbm R$ and scale $\delta>0$  transformation yields the four-parameter Hyperbolic distribution, denoted $X\sim\text{H}(\mu,\delta,\pi,\zeta)$.
+The parameters control the slopes of the two linear asymptotes of the log-density function.
+The mode of~\eqref{Eq:DensHyperbolic} is located at $\mu+\delta\pi$, and the curvature of the log-density function at this point is $\delta^{-2}\zeta/(1+\pi^2)$;
+this is a measure of the peakedness of the density at such point~\cite[vol~5, pp.~3278--3281]{EncyclopediaofStatisticalSciences}.
 
-For $\alpha_{\text{GD}}$, we computed the distance of each pixel to all prototypes (except to $\bm K_{\text{ID}}$), and retained those closer to $\bm K_{\text{t}}$ than to the others.
+
+\subsection{Estimates}
+
+In the subsequent analyses, all samples are of size $1950$. 
 
 Table~\ref{tab:params_alpha} shows, for each crop type and date, 
-the sample size ($n$), 
-the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and the $p$-value of the Kolmogorov-Smirnoff goodness-of-fit test for the Geodesic Scattering Type Angle $\alpha_{\text{GD}}$.
-Notice that, although the minimum $p$-value is $0.0103$, the others range between $0.0723$ and $0.9887$; there is, thus, no evidence that the Beta models should not be used for these samples.
-Fig.~\ref{fig:WorstAlphaBetaFit} shows the histogram of the data with the worst fit (Canola, 16~May), and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins.
+the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$) for the Geodesic Scattering Type Angle $\alpha_{\text{GD}}$.
 
 \begin{table}[hbt]
 	\centering
-	\caption{Sample size ($n$), Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Geodesic Scattering Type Angle $\alpha_{\text{GD}}$.}
+	\caption{Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$) for the Geodesic Scattering Type Angle $\alpha_{\text{GD}}$.}
 	\label{tab:params_alpha}
 	\setlength{\tabcolsep}{3.8pt}
 	\begin{tabular}{clrrrrr}
 		\toprule
-		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
-		\textbf{Canola}     & $n$             & 1389         & 730         & 333         & 130         & 145\\
-		& $\widehat{p}$ & 2.7560     & 4.1886     & 5.8105     & 6.1547     & 6.3503\\
-		& $\widehat{q}$ & 11.0141     & 13.9375     & 16.4850     & 15.1480     & 15.9220\\ 
-		& $p$-value     & 0.0103     & 0.2955     & 0.9887     & 0.9503     & 0.6245\\        
+		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule{1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
+		\textbf{Canola} 	
+		& $\widehat{p}$ & 1.77     & 2.24      & 2.90      & 3.87      & 3.60 \\
+		& $\widehat{q}$ & 4.47     & 3.26     & 2.68     & 2.47     & 2.38\\ 
 		\midrule
-		\textbf{Soy Beans}    & $n$             & 1285         & 656         & 449         & 615         & 508\\
-		& $\widehat{p}$ & 3.2348     & 4.3843     & 4.0188     & 4.8295     & 5.1401\\
-		& $\widehat{q}$ & 11.9960     & 14.4563     & 11.8697     & 14.2715     & 14.5409\\ 
-		& $p$-value     & 0.5666     & 0.4052     & 0.1814     & 0.2687     & 0.3187\\            
+		\textbf{Soy Beans} 
+		& $\widehat{p}$ & 1.90      & 2.36      & 2.77      & 2.51      & 2.69 \\
+		& $\widehat{q}$ & 4.23     & 3.33     & 3.15      & 3.11     & 2.89\\ 
 		\midrule
-		\textbf{Oats}    & $n$             & 1207         & 991         & 263         & 82         & 66\\
-		& $\widehat{p}$ & 3.2822      & 3.1221     & 5.2792     & 8.0549     & 7.5261\\
-		& $\widehat{q}$ & 11.1652     & 10.9882     & 15.7778     & 23.9306     & 20.3871\\ 
-		& $p$-value     & 0.1300     & 0.1526     & 0.4645     & 0.1992     & 0.3646\\
+		\textbf{Oats}
+		& $\widehat{p}$ & 2.03       & 1.79      & 3.00      & 3.70      & 4.00 \\
+		& $\widehat{q}$ & 4.09     & 3.03     & 2.72     & 2.48     & 2.35\\ 
 		\midrule
-		\textbf{Wheat}     & $n$             & 1382         & 413         & 131         & 122         & 116\\
-		& $\widehat{p}$ & 2.9096      & 4.8869     & 8.4877     & 4.5926     & 6.1919\\
-		& $\widehat{q}$ & 10.9248     & 13.4887     & 21.9157     & 10.1156     & 15.3390\\
-		& $p$-value     & 0.0723     & 0.7890     & 0.3638     & 0.2067     & 0.7346\\    
+		\textbf{Wheat}
+		& $\widehat{p}$ & 1.87       & 2.74      & 3.69      & 3.78      & 3.93 \\
+		& $\widehat{q}$ & 4.54     & 2.79     & 2.57     & 2.31     & 2.33\\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-Table~\ref{tab:params_helicity} shows the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and the $p$-value of the Kolmogorov-Smirnoff goodness-of-fit test for the Geodesic Helicity $\tau_{\text{GD}}$.
-All samples sizes are $n=1950$.
-Although the $p$-value of five out of twenty samples falls below \SI{1}{\percent}, they are all larger than \SI{1}{\pertenmille}.
-We, thus, have no substantial evidence against the Beta model for describing the Geodesic Helicity.
-Fig.~\ref{fig:WorstHelicityBetaFit} shows the histogram of the data with the worst fit (Canola, 16~May), and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins.
+
+
+Table~\ref{tab:params_helicity} shows the Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$) for the Geodesic Helicity $\tau_{\text{GD}}$.
 
 \begin{table}[hbt]
 	\centering
-	\caption{Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$), and $p$-value of the Kolmogorov-Smirnof goodness-of-fit test for the Geodesic Helicity $\tau_{\text{GD}}$.}
+	\caption{Maximum Likelihood estimates of the Beta model ($\widehat p,\widehat q$) for the Geodesic Helicity $\tau_{\text{GD}}$.}
 	\label{tab:params_helicity}
 	\setlength{\tabcolsep}{3.8pt}
 	\begin{tabular}{clrrrrr}
 		\toprule
-		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule(lr){1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
+		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule{1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
 		\textbf{Canola}     
-		& $\widehat{p}$ & 2.1856      & 2.6837    & 5.8105     & 3.3877      & 4.4111 \\
-		& $\widehat{q}$ & 32.5176     & 20.3264     & 16.4850     & 15.5491     & 14.9766\\ 
-		& $p$-value     & 1E$-4$         & 0.0645     & 0.9887     & 0.3356     & 0.0166\\        
+		& $\widehat{p}$ & 2.19      & 2.68    & 3.39     & 4.41      & 3.89 \\
+		& $\widehat{q}$ & 32.52     & 20.33     & 15.55  & 14.98     & 13.84\\ 
 		\midrule
 		\textbf{Soy Beans}
-		& $\widehat{p}$ & 2.4317       & 2.7304       & 3.0602       & 2.9543       & 3.4111 \\
-		& $\widehat{q}$ & 30.1012   & 19.8095   & 17.1821   & 17.7749   & 18.2627 \\ 
-		& $p$-value     & 5E$-4$     & 0.005     & 0.9388     & 0.0514     & 0.1081\\            
+		& $\widehat{p}$ & 2.43       & 2.73       & 3.06       & 2.95       & 3.41 \\
+		& $\widehat{q}$ & 30.10   & 19.81   & 17.18   & 17.77   & 18.26\\ 
 		\midrule
 		\textbf{Oats}
-		& $\widehat{p}$ & 2.3701       & 2.1838      & 3.529     & 4.2011     & 4.7568 \\
-		& $\widehat{q}$ & 26.5330     & 20.4121   & 16.4932     & 16.1089      & 15.9517 \\ 
-		& $p$-value     & 0.0016     & 1E$-4$     & 0.541     & 0.0078    & 0.1757 \\
+		& $\widehat{p}$ & 2.37       & 2.18      & 3.53     & 4.20     & 4.76 \\
+		& $\widehat{q}$ & 26.53    & 20.41   & 16.49     & 16.11      & 15.95 \\ 
 		\midrule
 		\textbf{Wheat} 
-		& $\widehat{p}$ & 2.3516       & 3.3384      & 4.3960      & 4.1996      & 4.6823   \\
-		& $\widehat{q}$ & 33.4388   & 17.1858   & 16.6094   & 14.8613   & 15.2931   \\
-		& $p$-value     & 5E$-4$     & 0.2118     & 0.0476     & 0.0215     & 1E$-4$\\    
+		& $\widehat{p}$ & 2.35      & 3.34      & 4.39     & 4.20      & 4.68   \\
+		& $\widehat{q}$ & 33.44   & 17.19   & 16.61   & 14.86   & 15.29   \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
+Table~\ref{tab:params_purity} shows the Maximum Likelihood estimates of the Hyperbolic model ($\widehat \mu,\widehat \delta, \widehat \pi, \widehat \zeta$) for the Geodesic Purity $P_{\text{GD}}$.
+
+\begin{table}[hbt]
+	\centering
+	\caption{Maximum Likelihood estimates of Hyperbolic model ($\widehat \mu,\widehat \delta, \widehat \pi, \widehat \zeta$) for the Geodesic Purity $P_{\text{GD}}$.}
+	\label{tab:params_purity}
+	\setlength{\tabcolsep}{3.8pt}
+	\begin{tabular}{clrrrrr}
+		\toprule
+		\textbf{Crop $\backslash$ Date} & & \textbf{16 May} & \textbf{9 June} & \textbf{3 July} & \textbf{27 July} & \textbf{20 Aug.}\\ \cmidrule{1-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7}
+		\textbf{Canola}     
+		& $\widehat{\mu}$ & 0.907& 0.710& 0.019& 0.102 & 0.127\\
+		& $\widehat{\delta}$ & 0.005& 0.192& 0.072& 0.030& 0.044  \\
+		& $\widehat{\pi}$ &  0.098&  0.426&  9.371& 17.124& 10.973\\
+		& $\widehat{\zeta}$ & 0.044& 1.733& 9.164& 5.190& 4.385\\
+		\midrule
+		\textbf{Soy Beans}
+		& $\widehat{\mu}$ & 0.870& 0.680& 0.415& 0.570& 0.270 \\
+		& $\widehat{\delta}$ & 0.012& 0.211& 0.345& 0.268& 0.372 \\
+		& $\widehat{\pi}$ & 0.172& 0.482& 0.917& 0.633& 1.249 \\
+		& $\widehat{\zeta}$ & 0.104& 2.065& 5.257& 3.015& 7.947 \\
+		\midrule
+		\textbf{Oats}
+		& $\widehat{\mu}$ & 0.861& 0.818& 0.223& 0.153& 0.148 \\
+		& $\widehat{\delta}$ & 0.042& 0.059& 0.271& 0.089& 0.037 \\
+		& $\widehat{\pi}$ & 0.159&  0.254&  1.716&  5.541& 12.637 \\
+		& $\widehat{\zeta}$ & 0.318& 0.375& 5.668& 4.548& 4.122 \\
+		\midrule
+		\textbf{Wheat} 
+		& $\widehat{\mu}$ & 0.894& 0.293& 0.136& 0.153& 0.121 \\
+		& $\widehat{\delta}$ & 0.006& 0.340& 0.056& 0.033& 0.027 \\
+		& $\widehat{\pi}$ & 0.136&  1.253&  9.222& 13.940& 18.588 \\
+		& $\widehat{\zeta}$ & 0.056& 6.135& 5.505& 3.670& 4.842 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Fig.~\ref{Fig:PurityCanola16May} shows one of the most challenging Purity data sets: Canola, 16~May.
+The histogram in linear scale (Fig.~\ref{Fig:HyperLinear}) resembles a Double Exponential distribution, but with different slopes.
+The figure also shows the Hyperbolic density fitted with maximum likelihood estimates.
+The quality of the fit is noticeable.
+Since the geometric properties of the Hyperbolic distribution are designed in the logarithm of the probability density function, we also show the histogram and the fitted density in semilogarithmic scale (Fig.~\ref{Fig:HyperSemilog}).
+We observed the quality of the fit not only for this data set, but for all the crops and dates here considered.
+
+\begin{figure}[hbt]
+\centering
+\subcaptionbox{Histogram and Density in Linear Scale\label{Fig:HyperLinear}}{\includegraphics[width=.8\linewidth]{PurityCanola16May}}
+\subcaptionbox{Histogram and Density in Semilogarithmic Scale\label{Fig:HyperSemilog}}{\includegraphics[width=.8\linewidth]{LogPurityCanola16May}}
+\caption{Purity, Canola, 16~May, and fitted Hyperbolic density.}\label{Fig:PurityCanola16May}
+\end{figure}
+
 \section{Temporal Evolution}\label{Sec:TemporalEvolution}
 
-We first checked the hypothesis that every pair of parameters from the same crop in different dates comes from different models.
-We used test statistics based on the Hellinger distance between the models~\cite{AnalyticExpressionsStochasticDistancesBetweenRelaxedComplexWishartDistributions}, and found that all the pairs are identifiable with \SI{5}{\percent} of significance, with the sole exception of $P_{\text{GD}}$ from Soy Beans in the two last dates.
+Fig.~\ref{Fig:AlphaTemporal} shows the temporal variation of the estimates $(\widehat{p},\widehat{q})$ computed for the scattering type angle $\alpha_{\text{GD}}$ over each crop.
 
-Fig.~\ref{fig:TemporalIndexes} (top) shows the temporal evolution of the parameter estimates $(\widehat\mu,\widehat\sigma)$ of the Lognormal distribution when describing the Geodesic Purity index $P_{\text{GD}}$.
-Canola, Oats, Soy Beans, and Wheat share similar behavior: $\widehat\mu$ decreases, while $\widehat\sigma$ increases with time, except for the two last dates of Canola and Wheat.
-The five stages of these four crops are easily identifiable using the Lognormal model, whereas Soy Beans have only four identifiable stages since, as noted, the estimates from the two last dates cannot be considered different.
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{AlphaTemporal}
+	\caption{Temporal variation of $(\widehat{p},\widehat{q})$ for $\alpha_{\text{GD}}$.}\label{Fig:AlphaTemporal}
+\end{figure}
 
-In-situ measurements of the SMAPVEX16 campaign confirm that majority of the wheat and oat fields were at tillering during the second week of June. The Manitoba weekly crop reports~\cite{manitobaagriculture} suggest that soybean seeding finished during this period, and the plants were in their unifoliate to third trifoliate growth stage indicating very low Plant Area Index (PAI) and biomass values.
+Fig.~\ref{Fig:HelicityTemporal} shows the temporal variation of the estimates $(\widehat{p},\widehat{q})$ computed for the helicity $\tau_{\text{GD}}$ over each crop.
 
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=\linewidth]{HelicityTemporal}
+	\caption{Temporal variation of $(\widehat{p},\widehat{q})$ for $\tau_{\text{GD}}$.}\label{Fig:HelicityTemporal}
+\end{figure}
+
+%We first checked the hypothesis that every pair of parameters from the same crop in different dates comes from different models.
+%We used test statistics based on the Hellinger distance between the models~\cite{AnalyticExpressionsStochasticDistancesBetweenRelaxedComplexWishartDistributions}, and found that all the pairs are identifiable with \SI{5}{\percent} of significance, with the sole exception of $P_{\text{GD}}$ from Soy Beans in the two last dates.
+%
+%Fig.~\ref{fig:TemporalIndexes} (top) shows the temporal evolution of the parameter estimates $(\widehat\mu,\widehat\sigma)$ of the Lognormal distribution when describing the Geodesic Purity index $P_{\text{GD}}$.
+%Canola, Oats, Soy Beans, and Wheat share similar behavior: $\widehat\mu$ decreases, while $\widehat\sigma$ increases with time, except for the two last dates of Canola and Wheat.
+%The five stages of these four crops are easily identifiable using the Lognormal model, whereas Soy Beans have only four identifiable stages since, as noted, the estimates from the two last dates cannot be considered different.
+
+Fig.~\ref{Fig:PCAPurityTemporal} shows the temporal variation of the two first principal components of the estimates $\widehat \mu,\widehat \delta, \widehat \pi, \widehat \zeta$ for the Geodesic Purity $P_{\text{GD}}$.
+These two components capture, respectively, \SI{71.8}{\percent} and \SI{26.4}{\percent} of the variability of the estimates (approximately \SI{98.3}{\percent} of the total).
+
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=\linewidth]{HyperbolicPCATemporal}
+	\caption{Temporal variation of the two first Principal Components of $\widehat \mu,\widehat \delta, \widehat \pi, \widehat \zeta$ for the Geodesic Purity $P_{\text{GD}}$.}\label{Fig:PCAPurityTemporal}
+\end{figure}
+
+In-situ measurements of the SMAPVEX16 campaign confirm that majority of the wheat and oat fields were at tillering during the second week of June. 
+The Manitoba weekly crop reports~\cite{manitobaagriculture} suggest that soybean seeding finished during this period, and the plants were in their unifoliate to third trifoliate growth stage indicating very low Plant Area Index (a square meter of plant area per square meter ground; cf. Ref.~\cite{TheArchitectureofaDeciduousForestCanopyinEasternTennessee}) and biomass values. 
 From the Manitoba weekly crop reports~\cite{manitobaagriculture}, canola seeding was almost completed, and the crop was emerging rapidly. 
 Earlier seeded fields were reaching the rosette stage. 
 Thus, the effect of the soil is expected to dominate the radar response rather than the vegetation component.
-
-Fig.~\ref{fig:TemporalIndexes} (middle) shows the temporal evolution of the parameter estimates $(\widehat p, \widehat q)$ of the Beta distribution when modeling the Geodesic Scattering Type $\alpha_{\text{GD}}$.
-Wheat is the crops where the estimates span most of the parametric space, as opposed to Soy Beans that gather around small values.
-Although all estimates are significantly different, the two first dates of Oats are very close.
-
+%Fig.~\ref{fig:TemporalIndexes} (middle) shows the temporal evolution of the parameter estimates $(\widehat p, \widehat q)$ of the Beta distribution when modeling the Geodesic Scattering Type $\alpha_{\text{GD}}$.
+%Wheat is the crop where the estimates span most of the parametric space, as opposed to Soy Beans that gather around small values.
+%Although all estimates are significantly different, the two first dates of Oats are very close.
 During the first week of July, cereals (wheat and oats) were at their stem elongation to flag leaf stages. Some fields advanced to the heading stage. Consequently, we observe increases in PAI and biomass. 
-In contrast, increases in PAI and wet biomass for soybean are less. According to the Manitoba weekly crop reports~\cite{manitobaagriculture}, the majority of canola fields were bolting, forming early flowers, whereas podding started in the most advanced fields.
+In contrast, increases in PAI and wet biomass for soybean are less. 
+According to the Manitoba weekly crop reports~\cite{manitobaagriculture}, the majority of canola fields were bolting, forming early flowers, whereas podding started in the most advanced fields.
 
-The estimates $(\widehat p, \widehat q)$ of the Beta distribution for the Geodesic Helicity $\tau_{\text{GD}}$ (Fig.~\ref{fig:TemporalIndexes} bottom) suggest a decreasing tendency of $\widehat q$ along with an increasing trend of $\widehat p$ along time.
+The estimates $(\widehat p, \widehat q)$ of the Beta distribution for the Geodesic Helicity $\tau_{\text{GD}}$ (Fig.~\ref{Fig:HelicityTemporal}) suggest a decreasing tendency of $\widehat q$ along with an increasing trend of $\widehat p$ along time.
+The second principal component of the estimates of the Hyperbolic distribution separates well the case where the estimates of the Beta distribution form a cluster: in Soybeans (Fig.~\ref{Fig:PCAPurityTemporal}). 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\columnwidth]{TemporalIndexes}
-	\caption{Temporal evolution of the parameter estimates $(\widehat\mu,\widehat\sigma)$ of the Lognormal distribution for the Geodesic Purity ($P_{\text{GD}}$, top), and of $(\widehat p,\widehat q)$ of the Beta distribution for the Geodesic Scattering Type Angle ($\alpha_{\text{GD}}$, middle) and Helicity ($\tau_{\text{GD}}$, bottom).}\label{fig:TemporalIndexes}
-\end{figure}
+%\begin{figure*}
+%	\centering
+%	\includegraphics[width=\linewidth]{TemporalIndexes}
+%	\caption{Temporal evolution of the parameter estimates $(\widehat\mu,\widehat\sigma)$ of the Lognormal distribution for the Geodesic Purity ($P_{\text{GD}}$, top), and of $(\widehat p,\widehat q)$ of the Beta distribution for the Geodesic Scattering Type Angle ($\alpha_{\text{GD}}$, middle) and Helicity ($\tau_{\text{GD}}$, bottom).}\label{fig:TemporalIndexes}
+%\end{figure*}
 
 \section{Conclusion}
 
-Refs.~\cite{ClassificationPolSARGeodesic,AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019,NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019,APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress,ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms,ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData}
+Refs.~\cite{ClassificationPolSARGeodesic,
+	AGeneralizedVolumeScatteringModelBasedVegetationIndexfromPolarimetricSARData2019,
+	NovelTechniquesforBuiltupAreaExtractionfromPolarimetricSARImages2019,
+	APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress,
+	ChangeDetectionPolSARGeodesicDistanceBetweenScatteringMechanisms,
+	ARadarVegetationIndexforCropMonitoringUsingCompactPolarimetricSARData}
 have shown the expressiveness and usefulness of indices derived from Geodesic Distances, but with no assessment of their statistical properties.
-This paper shows that the three main Geodesic Indices, namely
-Geodesic Purity ($P_{\text{GD}}$),
-Geodesic Scattering Type Angle ($\alpha_{\text{GD}}$), and
-Geodesic Helicity ($\tau_{\text{GD}}$) can be described by parsimonious and easy to use models.
+This paper shows that the three main Geodesic Indices (Geodesic Purity $P_{\text{GD}}$,
+Geodesic Scattering Type Angle $\alpha_{\text{GD}}$, and
+Geodesic Helicity $\tau_{\text{GD}}$) can be described by the Beta and Hyperbolic models.
 
-The Lognormal distribution well describes Geodesic Purity.
-This implies that the logarithmic transformation $\log P_{\text{GD}}$ can be assumed to follow a Gaussian distribution.
+The Hyperbolic distribution well describes Geodesic Purity.
 The Beta distribution can model both the Geodesic Scattering Type Angle and the Geodesic Helicity.
-These two models are indexed by two real parameters, with techniques readily available in most statistical software.
+These models are readily available in most statistical software.
+The estimates are able to discriminate among dates of each crop.
 
-We used \texttt{R}~\cite{RManual} v.~3.6.3 for data processing and analysis (in particular, we used the functions provided by the \texttt{Rfast} library~\cite{Rfast} for parameter estimation), as well as for producing the graphical outputs (with the \texttt{ggplot2} library~\cite{ggplot2}).
+%We used \texttt{R}~\cite{RManual} v.~3.6.3 for data processing and analysis (in particular, we used the functions provided by the \texttt{Rfast} library~\cite{Rfast} for parameter estimation), as well as for producing the graphical outputs (with the \texttt{ggplot2} library~\cite{ggplot2}).
+
 
 \section*{Acknowledgment}
 
 The authors would like to thank CNPq and Fapeal for providing partial support to this research. 
-D.\ Ratha would like to acknowledge the support of CSIR, Government of India, towards his doctoral studies. The authors would like to thanks Mr.\ Dipankar Mandal for providing information about the crop growth stages from the Manitoba (Canada) Agriculture reports.
+D.\ Ratha would like to acknowledge the support of CSIR, Government of India, towards his doctoral studies. 
+The authors would like to thank Mr.\ Dipankar Mandal for providing information about the crop growth stages from the Manitoba (Canada) Agriculture reports.
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

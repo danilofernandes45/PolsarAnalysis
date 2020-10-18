@@ -152,15 +152,7 @@ We will certify to run \BibTeX\ before submitting the revised version and, with 
 Named techniques, e.g. Hellinger, Freedman-Diaconis, etc., are not referenced; they should be.
 \end{tcolorbox}
 
-Thank you very much for noting this.
-Please notice that we provide a reference for the Hellinger distance in Section~IV (Temporal Evolution).
-Regarding the Feedman-Diaconis rule, we provide the reference to the article which discusses its optimality.
-
-\begin{tcolorbox}[colback=white,colframe=black,title=Changes \#2]
-Fig.~3a shows the histogram of the data with the worst fit (Wheat, 16~May), and the fitted density; we used the Freedman-Diaconis rule to compute the number of bins \DIFaddbegin \DIFadd{because of its optimality~\mbox{%DIFAUXCMD
-		\cite{OntheHistogramAsaDensityEstimatorL2Theory1981}}\hspace{0pt}%DIFAUXCMD
-}\DIFaddend
-\end{tcolorbox}
+The manuscript has been completely reformulated in terms of methodology and results.
 
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#3]
@@ -183,6 +175,8 @@ and limited them to those used in the work.
 Eq. (4), the purity index is wrongly normalized. An aside: Why is the purity index the square of GD? Wouldn't a linear relationship work just as well?	
 \end{tcolorbox}
 
+We use the Geodesic Purity index as defined in Ref.~\cite[Eq.~(33)]{APolSARScatteringPowerFactorizationFrameworkandNovelRollInvariantParametersBasedUnsupervisedClassificationSchemeUsingaGeodesicDistanceinpress}.
+Its scale and quadratic form are set to be comparable with other forms of polarimetric purity.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#6]
 The last paragraph in Section II refers to "scattering type angle" and "purity index" but the equations are for "scattering type angle" and "helicity parameter".	
@@ -190,78 +184,124 @@ The last paragraph in Section II refers to "scattering type angle" and "purity i
 
 Agreed.
 We rephrased the paragraph.
-
-\begin{tcolorbox}[colback=white,colframe=black,title=Changes \#6]
-We will analyze \DIFdelbegin \DIFdel{the geodesic }\DIFdelend \DIFaddbegin \DIFadd{these three geodesic parameters:
-	purity, }\DIFaddend scattering type angle\DIFdelbegin \DIFdel{and the geodesic purity index }\DIFdelend \DIFaddbegin \DIFadd{, and helicity, the two last }\DIFaddend without scaling, i.e., $\alpha_{\text{GD}}(\bm{K}) = \text{GD}(\bm{K},\bm{K}_{\text{t}})$, and 
-$\tau_{\text{GD}} = 1 - \sqrt{\text{GD}(\bm{K},\bm{K}_{\text{lh}})\text{GD}(\bm{K},\bm{K}_{\text{rh}})}$.
-With this, \DIFdelbegin \DIFdel{both }\DIFdelend \DIFaddbegin \DIFadd{these two last }\DIFaddend measures lie in $[0,1]$.
-\end{tcolorbox}
-
+Please notice that in this new version we analyze the roll-invariant parameters in their natural domain, without introducing any scaling or transformation.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#7]
 Bottom of the page, the sentence beginning with "Beta random variables..." needs grammatical editing.	
 \end{tcolorbox}
+
+That paragraph has changed as a result of the new methodology.
 
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#8]
 Fig. 1 did not convey much information to me. An Overview image of the area with fields highlighted would be useful, then the temporal development of the fields has context. 	
 \end{tcolorbox}
 
+We had to stick to these small samples because of the five-page constraint.
+
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#9]
 Fig. 2 \& others: Captions, labels general text must be legible. The fonts used are just too small. 	
 \end{tcolorbox}
+
+The new plots have larger captions and labels.
 
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#10]
 The first full paragraph below eq. (8) is not consistent with the definition of scattering type angle given in Section II.B. The Scattering Type is defined as a distance from the ideal trihedral - not some down-selection of pixels based on relative closeness to a set of canonical scattering types.
 \end{tcolorbox}
 
+We agree, and we now present the analysis of data fully compliant with the definitions.
+
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#11]
 The discussion of Table IV states that "five out of twenty samples .. below 1", but the Table shows 7 such samples.	
 \end{tcolorbox}
 
+We removed the $p$-values, since we now present a different kind of evidence towards the models: the location of the square of the skewness and the kurtosis in the Pearson System plane.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#12]
 Section IV finds that the statistical description of Soy Bean purity index can not distinguish between the July 27 \& the August 20 data. However, looking at the tabulated values in Table II, shows that July 3 \& August 20 fits have parameters that are within ~0.001, which naively are nearly identical. They are much closer to each other than the July 27 \& August 20 parameters are. Please explain.	
 \end{tcolorbox}
+
+The new methodology employs the Hyperbolic distribution.
+As this law has four parameters, we plot the two principal components, and show that, in particular, the second is able to provide separation evidence among samples which appear close in the $(\widehat p,\widehat q)$ space of scattering type angle and scattering helicity.
 
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#13]
 Fig. 4 discussion, it appears that both wheat and oats equally span the parameter range, not just wheat as mentioned in the paragraph.	
 \end{tcolorbox}
 
+As per request of the other reviewer, we are now using new (uncensored) samples.
+This has changed the temporal analysis.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#14]
 The Plant Area Index (PAI) is mentioned in the discussion of biomass and temporal development of the crops. It is never defined. I realize that the PAI is the subject of a publication in press, but if you rely on PAI for your analysis it must be defined here. General terms like the relative "biomass" are appropriately inferred from the ground truth / crop reports.	
 \end{tcolorbox}
 
+We now provide the definition and a reference, c.f.\ Ref~\cite{TheArchitectureofaDeciduousForestCanopyinEasternTennessee}.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#15]
 The coloured dots in Fig. 4 are hard to follow. A larger font would definitely help. Another approach would colour-code the dots by date, or possibly connect the dots by lines (though that may be distracting). 	
 \end{tcolorbox}
 
+We hope the new plots are easier to follow.
+
 \section{Reviewer \#2}
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#1]
-1	
+\includegraphics[width=\linewidth]{./ReviewR0/R2Q1}
 \end{tcolorbox}
+
+Thank you very much for this insightful comment.
+We are, indeed, working on this line of research.
+So far, our attempts have not been successful, as the literature is scarce on distributions on high-dimensional manifolds other than very simple ones.
+Nevertheless, we have reduced the empirical component of our choices.
+We now start by the first result on this topic (Ref.~\cite{StatisticalPropertiesofGeodesicDistancesBetweenSamplesandElementaryScatterersinPolSARImagery2019}), who verified (empirically!) that the Beta distribution is a good model for distances between samples and prototypical backscatterers.
+This result led us to assume that the Beta law is an acceptable starting point for the scattering type angle.
+We then used the Pearson System of distributions, which includes the Beta law and has a nice graphical way of checking the model adequacy, and verified that (i)~both $\alpha_{\text{GD}}$ and~$\tau_{\text{GD}}$ (without scaling or transforming the features) can be explained by the Beta distribution, and (ii)~that $P_{\text{GD}}$ varies across four distributions of this family.
+By noticing that there is evidence towards the need of a four-parameter distribution for $P_{\text{GD}}$, we used the Hyperbolic distribution with very good results.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#2]
-2	
+\includegraphics[width=\linewidth]{./ReviewR0/R2Q2}
 \end{tcolorbox}
+
+With the new methodology we did not need to alter the geodesic roll-invariant features.
+They are now analyzed in their natural spaces, and in full compliance of their definitions.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#3]
-3	
+\includegraphics[width=\linewidth]{./ReviewR0/R2Q3}
 \end{tcolorbox}
+
+We no longer use the LogNormal distribution, but the Hyperbolic law.
+Although this distribution has real support, we verified that there is no need to scale the data or to use truncated models.
+We did not report these results in order to keep the flow of the paper.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#4]
-4	
+\includegraphics[width=\linewidth]{./ReviewR0/R2Q4}
 \end{tcolorbox}
+
+We no longer report $p$-values of goodness-of-fit tests.
+We rely on the graphical evidence provided by the Pearson System plane, and on the quality of the fit of the Hyperbolic distribution to the most challenging data set.
 
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#5]
-5	
+\includegraphics[width=\linewidth]{./ReviewR0/R2Q5}
 \end{tcolorbox}
 
+The new experimental part uses the (new) estimates of the parameters of the Beta distribution, and the two first principal components of the parameters of the Hyperbolic distribution.
+We obtain an acceptable characterization by considering all the evidence.
+
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment \#5]
+	\includegraphics[width=\linewidth]{./ReviewR0/R2Q6}
+\end{tcolorbox}
+
+The new version is changed to its core.
+We no longer comment about the computational platform.
+
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Final Comment]
+	\includegraphics[width=\linewidth]{./ReviewR0/R2Q7}
+\end{tcolorbox}
+
+We hope the new version is up to the reviewer's standard for GRSL.
+We take the opportunity to highlight that the Pearson System of distributions and the Hyperbolic distribution seldom appear on the Remote Sensing literature.
+We expect that this paper brings to them the attention they deserve by our community.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

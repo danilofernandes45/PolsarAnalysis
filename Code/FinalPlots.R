@@ -169,7 +169,7 @@ PurityTemporal <- ggplot(PurityLogNormalParameters, aes(x=mu, y=sd, group=Date))
 PurityTemporal
 
 AlphaTemporal <-  ggplot(ScatteringTypeAngleParameters, aes(x=p, y=q, group=Date)) +
-  geom_point(aes(shape=Date, color=Date), , size=5,
+  geom_point(aes(shape=Date, color=Date), size=5,
              shape = 21, fill = "orange",
              color = "black", alpha=.7) +
   geom_text(aes(label=as.integer(Date))) +
